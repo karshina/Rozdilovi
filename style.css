@@ -50,6 +50,17 @@ body {
     border-radius: 50%;
 }
 
+#field {
+    visibility:hidden;
+    position: absolute;
+    height: 85%; 
+    width:  85%;
+    margin: auto;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0; 
+}
 #play {
     height: 23%;
     width: 23%;
@@ -77,10 +88,48 @@ body {
     bottom: 15%;
 }
 
-#words {
-    font-family: serif;
-    font-style: italic;
-    color: white;
-    font-size: 28px;
-    
+.words {
+    cursor:pointer;
+}
+
+#word1 {
+    position: absolute;
+    top: 130px;
+    left: 170px;
+}
+
+#word2 {
+    position: absolute;
+    top: 270px;
+    left: 250px;
+}
+
+#word3 {
+    position: absolute;
+    top: 410px;
+    left: 150px;
+}
+
+#word4 {
+    position: absolute;
+    top: 550px;
+    left: 280px;
+}
+
+#word5 {
+    position: absolute;
+    top: 140px;
+    left: 950px;
+}
+
+#word6 {
+    position: absolute;
+    top: 340px;
+    left: 1050px;
+}
+
+#word7 {
+    position: absolute;
+    top: 550px;
+    left: 900px;
 }

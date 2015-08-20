@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $("#words").draggable();
-  $("#circle").droppable({
+  $("#field").droppable({
     over: function() {
       $("#button").css("color", "white");
     },
