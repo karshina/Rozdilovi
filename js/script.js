@@ -1,28 +1,29 @@
 var images = {
-  "вночі": "word0.png",
-  "ночі": "word1.png",
-  "ніжно": "word2.png",
-  "нічого": "word3.png",
-  "ніч": "word4.png",
-  "нічне": "word5.png",
-  "ніжності": "word6.png",
-  "любові": "word7.png",
-  "ночами": "word8.png",
-  "любов": "word9.png",
-  "ніжність": "word10.png",
-  "нічний": "word11.png",
-  "ночей": "word12.png",
-  "війна": "word13.png",
-  "ніжні": "word14.png",
-  "нічні": "word15.png",
-  "нічних": "word16.png",
-  "ніжними": "word17.png",
-  "любов’ю": "word18.png"
+  "вночі": "img/vnochi.png",
+  "любові": "img/lubovi.png",
+  "війна": "img/vijna.png",
+  "нічого": "img/nichogo.png",
+  "ніжні": "img/nizhni.png",
+  "ніч": "img/nich.png",
+  "любов’ю": "img/luboviu.png",
+  "ночі": "img/nochi.png",
+  "ніжно": "img/nizhno.png",
+  "нічне": "img/nichne.png",
+  "ніжності": "img/nizhnosti.png",
+  "ночами": "img/nochamy.png",
+  "любов": "img/lubov.png",
+  "ніжність": "img/nizhnist.png",
+  "нічний": "img/nichny.png",
+  "ночей": "img/nochey.png",
+  "нічні": "img/nichni.png",
+  "нічних": "img/nichnyh.png",
+  "ніжними": "img/nizhnymy.png",
 }
 
 var slots = $(".slot")
-var circle = $(".circle")
+var circle = $("#circle")
 var mainWords = ["вночі", "нічого", "ніч", "любові", "ніжні", "війна", "любов’ю"]
+// var mainWords = ["вночі", "нічого", "ніч", "любові", "ніжні", "війна", "любов’ю", "ніжності", "ночі"]
 
 var combos = [
   ["вночі", "ночі", "ніжно"],
@@ -48,26 +49,85 @@ var combos = [
   ["ніч", "любов"],
 ]
 
-function updateUI() {
-  resetUI()
+function initUI() {
+  updateUI(true)
 
+  $('.word').draggable();
+  $('#field').droppable({
+    drop: function(event, ui) {
+      var el = $(ui.draggable);
+      var offset = circle.offset();
+      var parentOffset = el.parent().offset();
+      var cssTop = parseInt(el.css('top'), 10);
+      var cssLeft = parseInt(el.css('left'), 10);
+      var top = parentOffset.top + cssTop - offset.top;
+      var left = parentOffset.left + cssLeft - offset.left;
+
+      el.appendTo(circle);
+
+      // XXX: temp remove word by click until grad out implemented
+      el.click(function(){
+        el.remove();
+        updateUI();
+      })
+
+      el.css({'top' : top, 'left' : left, 'position': 'absolute'})
+
+      updateUI();
+    }
+  });
+
+  $("#field").on("dropout", function( event, ui ) {
+    $(ui.draggable).remove();
+      updateUI();
+  });
+}
+
+function updateUI(noReset) {
+  if (noReset) {
+    doUpdateUI()
+  } else {
+    resetUI(doUpdateUI)
+  }
+}
+
+function doUpdateUI() {
   var circleWords = [];
   circle.find(".word").each(function(){
     circleWords.push($(this).attr('data-word'))
   })
 
-  var newState = getState(circleWords)
+  var newState = getState(circleWords);
 
-  fillSlots(newState.suggestedWords)
+  fillSlots(newState.suggestedWords);
+  slots.find('.word').css({opacity: 0}).draggable();
+  slots.find('.word').animate({opacity: 1}, 500)
 
   if (newState.combo) {
-    circle.addClass("combo")
+    circle.addClass("combo");
   }
 }
 
-function resetUI() {
-  slots.empty()
-  circle.removeClass("combo")
+function fillSlots(suggWords) {
+  for (var i = 0; i < suggWords.length; i++) {
+    var slot = $(".slot" + (i+1));
+    var word = $("<div>").addClass("word").attr("data-word", suggWords[i]);
+    var img = $("<img>").attr("src", images[suggWords[i]]);
+    img.attr("width", "100%");
+    img.attr("height", "100%");
+    word.append(img);
+    slot.append(word);
+  }
+}
+
+function resetUI(callback) {
+  // slots.empty();
+  circle.removeClass("combo");
+  slots.find('.word').animate({opacity: 0}, 500)
+  setTimeout(function() {
+    slots.find('.word').remove()
+    callback()
+  }, 500)
 }
 
 function getState(circleWords) {
@@ -89,7 +149,7 @@ function getState(circleWords) {
   }
 
   result.suggestedWords = $.unique(result.suggestedWords);
-  result.suggestedWords.reverse()
+  result.suggestedWords.reverse();
 
   return result;
 }
@@ -118,7 +178,6 @@ function suggest(comboArray, circleWords) {
 
   return result;
 }
-
 
 
 

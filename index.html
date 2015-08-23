@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html>
-	<head>
-        <meta charset="utf-8">
-		<title>Rozdilovi</title>
-		<link type="text/css" rel="stylesheet" href="style.css"/>
-        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-		<script type="text/javascript" src="script.js"></script>
-	</head>
-	<body>
-		<div class="menu border"></div>
-		<div id="logo">РОЗДIЛОВI test</div>
-		<div id="container">
-		  <div id="circle">
-		  <div id="field"></div>
-		    <div id="play">
-		      <div id="button">&#9654;</div>
-		    </div>         
-		  </div>
-		</div>
-        <div class="words">
-          <img id="word1" src="word1.png">
-          <img id="word2" src="word2.png">
-          <img id="word3" src="word3.png">
-          <img id="word4" src="word4.png">
-          <img id="word5" src="word5.png">
-          <img id="word6" src="word6.png">
-          <img id="word7" src="word7.png">
-        </div>
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Rozdilovi</title>
+    <link type="text/css" rel="stylesheet" href="style/style.css"/>
+  </head>
+  <body>
+    <div class="menu">
+      <img src="img/menu.png">
+    </div>
+    <div id="logo"></div>
+    <div id="container">
+      <div id="circle">
+        <div id="field"></div>
+        <div id="play"></div>
+      </div>         
+      <div class="words">
+        <div class="slot slot-left slot1"></div>
+        <div class="slot slot-right slot2"></div>
+        <div class="slot slot-left slot3"></div>
+        <div class="slot slot-right slot4"></div>
+        <div class="slot slot-left slot5"></div>
+        <div class="slot slot-right slot6"></div>
+        <div class="slot slot-left slot7"></div>
+        <div class="slot slot-right slot8"></div>
+        <div class="slot slot-bottom slot9"></div>
+      </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script>
+      $(document).ready(initUI);
+    </script>  
+  </body>
 </html>
