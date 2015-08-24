@@ -1,5 +1,6 @@
 body {
-	background: url('../img/rozd_bg.jpg') 0px 0px no-repeat;
+	background: url('../img/rozd_bg.jpg') 0px 0px repeat-y;
+    background-size: 100%;
     width: 100%;
     height: 100%;
 }
