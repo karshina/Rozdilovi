@@ -267,7 +267,6 @@ function suggest(comboArray, circleWords) {
   return result;
 }
 
-<<<<<<< Updated upstream
 function uniqueWords(words) {
   var result = [], index = {};
   for (var i = 0, l = words.length; i < l; i++) {
@@ -279,15 +278,9 @@ function uniqueWords(words) {
   return result
 }
 
-
-
-
-
-=======
 function getSrc() {
   var src = videoCombo[getCurrentWords().sort().join('-')] || [],
     index = Math.floor(Math.random() * src.length)
   return src.length ? src[index] : null
 }
->>>>>>> Stashed changes
 
