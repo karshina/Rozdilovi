@@ -49,6 +49,29 @@ var combos = [
   ["ніч", "любов"],
 ]
 
+var videoCombo = {
+  "вночі-ночі-ніжно": ["19763345"],
+  "любові-ніжності-ніч-нічне-нічого": ["23268412"],
+  "любові-ночами-ніжності-нічого-нічого": ["35241509"],
+  "любов-ніч": ["72291393", "65672936"],
+  "вночі-любов-ніжність": ["111049156"],
+  "любові-ніжності-ніч-нічого": ["101087172"],
+  "любов-любові-ніч-нічний": ["85153289"],
+  "ночі-ніжно-ніч-ніч-нічого": ["37600239"],
+  "любов-ночей-ніч": ["38247141"],
+  "любові": ["98471805"],
+  "нічого-нічого": ["59200119"],
+  "вночі-війна": ["7691734"],
+  "ніжні": ["29216342"],
+  "нічого": ["46666312"],
+  "любов-нічні-ніжність": ["90895864"],
+  "любов-ніжність": ["50538575"],
+  "вночі-нічних": ["8994455"],
+  "вночі-ніжними": ["23655751"],
+  "любов-нічних": ["26689532"],
+  "любов’ю": ["77444856"],
+}
+
 function initUI() {
   updateUI(true)
 
@@ -98,15 +121,7 @@ function updateUI(noReset) {
 }
 
 function doUpdateUI() {
-  var circleWords = [];
-  $(".word").each(function(){
-    if ($(this).data('dropped-in-circle')) {
-      circleWords.push($(this).attr('data-word'))
-    }
-  })
-
-  var newState = getState(circleWords);
-
+  var newState = updateState()
   fillSlots(newState.suggestedWords);
 
   if (newState.combo) {
@@ -189,11 +204,26 @@ function resetUI(callback) {
   }, 500)
 }
 
+function getCurrentWords() {
+  var circleWords = [];
+  circle.find(".word").each(function(){
+    if ($(this).data('dropped-in-circle')) {
+      circleWords.push($(this).attr('data-word'))
+    }
+  })
+  return circleWords
+}
+
+function updateState() {
+  var circleWords = getCurrentWords()
+  return getState(circleWords);
+}
+
 function getState(circleWords) {
 
   var result = {  
     suggestedWords: [],
-    combo: false
+    combo: false,
   };
 
   if (circleWords.length == 0) {
@@ -237,6 +267,7 @@ function suggest(comboArray, circleWords) {
   return result;
 }
 
+<<<<<<< Updated upstream
 function uniqueWords(words) {
   var result = [], index = {};
   for (var i = 0, l = words.length; i < l; i++) {
@@ -252,4 +283,11 @@ function uniqueWords(words) {
 
 
 
+=======
+function getSrc() {
+  var src = videoCombo[getCurrentWords().sort().join('-')] || [],
+    index = Math.floor(Math.random() * src.length)
+  return src.length ? src[index] : null
+}
+>>>>>>> Stashed changes
 
