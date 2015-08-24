@@ -76,7 +76,7 @@ function initUI() {
 }
 
 function makeWordsDraggable() {
-  $('.word').draggable({
+  $('.word:not(.ui-draggable)').draggable({
     start: function(event, ui) {
       $(ui.helper).data('dropped-in-circle', false);
     },
