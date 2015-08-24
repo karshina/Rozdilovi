@@ -161,8 +161,7 @@ function getState(circleWords) {
     result.combo = result.combo || r.combo;
   }
 
-  result.suggestedWords = $.unique(result.suggestedWords);
-  result.suggestedWords.reverse();
+  result.suggestedWords = uniqueWords(result.suggestedWords);
 
   return result;
 }
@@ -192,7 +191,16 @@ function suggest(comboArray, circleWords) {
   return result;
 }
 
-
+function uniqueWords(words) {
+  var result = [], index = {};
+  for (var i = 0, l = words.length; i < l; i++) {
+    if (!index[words[i]]) {
+      result.push(words[i]);
+      index[words[i]] = 1;
+    }
+  }
+  return result
+}
 
 
 

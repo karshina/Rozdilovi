@@ -48,3 +48,9 @@ QUnit.test("test combo", function(assert) {
   assert.deepEqual(result.suggestedWords, []);
   assert.strictEqual(result.combo, true);
 });
+
+QUnit.test("test nichogo", function(assert) {
+  var result = getState(["нічого"]);
+  assert.deepEqual(result.suggestedWords, ["ніч", "нічне", "ніжності", "любові", "ночами", "нічого", "ночі", "ніжно"]);
+  assert.strictEqual(result.combo, true);
+});
