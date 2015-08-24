@@ -12,10 +12,8 @@ $(document).ready(function($) {
   $window.resize(setSize)
 
   $play.on('click', function () {
-   var src = getSrc()
-    if (!src) {
-      return null
-    }
+    var src = getSrc()
+    if (!src) return
     var url = "//player.vimeo.com/video/" + src  + "?api=1&player_id=vvvvimeoVideo-"+ playerId +"&autoplay=1&badge=0&byline=0&portrait=0&title=0&loop=0&color=01806a"
     $container.removeClass('none')
     $video.attr('src', url)
@@ -23,10 +21,12 @@ $(document).ready(function($) {
   })
 
   $(this).keydown(function(e) {
-    if (e.which != 27) return
+    var isPlay = $video.attr('src').length
+    if (e.which != 27 && isPlay) return
     $video.vimeo('pause')
     $video.attr('src', '')
     $container.addClass('none')
+    $content.addClass('none')
   })
 
   $video
