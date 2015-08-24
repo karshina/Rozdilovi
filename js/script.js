@@ -113,6 +113,7 @@ function fillSlots(suggWords) {
     var slot = $(".slot" + (i+1));
     var word = $("<div>").addClass("word").attr("data-word", suggWords[i]);
     var img = $("<img>").attr("src", images[suggWords[i]]);
+    img.attr('data-at2x', images[suggWords[i]].replace('.png', '@2x.png'));
     img.attr("width", "100%");
     img.attr("height", "100%");
     word.append(img);
