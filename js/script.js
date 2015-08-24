@@ -17,60 +17,38 @@ var images = {
   "ночей": "img/nochey.png",
   "нічні": "img/nichni.png",
   "нічних": "img/nichnyh.png",
-  "ніжними": "img/nizhnymy.png",
+  "ніжними": "img/nizhnymy.png"
 }
 
 var slots = $(".slot")
 var circle = $("#circle")
+var play = $('#play')
 var mainWords = ["вночі", "нічого", "ніч", "любові", "ніжні", "війна", "любов’ю"]
 // var mainWords = ["вночі", "нічого", "ніч", "любові", "ніжні", "війна", "любов’ю", "ніжності", "ночі"]
 
 var combos = [
-  ["вночі", "ночі", "ніжно"],
-  ["нічого", "ніч", "нічне", "ніжності", "любові"],
-  ["нічого", "любові", "ніжності", "ночами", "нічого"],
-  ["ніч", "любов"],
-  ["любов", "ніжність", "вночі"],
-  ["нічого", "любові", "ніч", "ніжності"],
-  ["любові", "любов", "ніч", "нічний"],
-  ["ночі", "ніч", "ніжно", "нічого", "ніч"],
-  ["ніч", "любов", "ночей"],
-  ["любові"],
-  ["нічого", "нічого"],
-  ["вночі", "війна"],
-  ["ніжні"],
-  ["нічого"],
-  ["любов", "нічні", "ніжність"],
-  ["любов", "ніжність"],
-  ["нічних", "вночі"],
-  ["ніжними", "вночі"],
-  ["нічних", "любов"],
-  ["любов’ю"],
-  ["ніч", "любов"],
-]
-
-var videoCombo = {
-  "вночі-ночі-ніжно": ["19763345"],
-  "любові-ніжності-ніч-нічне-нічого": ["23268412"],
-  "любові-ночами-ніжності-нічого-нічого": ["35241509"],
-  "любов-ніч": ["72291393", "65672936"],
-  "вночі-любов-ніжність": ["111049156"],
-  "любові-ніжності-ніч-нічого": ["101087172"],
-  "любов-любові-ніч-нічний": ["85153289"],
-  "ночі-ніжно-ніч-ніч-нічого": ["37600239"],
-  "любов-ночей-ніч": ["38247141"],
-  "любові": ["98471805"],
-  "нічого-нічого": ["59200119"],
-  "вночі-війна": ["7691734"],
-  "ніжні": ["29216342"],
-  "нічого": ["46666312"],
-  "любов-нічні-ніжність": ["90895864"],
-  "любов-ніжність": ["50538575"],
-  "вночі-нічних": ["8994455"],
-  "вночі-ніжними": ["23655751"],
-  "любов-нічних": ["26689532"],
-  "любов’ю": ["77444856"],
-}
+  {video: "19763345", words: ["вночі", "ночі", "ніжно"]},
+  {video: "23268412", words: ["нічого", "ніч", "нічне", "ніжності", "любові"]},
+  {video: "35241509", words: ["нічого", "любові", "ніжності", "ночами", "нічого"]},
+  {video: "72291393", words: ["ніч", "любов"]},
+  {video: "111049156", words: ["любов", "ніжність", "вночі"]},
+  {video: "101087172", words: ["нічого", "любові", "ніч", "ніжності"]},
+  {video: "85153289", words: ["любові", "любов", "ніч", "нічний"]},
+  {video: "37600239", words: ["ночі", "ніч", "ніжно", "нічого", "ніч"]},
+  {video: "38247141", words: ["ніч", "любов", "ночей"]},
+  {video: "98471805", words: ["любові"]},
+  {video: "59200119", words: ["нічого", "нічого"]},
+  {video: "7691734", words: ["вночі", "війна"]},
+  {video: "29216342", words: ["ніжні"]},
+  {video: "46666312", words: ["нічого"]},
+  {video: "90895864", words: ["любов", "нічні", "ніжність"]},
+  {video: "50538575", words: ["любов", "ніжність"]},
+  {video: "8994455", words: ["нічних", "вночі"]},
+  {video: "23655751", words: ["ніжними", "вночі"]},
+  {video: "26689532", words: ["нічних", "любов"]},
+  {video: "77444856", words: ["любов’ю"]},
+  {video: "???????", words: ["ніч", "любов"]}
+];
 
 function initUI() {
   updateUI(true)
@@ -130,6 +108,7 @@ function doUpdateUI() {
 
   if (newState.combo) {
     circle.addClass("combo");
+    play.attr('data-video-id', newState.combo);
   }
 
   makeWordsDraggable();
@@ -155,6 +134,7 @@ function fillSlots(suggWords) {
 function resetUI(callback) {
   // slots.empty();
   circle.removeClass("combo");
+  play.attr('data-video-id', '')
   slots.find('.word').animate({opacity: 0}, 500)
   setTimeout(function() {
     slots.find('.word').remove()
@@ -181,7 +161,7 @@ function getState(circleWords) {
 
   var result = {  
     suggestedWords: [],
-    combo: false,
+    combo: null,
   };
 
   if (circleWords.length == 0) {
@@ -200,13 +180,13 @@ function getState(circleWords) {
   return result;
 }
 
-function suggest(comboArray, circleWords) {
+function suggest(combo, circleWords) {
   var result = {  
     suggestedWords: [],
-    combo: false
+    combo: null
   };
 
-  var comboCopy = [].concat(comboArray);
+  var comboCopy = [].concat(combo.words);
 
   for (var i in circleWords) {
     var idx = comboCopy.indexOf(circleWords[i]);
@@ -217,7 +197,7 @@ function suggest(comboArray, circleWords) {
   }
 
   if (comboCopy.length == 0) {
-    result.combo = true;
+    result.combo = combo.video;
   }
 
   result.suggestedWords = comboCopy;
@@ -234,10 +214,3 @@ function uniqueWords(words) {
   }
   return result
 }
-
-function getSrc() {
-  var src = videoCombo[getCurrentWords().sort().join('-')] || [],
-    index = Math.floor(Math.random() * src.length)
-  return src.length ? src[index] : null
-}
-

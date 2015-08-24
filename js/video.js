@@ -12,7 +12,7 @@ $(document).ready(function($) {
   $window.resize(setSize)
 
   $play.on('click', function () {
-    var src = getSrc()
+    var src = $play.attr('data-video-id')
     if (!src) return
     var url = "//player.vimeo.com/video/" + src  + "?api=1&player_id=vvvvimeoVideo-"+ playerId +"&autoplay=1&badge=0&byline=0&portrait=0&title=0&loop=0&color=01806a"
     $container.removeClass('none')
