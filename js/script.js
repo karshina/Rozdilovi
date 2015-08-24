@@ -1,156 +1,126 @@
-var images = {
-  "вночі": "img/vnochi.png",
-  "любові": "img/lubovi.png",
-  "війна": "img/vijna.png",
-  "нічого": "img/nichogo.png",
-  "ніжні": "img/nizhni.png",
-  "ніч": "img/nich.png",
-  "любов’ю": "img/luboviu.png",
-  "ночі": "img/nochi.png",
-  "ніжно": "img/nizhno.png",
-  "нічне": "img/nichne.png",
-  "ніжності": "img/nizhnosti.png",
-  "ночами": "img/nochamy.png",
-  "любов": "img/lubov.png",
-  "ніжність": "img/nizhnist.png",
-  "нічний": "img/nichny.png",
-  "ночей": "img/nochey.png",
-  "нічні": "img/nichni.png",
-  "нічних": "img/nichnyh.png",
-  "ніжними": "img/nizhnymy.png",
-}
+(function(){
+  var images = {
+    "вночі": "img/vnochi.png",
+    "любові": "img/lubovi.png",
+    "війна": "img/vijna.png",
+    "нічого": "img/nichogo.png",
+    "ніжні": "img/nizhni.png",
+    "ніч": "img/nich.png",
+    "любов’ю": "img/luboviu.png",
+    "ночі": "img/nochi.png",
+    "ніжно": "img/nizhno.png",
+    "нічне": "img/nichne.png",
+    "ніжності": "img/nizhnosti.png",
+    "ночами": "img/nochamy.png",
+    "любов": "img/lubov.png",
+    "ніжність": "img/nizhnist.png",
+    "нічний": "img/nichny.png",
+    "ночей": "img/nochey.png",
+    "нічні": "img/nichni.png",
+    "нічних": "img/nichnyh.png",
+    "ніжними": "img/nizhnymy.png"
+  }
 
-var slots = $(".slot")
-var circle = $("#circle")
-var mainWords = ["вночі", "нічого", "ніч", "любові", "ніжні", "війна", "любов’ю"]
-// var mainWords = ["вночі", "нічого", "ніч", "любові", "ніжні", "війна", "любов’ю", "ніжності", "ночі"]
+  var slots, circle, play;
 
-var combos = [
-  ["вночі", "ночі", "ніжно"],
-  ["нічого", "ніч", "нічне", "ніжності", "любові"],
-  ["нічого", "любові", "ніжності", "ночами", "нічого"],
-  ["ніч", "любов"],
-  ["любов", "ніжність", "вночі"],
-  ["нічого", "любові", "ніч", "ніжності"],
-  ["любові", "любов", "ніч", "нічний"],
-  ["ночі", "ніч", "ніжно", "нічого", "ніч"],
-  ["ніч", "любов", "ночей"],
-  ["любові"],
-  ["нічого", "нічого"],
-  ["вночі", "війна"],
-  ["ніжні"],
-  ["нічого"],
-  ["любов", "нічні", "ніжність"],
-  ["любов", "ніжність"],
-  ["нічних", "вночі"],
-  ["ніжними", "вночі"],
-  ["нічних", "любов"],
-  ["любов’ю"],
-  ["ніч", "любов"],
-]
+  var mainWords = ["вночі", "нічого", "ніч", "любові", "ніжні", "війна", "любов’ю"]
+  // var mainWords = ["вночі", "нічого", "ніч", "любові", "ніжні", "війна", "любов’ю", "ніжності", "ночі"]
 
-var videoCombo = {
-  "вночі-ночі-ніжно": ["19763345"],
-  "любові-ніжності-ніч-нічне-нічого": ["23268412"],
-  "любові-ночами-ніжності-нічого-нічого": ["35241509"],
-  "любов-ніч": ["72291393", "65672936"],
-  "вночі-любов-ніжність": ["111049156"],
-  "любові-ніжності-ніч-нічого": ["101087172"],
-  "любов-любові-ніч-нічний": ["85153289"],
-  "ночі-ніжно-ніч-ніч-нічого": ["37600239"],
-  "любов-ночей-ніч": ["38247141"],
-  "любові": ["98471805"],
-  "нічого-нічого": ["59200119"],
-  "вночі-війна": ["7691734"],
-  "ніжні": ["29216342"],
-  "нічого": ["46666312"],
-  "любов-нічні-ніжність": ["90895864"],
-  "любов-ніжність": ["50538575"],
-  "вночі-нічних": ["8994455"],
-  "вночі-ніжними": ["23655751"],
-  "любов-нічних": ["26689532"],
-  "любов’ю": ["77444856"],
-}
+  var combos = [
+    {video: "4ht80uzIhNs", words: ["вночі", "ночі", "ніжно"]},
+    {video: "Soa3gO7tL-c", words: ["нічого", "ніч", "нічне", "ніжності", "любові"]},
+    {video: "vx2u5uUu3DE", words: ["нічого", "любові", "ніжності", "ночами", "нічого"]},
+    {video: "cl2D7J_FL_U", words: ["ніч", "любов"]},
+    {video: "4Kvd-uquuhI", words: ["любов", "ніжність", "вночі"]},
+    {video: "ktvTqknDobU", words: ["нічого", "любові", "ніч", "ніжності"]},
+    {video: "KVYup3Qwh8Q", words: ["любові", "любов", "ніч", "нічний"]},
+    {video: "ScNNfyq3d_w", words: ["ночі", "ніч", "ніжно", "нічого", "ніч"]},
+    {video: "1kz6hNDlEEg", words: ["ніч", "любов", "ночей"]},
+    {video: "_1hgVcNzvzY", words: ["любові"]},
+    {video: "tIgtaM7OV4g", words: ["нічого", "нічого"]},
+    {video: "8Zx6RXGNISk", words: ["вночі", "війна"]},
+    {video: "X4YK-DEkvcw", words: ["ніжні"]},
+    {video: "98W9QuMq-2k", words: ["нічого"]},
+    {video: "oM-XJD4J36U", words: ["любов", "нічні", "ніжність"]},
+    {video: "i8q8fFs3kTM", words: ["любов", "ніжність"]},
+    {video: "XAbcgmwq3EU", words: ["нічних", "вночі"]},
+    {video: "VQH8ZTgna3Q", words: ["ніжними", "вночі"]},
+    {video: "Nj8r3qmOoZ8", words: ["нічних", "любов"]},
+    {video: "qjHlgrGsLWQ", words: ["любов’ю"]},
+    {video: "???????", words: ["ніч", "любов"]}
+  ];
 
-function initUI() {
-  updateUI(true)
+  function initUI() {
+    slots = $(".slot")
+    circle = $("#circle")
+    play = $('#play')
 
-  $('#field').droppable({
-    drop: function(event, ui) {
-      var el = $(ui.draggable);
+    updateUI(true)
 
-      el.data('dropped-in-circle', true);
-      if (el.data('was-in-circle')) {
-        return;
-      }
-      el.data('was-in-circle', true);
+    $('#field').droppable({
+      drop: function(event, ui) {
+        var el = $(ui.draggable);
 
-      var offset = circle.offset();
-      var parentOffset = el.parent().offset();
-      var cssTop = parseInt(el.css('top'), 10);
-      var cssLeft = parseInt(el.css('left'), 10);
-      var top = parentOffset.top + cssTop - offset.top;
-      var left = parentOffset.left + cssLeft - offset.left;
-      el.appendTo(circle);
-      el.css({'top' : top, 'left' : left, 'position': 'absolute'});
-      updateUI();
-    }
-  });
-}
+        el.data('dropped-in-circle', true);
+        if (el.data('was-in-circle')) {
+          return;
+        }
+        el.data('was-in-circle', true);
 
-function makeWordsDraggable() {
-  $('.word:not(.ui-draggable)').draggable({
-    start: function(event, ui) {
-      $(ui.helper).data('dropped-in-circle', false);
-    },
-    stop: function(event, ui) {
-      var el = $(ui.helper)
-      if (el.data('was-in-circle') && !el.data('dropped-in-circle')) {
+        var offset = circle.offset();
+        var parentOffset = el.parent().offset();
+        var cssTop = parseInt(el.css('top'), 10);
+        var cssLeft = parseInt(el.css('left'), 10);
+        var top = parentOffset.top + cssTop - offset.top;
+        var left = parentOffset.left + cssLeft - offset.left;
+        el.appendTo(circle);
+        el.css({'top' : top, 'left' : left, 'position': 'absolute'});
         updateUI();
       }
-    },
-  });
-}
-
-function updateUI(noReset) {
-  if (noReset) {
-    doUpdateUI()
-  } else {
-    resetUI(doUpdateUI)
-  }
-}
-
-function doUpdateUI() {
-  var newState = updateState()
-  fillSlots(newState.suggestedWords);
-
-  if (newState.combo) {
-    circle.addClass("combo");
+    });
   }
 
-  makeWordsDraggable();
-}
+  function makeWordsDraggable() {
+    $('.word:not(.ui-draggable)').draggable({
+      start: function(event, ui) {
+        $(ui.helper).data('dropped-in-circle', false);
+      },
+      stop: function(event, ui) {
+        var el = $(ui.helper)
+        if (el.data('was-in-circle') && !el.data('dropped-in-circle')) {
+          el.animate({opacity: 0}, 300, function(){
+            el.remove();
+          })
+          updateUI();
+        }
+      },
+    });
+  }
 
-function fillSlots(suggWords) {
-  console.log('--- fill slots', suggWords)
+  function updateUI(noReset) {
+    if (noReset) {
+      doUpdateUI()
+    } else {
+      resetUI(doUpdateUI)
+    }
+  }
 
-  var fillFn = function() {
-    var freeSlots = []
-    $('.slot').each(function(){
-      var el = $(this);
-      if (!el.find('.word').attr('data-word')) {
-        console.log('free slot', el.attr('class'))
-        freeSlots.push(el);
-      }
-    })
+  function doUpdateUI() {
+    var newState = updateState()
 
+    fillSlots(newState.suggestedWords);
+
+    if (newState.combo) {
+      circle.addClass("combo");
+      play.attr('data-video-id', newState.combo);
+    }
+
+    makeWordsDraggable();
+  }
+
+  function fillSlots(suggWords) {
     for (var i = 0; i < suggWords.length; i++) {
-      if (words[suggWords[i]]) {
-        console.log(suggWords[i], 'already there, skip')
-        continue;
-      }
-      var slot = freeSlots.shift();
-      console.log(suggWords[i], 'add to free slot', slot.attr('class'))
+      var slot = $(".slot" + (i+1));
       var word = $("<div>").addClass("word").attr("data-word", suggWords[i]);
       var img = $("<img>").attr("src", images[suggWords[i]]);
       img.attr('data-at2x', images[suggWords[i]].replace('.png', '@2x.png'));
@@ -158,129 +128,110 @@ function fillSlots(suggWords) {
       img.attr("height", "100%");
       word.append(img);
       slot.append(word);
-      word.css({opacity: 0}).animate({opacity: 1}, 500);
     }
 
-    makeWordsDraggable();
+    slots.find('.word')
+      .css({opacity: 0})
+      .animate({opacity: 1}, 500);
   }
 
-  var wait = 0;
-  var words = {};
-  $('.word').each(function(){
-    var el = $(this);
-    var word = el.attr('data-word');
-    // var isInCircle = el.closest(circle).length > 0;
-    var isInCircle = el.data('dropped-in-circle')
-    if (isInCircle) {
-      console.log(word, 'is in circle')
-      return;
-    }
-    if (suggWords.indexOf(word) == -1) {
-      console.log(word, 'is not suggested, remove');
-      wait++;
-      el.animate({opacity: 0}, 500, function() {
-        el.remove();
-        --wait || fillFn();
-      });
-      return;
-    }
-    console.log(word, 'is still suggested, keep')
-    words[word] = 1;
-  });
-
-  if (wait == 0) {
-    fillFn();
+  function resetUI(callback) {
+    // slots.empty();
+    circle.removeClass("combo");
+    play.attr('data-video-id', '')
+    slots.find('.word').animate({opacity: 0}, 500)
+    setTimeout(function() {
+      slots.find('.word').remove()
+      callback()
+    }, 500)
   }
-}
 
-function resetUI(callback) {
-  // slots.empty();
-  circle.removeClass("combo");
-  return callback()
-  slots.find('.word').animate({opacity: 0}, 500)
-  setTimeout(function() {
-    slots.find('.word').remove()
-    callback()
-  }, 500)
-}
+  function getCurrentWords() {
+    var circleWords = [];
+    circle.find(".word").each(function(){
+      if ($(this).data('dropped-in-circle')) {
+        circleWords.push($(this).attr('data-word'))
+      }
+    })
+    return circleWords
+  }
 
-function getCurrentWords() {
-  var circleWords = [];
-  circle.find(".word").each(function(){
-    if ($(this).data('dropped-in-circle')) {
-      circleWords.push($(this).attr('data-word'))
+  function updateState() {
+    var circleWords = getCurrentWords()
+    return getState(circleWords);
+  }
+
+  function getState(circleWords) {
+
+    var result = {  
+      suggestedWords: [],
+      combo: null,
+    };
+
+    if (circleWords.length == 0) {
+      result.suggestedWords = mainWords;
+      return result;
     }
-  })
-  return circleWords
-}
 
-function updateState() {
-  var circleWords = getCurrentWords()
-  return getState(circleWords);
-}
+    for (var i in combos) {
+      var r = suggest(combos[i], circleWords);
+      result.suggestedWords = result.suggestedWords.concat(r.suggestedWords);
+      result.combo = result.combo || r.combo;
+    }
 
-function getState(circleWords) {
+    result.suggestedWords = uniqueWords(result.suggestedWords);
 
-  var result = {  
-    suggestedWords: [],
-    combo: false,
-  };
-
-  if (circleWords.length == 0) {
-    result.suggestedWords = mainWords;
     return result;
   }
 
-  for (var i in combos) {
-    var r = suggest(combos[i], circleWords);
-    result.suggestedWords = result.suggestedWords.concat(r.suggestedWords);
-    result.combo = result.combo || r.combo;
-  }
+  function suggest(combo, circleWords) {
+    var result = {  
+      suggestedWords: [],
+      combo: null
+    };
 
-  result.suggestedWords = uniqueWords(result.suggestedWords);
+    var comboCopy = [].concat(combo.words);
 
-  return result;
-}
-
-function suggest(comboArray, circleWords) {
-  var result = {  
-    suggestedWords: [],
-    combo: false
-  };
-
-  var comboCopy = [].concat(comboArray);
-
-  for (var i in circleWords) {
-    var idx = comboCopy.indexOf(circleWords[i]);
-    if (idx == -1) {
-      return result;
+    for (var i in circleWords) {
+      var idx = comboCopy.indexOf(circleWords[i]);
+      if (idx == -1) {
+        return result;
+      }
+      comboCopy.splice(idx, 1);
     }
-    comboCopy.splice(idx, 1);
-  }
 
-  if (comboCopy.length == 0) {
-    result.combo = true;
-  }
-
-  result.suggestedWords = comboCopy;
-
-  return result;
-}
-
-function uniqueWords(words) {
-  var result = [], index = {};
-  for (var i = 0, l = words.length; i < l; i++) {
-    if (!index[words[i]]) {
-      result.push(words[i]);
-      index[words[i]] = 1;
+    if (comboCopy.length == 0) {
+      result.combo = combo.video;
     }
+
+    result.suggestedWords = comboCopy;
+
+    return result;
   }
-  return result
-}
 
-function getSrc() {
-  var src = videoCombo[getCurrentWords().sort().join('-')] || [],
-    index = Math.floor(Math.random() * src.length)
-  return src.length ? src[index] : null
-}
+  function uniqueWords(words) {
+    var result = [];
+    for (var i = 0; i < words.length; i++) {
+      if (result.indexOf(words[i]) == -1) {
+        result.push(words[i]);
+      }
+    }
+    return result
+  }
 
+  function dropUI() {
+    circle.find(".word").each(function(){
+      $(this).remove()
+    })
+  }
+
+  // expose some stuff
+  window.rozd = {
+    initUI: initUI,
+    dropUI: dropUI,
+    updateUI:  updateUI,
+    getState: getState,
+    suggest: suggest,
+    mainWords: mainWords
+  }
+})()
