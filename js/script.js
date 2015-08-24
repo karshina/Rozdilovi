@@ -83,9 +83,6 @@ function makeWordsDraggable() {
     stop: function(event, ui) {
       var el = $(ui.helper)
       if (el.data('was-in-circle') && !el.data('dropped-in-circle')) {
-        el.animate({opacity: 0}, 300, function(){
-          el.remove();
-        })
         updateUI();
       }
     },
@@ -102,16 +99,15 @@ function updateUI(noReset) {
 
 function doUpdateUI() {
   var circleWords = [];
-  circle.find(".word").each(function(){
-    circleWords.push($(this).attr('data-word'))
+  $(".word").each(function(){
+    if ($(this).data('dropped-in-circle')) {
+      circleWords.push($(this).attr('data-word'))
+    }
   })
 
   var newState = getState(circleWords);
 
   fillSlots(newState.suggestedWords);
-  slots.find('.word')
-    .css({opacity: 0})
-    .animate({opacity: 1}, 500);
 
   if (newState.combo) {
     circle.addClass("combo");
@@ -121,21 +117,71 @@ function doUpdateUI() {
 }
 
 function fillSlots(suggWords) {
-  for (var i = 0; i < suggWords.length; i++) {
-    var slot = $(".slot" + (i+1));
-    var word = $("<div>").addClass("word").attr("data-word", suggWords[i]);
-    var img = $("<img>").attr("src", images[suggWords[i]]);
-    img.attr('data-at2x', images[suggWords[i]].replace('.png', '@2x.png'));
-    img.attr("width", "100%");
-    img.attr("height", "100%");
-    word.append(img);
-    slot.append(word);
+  console.log('--- fill slots', suggWords)
+
+  var fillFn = function() {
+    var freeSlots = []
+    $('.slot').each(function(){
+      var el = $(this);
+      if (!el.find('.word').attr('data-word')) {
+        console.log('free slot', el.attr('class'))
+        freeSlots.push(el);
+      }
+    })
+
+    for (var i = 0; i < suggWords.length; i++) {
+      if (words[suggWords[i]]) {
+        console.log(suggWords[i], 'already there, skip')
+        continue;
+      }
+      var slot = freeSlots.shift();
+      console.log(suggWords[i], 'add to free slot', slot.attr('class'))
+      var word = $("<div>").addClass("word").attr("data-word", suggWords[i]);
+      var img = $("<img>").attr("src", images[suggWords[i]]);
+      img.attr('data-at2x', images[suggWords[i]].replace('.png', '@2x.png'));
+      img.attr("width", "100%");
+      img.attr("height", "100%");
+      word.append(img);
+      slot.append(word);
+      word.css({opacity: 0}).animate({opacity: 1}, 500);
+    }
+
+    makeWordsDraggable();
+  }
+
+  var wait = 0;
+  var words = {};
+  $('.word').each(function(){
+    var el = $(this);
+    var word = el.attr('data-word');
+    // var isInCircle = el.closest(circle).length > 0;
+    var isInCircle = el.data('dropped-in-circle')
+    if (isInCircle) {
+      console.log(word, 'is in circle')
+      return;
+    }
+    if (suggWords.indexOf(word) == -1) {
+      console.log(word, 'is not suggested, remove');
+      wait++;
+      el.animate({opacity: 0}, 500, function() {
+        el.remove();
+        --wait || fillFn();
+      });
+      return;
+    }
+    console.log(word, 'is still suggested, keep')
+    words[word] = 1;
+  });
+
+  if (wait == 0) {
+    fillFn();
   }
 }
 
 function resetUI(callback) {
   // slots.empty();
   circle.removeClass("combo");
+  return callback()
   slots.find('.word').animate({opacity: 0}, 500)
   setTimeout(function() {
     slots.find('.word').remove()
