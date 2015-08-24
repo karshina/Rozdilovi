@@ -146,7 +146,7 @@ function fillSlots(suggWords) {
     word.append(img);
     slot.append(word);
   }
-  
+
   slots.find('.word')
     .css({opacity: 0})
     .animate({opacity: 1}, 500);
@@ -226,11 +226,10 @@ function suggest(comboArray, circleWords) {
 }
 
 function uniqueWords(words) {
-  var result = [], index = {};
-  for (var i = 0, l = words.length; i < l; i++) {
-    if (!index[words[i]]) {
+  var result = [];
+  for (var i = 0; i < words.length; i++) {
+    if (result.indexOf(words[i]) == -1) {
       result.push(words[i]);
-      index[words[i]] = 1;
     }
   }
   return result
