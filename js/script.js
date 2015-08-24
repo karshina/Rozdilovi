@@ -106,6 +106,9 @@ function makeWordsDraggable() {
     stop: function(event, ui) {
       var el = $(ui.helper)
       if (el.data('was-in-circle') && !el.data('dropped-in-circle')) {
+        el.animate({opacity: 0}, 300, function(){
+          el.remove();
+        })
         updateUI();
       }
     },
@@ -122,6 +125,7 @@ function updateUI(noReset) {
 
 function doUpdateUI() {
   var newState = updateState()
+
   fillSlots(newState.suggestedWords);
 
   if (newState.combo) {
@@ -132,71 +136,25 @@ function doUpdateUI() {
 }
 
 function fillSlots(suggWords) {
-  console.log('--- fill slots', suggWords)
-
-  var fillFn = function() {
-    var freeSlots = []
-    $('.slot').each(function(){
-      var el = $(this);
-      if (!el.find('.word').attr('data-word')) {
-        console.log('free slot', el.attr('class'))
-        freeSlots.push(el);
-      }
-    })
-
-    for (var i = 0; i < suggWords.length; i++) {
-      if (words[suggWords[i]]) {
-        console.log(suggWords[i], 'already there, skip')
-        continue;
-      }
-      var slot = freeSlots.shift();
-      console.log(suggWords[i], 'add to free slot', slot.attr('class'))
-      var word = $("<div>").addClass("word").attr("data-word", suggWords[i]);
-      var img = $("<img>").attr("src", images[suggWords[i]]);
-      img.attr('data-at2x', images[suggWords[i]].replace('.png', '@2x.png'));
-      img.attr("width", "100%");
-      img.attr("height", "100%");
-      word.append(img);
-      slot.append(word);
-      word.css({opacity: 0}).animate({opacity: 1}, 500);
-    }
-
-    makeWordsDraggable();
+  for (var i = 0; i < suggWords.length; i++) {
+    var slot = $(".slot" + (i+1));
+    var word = $("<div>").addClass("word").attr("data-word", suggWords[i]);
+    var img = $("<img>").attr("src", images[suggWords[i]]);
+    img.attr('data-at2x', images[suggWords[i]].replace('.png', '@2x.png'));
+    img.attr("width", "100%");
+    img.attr("height", "100%");
+    word.append(img);
+    slot.append(word);
   }
-
-  var wait = 0;
-  var words = {};
-  $('.word').each(function(){
-    var el = $(this);
-    var word = el.attr('data-word');
-    // var isInCircle = el.closest(circle).length > 0;
-    var isInCircle = el.data('dropped-in-circle')
-    if (isInCircle) {
-      console.log(word, 'is in circle')
-      return;
-    }
-    if (suggWords.indexOf(word) == -1) {
-      console.log(word, 'is not suggested, remove');
-      wait++;
-      el.animate({opacity: 0}, 500, function() {
-        el.remove();
-        --wait || fillFn();
-      });
-      return;
-    }
-    console.log(word, 'is still suggested, keep')
-    words[word] = 1;
-  });
-
-  if (wait == 0) {
-    fillFn();
-  }
+  
+  slots.find('.word')
+    .css({opacity: 0})
+    .animate({opacity: 1}, 500);
 }
 
 function resetUI(callback) {
   // slots.empty();
   circle.removeClass("combo");
-  return callback()
   slots.find('.word').animate({opacity: 0}, 500)
   setTimeout(function() {
     slots.find('.word').remove()
