@@ -52,34 +52,43 @@ var combos = [
 function initUI() {
   updateUI(true)
 
-  $('.word').draggable();
   $('#field').droppable({
     drop: function(event, ui) {
       var el = $(ui.draggable);
+
+      el.data('dropped-in-circle', true);
+      if (el.data('was-in-circle')) {
+        return;
+      }
+      el.data('was-in-circle', true);
+
       var offset = circle.offset();
       var parentOffset = el.parent().offset();
       var cssTop = parseInt(el.css('top'), 10);
       var cssLeft = parseInt(el.css('left'), 10);
       var top = parentOffset.top + cssTop - offset.top;
       var left = parentOffset.left + cssLeft - offset.left;
-
       el.appendTo(circle);
-
-      // XXX: temp remove word by click until grad out implemented
-      el.click(function(){
-        el.remove();
-        updateUI();
-      })
-
-      el.css({'top' : top, 'left' : left, 'position': 'absolute'})
-
+      el.css({'top' : top, 'left' : left, 'position': 'absolute'});
       updateUI();
     }
   });
+}
 
-  $("#field").on("dropout", function( event, ui ) {
-    $(ui.draggable).remove();
-      updateUI();
+function makeWordsDraggable() {
+  $('.word').draggable({
+    start: function(event, ui) {
+      $(ui.helper).data('dropped-in-circle', false);
+    },
+    stop: function(event, ui) {
+      var el = $(ui.helper)
+      if (el.data('was-in-circle') && !el.data('dropped-in-circle')) {
+        el.animate({opacity: 0}, 300, function(){
+          el.remove();
+        })
+        updateUI();
+      }
+    },
   });
 }
 
@@ -100,12 +109,15 @@ function doUpdateUI() {
   var newState = getState(circleWords);
 
   fillSlots(newState.suggestedWords);
-  slots.find('.word').css({opacity: 0}).draggable();
-  slots.find('.word').animate({opacity: 1}, 500)
+  slots.find('.word')
+    .css({opacity: 0})
+    .animate({opacity: 1}, 500);
 
   if (newState.combo) {
     circle.addClass("combo");
   }
+
+  makeWordsDraggable();
 }
 
 function fillSlots(suggWords) {
