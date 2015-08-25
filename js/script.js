@@ -88,7 +88,7 @@
       stop: function(event, ui) {
         var el = $(ui.helper)
         if (el.data('was-in-circle') && !el.data('dropped-in-circle')) {
-          el.animate({opacity: 0}, 300, function(){
+          el.animate({opacity: 0}, 100, function(){
             el.remove();
           })
           updateUI();
@@ -124,26 +124,26 @@
       var word = $("<div>").addClass("word").attr("data-word", suggWords[i]);
       var img = $("<img>").attr("src", images[suggWords[i]]);
       img.attr('data-at2x', images[suggWords[i]].replace('.png', '@2x.png'));
-      img.attr("width", "100%");
-      img.attr("height", "100%");
+      img.attr("width", "80%");
+      img.attr("height", "80%");
       word.append(img);
       slot.append(word);
     }
 
     slots.find('.word')
       .css({opacity: 0})
-      .animate({opacity: 1}, 500);
+      .animate({opacity: 1}, 100);
   }
 
   function resetUI(callback) {
     // slots.empty();
     circle.removeClass("combo");
     play.attr('data-video-id', '')
-    slots.find('.word').animate({opacity: 0}, 500)
+    slots.find('.word').animate({opacity: 0}, 100)
     setTimeout(function() {
       slots.find('.word').remove()
       callback()
-    }, 500)
+    }, 100)
   }
 
   function getCurrentWords() {
