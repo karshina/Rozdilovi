@@ -1,49 +1,53 @@
 $(document).ready(function($) {
   var $window = $(window)
-  var $video = $('#video')
   var $container = $('.video-container')
   var $play = $('#play')
   var $content = $('.video-content')
   var $span = $('.video-span')
+  var $playerContent = $('.player-content')
 
-  var playerId = 0
-
-  setSize()
-  $window.resize(setSize)
+  var player
 
   $play.on('click', function () {
-    var src = $play.attr('data-video-id')
-    if (!src) return
-    var url = "//player.vimeo.com/video/" + src  + "?api=1&player_id=vvvvimeoVideo-"+ playerId +"&autoplay=1&badge=0&byline=0&portrait=0&title=0&loop=0&color=01806a"
+    var id = $play.attr('data-video-id')
+    if (!id) return
+    player = new YT.Player('player', {
+      height: $window.height(),
+      width: $window.width(),
+      playerVars: { 'autoplay': 1, 'fs': 0,'showinfo':0,'color':'white','disablekb': 1},
+      videoId: id,
+      events: {
+        'onReady': function(e) {
+          e.target.playVideo()
+        },
+        'onStateChange': function(e) {
+          if (e.data == YT.PlayerState.PLAYING) {
+            $content.addClass('none')
+          }
+          else if (e.data == YT.PlayerState.PAUSED) {
+            $span.html(player.getCurrentTime())
+            $content.removeClass('none')
+          }
+          else if (e.data == YT.PlayerState.ENDED) {
+            closeIframe()
+          }
+        },
+      }
+    });
     $container.removeClass('none')
-    $video.attr('src', url)
-    playerId++
   })
 
   $(this).keydown(function(e) {
-    var isPlay = $video.attr('src').length
-    if (e.which != 27 && isPlay) return
-    $video.vimeo('pause')
-    $video.attr('src', '')
-    $container.addClass('none')
-    $content.addClass('none')
+    if (e.which != 27) return
+    closeIframe()
   })
 
-  $video
-    .on('play', function(){
-      console.log('play', arguments)
-      $content.addClass('none')
-    })
-    .on('pause', function(){
-      console.log('pause', arguments)
-      $video.vimeo("getCurrentTime", function(data){
-        $span.html(data)
-      })
-      $content.removeClass('none')
-    })
-
-  function setSize() {
-    $video.width($window.width())
-    $video.height($window.height())
+  function closeIframe() {
+    rozd.dropUI()
+    rozd.updateUI()
+    player = null
+    $playerContent.html('<div id="player"></div>')
+    $container.addClass('none')
+    $content.addClass('none')
   }
 })

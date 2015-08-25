@@ -27,26 +27,26 @@
   // var mainWords = ["вночі", "нічого", "ніч", "любові", "ніжні", "війна", "любов’ю", "ніжності", "ночі"]
 
   var combos = [
-    {video: "19763345", words: ["вночі", "ночі", "ніжно"]},
-    {video: "23268412", words: ["нічого", "ніч", "нічне", "ніжності", "любові"]},
-    {video: "35241509", words: ["нічого", "любові", "ніжності", "ночами", "нічого"]},
-    {video: "72291393", words: ["ніч", "любов"]},
-    {video: "111049156", words: ["любов", "ніжність", "вночі"]},
-    {video: "101087172", words: ["нічого", "любові", "ніч", "ніжності"]},
-    {video: "85153289", words: ["любові", "любов", "ніч", "нічний"]},
-    {video: "37600239", words: ["ночі", "ніч", "ніжно", "нічого", "ніч"]},
-    {video: "38247141", words: ["ніч", "любов", "ночей"]},
-    {video: "98471805", words: ["любові"]},
-    {video: "59200119", words: ["нічого", "нічого"]},
-    {video: "7691734", words: ["вночі", "війна"]},
-    {video: "29216342", words: ["ніжні"]},
-    {video: "46666312", words: ["нічого"]},
-    {video: "90895864", words: ["любов", "нічні", "ніжність"]},
-    {video: "50538575", words: ["любов", "ніжність"]},
-    {video: "8994455", words: ["нічних", "вночі"]},
-    {video: "23655751", words: ["ніжними", "вночі"]},
-    {video: "26689532", words: ["нічних", "любов"]},
-    {video: "77444856", words: ["любов’ю"]},
+    {video: "4ht80uzIhNs", words: ["вночі", "ночі", "ніжно"]},
+    {video: "Soa3gO7tL-c", words: ["нічого", "ніч", "нічне", "ніжності", "любові"]},
+    {video: "vx2u5uUu3DE", words: ["нічого", "любові", "ніжності", "ночами", "нічого"]},
+    {video: "cl2D7J_FL_U", words: ["ніч", "любов"]},
+    {video: "4Kvd-uquuhI", words: ["любов", "ніжність", "вночі"]},
+    {video: "ktvTqknDobU", words: ["нічого", "любові", "ніч", "ніжності"]},
+    {video: "KVYup3Qwh8Q", words: ["любові", "любов", "ніч", "нічний"]},
+    {video: "ScNNfyq3d_w", words: ["ночі", "ніч", "ніжно", "нічого", "ніч"]},
+    {video: "1kz6hNDlEEg", words: ["ніч", "любов", "ночей"]},
+    {video: "_1hgVcNzvzY", words: ["любові"]},
+    {video: "tIgtaM7OV4g", words: ["нічого", "нічого"]},
+    {video: "8Zx6RXGNISk", words: ["вночі", "війна"]},
+    {video: "X4YK-DEkvcw", words: ["ніжні"]},
+    {video: "98W9QuMq-2k", words: ["нічого"]},
+    {video: "oM-XJD4J36U", words: ["любов", "нічні", "ніжність"]},
+    {video: "i8q8fFs3kTM", words: ["любов", "ніжність"]},
+    {video: "XAbcgmwq3EU", words: ["нічних", "вночі"]},
+    {video: "VQH8ZTgna3Q", words: ["ніжними", "вночі"]},
+    {video: "Nj8r3qmOoZ8", words: ["нічних", "любов"]},
+    {video: "qjHlgrGsLWQ", words: ["любов’ю"]},
     {video: "???????", words: ["ніч", "любов"]}
   ];
 
@@ -219,9 +219,17 @@
     return result
   }
 
+  function dropUI() {
+    circle.find(".word").each(function(){
+      $(this).remove()
+    })
+  }
+
   // expose some stuff
   window.rozd = {
     initUI: initUI,
+    dropUI: dropUI,
+    updateUI:  updateUI,
     getState: getState,
     suggest: suggest,
     mainWords: mainWords
