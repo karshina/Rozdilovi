@@ -3,6 +3,8 @@ body {
     background-size: 100%;
     width: 100%;
     height: 100%;
+    margin: 0px;
+    padding: 0px;
 }
 
 .menu {
@@ -36,6 +38,7 @@ body {
     background-size: 100% 100%;
     height: 618px;
     width: 618px;
+    margin: 0 auto;
     opacity: 0.8;
     transition: filter 500ms linear, opacity 500ms linear;
     -webkit-transition: -webkit-filter 500ms linear, opacity 500ms linear;
@@ -178,6 +181,7 @@ body {
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+
     body {
         background-image: url('../img/rozd_bg@2x.jpg');
     }
@@ -192,26 +196,218 @@ body {
     }
 }
    
-/*@media only screen and (min-width : 960px) and (max-width: 1200px) { 
+@media only screen and (min-width : 960px) and (max-width: 1200px) {
 
+    #container {
+        width: 565px;
+    }
+
+    #circle {
+        width: 520px;
+        height: 520px;
+    }
+    
+    .word {
+        width: 190px;
+        height: auto;
+    }
+
+    .menu {
+        margin-top: -10px;
+        }
+
+    #field {    
+        height: 75%;
+        width: 75%;
+    }
+
+    .slot4 {
+        margin-left: -40px;
+    }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 959px) { 
+
+    #logo {
+        width: 140px;
+    }
+
+    #container {
+        width: 530px;
+        height: 530px;
+        margin: 50px auto 0;
+    }
+
+    .menu {
+        margin-left: 27px;
+        margin-top: -23px;
+    }
+
+    #circle {
+        width: 500px;
+        height: 500px;
+    }
+    
+    #field {    
+        height: 65%;
+        width: 65%;
+    }
+
+    #play {
+        width: 89px;
+        height: 81px;
+        margin-left: -38px;
+        margin-top: -46px;
+    }
+
+    .word {
+        width: 170px;
+        height: auto;
+    }
+
+    .slot3 {
+        top: 183px;
+    }
+
+    .slot4 {
+        top: 180px;
+    }
+
+    .slot5 {
+        top: 298px;
+    }
+
+    .slot6 {
+        top: 295px;
+    }
+
+    .slot7 {
+        top: 383px;
+        margin-right: -90px;
+    }
+
+    .slot8 {
+        top: 400px;
+        margin-left: -119px;
+    }
+
+    .slot9 {
+        margin-left: -90px;
+        margin-top: -67px;
+    }
 
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) { 
 
+    #logo {
+        width: 110px;
+        margin-left: -50px;
+        top: 2px;
+    }
+
+    #container {
+        width: 280px;
+        height: 280px;
+        margin: 40px auto 0;
+    }
+    
+    .menu {
+        margin-left: 24px;
+        margin-top: -19px;
+    }
+    
+    .menu img {
+        width: 30px;
+        height: auto;
+    }
+
+    #circle {
+        width: 260px;
+        height: 260px;
+    }
+    
+    #field {    
+        height: 65%;
+        width: 65%;
+    }
+
+    #play {
+        width: 78px;
+        height: 74px;
+        margin-left: -38px;
+        margin-top: -43px;
+    }
+
+    .word {
+        width: 100px;
+        height: auto;
+    }
+
+    .slot1 {
+        top: 38px;
+        margin-right: -58px;
+    }
+
+    .slot2 {
+        top: 26px;
+        margin-left: -65px;
+    }
+
+    .slot3 {
+        top: 87px;
+        margin-right: -34px;
+    }
+
+    .slot4 {
+        top: 73px;
+        margin-left: -32px;
+    }
+
+    .slot5 {
+        top: 147px;
+        margin-right: -27px;
+    }
+
+    .slot6 {
+        top: 136px;
+        margin-left: -30px;
+    }
+
+    .slot7 {
+        top: 204px;
+        margin-right: -70px;
+    }
+
+    .slot8 {
+        top: 210px;
+        margin-left: -70px;
+    }
+
+    .slot9 {
+        left: 50%;
+        margin-left: -53px;
+        margin-top: -38px;
+    }
 }
 
-@media only screen and (max-width: 479px) { 
-
-    body:before {
-        content: '';
+/*
+@media only screen and (orientation:portrait) and (max-width: 479px) { 
+    html{
+        -webkit-transform: rotate(90deg);
+           -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+             -o-transform: rotate(90deg);
+                transform: rotate(90deg);
+        -webkit-transform-origin: right top;
+           -moz-transform-origin: right top;
+            -ms-transform-origin: right top;
+             -o-transform-origin: right top;
+                transform-origin: right top;
+        width: 320px;
         position: absolute;
-        z-index: -1;
-        width: 479px;
-        height: 320px
+        top: 100%;
+        left: 0
     }
 
     .menu {
