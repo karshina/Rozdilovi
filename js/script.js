@@ -124,8 +124,6 @@
       var word = $("<div>").addClass("word").attr("data-word", suggWords[i]);
       var img = $("<img>").attr("src", images[suggWords[i]]);
       img.attr('data-at2x', images[suggWords[i]].replace('.png', '@2x.png'));
-      img.attr("width", "80%");
-      img.attr("height", "80%");
       word.append(img);
       slot.append(word);
     }
