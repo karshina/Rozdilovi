@@ -280,10 +280,15 @@ body {
     margin-top: -5px;
 }
 
-.simbol:hover {
+.simbol.active {
     background-color: #109a82;
 }
-
+.simbol:hover {
+    background-color: #fff;
+}
+.simbol.active:hover {
+    background-color: #109a82;
+}
 
 .video-span {
     display: block;

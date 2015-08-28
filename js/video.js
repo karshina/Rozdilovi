@@ -7,6 +7,7 @@ $(document).ready(function($) {
   var $span = $('.video-span')
   var $playerContent = $('.player-content')
   var $cross = $('.cross')
+  var $simbol = $('.simbol')
 
   var player
 
@@ -53,6 +54,14 @@ $(document).ready(function($) {
 
   $cross.on('click', function () {
     closeIframe()
+  })
+
+  $simbol.on('click', function () {
+    var $this = $(this),
+      isActive = $this.hasClass('active')
+    $simbol.removeClass('active')
+    if (isActive) $this.removeClass('active')
+    else $this.addClass('active')
   })
 
   function closeIframe() {
