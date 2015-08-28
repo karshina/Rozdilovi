@@ -62,10 +62,6 @@ body {
     height: 70%; 
     width:  70%;
     margin: auto;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0; 
 }
 
 #play {
@@ -78,8 +74,9 @@ body {
     margin-top: -58px;
     left: 50%;
     top: 50%;
-    transition: filter 300ms linear, opacity 300ms linear;
-    -webkit-transition: -webkit-filter 300ms linear, opacity 300ms linear;
+    /* WTF? Why words do not drag on iPhone EMU after combo worked once? */
+    transition: filter 300ms linear;
+    -webkit-transition: -webkit-filter 300ms linear;
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
 }
