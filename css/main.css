@@ -59,9 +59,13 @@ body {
 
 #field {
     position: absolute;
-    height: 70%; 
-    width:  70%;
+    height: 70%;
+    width: 70%;
     margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 #play {
