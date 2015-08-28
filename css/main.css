@@ -190,15 +190,25 @@ body {
 
 .video-content-span {
     color: #908d8d;
-    font-size: 31px;
-    font-weight: 400;
-    line-height: 32px;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 35px;
 }
 
 .simbol-container {
     width: 70px;
     display: block;
     float: left;
+}
+
+.card-simbol {
+    position: absolute;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    color: #908d8d;
+    font-size: 30px;
+    font-weight: 300;
 }
 
 .simbol  {
@@ -309,6 +319,10 @@ body {
     background-size: contain;
     width: 20px;
     height: 20px;
+    cursor: pointer;
+}
+
+.pointer {
     cursor: pointer;
 }
 

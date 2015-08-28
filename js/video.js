@@ -4,6 +4,7 @@ $(document).ready(function($) {
   var $play = $('#play')
   var $body = $('body')
   var $content = $('.video-content')
+  var $card = $('.video-content-main')
   var $span = $('.video-span')
   var $playerContent = $('.player-content')
   var $cross = $('.cross')
@@ -60,8 +61,21 @@ $(document).ready(function($) {
     var $this = $(this),
       isActive = $this.hasClass('active')
     $simbol.removeClass('active')
-    if (isActive) $this.removeClass('active')
-    else $this.addClass('active')
+    if (isActive) {
+      $card.removeClass('pointer')
+      $this.removeClass('active')
+    }
+    else {
+      $card.addClass('pointer')
+      $this.addClass('active')
+    }
+  })
+
+  $card.on('click', function (event) {
+    var simbol = $('.simbol.active').html()
+    var style = "left: " + event.offsetX + "px; top: " + event.offsetY + "px"
+    if (!simbol) return
+    $(this).append( "<span class='card-simbol' style='"+style+"'>"+simbol+"</span>")
   })
 
   function closeIframe() {
@@ -72,5 +86,6 @@ $(document).ready(function($) {
     $playerContent.html('<div id="player"></div>')
     $container.addClass('none')
     $content.addClass('none')
+    $card.html('<span class="video-content-span">хочеться говорити тихо, щоби тебе ніхто не почув, а почувши – не зрозумів</span>')
   }
 })
