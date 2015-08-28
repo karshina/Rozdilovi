@@ -1,0 +1,38 @@
+@font-face {
+  font-family: FranklinGothicBook;
+  src: url(../font/franklin_gothic_book.ttf);
+}
+
+#share {
+  width: 609px;
+  height: 396px;
+  background: url("../img/card_bg_example.png") 0 0 no-repeat;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#share p {
+  color: #8d8d8d;
+  font-family: FranklinGothicBook;
+  /*font-family: sans-serif;*/
+  font-size: 30px;
+}
+
+#result {
+  width: 609px;
+  height: 396px;
+}
+
+.mark {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+}
+
+.mark1 {
+  background: red;
+}
+.mark2 {
+  background: blue;
+}
