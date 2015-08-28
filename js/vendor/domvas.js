@@ -1,3 +1,4 @@
+// ©2012 Paul Bakaus. Licensed under MIT.
 "use strict";
 
 (function() {
@@ -25,9 +26,9 @@
     // Fix css background images, embed them with base64
     for(var prop in elem.style) {
       if (prop == "backgroundImage") {
-        var m = elem.style[prop].match(/url\(([^\)]+)\)/)
+        var m = elem.style[prop].match(/url\(([^\)]+)\)/);
         if (m) {
-          elem.style[prop] = "url(" + getBase64Image(m[1]) + ")"
+          elem.style[prop] = "url(" + getBase64Image(m[1]) + ")";
         }
       }
     }
@@ -90,8 +91,6 @@
 
       // serialize the DOM node to a String
       var serialized = new XMLSerializer().serializeToString(elem);
-
-      console.log(serialized)
 
       // Create well formed data URL with our DOM string wrapped in SVG
       var dataUri = "data:image/svg+xml," +
