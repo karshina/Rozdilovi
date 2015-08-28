@@ -23,7 +23,7 @@
 
   var slots, circle, play;
 
-  var mainWords = ["вночі", "нічого", "любові", "ніжні",  "війна", "любов", "любов’ю"]
+  var mainWords = ["вночі", "нічого", "любові", "ніжні",  "війна", "любов", "любов’ю"];
   // var mainWords = ["вночі", "нічого", "ніч", "любові", "ніжні", "війна", "любов’ю", "ніжності", "ночі"]
 
   var combos = [
@@ -71,8 +71,9 @@
         var parentOffset = el.parent().offset();
         var cssTop = parseInt(el.css('top'), 10);
         var cssLeft = parseInt(el.css('left'), 10);
-        var top = parentOffset.top + cssTop - offset.top;
-        var left = parentOffset.left + cssLeft - offset.left;
+        var top = parentOffset.top + cssTop - offset.top + parseInt(circle.css('marginTop'), 10);
+        var left = parentOffset.left + cssLeft - offset.left + parseInt(circle.css('marginLeft'), 10);
+        
         el.appendTo(circle);
         el.css({'top' : top, 'left' : left, 'position': 'absolute'});
         updateUI();
