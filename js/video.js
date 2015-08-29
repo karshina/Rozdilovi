@@ -10,7 +10,7 @@ $(document).ready(function($) {
   var $cross = $('.cross')
   var $simbol = $('.simbol')
 
-  var player
+  var player = {}
 
   $window.resize(function() {
     if (!player.h) return
