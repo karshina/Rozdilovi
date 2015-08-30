@@ -2,30 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c51d459e-55c8-402e-a041-94552dc0f48f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/card_bg_example.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/font/franklin_gothic_book.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/kolo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/kolo@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/vendor/domvas.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/share.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/share.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/glow.png" afterPath="$PROJECT_DIR$/img/glow.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/logo.png" afterPath="$PROJECT_DIR$/img/logo.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/logo@2x.png" afterPath="$PROJECT_DIR$/img/logo@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/luboviu.png" afterPath="$PROJECT_DIR$/img/luboviu.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/luboviu@2x.png" afterPath="$PROJECT_DIR$/img/luboviu@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/nichogo.png" afterPath="$PROJECT_DIR$/img/nichogo.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/nichogo@2x.png" afterPath="$PROJECT_DIR$/img/nichogo@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/rozd_bg.jpg" afterPath="$PROJECT_DIR$/img/rozd_bg.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/rozd_bg@2x.jpg" afterPath="$PROJECT_DIR$/img/rozd_bg@2x.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/vijna.png" afterPath="$PROJECT_DIR$/img/vijna.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/vijna@2x.png" afterPath="$PROJECT_DIR$/img/vijna@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/vnochi.png" afterPath="$PROJECT_DIR$/img/vnochi.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/vnochi@2x.png" afterPath="$PROJECT_DIR$/img/vnochi@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/video.js" afterPath="$PROJECT_DIR$/js/video.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Rozdilovi.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,11 +24,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44924405">
+            <state vertical-scroll-proportion="-4.0784316">
               <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.07853403">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -85,7 +73,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/js/vimeo-api.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/ssl/server.crt" />
         <option value="$PROJECT_DIR$/ssl/server.key" />
@@ -97,6 +84,7 @@
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/js/video.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -149,20 +137,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Rozdilovi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Rozdilovi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Rozdilovi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -491,8 +465,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44924405">
+        <state vertical-scroll-proportion="-4.0784316">
           <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07853403">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
