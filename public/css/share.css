@@ -1,6 +1,6 @@
 @font-face {
   font-family: FranklinGothicBook;
-  src: url(../font/franklin_gothic_book.ttf);
+  src: url(/font/franklin_gothic_book.ttf);
 }
 
 .video-content-main {
@@ -46,7 +46,7 @@
 }
 
 .simbol-1:before  {
-    background: url('../img/obvod1.png') 0 0 no-repeat;
+    background: url('/img/obvod1.png') 0 0 no-repeat;
     width: 49px;
     height: 41px;
     left: 0;
@@ -54,7 +54,7 @@
 }
 
 .simbol-2:before  {
-    background: url('../img/obvod2.png') 0 0 no-repeat;
+    background: url('/img/obvod2.png') 0 0 no-repeat;
     width: 55px;
     height: 44px;
     left: -5px;
@@ -62,14 +62,14 @@
 }
 
 .simbol-3:before  {
-    background: url('../img/obvod3.png') 0 0 no-repeat;
+    background: url('/img/obvod3.png') 0 0 no-repeat;
     width: 54px;
     height: 47px;
     left: -5px;
 }
 
 .simbol-4:before  {
-    background: url('../img/obvod4.png') 0 0 no-repeat;
+    background: url('/img/obvod4.png') 0 0 no-repeat;
     width: 61px;
     height: 62px;
     left: -12px;
@@ -77,21 +77,21 @@
 }
 
 .simbol-5:before  {
-    background: url('../img/obvod5.png') 0 0 no-repeat;
+    background: url('/img/obvod5.png') 0 0 no-repeat;
     width: 58px;
     height: 46px;
     margin-top: -1px;
     left: -8px;
 }
 .simbol-6:before  {
-    background: url('../img/obvod6.png') 0 0 no-repeat;
+    background: url('/img/obvod6.png') 0 0 no-repeat;
     width: 57px;
     height: 46px;
     left: -10px;
 }
 
 .simbol-7:before  {
-    background: url('../img/obvod7.png') 0 0 no-repeat;
+    background: url('/img/obvod7.png') 0 0 no-repeat;
     width: 80px;
     height: 79px;
     margin-top: -12px;
@@ -99,7 +99,7 @@
 }
 
 .simbol-8:before  {
-    background: url('../img/obvod8.png') 0 0 no-repeat;
+    background: url('/img/obvod8.png') 0 0 no-repeat;
     width: 76px;
     height: 64px;
     left: -10px;
@@ -119,4 +119,9 @@
 button#share {
   position: absolute;
   bottom: -30px;
+}
+
+#share-result {
+    position: absolute;
+    bottom: -50px;
 }

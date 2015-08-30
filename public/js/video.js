@@ -90,12 +90,17 @@ $(document).ready(function($) {
 
     $.ajax({
       type: "POST",
-      url: "/upload",
+      url: "/upload/",
       processData: false,
       data: imageData
     }).done(function(o) {
       $share.attr('disabled', false)
       console.log('saved', o)
+      var url = document.location.origin + "/" + o.filename
+
+      $('#share-result').empty().append(
+        $('<a>').attr('href', url).text(url)
+      )
     })
   })
 
