@@ -120,3 +120,35 @@ button#share {
   position: absolute;
   bottom: -30px;
 }
+
+.pointer-0 {
+    cursor: url(../img/cursor/0.png), auto;
+}
+
+.pointer-1 {
+    cursor: url(../img/cursor/1.png), auto;
+}
+
+.pointer-2 {
+    cursor: url(../img/cursor/2.png), auto;
+}
+
+.pointer-3 {
+    cursor: url(../img/cursor/3.png), auto;
+}
+
+.pointer-4 {
+    cursor: url(../img/cursor/4.png), auto;
+}
+
+.pointer-5 {
+    cursor: url(../img/cursor/5.png), auto;
+}
+
+.pointer-6 {
+    cursor: url(../img/cursor/6.png), auto;
+}
+
+.pointer-7 {
+    cursor: url(../img/cursor/7.png), auto;
+}
