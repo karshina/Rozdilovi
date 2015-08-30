@@ -17,6 +17,7 @@ body {
 .menu img {
     width: 5vh; 
     height: 3.6vh;
+    max-width: 39px;
 }
 
 #logo {
@@ -47,6 +48,8 @@ body {
     opacity: 0.8;
     height: 75vh;
     width: 69vh;
+    max-width: 513px;
+    max-height: 556px;
 }
 
 #circle.combo {
@@ -73,6 +76,7 @@ body {
     background-size: contain;
     width: 14.76vh;
     height: 14vh;
+    max-width: 97px;
     position: absolute;
     margin-left: -33px;
     margin-top: -58px;
@@ -190,12 +194,12 @@ body {
 
 .cross {
     position: absolute;
-    right: 3%;
-    top: 35px;
+    right: 2.5vw;
+    top: 2.5vw;
     background: url('/img/cross.png') 0 0 no-repeat;
     background-size: contain;
-    width: 20px;
-    height: 20px;
+    width: 5vh; 
+    height: 5vh;
     cursor: pointer;
 }
 
@@ -209,9 +213,15 @@ body {
     }
     #circle {
         background-image: url('/img/kolo@2x.png');
+        max-width: 1025px;
+        max-height: 1111px;
     }
     #play {
         background-image: url('/img/play_btn@2x.png');
+        max-width: 194px;
+    }
+    .menu img {
+        max-width: 78px;
     }
 }
    
