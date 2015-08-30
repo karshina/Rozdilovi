@@ -92,4 +92,10 @@ $(document).ready(function($) {
     $content.addClass('none')
     $card.html('<span class="video-content-span"></span>')
   }
+
+  // For quick access to card development
+  if (document.location.hash == "#video-content-dev") {
+    $container.removeClass('none')
+    $content.removeClass('none')
+  }
 })

@@ -23,7 +23,7 @@
 
   var slots, circle, play;
 
-  var mainWords = ["вночі", "нічого", "ніч", "любові", "ніжні", "війна", "любов’ю"]
+  var mainWords = ["вночі", "нічого", "любові", "ніжні",  "війна", "любов", "любов’ю"];
   // var mainWords = ["вночі", "нічого", "ніч", "любові", "ніжні", "війна", "любов’ю", "ніжності", "ночі"]
 
   var combos = [
@@ -381,8 +381,9 @@
         var parentOffset = el.parent().offset();
         var cssTop = parseInt(el.css('top'), 10);
         var cssLeft = parseInt(el.css('left'), 10);
-        var top = parentOffset.top + cssTop - offset.top;
-        var left = parentOffset.left + cssLeft - offset.left;
+        var top = parentOffset.top + cssTop - offset.top + parseInt(circle.css('marginTop'), 10);
+        var left = parentOffset.left + cssLeft - offset.left + parseInt(circle.css('marginLeft'), 10);
+        
         el.appendTo(circle);
         el.css({'top' : top, 'left' : left, 'position': 'absolute'});
         updateUI();
@@ -429,29 +430,42 @@
   }
 
   function fillSlots(suggWords) {
+    var freeSlots = [], words = [];
+    $(".slot").each(function(){
+      var slot = $(this), word = slot.find('.word');
+      if (suggWords.indexOf(word.attr('data-word')) > -1) {
+        words.push(word.attr('data-word'));
+        return;
+      }
+
+      word.remove();
+      freeSlots.push(slot);
+    });
+
     for (var i = 0; i < suggWords.length; i++) {
-      var slot = $(".slot" + (i+1));
+      if (words.indexOf(suggWords[i]) > -1) {
+        continue;
+      }
+      var slot = freeSlots.shift();
+      if (!slot) {
+        continue;
+      }
       var word = $("<div>").addClass("word").attr("data-word", suggWords[i]);
       var img = $("<img>").attr("src", images[suggWords[i]]);
       img.attr('data-at2x', images[suggWords[i]].replace('.png', '@2x.png'));
       word.append(img);
       slot.append(word);
+      word.css({opacity: 0})
+          .animate({opacity: 1}, 100);
     }
 
-    slots.find('.word')
-      .css({opacity: 0})
-      .animate({opacity: 1}, 100);
   }
 
   function resetUI(callback) {
     // slots.empty();
     circle.removeClass("combo");
-    play.attr('data-video-id', '')
-    slots.find('.word').animate({opacity: 0}, 100)
-    setTimeout(function() {
-      slots.find('.word').remove()
-      callback()
-    }, 100)
+    play.attr('data-video-id', '');
+    callback();
   }
 
   function getCurrentWords() {
