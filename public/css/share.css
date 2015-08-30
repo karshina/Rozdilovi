@@ -5,20 +5,10 @@
 
 .video-content-main {
     position: absolute;
-    background: url('../img/stopblock.png') 0 0 no-repeat;
-    background-size: contain;
     width: 609px;
     height: 397px;
-    padding: 50px 20px 20px 40px;
     box-sizing: border-box;
     margin-left: 64px;
-}
-
-.video-content-span {
-    color: #908d8d;
-    font-size: 30px;
-    font-weight: 300;
-    line-height: 35px;
 }
 
 .simbol-container {
@@ -124,4 +114,9 @@
 }
 .simbol.active:hover {
     background-color: #109a82;
+}
+
+button#share {
+  position: absolute;
+  bottom: -30px;
 }
