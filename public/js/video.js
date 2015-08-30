@@ -119,23 +119,17 @@ $(document).ready(function($) {
   // receives DOM element of canvas, like so: var card = Card(document.getElementById('card'))
   function Card(card) {
     var ctx = card.getContext('2d'),
-        isRetina = isHighDensity(),
         width = card.width,
         height = card.height,
         markCorrectionX = 0,
         markCorrectionY = 7
 
-    if (isRetina) {
-      card.style.width = width + "px"
-      card.style.height = height + "px"
-      card.width = card.width * 2
-      card.height = card.height * 2
-      ctx.scale(2,2)
-    }
-
-    function isHighDensity(){
-      return ((window.matchMedia && (window.matchMedia('only screen and (min-resolution: 124dpi), only screen and (min-resolution: 1.3dppx), only screen and (min-resolution: 48.8dpcm)').matches || window.matchMedia('only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 2.6/2), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3)').matches)) || (window.devicePixelRatio && window.devicePixelRatio > 1.3));
-    }
+    // Scale 2x to make high density image for retina displays
+    card.style.width = width + "px"
+    card.style.height = height + "px"
+    card.width = card.width * 2
+    card.height = card.height * 2
+    ctx.scale(2,2)
 
     function canvasWrapText(ctx, text, x, y, maxWidth, lineHeight) {
       var words = text.split(' '),
