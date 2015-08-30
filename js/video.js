@@ -102,7 +102,7 @@ $(document).ready(function($) {
 
     $.ajax({
       type: "POST",
-      url: "/upload/",
+      url: "/upload.php",
       processData: false,
       data: imageData
     }).done(function(o) {
