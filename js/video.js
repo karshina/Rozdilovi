@@ -5,12 +5,12 @@ $(document).ready(function($) {
   var $body = $('body')
   var $content = $('.video-content')
   var $card = $('.video-content-main')
-  var $span = $('.video-span')
   var $playerContent = $('.player-content')
   var $cross = $('.cross')
   var $simbol = $('.simbol')
 
   var player = {}
+  var track
 
   $window.resize(function() {
     if (!player.h) return
@@ -19,14 +19,14 @@ $(document).ready(function($) {
   })
 
   $play.on('click', function () {
-    var id = $play.attr('data-video-id')
-    if (!id) return
+    track = window.rozd.getCurrentTrack($play.attr('data-video-id'))[0]
+    if (!track) return
     $body.addClass('overflow-hidden')
     player = new YT.Player('player', {
       height: $window.height(),
       width: $window.width(),
       playerVars: { 'autoplay': 1, 'fs': 0,'showinfo':0,'color':'white','disablekb': 1},
-      videoId: id,
+      videoId: track.video,
       events: {
         'onReady': function(e) {
           e.target.playVideo()
@@ -36,7 +36,11 @@ $(document).ready(function($) {
             $content.addClass('none')
           }
           else if (e.data == YT.PlayerState.PAUSED) {
-            $span.html(player.getCurrentTime())
+            var $span = $('.video-content-span')
+            var text = track.text.reduce(function (res, cur) {
+              return player.getCurrentTime() > cur.time ? cur : res
+            }, {})
+            $span.html(text.words || '')
             $content.removeClass('none')
           }
           else if (e.data == YT.PlayerState.ENDED) {
@@ -86,7 +90,7 @@ $(document).ready(function($) {
     $playerContent.html('<div id="player"></div>')
     $container.addClass('none')
     $content.addClass('none')
-    $card.html('<span class="video-content-span">хочеться говорити тихо, щоби тебе ніхто не почув, а почувши – не зрозумів</span>')
+    $card.html('<span class="video-content-span"></span>')
   }
 
   // For quick access to card development
