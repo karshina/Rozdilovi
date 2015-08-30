@@ -1,7 +1,5 @@
 <?php
 
-$index = file_get_contents(__DIR__ . '/index.html');
-
 function url_origin($s, $use_forwarded_host=false)
 {
     if ($use_forwarded_host) {
@@ -23,15 +21,6 @@ function full_url($s, $use_forwarded_host=false)
     return url_origin($s, $use_forwarded_host) . $s['REQUEST_URI'];
 }
 
-$index = str_replace('{{URL}}', htmlspecialchars(full_url($_SERVER, true)), $index);
-
-if (isset($_GET['img'])) {
-  $uploadFilename = 'uploads/' . preg_replace('/[^a-z\d]/i', '', $_GET['img']) . '.png';
-  if (file_exists(__DIR__ . '/' . $uploadFilename)) {
-    $index = str_replace("{{IMAGE}}", url_origin($_SERVER, true) . '/' . $uploadFilename, $index);
-  }
-} else {
-  $index = str_replace('{{IMAGE}}', '', $index);
+function getRandomHex($num_bytes=4) {
+  return bin2hex(openssl_random_pseudo_bytes($num_bytes));
 }
-
-echo $index;
