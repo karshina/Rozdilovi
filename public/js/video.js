@@ -82,14 +82,14 @@ $(document).ready(function($) {
     var simbol = $('.simbol.active').text()
     if (!simbol) return
     var postion = {
-      '.': {x: -1, y: -2},
-      ',': {x: -1, y: -2},
-      ':': {x: -2, y: 11},
-      '–': {x: -1, y: 2},
-      '?': {x: -0.6, y: 12.5},
-      '!': {x: -0.5, y: 12},
-      '(': {x: -1, y: 12.5},
-      ')': {x: -1, y: 12.5},
+      '.': {x: 4.5, y: 6.4},
+      ',': {x: 4, y: 5.4},
+      ':': {x: 3.8, y: 13.5},
+      '–': {x: 0, y: 13.5},
+      '?': {x: 2, y: 15.7},
+      '!': {x: 4.5, y: 15},
+      '(': {x: 4, y: 14.2},
+      ')': {x: 4, y: 14.2},
     }
     card.addMark(simbol, event.offsetX + postion[simbol].x, event.offsetY + postion[simbol].y)
   })
