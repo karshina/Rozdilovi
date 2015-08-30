@@ -121,6 +121,49 @@ button#share {
   bottom: -30px;
 }
 
+.pointer-0 {
+    cursor: url(../img/cursor/0.png), auto;
+    cursor: -webkit-image-set(
+            url('../img/cursor/0.png') 1x,
+            url('../img/cursor/0@2x.png') 2x
+    ), auto;
+}
+
+.pointer-1 {
+    cursor: url(../img/cursor/1.png), auto;
+    cursor: -webkit-image-set(url('../img/cursor/1.png') 1x, url('../img/cursor/1@2x.png') 2x), auto;
+}
+
+.pointer-2 {
+    cursor: url(../img/cursor/2.png), auto;
+    cursor: -webkit-image-set(url('../img/cursor/2.png') 1x, url('../img/cursor/2@2x.png') 2x), auto;
+}
+
+.pointer-3 {
+    cursor: url(../img/cursor/3.png), auto;
+    cursor: -webkit-image-set(url('../img/cursor/3.png') 1x, url('../img/cursor/3@2x.png') 2x), auto;
+}
+
+.pointer-4 {
+    cursor: url(../img/cursor/4.png), auto;
+    cursor: -webkit-image-set(url('../img/cursor/4.png') 1x, url('../img/cursor/4@2x.png') 2x), auto;
+}
+
+.pointer-5 {
+    cursor: url(../img/cursor/5.png), auto;
+    cursor: -webkit-image-set(url('../img/cursor/5.png') 1x, url('../img/cursor/5@2x.png') 2x), auto;
+}
+
+.pointer-6 {
+    cursor: url(../img/cursor/6.png), auto;
+    cursor: -webkit-image-set(url('../img/cursor/6.png') 1x, url('../img/cursor/6@2x.png') 2x), auto;
+}
+
+.pointer-7 {
+    cursor: url(../img/cursor/7.png), auto;
+    cursor: -webkit-image-set(url('../img/cursor/7.png') 1x, url('../img/cursor/7@2x.png') 2x), auto;
+}
+
 #share-result {
     position: absolute;
     bottom: -50px;

@@ -67,12 +67,13 @@ $(document).ready(function($) {
     var $this = $(this),
       isActive = $this.hasClass('active')
     $simbol.removeClass('active')
+    $.each($simbol, function(i) {$card.removeClass('pointer-' + i)})
     if (isActive) {
-      $card.removeClass('pointer')
+      $card.removeClass('pointer-' + $this.index())
       $this.removeClass('active')
     }
     else {
-      $card.addClass('pointer')
+      $card.addClass('pointer-' + $this.index())
       $this.addClass('active')
     }
   })
@@ -80,7 +81,17 @@ $(document).ready(function($) {
   $card.on('click', function (event) {
     var simbol = $('.simbol.active').text()
     if (!simbol) return
-    card.addMark(simbol, event.offsetX, event.offsetY)
+    var postion = {
+      '.': {x: 4.5, y: 6.4},
+      ',': {x: 4, y: 5.4},
+      ':': {x: 3.8, y: 13.5},
+      '–': {x: 0, y: 13.5},
+      '?': {x: 2, y: 15.7},
+      '!': {x: 4.5, y: 15},
+      '(': {x: 4, y: 14.2},
+      ')': {x: 4, y: 14.2},
+    }
+    card.addMark(simbol, event.offsetX + postion[simbol].x, event.offsetY + postion[simbol].y)
   })
 
   $share.on('click', function() {
