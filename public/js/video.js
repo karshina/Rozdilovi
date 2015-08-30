@@ -8,6 +8,7 @@ $(document).ready(function($) {
   var $playerContent = $('.player-content')
   var $cross = $('.cross')
   var $simbol = $('.simbol')
+  var $share = $('#share')
 
   var player = {}
   var track
@@ -80,6 +81,22 @@ $(document).ready(function($) {
     var simbol = $('.simbol.active').text()
     if (!simbol) return
     card.addMark(simbol, event.offsetX, event.offsetY)
+  })
+
+  $share.on('click', function() {
+    var imageData = card.getImageData()
+    // console.log(imageData)
+    $share.attr('disabled', true)
+
+    $.ajax({
+      type: "POST",
+      url: "/upload",
+      processData: false,
+      data: imageData
+    }).done(function(o) {
+      $share.attr('disabled', false)
+      console.log('saved', o)
+    })
   })
 
   function closeIframe() {
@@ -169,10 +186,17 @@ $(document).ready(function($) {
       ctx.clearRect(0, 0, width, height)
     }
 
+    function getImageData() {
+      var url = card.toDataURL("image/png"),
+          prefix = "data:image/png;base64,"
+      return url.substr(prefix.length)
+    }
+
     return {
       draw: draw,
       addMark: addMark,
-      reset: reset
+      reset: reset,
+      getImageData: getImageData
     }
   }
 

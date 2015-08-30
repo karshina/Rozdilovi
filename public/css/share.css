@@ -115,3 +115,8 @@
 .simbol.active:hover {
     background-color: #109a82;
 }
+
+button#share {
+  position: absolute;
+  bottom: -30px;
+}
