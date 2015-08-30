@@ -81,7 +81,7 @@ $(document).ready(function($) {
   $card.on('click', function (event) {
     var simbol = $('.simbol.active').text()
     if (!simbol) return
-    var positon = {
+    var postion = {
       '.': {x: -1, y: -2},
       ',': {x: -1, y: -2},
       ':': {x: -2, y: 11},
@@ -91,7 +91,7 @@ $(document).ready(function($) {
       '(': {x: -1, y: 12.5},
       ')': {x: -1, y: 12.5},
     }
-    card.addMark(simbol, event.offsetX + positon[simbol].x, event.offsetY + positon[simbol].y)
+    card.addMark(simbol, event.offsetX + postion[simbol].x, event.offsetY + postion[simbol].y)
   })
 
   $share.on('click', function() {
