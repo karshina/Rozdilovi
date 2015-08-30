@@ -3,36 +3,125 @@
   src: url(../font/franklin_gothic_book.ttf);
 }
 
-#share {
-  width: 609px;
-  height: 396px;
-  background: url("../img/card_bg_example.png") 0 0 no-repeat;
-  padding: 20px 40px;
-  box-sizing: border-box;
-  position: relative;
+.video-content-main {
+    position: absolute;
+    background: url('../img/stopblock.png') 0 0 no-repeat;
+    background-size: contain;
+    width: 609px;
+    height: 397px;
+    padding: 50px 20px 20px 40px;
+    box-sizing: border-box;
+    margin-left: 64px;
 }
 
-#share p {
-  color: #8d8d8d;
-  font-family: FranklinGothicBook;
-  /*font-family: sans-serif;*/
-  font-size: 30px;
+.video-content-span {
+    color: #908d8d;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 35px;
 }
 
-#result {
-  width: 609px;
-  height: 396px;
+.simbol-container {
+    width: 70px;
+    display: block;
+    float: left;
 }
 
-.mark {
-  position: absolute;
-  width: 10px;
-  height: 10px;
+.card-simbol {
+    position: absolute;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    color: #2C8E31;
+    font-size: 30px;
+    font-weight: 300;
 }
 
-.mark1 {
-  background: red;
+.simbol  {
+    width: 46px;
+    text-align: center;
+    line-height: 46px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 46px;
+    height: 46px;
+    background-color: rgba(255, 255, 255, 0.7);
 }
-.mark2 {
-  background: blue;
+
+.simbol:before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    background-size: contain;
+}
+
+.simbol-1:before  {
+    background: url('../img/obvod1.png') 0 0 no-repeat;
+    width: 49px;
+    height: 41px;
+    left: 0;
+    top: 3px;
+}
+
+.simbol-2:before  {
+    background: url('../img/obvod2.png') 0 0 no-repeat;
+    width: 55px;
+    height: 44px;
+    left: -5px;
+    margin-top: 2px;
+}
+
+.simbol-3:before  {
+    background: url('../img/obvod3.png') 0 0 no-repeat;
+    width: 54px;
+    height: 47px;
+    left: -5px;
+}
+
+.simbol-4:before  {
+    background: url('../img/obvod4.png') 0 0 no-repeat;
+    width: 61px;
+    height: 62px;
+    left: -12px;
+    margin-top: -10px;
+}
+
+.simbol-5:before  {
+    background: url('../img/obvod5.png') 0 0 no-repeat;
+    width: 58px;
+    height: 46px;
+    margin-top: -1px;
+    left: -8px;
+}
+.simbol-6:before  {
+    background: url('../img/obvod6.png') 0 0 no-repeat;
+    width: 57px;
+    height: 46px;
+    left: -10px;
+}
+
+.simbol-7:before  {
+    background: url('../img/obvod7.png') 0 0 no-repeat;
+    width: 80px;
+    height: 79px;
+    margin-top: -12px;
+    left: -16px;
+}
+
+.simbol-8:before  {
+    background: url('../img/obvod8.png') 0 0 no-repeat;
+    width: 76px;
+    height: 64px;
+    left: -10px;
+    margin-top: -5px;
+}
+
+.simbol.active {
+    background-color: #109a82;
+}
+.simbol:hover {
+    background-color: #fff;
+}
+.simbol.active:hover {
+    background-color: #109a82;
 }
