@@ -9,6 +9,7 @@ $(document).ready(function($) {
   var $cross = $('.cross')
   var $simbol = $('.simbol')
   var $share = $('#share')
+  var $cursor = $container.find('.cursor')
 
   var player = {}
   var track
@@ -64,39 +65,36 @@ $(document).ready(function($) {
   })
 
   $simbol.on('click', function () {
-    var $this = $(this),
-      isActive = $this.hasClass('active')
-    $simbol.removeClass('active')
-    $.each($simbol, function(i) {$card.removeClass('pointer-' + i)})
-    if (isActive) {
-      $card.removeClass('pointer-' + $this.index())
-      $this.removeClass('active')
-    }
-    else {
-      $card.addClass('pointer-' + $this.index())
-      $this.addClass('active')
+    var $this = $(this)
+    $this.toggleClass('active').siblings().removeClass('active')
+    $card.removeClass('active')
+    if ($this.hasClass('active')) {
+      $card.addClass('active')
+      $cursor.text($this.text())
     }
   })
 
+  $card.on("mouseleave", function(){
+    if (!$card.hasClass('active')) return
+    $cursor.hide()
+  })
+
+  $card.on("mousemove", function(e){
+    if (!$card.hasClass('active')) return
+    $cursor.show().css({
+      top: e.offsetY + 15,
+      left: e.offsetX + 15
+    })
+  })
+
   $card.on('click', function (event) {
-    var simbol = $('.simbol.active').text()
-    if (!simbol) return
-    var postion = {
-      '.': {x: 4.5, y: 6.4},
-      ',': {x: 4, y: 5.4},
-      ':': {x: 3.8, y: 13.5},
-      '–': {x: 0, y: 13.5},
-      '?': {x: 2, y: 15.7},
-      '!': {x: 4.5, y: 15},
-      '(': {x: 4, y: 14.2},
-      ')': {x: 4, y: 14.2},
-    }
-    card.addMark(simbol, event.offsetX + postion[simbol].x, event.offsetY + postion[simbol].y)
+    if (!$card.hasClass('active')) return
+    var correction = {x: 15, y: 18}
+    card.addMark($cursor.text(), event.offsetX + correction.x, event.offsetY + correction.y)
   })
 
   $share.on('click', function() {
     var imageData = card.getImageData()
-    // console.log(imageData)
     $share.attr('disabled', true)
 
     $.ajax({
