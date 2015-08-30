@@ -5,7 +5,7 @@ function getRandomHex($num_bytes=4) {
 }
 
 $imageId = getRandomHex(10);
-$fileName = __DIR__ . '/public/uploads/' . $imageId . '.png';
+$fileName = __DIR__ . '/uploads/' . $imageId . '.png';
 
 $dataBase64 = file_get_contents("php://input");
 file_put_contents($fileName, base64_decode($dataBase64));

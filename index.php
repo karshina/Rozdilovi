@@ -1,6 +1,6 @@
 <?php
 
-$index = file_get_contents(__DIR__ . '/public/index.html');
+$index = file_get_contents(__DIR__ . '/index.html');
 
 function url_origin($s, $use_forwarded_host=false)
 {
@@ -27,7 +27,7 @@ $index = str_replace('{{URL}}', htmlspecialchars(full_url($_SERVER, true)), $ind
 
 if (isset($_GET['img'])) {
   $uploadFilename = 'uploads/' . preg_replace('/[^a-z\d]/i', '', $_GET['img']) . '.png';
-  if (file_exists(__DIR__ . '/public/' . $uploadFilename)) {
+  if (file_exists(__DIR__ . '/' . $uploadFilename)) {
     $index = str_replace("{{IMAGE}}", url_origin($_SERVER, true) . '/' . $uploadFilename, $index);
   }
 } else {
