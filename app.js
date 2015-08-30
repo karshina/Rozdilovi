@@ -8,9 +8,9 @@ app.get('/', function (req, res) {
   res.sendFile('index.html', {root: __dirname + "/public" })
 })
 
-app.post('/upload', function(req, res, err) {
+app.post('/upload/', function(req, res, err) {
   var filename = 'uploads/' + crypto.randomBytes(10).toString('hex') + '.png'
-  var filepath = __dirname + '/' + filename
+  var filepath = __dirname + '/public/' + filename
   console.log('Saving card to: ', filepath)
 
   var file = fs.createWriteStream(filepath)

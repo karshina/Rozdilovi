@@ -1,5 +1,5 @@
 body {
-    background: url('../img/rozd_bg.jpg') 0px 0px repeat;
+    background: url('/img/rozd_bg.jpg') 0px 0px repeat;
     background-size: 100%;
     width: 100%;
     height: 100%;
@@ -21,7 +21,7 @@ body {
 
 #logo {
     position: absolute;
-    background: url('../img/logo.png') 0 0 no-repeat;
+    background: url('/img/logo.png') 0 0 no-repeat;
     background-size: contain;
     width: 14vw;
     height: 7.65vw;
@@ -41,7 +41,7 @@ body {
 } 
 
 #circle {
-    background: url('../img/kolo.png') 0 0 no-repeat; 
+    background: url('/img/kolo.png') 0 0 no-repeat; 
     background-size: 100% 100%;
     margin: auto;
     opacity: 0.8;
@@ -69,7 +69,7 @@ body {
 }
 
 #play {
-    background: url('../img/play_btn.png') 0px 0px no-repeat;
+    background: url('/img/play_btn.png') 0px 0px no-repeat;
     background-size: contain;
     width: 14.76vh;
     height: 14vh;
@@ -192,7 +192,7 @@ body {
     position: absolute;
     right: 3%;
     top: 35px;
-    background: url('../img/cross.png') 0 0 no-repeat;
+    background: url('/img/cross.png') 0 0 no-repeat;
     background-size: contain;
     width: 20px;
     height: 20px;
@@ -202,16 +202,16 @@ body {
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
 
     body {
-        background-image: url('../img/rozd_bg@2x.jpg');
+        background-image: url('/img/rozd_bg@2x.jpg');
     }
     #logo {
-        background-image: url('../img/logo@2x.png');
+        background-image: url('/img/logo@2x.png');
     }
     #circle {
-        background-image: url('../img/kolo@2x.png');
+        background-image: url('/img/kolo@2x.png');
     }
     #play {
-        background-image: url('../img/play_btn@2x.png');
+        background-image: url('/img/play_btn@2x.png');
     }
 }
    
