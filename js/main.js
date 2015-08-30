@@ -316,20 +316,48 @@
     },
     {
       video: "WcK1UBkaYlk", words: ["нічого", "нічого"],
-      text: [
-
-      ]
+      text: [],
     },
-    {video: "MczhhwCUqGc", words: ["вночі", "війна"]},
-    {video: "2n36oF3L4Zk", words: ["ніжні"]},
-    {video: "OZ5wp8uBcnk", words: ["нічого"]},
-    {video: "XMOLFfSZ5zE", words: ["любов", "нічні", "ніжність"]},
-    {video: "4h8kJWzfE74", words: ["любов", "ніжність"]},
-    {video: "2s5W5dxcs2w", words: ["нічних", "вночі"]},
-    {video: "rBMrX4gfwwI", words: ["ніжними", "вночі"]},
-    {video: "n4eh6T8S9lA", words: ["нічних", "любов"]},
-    {video: "3OizzOMfCH8", words: ["любов’ю"]},
-    {video: "???????", words: ["ніч", "любов"]}
+    {
+      video: "MczhhwCUqGc", words: ["вночі", "війна"],
+      text: [],
+    },
+    {
+      video: "2n36oF3L4Zk", words: ["ніжні"],
+      text: [],
+    },
+    {
+      video: "OZ5wp8uBcnk", words: ["нічого"],
+      text: [],
+    },
+    {
+      video: "XMOLFfSZ5zE", words: ["любов", "нічні", "ніжність"],
+      text: [],
+    },
+    {
+      video: "4h8kJWzfE74", words: ["любов", "ніжність"],
+      text: [],
+    },
+    {
+      video: "2s5W5dxcs2w", words: ["нічних", "вночі"],
+      text: [],
+    },
+    {
+      video: "rBMrX4gfwwI", words: ["ніжними", "вночі"],
+      text: [],
+    },
+    {
+      video: "n4eh6T8S9lA", words: ["нічних", "любов"],
+      text: [],
+    },
+    {
+      video: "3OizzOMfCH8", words: ["любов’ю"],
+      text: [],
+    },
+    {
+      video: "???????", words: ["ніч", "любов"],
+      text: [],
+    }
   ];
 
   function initUI() {
@@ -505,6 +533,12 @@
     })
   }
 
+  function getCurrentTrack (id) {
+    return combos.filter(function (item) {
+      return item.video == id
+    })
+  }
+
   // expose some stuff
   window.rozd = {
     initUI: initUI,
@@ -512,6 +546,7 @@
     updateUI:  updateUI,
     getState: getState,
     suggest: suggest,
-    mainWords: mainWords
+    getCurrentTrack: getCurrentTrack,
+    mainWords: mainWords,
   }
 })()
