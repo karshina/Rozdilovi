@@ -97,6 +97,9 @@ $(document).ready(function($) {
     var imageData = card.getImageData()
     $share.attr('disabled', true)
 
+    // open fb popup earlier because otherwise browsers will block it after ajax request
+    var fbpopup = window.open("/loading.html", "pop", "width=600, height=400, scrollbars=no")
+
     $.ajax({
       type: "POST",
       url: "/upload/",
@@ -105,11 +108,9 @@ $(document).ready(function($) {
     }).done(function(o) {
       $share.attr('disabled', false)
       console.log('saved', o)
-      var url = document.location.origin + "/" + o.filename
 
-      $('#share-result').empty().append(
-        $('<a>').attr('href', url).text(url)
-      )
+      var url = encodeURIComponent(document.location.origin + "/" + '?img=' + o.id + '&video=' + (track && track.video))
+      fbpopup.location.replace("https://www.facebook.com/sharer/sharer.php?u=" + url)
     })
   })
 
