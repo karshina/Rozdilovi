@@ -88,4 +88,10 @@ $(document).ready(function($) {
     $content.addClass('none')
     $card.html('<span class="video-content-span">хочеться говорити тихо, щоби тебе ніхто не почув, а почувши – не зрозумів</span>')
   }
+
+  // For quick access to card development
+  if (document.location.hash == "#video-content-dev") {
+    $container.removeClass('none')
+    $content.removeClass('none')
+  }
 })
