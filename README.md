@@ -1,6 +1,6 @@
 # Develop
 ```bash
-php -S 0.0.0.0:8000 router.php
+php -S localhost:8000 router.php
 ```
 
 You can use [localtunnel](http://localtunnel.me/) to test facebook sharing:
