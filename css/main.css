@@ -28,7 +28,7 @@ body {
     height: 7.65vw;
     top: 1vw;
     left: 50%;
-    margin-left: -7vw;
+    margin-left: -6vw;
     z-index: 2;
 }  
 
@@ -39,17 +39,19 @@ body {
     width: 50vw;
     margin-top: 18vh;
     margin-bottom: 6vh;
+    max-height: 556px;
+    max-width: 513px;
 } 
 
 #circle {
     background: url('/img/kolo.png') 0 0 no-repeat; 
-    background-size: 100% 100%;
+    background-size: contain;
     margin: auto;
     opacity: 0.8;
-    height: 75vh;
-    max-height: 556px;
-    width: 69vh;
-    max-width: 513px;
+    width: 59.8vh;
+    height: 65vh;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 #circle.combo {
@@ -108,7 +110,6 @@ body {
 }
 
 .slot {
-    /*border: red solid 1px;*/
     position: absolute;
 }
 
@@ -131,33 +132,34 @@ body {
 }
 
 .slot3 {
-    top: 28vh;
+    top: 25vh;
     margin-right: -6vw;
 }
 
 .slot4 {
-    top: 20vh;
+    top: 18vh;
     margin-left: 1vh;
 }
 
 .slot5 {
-    top: 50vh;
+    top: 44vh;
     margin-right: -8vw;
 }
 
 .slot6 {
-    top: 44vh;
+    top: 39vh;
     margin-left: 1vw;
 }
 
 .slot7 {
-    top: 66vh;
-    margin-right: -60vw;
+    top: 54vh;
+    margin-right: -54vw;
 }
 
 .slot8 {
-    top: 68vh;
-    margin-left: -55vw;
+    top: 58vh;
+    margin-left: -44vw;
+
 }
 
 .none {
@@ -218,15 +220,9 @@ body {
     }
     #circle {
         background-image: url('/img/kolo@2x.png');
-        max-width: 1025px;
-        max-height: 1111px;
     }
     #play {
         background-image: url('/img/play_btn@2x.png');
-        max-width: 194px;
-    }
-    .menu img {
-        max-width: 78px;
     }
 }
    
@@ -242,8 +238,9 @@ body {
 @media only screen and (min-width: 480px) and (max-width: 767px) { 
 
     #logo {
-        width: 18vw;
-        height: 9.84vw;
+        width: 17vw;
+        height: 9.29vw;
+        margin-left: -8vw;
     }
 
     #play {
@@ -255,97 +252,95 @@ body {
 
 }
 
-/*
-@media only screen and (orientation:portrait) and (max-width: 479px) { 
-    html{
-        -webkit-transform: rotate(90deg);
-           -moz-transform: rotate(90deg);
-            -ms-transform: rotate(90deg);
-             -o-transform: rotate(90deg);
-                transform: rotate(90deg);
-        -webkit-transform-origin: right top;
-           -moz-transform-origin: right top;
-            -ms-transform-origin: right top;
-             -o-transform-origin: right top;
-                transform-origin: right top;
-        width: 320px;
-        position: absolute;
-        top: 100%;
-        left: 0
-    }
-
-    .menu {
-        margin-left: 25px;
-        margin-top: -7px;
-    }
-    .menu img {
-        width: 35px;
-    }
-    #logo {
-        margin-left: -45px;
-        top: 6px;
-        width: 110px;
-    }
-    #container {
-        width: 250px;
-        height: 450px;
-    }
-    #circle {
-        width: 250px;
-        height: 250px;
-        position: absolute;
-        margin: 80px 0px;
-    }
-    #play {
-        width: 67px;
-        height: 65px;
-        margin-left: -30px;
-        margin-top: -35px;
-    }
-    .slot1 {
-        top: 65px;
-        margin-right: -120px;
-    }
-
-    .slot2 {
-        top: 83px;
-        margin-left: -125px;
-    }
-
-    .slot3 {
-        top: 100px;
-        margin-right: -65px;
-    }
-
-    .slot4 {
-        top: 100px;
-        margin-left: -65px;
-    }
-
-    .slot5 {
-        top: 145px;
-        margin-right: -35px;
-    }
-
-    .slot6 {
-        top: 145px;
-        margin-left: -35px;
-    }
-
+@media only screen and (min-width: 1300px) {
     .slot7 {
-        top: 270px;
-        margin-right: -40px;
+        margin-right: -48vw;
     }
 
     .slot8 {
-        top: 260px;
-        margin-left: -40px;
+        top: 56vh;
+        margin-left: -35vw;
     }
+
 }
 
-body { 
-    transition:all .2s linear; 
-    -o-transition:all .2s linear; 
-    -moz-transition:all .2s linear; 
-    -webkit-transition:all .2s linear;
-}*/
+@media only screen and (orientation:portrait) { 
+
+.menu { 
+    margin-top: -23vh;
+    margin-left: 4vw;
+}
+
+#logo {
+    width: 28vw;
+    height: 15.3vw;
+    margin-left: -13vw;
+    top: 2vw;
+}
+
+#container {
+    width: 70vw;
+    margin-top: 27vh;
+    margin-bottom: 27vh;
+}  
+
+#circle {
+    width: 55vw;
+    height: 59.61vw;
+}
+
+#play {
+    width: 18vw;
+    height: 17.07vw;
+    margin-left: -22px;
+    margin-top: -40px;
+}
+
+.word {
+    width: 25vw;
+}    
+
+.word img {
+    width: 100%;
+    height: 100%;
+}
+
+.slot1 {
+    top: -4vh;
+    margin-right: -26vw;
+}
+
+.slot2 {
+    top: -4vh;
+    margin-left: -23vw;
+}
+
+.slot3 {
+    top: 19vw;
+    margin-right: -11vw;
+}
+
+.slot4 {
+    top: 15vw;
+    margin-left: -11vw;
+}
+
+.slot5 {
+    top: 39vw;
+    margin-right: -11vw;
+}
+
+.slot6 {
+    top: 34vw;
+    margin-left: -11vw;
+}
+
+.slot7 {
+    top: 53vw;
+    margin-right: -70vw;
+}
+
+.slot8 {
+    top: 54vw;
+    margin-left: -66vw;
+}
