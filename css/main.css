@@ -122,8 +122,8 @@ body {
 }
 
 .slot1 {
-    top: 2vh;
-    margin-right: -12vw;
+    top: 4vh;
+    margin-right: -9vw;
 }
 
 .slot2 {
@@ -133,21 +133,21 @@ body {
 
 .slot3 {
     top: 25vh;
-    margin-right: -6vw;
+    margin-right: -3vw;
 }
 
 .slot4 {
-    top: 18vh;
+    top: 17vh;
     margin-left: 1vh;
 }
 
 .slot5 {
-    top: 44vh;
-    margin-right: -8vw;
+    top: 45vh;
+    margin-right: -6vw;
 }
 
 .slot6 {
-    top: 39vh;
+    top: 36vh;
     margin-left: 1vw;
 }
 
@@ -158,7 +158,7 @@ body {
 
 .slot8 {
     top: 58vh;
-    margin-left: -44vw;
+    margin-left: -39vw;
 
 }
 
@@ -259,7 +259,7 @@ body {
 
     .slot8 {
         top: 56vh;
-        margin-left: -35vw;
+        margin-left: -39vw;
     }
 
 }
