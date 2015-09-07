@@ -116,9 +116,58 @@
     background-color: #109a82;
 }
 
-button#share {
-  position: absolute;
-  bottom: -30px;
+#closecard {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 0px;
+    right: -1%;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}
+
+#closecard:before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    background: url('/img/closecard_btn.png') 0 0 no-repeat;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    margin-top: -1px;
+    right: -1px;
+}
+
+#closecard:hover {
+    background-color: #fff;
+}
+
+#share {
+    width: 106px;
+    height: 40px;
+    position: absolute;
+    bottom: -52px;
+    left: 45%;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}
+
+#share:before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    background: url('/img/fbshare_btn2.png') 0 0 no-repeat;
+    background-size: contain;
+    width: 115px;
+    height: 44px;
+    margin-top: -2px;
+    left: -5px;
+}
+
+#share:hover {
+    background-color: #fff;
 }
 
 #card.active {

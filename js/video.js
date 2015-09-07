@@ -7,6 +7,7 @@ $(document).ready(function($) {
   var $card = $('#card')
   var $playerContent = $('.player-content')
   var $cross = $('.cross')
+  var $closecard = $('#closecard')
   var $simbol = $('.simbol')
   var $share = $('#share')
   var $cursor = $container.find('.cursor')
@@ -38,6 +39,7 @@ $(document).ready(function($) {
         'onStateChange': function(e) {
           if (e.data == YT.PlayerState.PLAYING) {
             $content.addClass('none')
+            $cross.removeClass('none')
           }
           else if (e.data == YT.PlayerState.PAUSED) {
             var text = track.text.reduce(function (res, cur) {
@@ -45,6 +47,7 @@ $(document).ready(function($) {
             }, {})
             $content.removeClass('none')
             card.draw(text.words || '')
+            $cross.addClass('none')
           }
           else if (e.data == YT.PlayerState.ENDED) {
             closeIframe()
@@ -62,6 +65,10 @@ $(document).ready(function($) {
 
   $cross.on('click', function () {
     closeIframe()
+  })
+
+  $closecard.on('click', function () {
+    player.playVideo()
   })
 
   $simbol.on('click', function () {
