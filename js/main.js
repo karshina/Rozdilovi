@@ -727,9 +727,9 @@
 
     fillSlots(newState.suggestedWords);
 
-    if (newState.combo) {
+    if (newState.combo.length != 0) {
       circle.addClass("combo");
-      play.attr('data-video-id', newState.combo);
+      play.attr('data-video-id', newState.combo[Math.floor(Math.random() * newState.combo.length)]);
     }
 
     makeWordsDraggable();
@@ -793,7 +793,7 @@
 
     var result = {  
       suggestedWords: [],
-      combo: null,
+      combo: [],
     };
 
     if (circleWords.length == 0) {
@@ -804,7 +804,7 @@
     for (var i in combos) {
       var r = suggest(combos[i], circleWords);
       result.suggestedWords = result.suggestedWords.concat(r.suggestedWords);
-      result.combo = result.combo || r.combo;
+      result.combo = r.combo ? result.combo.concat(r.combo) : result.combo;
     }
 
     result.suggestedWords = uniqueWords(result.suggestedWords);
