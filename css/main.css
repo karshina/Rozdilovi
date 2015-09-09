@@ -62,6 +62,40 @@ body {
     opacity: 0.9;
 }
 
+#arrow {
+    background: url('/img/arrow.png') 0 0 no-repeat; 
+    background-size: contain;
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 7.5vh;
+    margin-left: 2vw;
+    -moz-animation: cssAnimation 0s ease-in 1s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 1s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 1s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 1s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@keyframes cssAnimation {
+    to {
+        width: 14vw;
+        height: 20vh;
+        overflow:visible;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width: 14vw;
+        height: 20vh;
+        visibility:visible;
+    }
+}
+
 #field {
     position: absolute;
     height: 70%;

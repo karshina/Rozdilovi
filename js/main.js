@@ -802,6 +802,8 @@
       return result;
     }
 
+    $('#arrow').addClass('none')
+
     for (var i in combos) {
       var r = suggest(combos[i], circleWords);
       result.suggestedWords = result.suggestedWords.concat(r.suggestedWords);
