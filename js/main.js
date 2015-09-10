@@ -21,7 +21,7 @@
     "ніжними": "img/nizhnymy.png"
   }
 
-  var slots, circle, play;
+  var slots, circle, field, play;
 
   var mainWords = ["вночі", "нічого", "любові", "ніжні",  "війна", "любов", "любов’ю"];
   // var mainWords = ["вночі", "нічого", "ніч", "любові", "ніжні", "війна", "любов’ю", "ніжності", "ночі"]
@@ -669,11 +669,12 @@
   function initUI() {
     slots = $(".slot")
     circle = $("#circle")
+    field = $("#field")
     play = $('#play')
 
     updateUI(true)
 
-    $('#field').droppable({
+    field.droppable({
       drop: function(event, ui) {
         var el = $(ui.draggable);
 
@@ -683,14 +684,14 @@
         }
         el.data('was-in-circle', true);
 
-        var offset = circle.offset();
+        var offset = field.offset();
         var parentOffset = el.parent().offset();
         var cssTop = parseInt(el.css('top'), 10);
         var cssLeft = parseInt(el.css('left'), 10);
-        var top = parentOffset.top + cssTop - offset.top + parseInt(circle.css('marginTop'), 10);
-        var left = parentOffset.left + cssLeft - offset.left + parseInt(circle.css('marginLeft'), 10);
+        var top = parentOffset.top + cssTop - offset.top;
+        var left = parentOffset.left + cssLeft - offset.left;
         
-        el.appendTo(circle);
+        el.appendTo(field);
         el.css({'top' : top, 'left' : left, 'position': 'absolute'});
         updateUI();
       }
@@ -776,7 +777,7 @@
 
   function getCurrentWords() {
     var circleWords = [];
-    circle.find(".word").each(function(){
+    field.find(".word").each(function(){
       if ($(this).data('dropped-in-circle')) {
         circleWords.push($(this).attr('data-word'))
       }
@@ -848,7 +849,7 @@
   }
 
   function dropUI() {
-    circle.find(".word").each(function(){
+    field.find(".word").each(function(){
       $(this).remove()
     })
   }

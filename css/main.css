@@ -73,9 +73,7 @@ body {
     right: 0;
 }
 
-#play {
-    background: url('/img/play_btn.png') 0px 0px no-repeat;
-    background-size: contain;
+#play, #play-ghost {
     width: 14.76vh;
     height: 14vh;
     max-width: 97px;
@@ -85,6 +83,11 @@ body {
     margin-top: -58px;
     left: 50%;
     top: 50%;
+}
+
+#play {
+    background: url('/img/play_btn.png') 0px 0px no-repeat;
+    background-size: contain;
     /* WTF? Why words do not drag on iPhone EMU after combo worked once? */
     transition: filter 300ms linear;
     -webkit-transition: -webkit-filter 300ms linear;
@@ -92,9 +95,19 @@ body {
     -webkit-filter: grayscale(100%);
 }
 
+#play-ghost {
+    display: none;
+}
+
 #circle.combo #play {
     filter: grayscale(0%);
     -webkit-filter: grayscale(0%);
+}
+
+
+#circle.combo #play-ghost {
+    display: block;
+    cursor: pointer;
 }
 
 .word {
@@ -209,6 +222,15 @@ body {
     height: 5vh;
     cursor: pointer;
 }
+
+/* debugging stuff */
+/*
+#container { border: red 1px dashed; }
+#circle { border: orange 1px dashed; }
+#field { border: blue 1px dashed; }
+#play-ghost { border: purple 1px dashed; }
+.slot { border: green 1px dashed; }
+*/
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
 

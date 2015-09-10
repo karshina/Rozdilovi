@@ -2,6 +2,7 @@ $(document).ready(function($) {
   var $window = $(window)
   var $container = $('.video-container')
   var $play = $('#play')
+  var $playGhost = $('#play-ghost')
   var $body = $('body')
   var $content = $('.video-content')
   var $card = $('#card')
@@ -23,7 +24,7 @@ $(document).ready(function($) {
     player.h.h.height = $window.height()
   })
 
-  $play.on('click', function () {
+  $playGhost.on('click', function () {
     track = window.rozd.getCurrentTrack($play.attr('data-video-id'))[0]
     if (!track) return
     $body.addClass('overflow-hidden')
