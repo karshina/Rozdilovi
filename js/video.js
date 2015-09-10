@@ -27,6 +27,18 @@ $(document).ready(function($) {
   $playGhost.on('click', function () {
     track = window.rozd.getCurrentTrack($play.attr('data-video-id'))[0]
     if (!track) return
+    playVideo(track)
+  })
+
+  window.onYouTubeIframeAPIReady = function() {
+    var m = (document.location.search||"").match(/video=([^&]+)/)
+    if (m) {
+      var track = window.rozd.getCurrentTrack(m[1])[0]
+      playVideo(track)
+    }
+  }
+
+  function playVideo(track) {
     $body.addClass('overflow-hidden')
     player = new YT.Player('player', {
       height: $window.height(),
@@ -57,7 +69,7 @@ $(document).ready(function($) {
       }
     });
     $container.removeClass('none')
-  })
+  }
 
   $(this).keydown(function(e) {
     if (e.which != 27) return
