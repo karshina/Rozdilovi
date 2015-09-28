@@ -5,16 +5,11 @@
 
 .video-content-main {
     position: absolute;
-    width: 609px;
-    height: 397px;
+    background-size: contain;
+    width: 600px;
+    height: 325px;
     box-sizing: border-box;
-    margin-left: 64px;
-}
-
-.simbol-container {
-    width: 70px;
-    display: block;
-    float: left;
+    margin: 0 35px auto 35px;
 }
 
 .card-simbol {
@@ -27,93 +22,24 @@
     font-weight: 300;
 }
 
-.simbol  {
-    width: 46px;
-    text-align: center;
-    line-height: 46px;
-    margin-bottom: 5px;
-    cursor: pointer;
-    border-radius: 46px;
-    height: 46px;
-    background-color: rgba(255, 255, 255, 0.7);
-}
-
-.simbol:before {
-    content: "";
+#prev {
+    width: 19px;
+    height: 31px;
     position: absolute;
-    z-index: 2;
-    background-size: contain;
+    background: url('/img/prev.png') 0 0 no-repeat;
+    top: 39%;
+    left: 0%;
+    cursor: pointer;
 }
 
-.simbol-1:before  {
-    background: url('/img/obvod1.png') 0 0 no-repeat;
-    width: 49px;
-    height: 41px;
-    left: 0;
-    top: 3px;
-}
-
-.simbol-2:before  {
-    background: url('/img/obvod2.png') 0 0 no-repeat;
-    width: 55px;
-    height: 44px;
-    left: -5px;
-    margin-top: 2px;
-}
-
-.simbol-3:before  {
-    background: url('/img/obvod3.png') 0 0 no-repeat;
-    width: 54px;
-    height: 47px;
-    left: -5px;
-}
-
-.simbol-4:before  {
-    background: url('/img/obvod4.png') 0 0 no-repeat;
-    width: 61px;
-    height: 62px;
-    left: -12px;
-    margin-top: -10px;
-}
-
-.simbol-5:before  {
-    background: url('/img/obvod5.png') 0 0 no-repeat;
-    width: 58px;
-    height: 46px;
-    margin-top: -1px;
-    left: -8px;
-}
-.simbol-6:before  {
-    background: url('/img/obvod6.png') 0 0 no-repeat;
-    width: 57px;
-    height: 46px;
-    left: -10px;
-}
-
-.simbol-7:before  {
-    background: url('/img/obvod7.png') 0 0 no-repeat;
-    width: 80px;
-    height: 79px;
-    margin-top: -12px;
-    left: -16px;
-}
-
-.simbol-8:before  {
-    background: url('/img/obvod8.png') 0 0 no-repeat;
-    width: 76px;
-    height: 64px;
-    left: -10px;
-    margin-top: -5px;
-}
-
-.simbol.active {
-    background-color: #109a82;
-}
-.simbol:hover {
-    background-color: #fff;
-}
-.simbol.active:hover {
-    background-color: #109a82;
+#next {
+    width: 19px;
+    height: 31px;
+    position: absolute;
+    background: url('/img/next.png') 0 0 no-repeat;
+    top: 39%;
+    right: 0%;
+    cursor: pointer;
 }
 
 #closecard {
@@ -121,7 +47,7 @@
     height: 25px;
     position: absolute;
     top: 0px;
-    right: -1%;
+    right: 0px;
     border-radius: 25px;
     background-color: rgba(255, 255, 255, 0.7);
     cursor: pointer;
@@ -147,8 +73,8 @@
     width: 106px;
     height: 40px;
     position: absolute;
-    bottom: -52px;
-    left: 45%;
+    bottom: 0px;
+    left: 44%;
     border-radius: 2px;
     background-color: rgba(255, 255, 255, 0.7);
     cursor: pointer;

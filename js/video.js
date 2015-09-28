@@ -84,6 +84,8 @@ $(document).ready(function($) {
     player.playVideo()
   })
 
+  // TODO: cleanup symbols
+
   $simbol.on('click', function () {
     var $this = $(this)
     $this.toggleClass('active').siblings().removeClass('active')
@@ -190,15 +192,15 @@ $(document).ready(function($) {
       reset()
 
       var bg = new Image()
-      bg.src = 'img/stopblock.png'
+      bg.src = 'img/card' + Math.floor(Math.random() * 8) +'.png'
       bg.onload = function(){
-        ctx.drawImage(this, 0, 0, this.width, this.height)
+        ctx.drawImage(this, 0, 0, 600, 325)
 
         ctx.font = "300 30px FranklinGothicBook"
         ctx.fillStyle = '#908d8d'
 
         var paddingTop = 30
-        var paddingSides = 30
+        var paddingSides = 20
         var txt = canvasWrapText(ctx, text, paddingSides, paddingTop, width - paddingSides, 35)
         for (var i = 0; i < txt.length; i++){
           ctx.fillText(txt[i].text, txt[i].x, txt[i].y)

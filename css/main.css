@@ -223,8 +223,8 @@ body {
 }
 
 .video-content {
-    width: 700px;
-    height: 397px;
+    width: 670px;
+    height: 390px;
     position: absolute;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
