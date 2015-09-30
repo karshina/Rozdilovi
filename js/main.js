@@ -20,7 +20,13 @@
     "нічних": "img/nichnyh.png",
     "ніжними": "img/nizhnymy.png"
   }
+   
+  var imageObj = new Image();
 
+  for (var prop in images) {
+    imageObj.src = images[prop];
+  }
+  
   var slots, circle, field, play;
 
   var mainWords = ["вночі", "нічого", "любові", "ніжні",  "війна", "любов", "любов’ю"];
