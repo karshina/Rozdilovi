@@ -12,6 +12,7 @@ body {
     margin-left: 2.5vw;
     margin-top: -13vh;
     z-index: 2;
+    cursor: pointer;
 }
 
 .menu img {
@@ -257,6 +258,64 @@ body {
     cursor: pointer;
 }
 
+.nav {
+    width: 400px;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    transition: 0.4s;
+}
+
+.nav-hide {
+    transform: translateX(-100%);
+}
+
+.nav-content {
+    margin-top: 150px;
+    align-self: flex-start;
+    width: 147px;
+    position: absolute;
+}
+
+.nav-span:before{
+    content: "·";
+    opacity: 0.9;
+    color: white;
+    text-align: center;
+    font-family: 'Helvetica';
+    font-size: 21px;
+    font-weight: 300;
+    display: block;
+    line-height: 58px;
+}
+
+.nav-span {
+    opacity: 0.5;
+    color: white;
+    text-align: center;
+    font-family: 'Helvetica';
+    font-size: 21px;
+    font-weight: 300;
+    display: block;
+    text-decoration: none;
+    line-height: 58px;
+}
+
+.nav-img {
+    align-self: flex-end;
+    background: url('/img/art_logo.png') 0 0 no-repeat;
+    background-size: contain;
+    display: block;
+    width: 147px;
+    height: 31px;
+    margin-bottom: 70px;
+}
+
+
 /* debugging stuff */
 /*
 #container { border: red 1px dashed; }
@@ -320,83 +379,85 @@ body {
 
 }
 
-@media only screen and (orientation:portrait) { 
+@media only screen and (orientation:portrait) {
 
-.menu { 
-    margin-top: -23vh;
-    margin-left: 4vw;
+    .menu {
+        margin-top: -23vh;
+        margin-left: 4vw;
+    }
+
+    #logo {
+        width: 28vw;
+        height: 15.3vw;
+        margin-left: -13vw;
+        top: 2vw;
+    }
+
+    #container {
+        width: 70vw;
+        margin-top: 27vh;
+        margin-bottom: 27vh;
+    }
+
+    #circle {
+        width: 55vw;
+        height: 59.61vw;
+    }
+
+    #play {
+        width: 18vw;
+        height: 17.07vw;
+        margin-left: -22px;
+        margin-top: -40px;
+    }
+
+    .word {
+        width: 25vw;
+    }
+
+    .word img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .slot1 {
+        top: -4vh;
+        margin-right: -26vw;
+    }
+
+    .slot2 {
+        top: -4vh;
+        margin-left: -23vw;
+    }
+
+    .slot3 {
+        top: 19vw;
+        margin-right: -11vw;
+    }
+
+    .slot4 {
+        top: 15vw;
+        margin-left: -11vw;
+    }
+
+    .slot5 {
+        top: 39vw;
+        margin-right: -11vw;
+    }
+
+    .slot6 {
+        top: 34vw;
+        margin-left: -11vw;
+    }
+
+    .slot7 {
+        top: 53vw;
+        margin-right: -70vw;
+    }
+
+    .slot8 {
+        top: 54vw;
+        margin-left: -66vw;
+    }
 }
 
-#logo {
-    width: 28vw;
-    height: 15.3vw;
-    margin-left: -13vw;
-    top: 2vw;
-}
-
-#container {
-    width: 70vw;
-    margin-top: 27vh;
-    margin-bottom: 27vh;
-}  
-
-#circle {
-    width: 55vw;
-    height: 59.61vw;
-}
-
-#play {
-    width: 18vw;
-    height: 17.07vw;
-    margin-left: -22px;
-    margin-top: -40px;
-}
-
-.word {
-    width: 25vw;
-}    
-
-.word img {
-    width: 100%;
-    height: 100%;
-}
-
-.slot1 {
-    top: -4vh;
-    margin-right: -26vw;
-}
-
-.slot2 {
-    top: -4vh;
-    margin-left: -23vw;
-}
-
-.slot3 {
-    top: 19vw;
-    margin-right: -11vw;
-}
-
-.slot4 {
-    top: 15vw;
-    margin-left: -11vw;
-}
-
-.slot5 {
-    top: 39vw;
-    margin-right: -11vw;
-}
-
-.slot6 {
-    top: 34vw;
-    margin-left: -11vw;
-}
-
-.slot7 {
-    top: 53vw;
-    margin-right: -70vw;
-}
-
-.slot8 {
-    top: 54vw;
-    margin-left: -66vw;
-}
