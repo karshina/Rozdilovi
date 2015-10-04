@@ -11,7 +11,7 @@ body {
     position: absolute;
     margin-left: 2.5vw;
     margin-top: -13vh;
-    z-index: 2;
+    z-index: 3;
     cursor: pointer;
 }
 
@@ -259,7 +259,9 @@ body {
 }
 
 .nav {
-    width: 400px;
+    width: 30%;
+    min-width: 200px;
+    max-width: 400px;
     height: 100%;
     top: 0;
     position: absolute;
@@ -277,7 +279,8 @@ body {
 .nav-content {
     margin-top: 150px;
     align-self: flex-start;
-    width: 147px;
+    max-width: 147px;
+    width: 24vw;
     position: absolute;
 }
 
@@ -293,7 +296,7 @@ body {
     line-height: 58px;
 }
 
-.nav-span {
+.nav-a {
     opacity: 0.5;
     color: white;
     text-align: center;
@@ -310,8 +313,10 @@ body {
     background: url('/img/art_logo.png') 0 0 no-repeat;
     background-size: contain;
     display: block;
-    width: 147px;
-    height: 31px;
+    max-width: 147px;
+    max-height: 31px;
+    width: 24vw;
+    height: 5vh;
     margin-bottom: 70px;
 }
 

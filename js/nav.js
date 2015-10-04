@@ -11,7 +11,7 @@ $(document).ready(function() {
 
   $('body').on('click', function(e) {
     var $el = $(e.target)
-    var isParent = $el.parent('.nav').length || $el.parent('.menu').length
+    var isParent = $el.parent('.nav').length || $el.parent('.menu').length || $el.is($nav)
     if (!$nav.hasClass('nav-hide') && !isParent) {
       $nav.addClass('nav-hide')
     }
