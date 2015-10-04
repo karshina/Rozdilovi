@@ -279,8 +279,7 @@ body {
 .nav-content {
     margin-top: 150px;
     align-self: flex-start;
-    max-width: 147px;
-    width: 24vw;
+    width: 100%;
     position: absolute;
 }
 
@@ -308,16 +307,23 @@ body {
     line-height: 58px;
 }
 
-.nav-img {
+.nav-img-content {
     align-self: flex-end;
+    width: 100%;
+    margin-bottom: 70px;
+}
+
+.nav-img {
     background: url('/img/art_logo.png') 0 0 no-repeat;
     background-size: contain;
     display: block;
+    margin: 0 auto;
     max-width: 147px;
     max-height: 31px;
+    min-width: 89px;
+    min-height: 20px;
     width: 24vw;
     height: 5vh;
-    margin-bottom: 70px;
 }
 
 
@@ -466,3 +472,19 @@ body {
     }
 }
 
+@media (max-height: 580px) {
+    .nav-content {
+        margin-top: 50px;
+    }
+    .nav-a {
+        font-size: 18px;
+        line-height: 18px;
+    }
+    .nav-img {
+        width: 89px;
+        height: 20px;
+    }
+    .nav-img-content {
+        margin-bottom: 40px;
+    }
+}
