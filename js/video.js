@@ -9,11 +9,24 @@ $(document).ready(function($) {
   var $playerContent = $('.player-content')
   var $cross = $('.cross')
   var $closecard = $('#closecard')
-  var $simbol = $('.simbol')
+  var $next = $('#next')
+  var $prev = $('#prev')
   var $share = $('#share')
-  var $cursor = $container.find('.cursor')
-
+  
+  var cards = [
+    'img/card0.png',
+    'img/card1.png',
+    'img/card2.png',
+    'img/card3.png',
+    'img/card4.png',
+    'img/card5.png',
+    'img/card6.png',
+    'img/card7.png',
+    'img/card8.png'
+    ]
+  var currentCard
   var player = {}
+  var text = {}
   var track
 
   var card = Card($card[0])
@@ -55,11 +68,12 @@ $(document).ready(function($) {
             $cross.removeClass('none')
           }
           else if (e.data == YT.PlayerState.PAUSED) {
-            var text = track.text.reduce(function (res, cur) {
+            text = track.text.reduce(function (res, cur) {
               return player.getCurrentTime() > cur.time ? cur : res
             }, {})
             $content.removeClass('none')
-            card.draw(text.words || '')
+            currentCard = Math.floor(Math.random() * cards.length)
+            card.draw(text.words || '', currentCard)
             $cross.addClass('none')
           }
           else if (e.data == YT.PlayerState.ENDED) {
@@ -84,35 +98,14 @@ $(document).ready(function($) {
     player.playVideo()
   })
 
-  // TODO: cleanup symbols
-
-  $simbol.on('click', function () {
-    var $this = $(this)
-    $this.toggleClass('active').siblings().removeClass('active')
-    $card.removeClass('active')
-    if ($this.hasClass('active')) {
-      $card.addClass('active')
-      $cursor.text($this.text())
-    }
+  $next.on('click', function () {
+    currentCard == cards.length - 1 ? currentCard = 0 : currentCard++
+    card.draw(text.words || '', currentCard)
   })
 
-  $card.on("mouseleave", function(){
-    if (!$card.hasClass('active')) return
-    $cursor.hide()
-  })
-
-  $card.on("mousemove", function(e){
-    if (!$card.hasClass('active')) return
-    $cursor.show().css({
-      top: e.offsetY + 15,
-      left: e.offsetX + 15
-    })
-  })
-
-  $card.on('click', function (event) {
-    if (!$card.hasClass('active')) return
-    var correction = {x: 15, y: 18}
-    card.addMark($cursor.text(), event.offsetX + correction.x, event.offsetY + correction.y)
+  $prev.on('click', function () {
+    currentCard == 0 ? currentCard = cards.length - 1 : currentCard--
+    card.draw(text.words || '', currentCard)
   })
 
   $share.on('click', function() {
@@ -176,7 +169,7 @@ $(document).ready(function($) {
             testWidth = metrics.width
 
         if (testWidth > maxWidth) {
-          lines.push({ text: line, x: x, y: y })
+          lines.push({ text: line, x: x, y: y, width: ctx.measureText(line).width })
           line = words[n] + ' '
           y += lineHeight
         } else {
@@ -184,33 +177,39 @@ $(document).ready(function($) {
         }
       }
 
-      lines.push({ text: line, x: x, y: y })
+      lines.push({ text: line, x: x, y: y, width: ctx.measureText(line).width })
       return lines
     }
 
-    function draw(text) {
+    function draw(text, index) {
       reset()
 
       var bg = new Image()
-      bg.src = 'img/card' + Math.floor(Math.random() * 8) +'.png'
+      bg.src = cards[index]
       bg.onload = function(){
         ctx.drawImage(this, 0, 0, 600, 325)
 
         ctx.font = "300 30px FranklinGothicBook"
-        ctx.fillStyle = '#908d8d'
 
-        var paddingTop = 30
-        var paddingSides = 20
-        var txt = canvasWrapText(ctx, text, paddingSides, paddingTop, width - paddingSides, 35)
+        var paddingTop = 25
+        var paddingSides = 30
+        var txt = canvasWrapText(ctx, text, paddingSides, paddingTop, width-(paddingSides*2), 35)
         for (var i = 0; i < txt.length; i++){
+          ctx.fillStyle = '#444444'
+          ctx.fillRect(txt[i].x-8, txt[i].y-28, txt[i].width+8, 40);
+          ctx.fillStyle = '#ffffff'
           ctx.fillText(txt[i].text, txt[i].x, txt[i].y)
         }
-      }
-    }
 
-    function addMark(text, x, y) {
-      ctx.fillStyle = '#2C8E31'
-      ctx.fillText(text, x + markCorrectionX, y + markCorrectionY)
+        /*
+        ctx.font = "200 12px FranklinGothicBook"
+        ctx.fillStyle = '#444444'
+        ctx.fillRect(500, height-35, ctx.measureText('rozdilovi.org').width+15, 20);
+        ctx.fillStyle = '#ffffff'
+        ctx.fillText('rozdilovi.org', 505, height-23)
+        */
+
+      }
     }
 
     function reset() {
@@ -225,7 +224,6 @@ $(document).ready(function($) {
 
     return {
       draw: draw,
-      addMark: addMark,
       reset: reset,
       getImageData: getImageData
     }
