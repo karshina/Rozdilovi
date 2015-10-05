@@ -20,15 +20,8 @@
     "нічних": "img/nichnyh.png",
     "ніжними": "img/nizhnymy.png"
   }
-   
-  var imageObj = new Image();
-
-  for (var prop in images) {
-    imageObj.src = images[prop];
-  }
   
   var slots, circle, field, play;
-
   var mainWords = ["вночі", "нічого", "любові", "ніжні",  "війна", "любов", "любов’ю"];
   var combos = window.rozd_combos;
 
@@ -39,6 +32,22 @@
     play = $('#play')
 
     updateUI(true)
+
+    // Preload the rest of word images in advance as soon as words around the circle loaded
+    var imgEls = $(".slot .word img"), i = imgEls.length;
+    var done = function() {
+      for (var prop in images) {
+        var imageObj = new Image();
+        imageObj.src = retinaSrc(images[prop]);
+      }
+    }
+    var loaded = function() {
+      --i || done()
+    }
+    imgEls.each(function(){
+      this.complete ? loaded() : this.onload = loaded
+    });
+
 
     field.droppable({
       drop: function(event, ui) {
@@ -124,8 +133,8 @@
         continue;
       }
       var word = $("<div>").addClass("word").attr("data-word", suggWords[i]);
-      var img = $("<img>").attr("src", images[suggWords[i]]);
-      img.attr('data-at2x', images[suggWords[i]].replace('.png', '@2x.png'));
+      var src = retinaSrc(images[suggWords[i]]);
+      var img = $("<img>").attr("src", src).attr("data-at2x", src);
       word.append(img);
       slot.append(word);
       word.css({opacity: 0})
@@ -139,6 +148,13 @@
     circle.removeClass("combo");
     play.attr('data-video-id', '');
     callback();
+  }
+
+  function retinaSrc(src) {
+    if (window.Retina.isRetina()) {
+      src = src.replace('.png', '@2x.png')
+    }
+    return src
   }
 
   function getCurrentWords() {
