@@ -25,6 +25,8 @@
   var mainWords = ["вночі", "нічого", "любові", "ніжні",  "війна", "любов", "любов’ю"];
   var combos = window.rozd_combos;
 
+  var doGhosts = true;
+
   function initUI() {
     slots = $(".slot")
     circle = $("#circle")
@@ -36,6 +38,11 @@
     // Preload the rest of word images in advance as soon as words around the circle loaded
     var imgEls = $(".slot .word img"), i = imgEls.length;
     var done = function() {
+      // Kick off the initial ghost after 3 sec and then
+      // start showing ghosts randomly every 10 seconds
+      setTimeout(randomGhost, 3000)
+      setInterval(randomGhost, 10000)
+
       for (var prop in images) {
         var imageObj = new Image();
         imageObj.src = retinaSrc(images[prop]);
@@ -48,10 +55,12 @@
       this.complete ? loaded() : this.onload = loaded
     });
 
-
     field.droppable({
       drop: function(event, ui) {
         var el = $(ui.draggable);
+
+        // Once we drad at least one word, do not do ghosts anymore
+        doGhosts = false;
 
         el.data('dropped-in-circle', true);
         if (el.data('was-in-circle')) {
@@ -155,6 +164,39 @@
       src = src.replace('.png', '@2x.png')
     }
     return src
+  }
+
+  function randomGhost() {
+    if (!doGhosts) return;
+    // find slots that are not empty
+    var slots = $(".word").closest('.slot')
+    var idx = Math.floor(Math.random() * slots.length)
+    ghost(slots.eq(idx))
+  }
+
+  function ghost(slot) {
+    var ghSlot = slot.clone(true).addClass('ghost').fadeTo(0, .5).appendTo('.words')
+
+    var ghOffset = ghSlot.offset(),
+        ghTop = ghOffset.top,
+        ghLeft = ghOffset.left,
+        playOffset = play.offset(),
+        playLeft = playOffset.left,
+        playTop = playOffset.top,
+        deltaTop = playTop - ghTop,
+        deltaLeft = playLeft - ghLeft;
+
+    ghSlot.animate({opacity: 0}, {
+      duration: 4000,
+      progress: function(an, prog, ms) {
+        var transLeft = (deltaLeft * prog) + "px",
+            transTop = (deltaTop * prog) + "px";
+        ghSlot.css("transform", "translate(" + transLeft + "," + transTop + ")")
+      },
+      complete: function() {
+        ghSlot.remove()
+      }
+    })
   }
 
   function getCurrentWords() {
