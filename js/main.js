@@ -33,6 +33,13 @@
     field = $("#field")
     play = $('#play')
 
+    // animate two layers of the sky with different speed
+    width = $('body').outerWidth();
+    mid = $('#midground')
+    fore = $('#foreground')
+    doScroll(mid, width, 120);
+    doScroll(fore, width, 60);
+
     updateUI(true)
 
     // Preload the rest of word images in advance as soon as words around the circle loaded
@@ -284,6 +291,10 @@
     return combos.filter(function (item) {
       return item.video == id
     })
+  }
+
+  function doScroll(obj, shift, duration) {
+    TweenMax.to(obj, duration, {css:{backgroundPosition:shift + "px 0"}, repeat:-1, ease:Linear.easeNone});
   }
 
   // expose some stuff

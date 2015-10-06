@@ -1,11 +1,51 @@
 body {
-    background: url('/img/rozd_bg.jpg') 0px 0px repeat;
+    background: url('/img/background.jpg') 0px 0px repeat;
     background-size: 100%;
     width: 100%;
     height: 100%;
     margin: 0px;
     padding: 0px;
 }
+
+#midground {
+    background: url('/img/midground.png') 0px 0px repeat;
+    background-size: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+#foreground {
+    background: url('/img/foreground.png') 0px 0px repeat;
+    background-size: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+/* JS-free animation with css transitions: very slow
+#foreground {
+    background: url('/img/midground.png') 50% 0%, url('/img/foreground.png') 90% 0%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    -webkit-transition: right 300s linear;
+    -moz-transition: right 300s linear;
+    -o-transition: right 300s linear;
+    -ms-transition: right 300s linear;
+    transition: right 300s linear;
+}
+
+body:hover #foreground {
+    right: -9999px;
+}
+*/
 
 .menu {
     position: absolute;
@@ -350,7 +390,13 @@ body {
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
 
     body {
-        background-image: url('/img/rozd_bg@2x.jpg');
+        background-image: url('/img/background@2x.jpg');
+    }
+    #midground {
+        background-image: url('/img/midground@2x.png');   
+    }
+    #foreground {
+        background-image: url('/img/foreground@2x.png');   
     }
     #logo {
         background-image: url('/img/logo@2x.png');
