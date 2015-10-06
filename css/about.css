@@ -39,14 +39,11 @@ body {
     z-index: 2;
 }
 
-.bold {
-	font-family: "HelveticaBold", sans-serif;
-}
-
 .menu img {
     width: 5vh; 
     height: 3.6vh;
     max-width: 39px;
+    cursor: pointer;
 }
 
 #logo {
@@ -59,41 +56,113 @@ body {
     left: 50%;
     margin-left: -6vw;
     z-index: 2;
-}  
+}
+
+.nav {
+    width: 30%;
+    min-width: 200px;
+    max-width: 400px;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    transition: 0.4s;
+}
+
+.nav-hide {
+    transform: translateX(-100%);
+}
+
+.nav-content {
+    margin-top: 150px;
+    align-self: flex-start;
+    width: 100%;
+    position: absolute;
+}
+
+.nav-span:before{
+    content: "·";
+    opacity: 0.9;
+    color: white;
+    text-align: center;
+    font-family: 'Helvetica';
+    font-size: 21px;
+    font-weight: 300;
+    display: block;
+    line-height: 58px;
+}
+
+.nav-a {
+    opacity: 0.5;
+    color: white;
+    text-align: center;
+    font-family: 'Helvetica';
+    font-size: 21px;
+    font-weight: 300;
+    display: block;
+    text-decoration: none;
+    line-height: 58px;
+}
+
+.nav-img-content {
+    align-self: flex-end;
+    width: 100%;
+    margin-bottom: 70px;
+}
+
+.nav-img {
+    background: url('/img/art_logo.png') 0 0 no-repeat;
+    background-size: contain;
+    display: block;
+    margin: 0 auto;
+    max-width: 147px;
+    max-height: 31px;
+    min-width: 89px;
+    min-height: 20px;
+    width: 24vw;
+    height: 5vh;
+}
 
 .container {
-	position: relative;
+    position: relative;
     margin: 0 auto; 
-	width: 840px;
-	padding-top: 140px;
+    width: 840px;
+    padding-top: 140px;
     padding-bottom: 200px;
-}    
+}
 
 .cities {
-	position: relative;
+    position: relative;
     margin: 0 auto; 
     font-size: 0.8em;
 }
 
+.bold {
+    font-family: "HelveticaBold", sans-serif;
+}
+
 .cities p {
-	text-align: center;
+    text-align: center;
 }
 
 .photo {
-	position: relative;
-	padding: 0; 
-	text-align: center;
+    position: relative;
+    padding: 0; 
+    text-align: center;
 }
 
 .short {
-	text-align: center;
+    text-align: center;
     font-size: 14px;
     padding-top: 25px;
 }
 
 .words {
-	padding-top: 50px;
-	text-align: center;
+    padding-top: 50px;
+    text-align: center;
 
 }
 
@@ -114,6 +183,23 @@ body {
         width: 17vw;
         height: 9.29vw;
         margin-left: -8vw;
+    }
+}
+
+@media (max-height: 580px) {
+    .nav-content {
+        margin-top: 50px;
+    }
+    .nav-a {
+        font-size: 18px;
+        line-height: 18px;
+    }
+    .nav-img {
+        width: 89px;
+        height: 20px;
+    }
+    .nav-img-content {
+        margin-bottom: 40px;
     }
 }
 
