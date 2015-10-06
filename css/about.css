@@ -21,15 +21,16 @@
    }
 
 body {
-    background: url('/img/rozd_bg.jpg') 0px 0px repeat;
+    background: url('/img/background.png') 0px 0px repeat;
     background-size: 100%;
     width: 100%;
     height: 100%;
     margin: 0px;
     padding: 0px;
-    font-size: 1em;
-    font-family: "Helvetica", sans-serif;
+    font-size: 14px;
+    font-family: 'Helvetica', sans-serif;
     color: gray;
+    line-height: 1.8;
 }
 
 .menu {
@@ -129,9 +130,10 @@ body {
 .container {
     position: relative;
     margin: 0 auto; 
-    width: 840px;
-    padding-top: 140px;
+    width: 960px;
+    padding-top: 150px;
     padding-bottom: 200px;
+    /*border: red 1px dashed;*/
 }
 
 .cities {
@@ -141,7 +143,15 @@ body {
 }
 
 .bold {
-    font-family: "HelveticaBold", sans-serif;
+    font-family: 'HelveticaBold', sans-serif;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.red {
+    color: #a3496a;
 }
 
 .cities p {
@@ -151,21 +161,71 @@ body {
 .photo {
     position: relative;
     padding: 0; 
-    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+    padding-bottom: 40px;
 }
 
 .short {
     text-align: center;
-    font-size: 14px;
-    padding-top: 25px;
+    max-width: 640px;
+    margin: -30px auto 0 auto;
 }
 
 .words {
     padding-top: 50px;
     text-align: center;
-
+    margin: 0 auto;
+    padding-bottom: 40px;
 }
 
+.text {
+    color: black;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    /*border: green 1px dashed;*/
+}
+
+ul {
+    list-style-type: none;
+    position: relative;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.text1 {
+    color: black;
+    max-width: 530px;
+    padding-bottom: 50px;
+    float: left;
+}
+
+.quotation {
+    float: left;
+    text-align: center;
+    width: 220px;
+    line-height: 1.6;
+    padding-left: 50px;
+}
+
+.face {
+    float: left;
+    max-width: 252px; 
+    padding-top: 30px;
+}
+
+.text2 {
+    color: black;
+    max-width: 450px;
+    float: left;
+    text-align: left;
+    font-size: 16px;
+    padding-left: 60px;
+    padding-top: 30px;
+}
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
 
@@ -203,3 +263,23 @@ body {
     }
 }
 
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+}
+
+.clearfix {
+    display: inline-block; 
+}
+
+* html .clearfix {
+    height: 1%; 
+}
+
+.clearfix {
+    display: block; 
+}
