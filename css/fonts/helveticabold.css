@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'helveticaneuecyrmedium';
+    src: url('fonts/helveticaneuecyrmedium.eot');
+    src: url('fonts/helveticaneuecyrmedium.eot') format('embedded-opentype'),
+         url('fonts/helveticaneuecyrmedium.woff2') format('woff2'),
+         url('fonts/helveticaneuecyrmedium.woff') format('woff'),
+         url('fonts/helveticaneuecyrmedium.ttf') format('truetype'),
+         url('fonts/helveticaneuecyrmedium.svg#helveticaneuecyrmedium') format('svg');
+}

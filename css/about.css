@@ -1,0 +1,119 @@
+@font-face {
+    font-family: 'Helvetica';
+    src: url('/css/fonts/helvetica.eot');
+    src: url('/css/fonts/helvetica.eot?#iefix') format('embedded-opentype'),
+         url('/css/fonts/helvetica.woff') format('woff'),
+         url('/css/fonts/helvetica.ttf') format('truetype'),
+         url('/css/fonts/helvetica.svg#Helvetica') format('svg');
+    font-weight: normal;
+    font-style: normal;
+   }
+
+@font-face {
+    font-family: 'HelveticaBold';
+    src: url('/css/fonts/helveticabold.eot');
+    src: url('/css/fonts/helveticabold.eot?#iefix') format('embedded-opentype'),
+         url('/css/fonts/helveticabold.woff') format('woff'),
+         url('/css/fonts/helveticabold.ttf') format('truetype'),
+         url('/css/fonts/helveticabold.svg#HelveticaBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+   }
+
+body {
+    background: url('/img/rozd_bg.jpg') 0px 0px repeat;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-size: 1em;
+    font-family: "Helvetica", sans-serif;
+    color: gray;
+}
+
+.menu {
+    position: absolute;
+    margin-left: 2.5vw;
+    margin-top: 4vh;
+    z-index: 2;
+}
+
+.bold {
+	font-family: "HelveticaBold", sans-serif;
+}
+
+.menu img {
+    width: 5vh; 
+    height: 3.6vh;
+    max-width: 39px;
+}
+
+#logo {
+    position: absolute;
+    background: url('/img/logo.png') 0 0 no-repeat;
+    background-size: contain;
+    width: 13vw;
+    height: 7.65vw;
+    top: 1vw;
+    left: 50%;
+    margin-left: -6vw;
+    z-index: 2;
+}  
+
+.container {
+	position: relative;
+    margin: 0 auto; 
+	width: 840px;
+	padding-top: 140px;
+    padding-bottom: 200px;
+}    
+
+.cities {
+	position: relative;
+    margin: 0 auto; 
+    font-size: 0.8em;
+}
+
+.cities p {
+	text-align: center;
+}
+
+.photo {
+	position: relative;
+	padding: 0; 
+	text-align: center;
+}
+
+.short {
+	text-align: center;
+    font-size: 14px;
+    padding-top: 25px;
+}
+
+.words {
+	padding-top: 50px;
+	text-align: center;
+
+}
+
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+
+    body {
+        background-image: url('/img/rozd_bg@2x.jpg');
+    }
+    #logo {
+        background-image: url('/img/logo@2x.png');
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) { 
+
+    #logo {
+        width: 17vw;
+        height: 9.29vw;
+        margin-left: -8vw;
+    }
+}
+
