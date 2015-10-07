@@ -12,6 +12,7 @@ $(document).ready(function($) {
   var $next = $('#next')
   var $prev = $('#prev')
   var $share = $('#share')
+  var $logo = $('#logo')
   
   var cards = [
     'img/card0.png',
@@ -61,6 +62,7 @@ $(document).ready(function($) {
       events: {
         'onReady': function(e) {
           e.target.playVideo()
+          $logo.addClass('hide')
         },
         'onStateChange': function(e) {
           if (e.data == YT.PlayerState.PLAYING) {
@@ -137,6 +139,7 @@ $(document).ready(function($) {
     $playerContent.html('<div id="player"></div>')
     $container.addClass('none')
     $content.addClass('none')
+    $logo.removeClass('hide')
     card.reset()
   }
 

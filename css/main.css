@@ -71,7 +71,16 @@ body:hover #foreground {
     left: 50%;
     margin-left: -6vw;
     z-index: 2;
-}  
+    opacity: 1;
+} 
+
+#logo.hide {
+    -webkit-transition: opacity 4s ease-in-out;
+    -moz-transition: opacity 4s ease-in-out;
+    -ms-transition: opacity 4s ease-in-out;
+    -o-transition: opacity 4s ease-in-out;
+    opacity: 0;
+}
 
 #container {
     position: relative;
