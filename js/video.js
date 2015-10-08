@@ -29,6 +29,7 @@ $(document).ready(function($) {
   var player = {}
   var text = {}
   var track
+  var videoState, videoTime
 
   var card = Card($card[0])
 
@@ -52,6 +53,20 @@ $(document).ready(function($) {
     }
   }
 
+  var showCard = _.debounce(function(){
+    if (videoState !== YT.PlayerState.PAUSED) {
+      return
+    }
+
+    text = track.text.reduce(function (res, cur) {
+      return videoTime > cur.time ? cur : res
+    }, {})
+    $content.removeClass('none')
+    currentCard = Math.floor(Math.random() * cards.length)
+    card.draw(text.words || '', currentCard)
+    $cross.addClass('none')
+  }, 500)
+
   function playVideo(track) {
     $body.addClass('overflow-hidden')
     player = new YT.Player('player', {
@@ -65,20 +80,17 @@ $(document).ready(function($) {
           $logo.addClass('hide')
         },
         'onStateChange': function(e) {
-          if (e.data == YT.PlayerState.PLAYING) {
+          videoState = e.data
+          videoTime = player.getCurrentTime()
+
+          if (videoState == YT.PlayerState.PLAYING) {
             $content.addClass('none')
             $cross.removeClass('none')
           }
-          else if (e.data == YT.PlayerState.PAUSED) {
-            text = track.text.reduce(function (res, cur) {
-              return player.getCurrentTime() > cur.time ? cur : res
-            }, {})
-            $content.removeClass('none')
-            currentCard = Math.floor(Math.random() * cards.length)
-            card.draw(text.words || '', currentCard)
-            $cross.addClass('none')
+          else if (videoState == YT.PlayerState.PAUSED) {
+            showCard()
           }
-          else if (e.data == YT.PlayerState.ENDED) {
+          else if (videoState == YT.PlayerState.ENDED) {
             closeIframe()
           }
         },
