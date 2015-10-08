@@ -94,21 +94,28 @@ body:hover #foreground {
 } 
 
 #circle {
-    background: url('/img/kolo.png') 0 0 no-repeat; 
-    background-size: contain;
     margin: auto;
-    opacity: 0.8;
     width: 59.8vh;
     height: 65vh;
     max-height: 100%;
     max-width: 100%;
+    position: relative;
 }
 
-#circle.combo {
-    cursor: pointer;
+#circle::after {
+    content: "";
+    background: url('/img/kolo.png') 0 0 no-repeat; 
+    background-size: contain;
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
 }
 
-#circle.combo:hover {
+#circle.dragover::after {
     opacity: 0.9;
 }
 
@@ -184,10 +191,14 @@ body:hover #foreground {
 }
 
 #circle.combo #play {
+    opacity: 0.8;
     filter: grayscale(0%);
     -webkit-filter: grayscale(0%);
 }
 
+#circle.combo #play.hover {
+    opacity: 1;
+}
 
 #circle.combo #play-ghost {
     display: block;
@@ -391,6 +402,7 @@ body:hover #foreground {
 /*
 #container { border: red 1px dashed; }
 #circle { border: orange 1px dashed; }
+#circle.over { border: orange 1px solid; }
 #field { border: blue 1px dashed; }
 #play-ghost { border: purple 1px dashed; }
 .slot { border: green 1px dashed; }
@@ -410,7 +422,7 @@ body:hover #foreground {
     #logo {
         background-image: url('/img/logo@2x.png');
     }
-    #circle {
+    #circle::after {
         background-image: url('/img/kolo@2x.png');
     }
     #play {

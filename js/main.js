@@ -21,7 +21,7 @@
     "ніжними": "img/nizhnymy.png"
   }
   
-  var slots, circle, field, play;
+  var slots, circle, field, play, playGhost;
   var mainWords = ["вночі", "нічого", "любові", "ніжні",  "війна", "любов", "любов’ю"];
   var combos = window.rozd_combos;
 
@@ -32,6 +32,7 @@
     circle = $("#circle")
     field = $("#field")
     play = $('#play')
+    playGhost = $('#play-ghost')
 
     // animate two layers of the sky with different speed
     width = $('body').outerWidth();
@@ -62,9 +63,18 @@
       this.complete ? loaded() : this.onload = loaded
     });
 
+    // PlayGhost square actions, propagate hover events to play button
+    playGhost.on('mouseenter', function (){
+      play.addClass('hover')
+    }).on('mouseleave', function(){
+      play.removeClass('hover')
+    })
+
     field.droppable({
       drop: function(event, ui) {
         var el = $(ui.draggable);
+
+        circle.removeClass("dragover");
 
         // Once we drad at least one word, do not do ghosts anymore
         doGhosts = false;
@@ -85,6 +95,14 @@
         el.appendTo(field);
         el.css({'top' : top, 'left' : left, 'position': 'absolute'});
         updateUI();
+      },
+
+      over: function() {
+        circle.addClass("dragover");
+      },
+
+      out: function() {
+        circle.removeClass("dragover");
       }
     });
   }
