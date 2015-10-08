@@ -132,14 +132,15 @@ body {
     margin: 0 auto; 
     width: 960px;
     padding-top: 150px;
-    padding-bottom: 200px;
+    padding-bottom: 100px;
     /*border: red 1px dashed;*/
 }
 
 .cities {
     position: relative;
     margin: 0 auto; 
-    font-size: 0.8em;
+    font-size: 12px;
+    padding-bottom: 10px;
 }
 
 .bold {
@@ -148,16 +149,28 @@ body {
 
 .italic {
     font-style: italic;
+    text-decoration: none;
 }
 
 .red {
     color: #a3496a;
 }
 
+.point {
+    font-size: 10px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
 .cities p {
     text-align: center;
 }
 
+.spot {
+    position: absolute;
+    left: 0;
+    max-width: 668px;
+}
 .photo {
     position: relative;
     padding: 0; 
@@ -170,10 +183,23 @@ body {
     text-align: center;
     max-width: 640px;
     margin: -30px auto 0 auto;
+    padding-bottom: 10px;
+}
+
+.short p {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .words {
     padding-top: 50px;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+.vijna {
+    padding-top: 0px;
     text-align: center;
     margin: 0 auto;
     padding-bottom: 40px;
@@ -184,6 +210,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding-bottom: 40px;
+    padding-top: 5px;
     /*border: green 1px dashed;*/
 }
 
@@ -227,10 +254,44 @@ ul {
     padding-top: 30px;
 }
 
+.footer {
+    position: absolute;
+    height: 190px;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+.inner {
+    width: 960px;
+    height: 190px;
+    margin: 0 auto;
+    position: relative;
+    border-top: 1px solid #d3d3d3;
+}
+
+.artpole {
+    position: absolute;
+    left: 0;
+    max-width: 226px;
+    margin-top: 45px;
+}
+
+.dev {
+    position: absolute;
+    margin-top: 45px;
+    right: 45px;
+}
+
+.dev p {
+    margin-top: 0;
+    color: #757575;
+}
+
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
 
     body {
-        background-image: url('/img/rozd_bg@2x.jpg');
+        background-image: url('/img/background@2x.png');
     }
     #logo {
         background-image: url('/img/logo@2x.png');
