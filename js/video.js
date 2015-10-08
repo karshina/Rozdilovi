@@ -201,9 +201,9 @@ $(document).ready(function($) {
 
       var bg = new Image()
       bg.src = cards[index]
-      bg.onload = function(){
-        ctx.drawImage(this, 0, 0, 600, 325)
 
+      var doDraw = function() {
+        ctx.drawImage(bg, 0, 0, 600, 325)
         ctx.font = "300 30px FranklinGothicBook"
 
         var paddingTop = 25
@@ -223,8 +223,10 @@ $(document).ready(function($) {
         ctx.fillStyle = '#ffffff'
         ctx.fillText('rozdilovi.org', 505, height-23)
         */
-
       }
+
+      if (bg.complete) return doDraw()
+      bg.onload = doDraw
     }
 
     function reset() {
