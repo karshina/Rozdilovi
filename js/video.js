@@ -236,6 +236,7 @@ $(document).ready(function($) {
   if (document.location.hash == "#video-content-dev") {
     $container.removeClass('none')
     $content.removeClass('none')
-    card.draw("хочеться говорити тихо, щоби тебе ніхто не почув, а почувши – не зрозумів")
+    card.draw("хочеться говорити тихо, щоби тебе ніхто не почув, а почувши – не зрозумів", 0)
+    window.card = card
   }
 })
