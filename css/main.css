@@ -205,6 +205,20 @@ body:hover #foreground {
     cursor: pointer;
 }
 
+.ghost-hand {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    background: url('/img/ghost_hand.png') 0px 0px no-repeat;
+    background-size: 16px 32px;
+}
+
+.ghost-hand.grab {
+    background-position: 0 -16px;
+}
+
 .word {
     width: 20vw;
     height: auto;
