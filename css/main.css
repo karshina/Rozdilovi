@@ -398,7 +398,7 @@ body:hover #foreground {
     margin-bottom: 70px;
 }
 
-.nav-img {
+#nav-artpole {
     background: url('/img/art_logo.png') 0 0 no-repeat;
     background-size: contain;
     display: block;
