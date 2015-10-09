@@ -32,6 +32,8 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+    <div id="midground"></div>
+    <div id="foreground"></div>
 
         <div class="menu">
           <img src="img/menu.png" data-at2x="img/menu@2x.png">
@@ -40,14 +42,14 @@
         <div class="nav nav-hide">
             <div class="nav-content">
                 <span class="nav-span"><a href="/about.html" class="nav-a">Історія</a></span>
-                <span class="nav-span"><a href="#" class="nav-a">Афіша</a></span>
+                <span class="nav-span"><a href="#" class="nav-a">Майбутнє</a></span>
             </div>
             <div class="nav-img-content">
-                <div class="nav-img"></div>
+                <a target="_blank" href="http://artpole.org/"><div id="nav-artpole"></div></a>
             </div>
         </div>
         <div id="container">
-          <div id="arrow"></div>
+          <!--<div id="arrow"></div>-->
           <div id="circle">
             <div id="play"></div>
             <div id="field"></div>
@@ -68,7 +70,6 @@
           <div class="cross"></div>
           <div class="video-content none">
               <div class="video-content-main">
-                <div class="cursor"></div>
                 <canvas id="card" width="600" height="325"></canvas>
               </div>
               <div id="closecard"></div>
@@ -84,11 +85,15 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script src="/js/vendor/lodash.min.js"></script>
 
         <script src="https://www.youtube.com/iframe_api"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="/js/vendor/jquery.transform2d.js"></script>
         <script src="/js/vendor/jquery.ui.touch-punch.js"></script>
         <script src="/js/vendor/retina.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
   
         <script src="/js/combos.js"></script>
         <script src="/js/main.js"></script>

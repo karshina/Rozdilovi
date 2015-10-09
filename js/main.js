@@ -21,7 +21,7 @@
     "ніжними": "img/nizhnymy.png"
   }
   
-  var slots, circle, field, play;
+  var slots, circle, field, play, playGhost;
   var mainWords = ["вночі", "нічого", "любові", "ніжні",  "війна", "любов", "любов’ю"];
   var combos = window.rozd_combos;
 
@@ -32,6 +32,14 @@
     circle = $("#circle")
     field = $("#field")
     play = $('#play')
+    playGhost = $('#play-ghost')
+
+    // animate two layers of the sky with different speed
+    width = $('body').outerWidth();
+    mid = $('#midground')
+    fore = $('#foreground')
+    doScroll(mid, width, 120);
+    doScroll(fore, width, 60);
 
     updateUI(true)
 
@@ -39,9 +47,9 @@
     var imgEls = $(".slot .word img"), i = imgEls.length;
     var done = function() {
       // Kick off the initial ghost after 3 sec and then
-      // start showing ghosts randomly every 10 seconds
+      // start showing ghosts randomly every 15 seconds
       setTimeout(randomGhost, 3000)
-      setInterval(randomGhost, 10000)
+      setInterval(randomGhost, 15000)
 
       for (var prop in images) {
         var imageObj = new Image();
@@ -55,9 +63,18 @@
       this.complete ? loaded() : this.onload = loaded
     });
 
+    // PlayGhost square actions, propagate hover events to play button
+    playGhost.on('mouseenter', function (){
+      play.addClass('hover')
+    }).on('mouseleave', function(){
+      play.removeClass('hover')
+    })
+
     field.droppable({
       drop: function(event, ui) {
         var el = $(ui.draggable);
+
+        circle.removeClass("dragover");
 
         // Once we drad at least one word, do not do ghosts anymore
         doGhosts = false;
@@ -78,6 +95,14 @@
         el.appendTo(field);
         el.css({'top' : top, 'left' : left, 'position': 'absolute'});
         updateUI();
+      },
+
+      over: function() {
+        circle.addClass("dragover");
+      },
+
+      out: function() {
+        circle.removeClass("dragover");
       }
     });
   }
@@ -177,26 +202,89 @@
   function ghost(slot) {
     var ghSlot = slot.clone(true).addClass('ghost').fadeTo(0, .5).appendTo('.words')
 
-    var ghOffset = ghSlot.offset(),
-        ghTop = ghOffset.top,
-        ghLeft = ghOffset.left,
-        playOffset = play.offset(),
-        playLeft = playOffset.left,
-        playTop = playOffset.top,
-        deltaTop = playTop - ghTop,
-        deltaLeft = playLeft - ghLeft;
+    // make ghost hand
+    var ghHand = $('<div class="ghost-hand"></div>').appendTo(ghSlot)
+    ghHand.css("transform", "translate(100px,100px)")
 
-    ghSlot.animate({opacity: 0}, {
-      duration: 4000,
-      progress: function(an, prog, ms) {
-        var transLeft = (deltaLeft * prog) + "px",
-            transTop = (deltaTop * prog) + "px";
-        ghSlot.css("transform", "translate(" + transLeft + "," + transTop + ")")
-      },
-      complete: function() {
-        ghSlot.remove()
-      }
-    })
+    // Calculate coordinates
+    var ghOffset = ghSlot.offset(),
+        playOffset = circle.offset(),
+        playSize = {
+          width: circle.outerWidth(), 
+          height: circle.outerHeight()
+        },
+        playCenter = {
+          left: playOffset.left + playSize.width/2,
+          top: playOffset.top + playSize.height/2
+        },
+        ghSize = {
+          width: ghSlot.outerWidth(), 
+          height: ghSlot.outerHeight()
+        },
+        ghCenter = {
+          left: ghOffset.left + ghSize.width/2,
+          top: ghOffset.top + ghSize.height/2
+        },
+        deltaTop = playCenter.top - ghCenter.top,
+        deltaLeft = playCenter.left - ghCenter.left;
+
+    // development helper function that draws red square by given coordinates
+    var makeMarker = function(top, left) {
+      var dv = $('<div>').css({
+        position: 'absolute',
+        top: top,
+        left: left,
+        backgroundColor: 'red',
+        width: '2px',
+        height: '2px'
+      })
+      dv.appendTo('body')
+    }
+
+    // Adjust destination delta to make words not overlap the play button
+    var wPadding = ghSize.width / 2,
+        hPadding = ghSize.height / 2;
+    if (deltaTop < 0) {
+      hPadding = hPadding * -1;
+    }
+    if (deltaLeft < 0) {
+      wPadding = wPadding * -1;
+    }
+    deltaTop -= hPadding
+    deltaLeft -= wPadding
+
+    // Move hand to the word
+    var step1 = function() {
+      ghHand.animate({transform: "translate(0, 0)"}, {
+        duration: 2000,
+        complete: step2
+      })
+    }
+
+    // Move the word to the circle
+    var step2 = function() {
+      ghHand.addClass("grab")
+      ghSlot.animate({
+        transform: "translate(" + (deltaLeft) + "px," + (deltaTop) + "px)"
+      }, {
+        duration: 3000,
+        complete: step3
+      })
+    }
+
+    // Word disappear
+    var step3 = function() {
+      ghHand.removeClass("grab")
+      ghSlot.animate({opacity: 0}, {
+        duration: 1000,
+        complete: function() {
+          ghSlot.remove()
+        }
+      })
+    }
+
+    // Kick off the animation
+    step1()
   }
 
   function getCurrentWords() {
@@ -284,6 +372,10 @@
     return combos.filter(function (item) {
       return item.video == id
     })
+  }
+
+  function doScroll(obj, shift, duration) {
+    TweenMax.to(obj, duration, {css:{backgroundPosition:shift + "px 0"}, repeat:-1, ease:Linear.easeNone});
   }
 
   // expose some stuff
