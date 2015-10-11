@@ -319,7 +319,7 @@ window.rozd_combos = [
     ],
   },
   {
-    video: "NbXn_PuZUIs", words: ["вночі", "війна"],
+    video: "7ge6IbF-Blo", words: ["вночі", "війна"],
     text: [
       {words: "завжди повертатись на ці пагорби й ріки", time: 0},
       {words: "завжди повертатись на ці пагорби й ріки, де при брамах стоять митарі й охоронці", time: 27},
@@ -539,7 +539,7 @@ window.rozd_combos = [
     ],
   },
   {
-    video: "n4eh6T8S9lA", words: ["нічних", "любов"],
+    video: "mLxobT-9Zpw", words: ["нічних", "любов"],
     text: [
       {words: "вона любить ходити босоніж і спати на животі", time: 0},
       {words: "чути, як нафта рухається під землею", time: 13},
@@ -571,7 +571,7 @@ window.rozd_combos = [
     ],
   },
   {
-    video: "3OizzOMfCH8", words: ["любов’ю"],
+    video: "WCh_J4-JsSs", words: ["любов’ю"],
     text: [
       {words: "і тоді вона каже", time: 0},
       {words: "я знаю, чим це завершиться", time: 2},

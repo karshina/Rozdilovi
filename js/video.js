@@ -7,11 +7,12 @@ $(document).ready(function($) {
   var $content = $('.video-content')
   var $card = $('#card')
   var $playerContent = $('.player-content')
-  var $cross = $('.cross')
-  var $closecard = $('#closecard')
+  var $closeVideo = $('#close-video')
+  var $share = $('#share')
+  var $closeCard = $('#close-card')
   var $next = $('#next')
   var $prev = $('#prev')
-  var $share = $('#share')
+  var $fbsend = $('#fbsend')
   var $logo = $('#logo')
   
   var cards = [
@@ -64,7 +65,8 @@ $(document).ready(function($) {
     $content.removeClass('none')
     currentCard = Math.floor(Math.random() * cards.length)
     card.draw(text.words || '', currentCard)
-    $cross.addClass('none')
+    $closeVideo.addClass('none')
+    $share.addClass('none')
   }, 500)
 
   function playVideo(track) {
@@ -85,7 +87,8 @@ $(document).ready(function($) {
 
           if (videoState == YT.PlayerState.PLAYING) {
             $content.addClass('none')
-            $cross.removeClass('none')
+            $closeVideo.removeClass('none')
+            $share.removeClass('none')
           }
           else if (videoState == YT.PlayerState.PAUSED) {
             showCard()
@@ -104,11 +107,15 @@ $(document).ready(function($) {
     closeIframe()
   })
 
-  $cross.on('click', function () {
+  $closeVideo.on('click', function () {
     closeIframe()
   })
 
-  $closecard.on('click', function () {
+  $share.on('click', function () {
+    player.pauseVideo()
+  })
+
+  $closeCard.on('click', function () {
     player.playVideo()
   })
 
@@ -122,9 +129,9 @@ $(document).ready(function($) {
     card.draw(text.words || '', currentCard)
   })
 
-  $share.on('click', function() {
+  $fbsend.on('click', function() {
     var imageData = card.getImageData()
-    $share.attr('disabled', true)
+    $fbsend.attr('disabled', true)
 
     // open fb popup earlier because otherwise browsers will block it after ajax request
     var fbpopup = window.open("/loading.html", "pop", "width=600, height=400, scrollbars=no")
@@ -135,7 +142,7 @@ $(document).ready(function($) {
       processData: false,
       data: imageData
     }).done(function(o) {
-      $share.attr('disabled', false)
+      $fbsend.attr('disabled', false)
       console.log('saved', o)
 
       var url = encodeURIComponent(document.location.origin + "/" + '?img=' + o.id + '&video=' + (track && track.video))

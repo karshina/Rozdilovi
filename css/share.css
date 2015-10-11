@@ -9,7 +9,7 @@
     width: 600px;
     height: 325px;
     box-sizing: border-box;
-    margin: 0 35px auto 35px;
+    margin: 0 51px auto 51px;
     font-family: FranklinGothicBook;
 }
 
@@ -24,76 +24,57 @@
 }
 
 #prev {
-    width: 19px;
-    height: 31px;
+    width: 40px;
+    height: 40px;
     position: absolute;
-    background: url('/img/prev.png') 0 0 no-repeat;
-    top: 39%;
+    background: url('/img/iprev.png') 0 0 no-repeat;
+    top: 35%;
     left: 0%;
     cursor: pointer;
 }
 
 #next {
-    width: 19px;
-    height: 31px;
+    width: 40px;
+    height: 40px;
     position: absolute;
-    background: url('/img/next.png') 0 0 no-repeat;
-    top: 39%;
+    background: url('/img/inext.png') 0 0 no-repeat;
+    top: 35%;
     right: 0%;
     cursor: pointer;
 }
 
-#closecard {
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    border-radius: 25px;
-    background-color: rgba(255, 255, 255, 0.7);
-    cursor: pointer;
-}
-
-#closecard:before {
-    content: "";
-    position: absolute;
-    z-index: 2;
-    background: url('/img/closecard_btn.png') 0 0 no-repeat;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    margin-top: -1px;
-    right: -1px;
-}
-
-#closecard:hover {
-    background-color: #fff;
-}
-
-#share {
-    width: 106px;
+#close-card {
+    width: 40px;
     height: 40px;
     position: absolute;
-    bottom: 0px;
-    left: 44%;
-    border-radius: 2px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background: url('/img/iclose.png') 0 0 no-repeat;
+    top: 0px;
+    right: 0px;
+    border-radius: 20px;
     cursor: pointer;
 }
 
-#share:before {
+#fbsend {
+    width: 135px;
+    height: 47px;
+    position: absolute;
+    bottom: 0px;
+    left: 43%;
+    background-color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+#fbsend:before {
     content: "";
     position: absolute;
     z-index: 2;
-    background: url('/img/fbshare_btn2.png') 0 0 no-repeat;
+    background: url('/img/isend.png') 0 0 no-repeat;
     background-size: contain;
-    width: 115px;
-    height: 44px;
-    margin-top: -2px;
-    left: -5px;
+    width: 135px;
+    height: 47px;
 }
 
-#share:hover {
+#fbsend:hover {
     background-color: #fff;
 }
 
