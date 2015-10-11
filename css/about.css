@@ -27,10 +27,14 @@ body {
     height: 100%;
     margin: 0px;
     padding: 0px;
-    font-size: 14px;
     font-family: 'Helvetica', sans-serif;
-    color: gray;
     line-height: 1.8;
+}
+
+.spot {
+    position: absolute;
+    left: 0;
+    max-width: 668px;
 }
 
 .menu {
@@ -49,6 +53,7 @@ body {
 
 #logo {
     position: absolute;
+    display: block;
     background: url('/img/logo.png') 0 0 no-repeat;
     background-size: contain;
     width: 13vw;
@@ -127,163 +132,146 @@ body {
     height: 5vh;
 }
 
-.container {
-    position: relative;
-    margin: 0 auto; 
+.about-container {
+    margin: 0 auto;
     width: 960px;
     padding-top: 150px;
-    padding-bottom: 100px;
+    position: relative;
     /*border: red 1px dashed;*/
+
+    /* One grid section, can be different in responsive scales */
+    font-size: 80px;
 }
 
-.cities {
-    position: relative;
-    margin: 0 auto; 
-    font-size: 12px;
-    padding-bottom: 10px;
+.about-container p {
+    font-size: 14px;
 }
 
-.bold {
-    font-family: 'HelveticaBold', sans-serif;
-}
-
-.italic {
-    font-style: italic;
-    text-decoration: none;
-}
-
-.red {
-    color: #a3496a;
-}
-
-.point {
-    font-size: 10px;
-    margin-left: 8px;
-    margin-right: 8px;
-}
-
-.cities p {
-    text-align: center;
-}
-
-.spot {
-    position: absolute;
-    left: 0;
-    max-width: 668px;
-}
-.photo {
-    position: relative;
-    padding: 0; 
-    max-width: 640px;
-    margin: 0 auto;
-    padding-bottom: 40px;
-}
-
-.short {
-    text-align: center;
-    max-width: 640px;
-    margin: -30px auto 0 auto;
-    padding-bottom: 10px;
-}
-
-.short p {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.words {
-    padding-top: 50px;
-    text-align: center;
-    margin: 0 auto;
-    padding-bottom: 40px;
-}
-
-.vijna {
-    padding-top: 0px;
-    text-align: center;
-    margin: 0 auto;
-    padding-bottom: 40px;
-}
-
-.text {
-    color: black;
-    max-width: 800px;
-    margin: 0 auto;
-    padding-bottom: 40px;
-    padding-top: 5px;
+.about-container .text {
+    color: #000000;
+    margin: 40px 80px;
     /*border: green 1px dashed;*/
 }
 
-ul {
-    list-style-type: none;
-    position: relative;
-    padding: 0;
-    max-width: 800px;
-    margin: 0 auto;
-    overflow: hidden;
+.about-container .space {
+    margin-top: 20px;
+    font-size: 0;
 }
 
-.text1 {
-    color: black;
-    max-width: 530px;
-    padding-bottom: 50px;
-    float: left;
+.about-container .margin-small {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.quotation {
-    float: left;
+.about-container .text p.center {
     text-align: center;
-    width: 220px;
+}
+
+.about-container .text p.cities {
+    font-size: 12px;
+}
+
+.about-container .text .point {
+    font-size: 6px;
+    margin-left: 8px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.about-container .text .grey {
+    color: #585a5f;
+}
+
+.about-container .text strong {
+    font-family: 'HelveticaBold', sans-serif;
+}
+
+.about-container .text .italic {
+    font-style: italic;
+}
+
+.about-container .text a {
+    font-style: italic;
+    text-decoration: none;
+    color: #a3496a;
+}
+
+.about-container .photo {
+    text-align: center;
+    font-size: 0;
+}
+
+.about-container .word {
+    text-align: center;
+    font-size: 0;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.about-container .word.space-bottom {
+    margin-bottom: 70px;
+}
+
+.about-container .text-quote {
+    margin-right: 0;
+}
+
+.about-container .text-quote div.quote {
+    float: right;
+    width: 240px;
+    margin-left: 80px;
+    text-align: center;
     line-height: 1.6;
-    padding-left: 50px;
 }
 
-.face {
-    float: left;
-    max-width: 252px; 
-    padding-top: 30px;
+.about-container .text-quote div.quote p:first-child {
+    margin-top: 0;
 }
 
-.text2 {
-    color: black;
-    max-width: 450px;
+.about-container .text-quote div.quote .point {
+    font-size: 10px;
+}
+
+.about-container .text-photo img {
+    display: block;
     float: left;
-    text-align: left;
+}
+
+.about-container .text-photo img {
+    width: 4em;
+}
+
+.about-container .text-photo .right {
+    margin-left: 4em;
+}
+
+.about-container .text-photo h3 {
+    font-family: 'HelveticaBold', sans-serif;
+}
+
+.about-container .text-photo h3, .about-container .text-photo p {
+    /*margin-left: 4em;*/
     font-size: 16px;
-    padding-left: 60px;
-    padding-top: 30px;
 }
 
-.footer {
-    position: absolute;
+.about-container .footer {
+    margin-top: 100px;
     height: 190px;
-    width: 100%;
-    left: 0;
-    right: 0;
-}
-
-.inner {
-    width: 960px;
-    height: 190px;
-    margin: 0 auto;
     position: relative;
     border-top: 1px solid #d3d3d3;
 }
 
-.artpole {
-    position: absolute;
-    left: 0;
+.about-container .artpole {
+    float: left;
     max-width: 226px;
-    margin-top: 45px;
 }
 
-.dev {
-    position: absolute;
+.about-container .dev {
     margin-top: 45px;
-    right: 45px;
+    margin-left: 5em;
 }
 
-.dev p {
+.about-container .dev p {
     margin-top: 0;
     color: #757575;
 }
@@ -304,6 +292,15 @@ ul {
         width: 17vw;
         height: 9.29vw;
         margin-left: -8vw;
+    }
+
+    .about-container {
+        width: 700px;
+        font-size: 58px;
+    }
+
+    .about-container .text {
+        margin: 0 30px;
     }
 }
 
