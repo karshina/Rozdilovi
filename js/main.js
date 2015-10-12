@@ -34,12 +34,14 @@
     play = $('#play')
     playGhost = $('#play-ghost')
 
-    // animate two layers of the sky with different speed
-    width = $('body').outerWidth();
-    mid = $('#midground')
-    fore = $('#foreground')
-    doScroll(mid, width, 120);
-    doScroll(fore, width, 60);
+    if (document.location.hash == "#animate") {
+      // animate two layers of the sky with different speed
+      width = $('body').outerWidth();
+      mid = $('#midground')
+      fore = $('#foreground')
+      doScroll(mid, width, 120);
+      doScroll(fore, width, 60);
+    }
 
     updateUI(true)
 
@@ -256,7 +258,7 @@
     // Move hand to the word
     var step1 = function() {
       ghHand.animate({transform: "translate(0, 0)"}, {
-        duration: 2000,
+        duration: 1000,
         complete: step2
       })
     }
@@ -267,7 +269,7 @@
       ghSlot.animate({
         transform: "translate(" + (deltaLeft) + "px," + (deltaTop) + "px)"
       }, {
-        duration: 3000,
+        duration: 1400,
         complete: step3
       })
     }
