@@ -137,6 +137,7 @@
   function doUpdateUI() {
     var newState = updateState()
 
+    $('.ghost-hand').remove()
     fillSlots(newState.suggestedWords);
 
     if (newState.combo.length != 0) {
