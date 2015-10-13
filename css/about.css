@@ -144,7 +144,7 @@ body {
 }
 
 .about-container p {
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .about-container .text {
@@ -191,9 +191,13 @@ body {
 }
 
 .about-container .text a {
-    font-style: italic;
+    font-style: normal;
     text-decoration: none;
     color: #a3496a;
+}
+
+.about-container .text a:hover {
+    text-decoration: underline;
 }
 
 .about-container .photo {
@@ -267,13 +271,15 @@ body {
 }
 
 .about-container .dev {
-    margin-top: 45px;
+    margin-top: 40px;
     margin-left: 5em;
 }
 
 .about-container .dev p {
     margin-top: 0;
+    margin-bottom: 7px;
     color: #757575;
+    font-size: 14px;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
