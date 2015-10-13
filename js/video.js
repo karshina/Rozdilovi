@@ -249,7 +249,7 @@ $(document).ready(function($) {
     }
 
     function getImageData() {
-      var url = card.toDataURL("image/jpeg", 1),
+      var url = card.toDataURL("image/jpeg", 0.7),
           prefix = "data:image/jpeg;base64,"
       return url.substr(prefix.length)
     }
