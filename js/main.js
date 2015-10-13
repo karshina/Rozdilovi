@@ -76,8 +76,6 @@
       drop: function(event, ui) {
         var el = $(ui.draggable);
 
-        circle.removeClass("dragover");
-
         // Once we drad at least one word, do not do ghosts anymore
         doGhosts = false;
 

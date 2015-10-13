@@ -112,11 +112,15 @@ body:hover #foreground {
     bottom: 0;
     right: 0;
     position: absolute;
-    z-index: -1;   
+    z-index: -1;
+    filter: grayscale(90%);
+    -webkit-filter: grayscale(90%);
 }
 
 #circle.dragover::after {
     opacity: 0.9;
+    filter: grayscale(0%);
+    -webkit-filter: grayscale(0%);
 }
 
 #arrow {
@@ -191,7 +195,7 @@ body:hover #foreground {
 }
 
 #circle.combo #play {
-    opacity: 0.8;
+    opacity: 0.9;
     filter: grayscale(0%);
     -webkit-filter: grayscale(0%);
 }
