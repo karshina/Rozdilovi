@@ -67,7 +67,7 @@ body {
 .nav {
     width: 30%;
     min-width: 200px;
-    max-width: 400px;
+    max-width: 360px;
     height: 100%;
     top: 0;
     position: absolute;
@@ -119,7 +119,7 @@ body {
     margin-bottom: 70px;
 }
 
-.nav-img {
+#nav-artpole {
     background: url('/img/art_logo.png') 0 0 no-repeat;
     background-size: contain;
     display: block;
