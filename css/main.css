@@ -65,7 +65,7 @@ body:hover #foreground {
     position: absolute;
     background: url('/img/logo.png') 0 0 no-repeat;
     background-size: contain;
-    width: 14vw;
+    width: 13vw;
     height: 7.65vw;
     top: 1vw;
     left: 50%;
