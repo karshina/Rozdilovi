@@ -104,3 +104,19 @@
     position: absolute;
     bottom: -50px;
 }
+
+@media only screen and (max-width: 705px) {
+    #prev {
+        left: 8%;
+    }
+
+    #next {
+        right: 8%;
+    }
+
+    #close-card {
+        top: 1%;
+        right: 8%;
+    }
+
+}
