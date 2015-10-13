@@ -249,8 +249,8 @@ $(document).ready(function($) {
     }
 
     function getImageData() {
-      var url = card.toDataURL("image/png"),
-          prefix = "data:image/png;base64,"
+      var url = card.toDataURL("image/jpeg", 0.8),
+          prefix = "data:image/jpeg;base64,"
       return url.substr(prefix.length)
     }
 
