@@ -181,6 +181,10 @@ $(document).ready(function($) {
     card.height = card.height * 2
     ctx.scale(2,2)
 
+    // Render the hidden text to preload the font
+    ctx.font = "300 30px FranklinGothicBook"
+    ctx.fillText("Привіт", -100, -100)
+
     function canvasWrapText(ctx, text, x, y, maxWidth, lineHeight) {
       var words = text.split(' '),
           line = '',
