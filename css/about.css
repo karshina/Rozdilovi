@@ -79,7 +79,7 @@ body {
 }
 
 .nav-hide {
-    transform: translateX(-100%);
+    margin-left: -500px;
 }
 
 .nav-content {
@@ -87,6 +87,13 @@ body {
     align-self: flex-start;
     width: 100%;
     position: absolute;
+}
+
+.nav-img-content a {
+    position: relative;
+    display: block;
+    margin-top: 85vh;
+    width: 100%;
 }
 
 .nav-span:before{
@@ -114,7 +121,6 @@ body {
 }
 
 .nav-img-content {
-    align-self: flex-end;
     width: 100%;
     margin-bottom: 70px;
 }
@@ -318,7 +324,7 @@ body {
         font-size: 18px;
         line-height: 18px;
     }
-    .nav-img {
+    #nav-artpole {
         width: 89px;
         height: 20px;
     }
@@ -326,6 +332,7 @@ body {
         margin-bottom: 40px;
     }
 }
+
 
 .clearfix:after {
      visibility: hidden;

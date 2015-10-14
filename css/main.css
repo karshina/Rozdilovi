@@ -47,6 +47,20 @@ body:hover #foreground {
 }
 */
 
+#nichogo {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 35vh;
+    width: 30vw;
+    font-size: 18px;
+    text-align: center;
+}
+
+#nichogo a {
+    color: #a3496a;
+}
+
 .menu {
     position: absolute;
     margin-left: 2.5vw;
@@ -260,27 +274,27 @@ body:hover #foreground {
 
 .slot1 {
     top: 4vh;
-    margin-right: -9vw;
+    margin-right: -7vw;
 }
 
 .slot2 {
     top: -2vh;
-    margin-left: -7vw;
+    margin-left: -8vw;
 }
 
 .slot3 {
     top: 25vh;
-    margin-right: -3vw;
+    margin-right: -1vw;
 }
 
 .slot4 {
     top: 17vh;
-    margin-left: 1vh;
+    margin-left: 2vh;
 }
 
 .slot5 {
     top: 45vh;
-    margin-right: -6vw;
+    margin-right: -4vw;
 }
 
 .slot6 {
@@ -295,7 +309,7 @@ body:hover #foreground {
 
 .slot8 {
     top: 58vh;
-    margin-left: -39vw;
+    margin-left: -47vw;
 
 }
 
@@ -384,7 +398,7 @@ body:hover #foreground {
 }
 
 .nav-hide {
-    transform: translateX(-100%);
+   margin-left: -500px;
 }
 
 .nav-content {
@@ -419,14 +433,21 @@ body:hover #foreground {
 }
 
 .nav-img-content {
-    align-self: flex-end;
     width: 100%;
     margin-bottom: 70px;
+}
+
+.nav-img-content a {
+    position: relative;
+    display: block;
+    margin-top: 85vh;
+    width: 100%;
 }
 
 #nav-artpole {
     background: url('/img/art_logo.png') 0 0 no-repeat;
     background-size: contain;
+    position: relative;
     display: block;
     margin: 0 auto;
     max-width: 147px;
@@ -472,7 +493,7 @@ body:hover #foreground {
    
 @media only screen and (min-width: 768px) and (max-width: 959px) { 
 
-    #play {
+    #play, #play-ghost {
         margin-left: -38px;
         margin-top: -46px;
     }
@@ -487,7 +508,7 @@ body:hover #foreground {
         margin-left: -8vw;
     }
 
-    #play {
+    #play, #play-ghost {
         width: 16.87vh;
         height: 16vh;
         margin-left: -23px;
@@ -533,7 +554,7 @@ body:hover #foreground {
         height: 59.61vw;
     }
 
-    #play {
+    #play, #play-ghost {
         width: 18vw;
         height: 17.07vw;
         margin-left: -22px;
@@ -561,12 +582,12 @@ body:hover #foreground {
 
     .slot3 {
         top: 19vw;
-        margin-right: -11vw;
+        margin-right: -9vw;
     }
 
     .slot4 {
         top: 15vw;
-        margin-left: -11vw;
+        margin-left: -8vw;
     }
 
     .slot5 {
@@ -581,7 +602,7 @@ body:hover #foreground {
 
     .slot7 {
         top: 53vw;
-        margin-right: -70vw;
+        margin-right: -56vw;
     }
 
     .slot8 {
@@ -598,7 +619,7 @@ body:hover #foreground {
         font-size: 18px;
         line-height: 18px;
     }
-    .nav-img {
+    #nav-artpole {
         width: 89px;
         height: 20px;
     }
