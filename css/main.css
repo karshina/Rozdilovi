@@ -493,7 +493,7 @@ body:hover #foreground {
    
 @media only screen and (min-width: 768px) and (max-width: 959px) { 
 
-    #play {
+    #play, #play-ghost {
         margin-left: -38px;
         margin-top: -46px;
     }
@@ -508,7 +508,7 @@ body:hover #foreground {
         margin-left: -8vw;
     }
 
-    #play {
+    #play, #play-ghost {
         width: 16.87vh;
         height: 16vh;
         margin-left: -23px;
@@ -554,7 +554,7 @@ body:hover #foreground {
         height: 59.61vw;
     }
 
-    #play {
+    #play, #play-ghost {
         width: 18vw;
         height: 17.07vw;
         margin-left: -22px;
