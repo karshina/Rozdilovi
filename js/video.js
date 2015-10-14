@@ -16,6 +16,7 @@ $(document).ready(function($) {
   var $prev = $('#prev')
   var $fbsend = $('#fbsend')
   var $logo = $('#logo')
+  var $spinner = $('#spinner')
   
   var cards = [
     'img/cards/card0.jpg',
@@ -250,11 +251,14 @@ $(document).ready(function($) {
     function draw(text, index) {
       reset()
 
-      var bg = new Image()
+      $cardImg.replaceWith('<img id="card-img" />')
+
+      var bg = $cardImg[0]
       bg.src = cards[index]
 
-      var doDraw = function() {
-        ctx.drawImage(bg, 0, 0, 600, 325)
+      $spinner.show()
+
+      var drawText = function() {
         ctx.font = "300 30px FranklinGothicBook"
 
         var paddingTop = 18
@@ -274,11 +278,19 @@ $(document).ready(function($) {
         ctx.fillRect(600-textWidth-33, height-35, textWidth+12, 17);
         ctx.fillStyle = '#ffffff'
         ctx.fillText('rozdilovi.org', 600-textWidth-33+6, height-23)
-        
       }
 
-      if (bg.complete) return doDraw()
-      bg.onload = doDraw
+      var drawBg = function() {
+        $spinner.hide()
+        reset()
+        ctx.drawImage(bg, 0, 0, 600, 325)
+        drawText()        
+      }
+
+      drawText()
+
+      if (bg.complete) return drawBg()
+      bg.onload = drawBg
     }
 
     function reset() {
@@ -302,7 +314,9 @@ $(document).ready(function($) {
   if (document.location.hash == "#video-content-dev") {
     $container.removeClass('none')
     $content.removeClass('none')
-    card.draw("хочеться говорити тихо, щоби тебе ніхто не почув, а почувши – не зрозумів", 0)
+    text = {words: "хочеться говорити тихо, щоби тебе ніхто не почув, а почувши – не зрозумів"}
+    currentCard = 0
+    card.draw(text.words, 0)
     window.card = card
   }
 })

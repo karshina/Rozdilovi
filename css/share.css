@@ -5,7 +5,7 @@
 
 .video-content-main {
     position: absolute;
-    background-size: contain;
+    background: #ffffff;
     width: 600px;
     height: 325px;
     box-sizing: border-box;
@@ -43,8 +43,15 @@
     cursor: pointer;
 }
 
+#card {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
 #card-img {
-    display: none;
+    width: 600px;
+    height: 325px;
 }
 
 #play-shared {
@@ -79,9 +86,15 @@
     display: none;
 }
 
-.video-container.share-mode #play-shared,
-.video-container.share-mode #card-img {
+.video-container.share-mode #play-shared {
     display: block;
+}
+
+.video-content-main #spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: none;
 }
 
 #close-card {
