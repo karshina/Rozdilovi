@@ -226,7 +226,8 @@ body:hover #foreground {
 .word {
     width: 20vw;
     height: auto;
-    cursor: -webkit-grab; 
+    text-align: center;
+    
     /*border: blue solid 1px;*/
 }
 
