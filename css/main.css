@@ -47,6 +47,20 @@ body:hover #foreground {
 }
 */
 
+#nichogo {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 35vh;
+    width: 30vw;
+    font-size: 18px;
+    text-align: center;
+}
+
+#nichogo a {
+    color: #a3496a;
+}
+
 .menu {
     position: absolute;
     margin-left: 2.5vw;
