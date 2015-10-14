@@ -419,9 +419,15 @@ body:hover #foreground {
 }
 
 .nav-img-content {
-    align-self: flex-end;
     width: 100%;
     margin-bottom: 70px;
+}
+
+.nav-img-content a {
+    position: relative;
+    display: block;
+    margin-top: 85vh;
+    width: 100%;
 }
 
 #nav-artpole {
@@ -591,7 +597,7 @@ body:hover #foreground {
     }
 }
 
-@media (max-height: 600px) {
+@media (max-height: 580px) {
     .nav-content {
         margin-top: 50px;
     }
