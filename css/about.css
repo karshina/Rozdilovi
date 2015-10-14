@@ -21,7 +21,7 @@
    }
 
 body {
-    background: url('/img/background.png') 0px 0px repeat;
+    background: url('/img/background_about.jpg') 0px 0px repeat;
     background-size: 100%;
     width: 100%;
     height: 100%;
@@ -291,7 +291,7 @@ body {
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
 
     body {
-        background-image: url('/img/background@2x.png');
+        background-image: url('/img/background_about@2x.jpg');
     }
     #logo {
         background-image: url('/img/logo@2x.png');
