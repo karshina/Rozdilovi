@@ -47,6 +47,20 @@ body:hover #foreground {
 }
 */
 
+#nichogo {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 35vh;
+    width: 30vw;
+    font-size: 18px;
+    text-align: center;
+}
+
+#nichogo a {
+    color: #a3496a;
+}
+
 .menu {
     position: absolute;
     margin-left: 2.5vw;
@@ -260,27 +274,27 @@ body:hover #foreground {
 
 .slot1 {
     top: 4vh;
-    margin-right: -9vw;
+    margin-right: -7vw;
 }
 
 .slot2 {
     top: -2vh;
-    margin-left: -7vw;
+    margin-left: -8vw;
 }
 
 .slot3 {
     top: 25vh;
-    margin-right: -3vw;
+    margin-right: -1vw;
 }
 
 .slot4 {
     top: 17vh;
-    margin-left: 1vh;
+    margin-left: 2vh;
 }
 
 .slot5 {
     top: 45vh;
-    margin-right: -6vw;
+    margin-right: -4vw;
 }
 
 .slot6 {
@@ -295,7 +309,7 @@ body:hover #foreground {
 
 .slot8 {
     top: 58vh;
-    margin-left: -39vw;
+    margin-left: -47vw;
 
 }
 
@@ -568,12 +582,12 @@ body:hover #foreground {
 
     .slot3 {
         top: 19vw;
-        margin-right: -11vw;
+        margin-right: -9vw;
     }
 
     .slot4 {
         top: 15vw;
-        margin-left: -11vw;
+        margin-left: -8vw;
     }
 
     .slot5 {
@@ -588,7 +602,7 @@ body:hover #foreground {
 
     .slot7 {
         top: 53vw;
-        margin-right: -70vw;
+        margin-right: -56vw;
     }
 
     .slot8 {

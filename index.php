@@ -2,7 +2,11 @@
 
 include_once 'utils.php';
 
-$index = file_get_contents(__DIR__ . '/index.html');
+if (strpos($_SERVER['HTTP_HOST'], 'rozdilovi.org') === false ) {
+	$index = file_get_contents(__DIR__ . '/index.html');
+} else {
+	$index = file_get_contents(__DIR__ . '/indexstub.html');
+}
 
 $index = str_replace('{{URL}}', htmlspecialchars(full_url($_SERVER, true)), $index);
 
