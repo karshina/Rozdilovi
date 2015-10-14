@@ -24,8 +24,10 @@
   var slots, circle, field, play, playGhost;
   var mainWords = ["вночі", "нічого", "любові", "ніжні",  "війна", "любов", "любов’ю"];
   var combos = window.rozd_combos;
+  var ghostInitialDelay = 3000;
+  var ghostInterval = 15000;
 
-  var doGhosts = true;
+  var doGhosts = true, ghostActive = false;
 
   function initUI() {
     slots = $(".slot")
@@ -48,10 +50,9 @@
     // Preload the rest of word images in advance as soon as words around the circle loaded
     var imgEls = $(".slot .word img"), i = imgEls.length;
     var done = function() {
-      // Kick off the initial ghost after 3 sec and then
-      // start showing ghosts randomly every 15 seconds
-      setTimeout(randomGhost, 3000)
-      setInterval(randomGhost, 15000)
+      // Kick off the initial ghost after ghostInitialDelay and then
+      // start showing ghosts randomly every ghostInterval
+      setTimeout(randomGhost, ghostInitialDelay)
 
       for (var prop in images) {
         var imageObj = new Image();
@@ -70,6 +71,13 @@
       play.addClass('hover')
     }).on('mouseleave', function(){
       play.removeClass('hover')
+    })
+
+    // If clicked on the field without having combo, then show ghost as a hint
+    field.click(function() {
+      if (!circle.hasClass("combo")) {
+        randomGhost();
+      }
     })
 
     field.droppable({
@@ -192,16 +200,24 @@
     return src
   }
 
+  // ghost timer
+  var tGhost = null;
+
   function randomGhost() {
     if (!doGhosts) return;
+    if (ghostActive) return;
+    clearTimeout(tGhost);
     // find slots that are not empty
-    var slots = $(".word").closest('.slot')
-    var idx = Math.floor(Math.random() * slots.length)
-    ghost(slots.eq(idx))
+    var slots = $(".word").closest('.slot');
+    var idx = Math.floor(Math.random() * slots.length);
+    ghost(slots.eq(idx), function() {
+      tGhost = setTimeout(randomGhost, ghostInterval);
+    });
   }
 
-  function ghost(slot) {
-    var ghSlot = slot.clone(true).addClass('ghost').fadeTo(0, .5).appendTo('.words')
+  function ghost(slot, callback) {
+    var ghSlot = slot.clone(true).addClass('ghost').fadeTo(0, .5).appendTo('.words');
+    ghostActive = true;
 
     // make ghost hand
     var ghHand = $('<div class="ghost-hand"></div>').appendTo(ghSlot)
@@ -279,7 +295,9 @@
       ghSlot.animate({opacity: 0}, {
         duration: 1000,
         complete: function() {
-          ghSlot.remove()
+          ghSlot.remove();
+          ghostActive = false;
+          callback && callback();
         }
       })
     }
