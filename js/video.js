@@ -3,9 +3,11 @@ $(document).ready(function($) {
   var $container = $('.video-container')
   var $play = $('#play')
   var $playGhost = $('#play-ghost')
+  var $playShared = $('#play-shared')
   var $body = $('body')
   var $content = $('.video-content')
   var $card = $('#card')
+  var $cardImg = $('#card-img')
   var $playerContent = $('.player-content')
   var $closeVideo = $('#close-video')
   var $share = $('#share')
@@ -35,6 +37,8 @@ $(document).ready(function($) {
   var track
   var videoState, videoTime
 
+  var showCardDebounce = _.debounce(showCard, 500);
+
   var card = Card($card[0])
 
   $window.resize(function() {
@@ -46,18 +50,29 @@ $(document).ready(function($) {
   $playGhost.on('click', function () {
     track = window.rozd.getCurrentTrack($play.attr('data-video-id'))[0]
     if (!track) return
-    playVideo(track)
+    playVideo(track, 1)
   })
 
   window.onYouTubeIframeAPIReady = function() {
-    var m = (document.location.search||"").match(/video=([^&]+)/)
-    if (m) {
-      var track = window.rozd.getCurrentTrack(m[1])[0]
-      playVideo(track)
+    var s = (document.location.search||""),
+        mi = s.match(/img=([^&]+)/),
+        mv = s.match(/video=([^&]+)/),
+        mt = s.match(/t=([^&]+)/);
+
+    if (mi && mv && mt) {
+      track = window.rozd.getCurrentTrack(mv[1])[0]
+      videoTime = parseInt(mt[1], 10)
+      $cardImg.attr('src', '/uploads/' + mi[1] + '.jpg')
+      playVideo(track, 0)
+      $container.addClass('share-mode')
+      showCard()
     }
   }
+  if (YT && YT.loaded) {
+    window.onYouTubeIframeAPIReady()
+  }
 
-  var showCard = _.debounce(function(){
+  function showCard() {
     if (videoState !== YT.PlayerState.PAUSED) {
       return
     }
@@ -70,31 +85,38 @@ $(document).ready(function($) {
     card.draw(text.words || '', currentCard)
     $closeVideo.addClass('none')
     $share.addClass('none')
-  }, 500)
+  }
 
-  function playVideo(track) {
+  function hideCard() {
+    $content.addClass('none')
+    $closeVideo.removeClass('none')
+    $share.removeClass('none')
+  }
+
+  function playVideo(track, autoplay, onReady) {
     $body.addClass('overflow-hidden')
+    videoState = YT.PlayerState.PAUSED
+
     player = new YT.Player('player', {
       height: $window.height(),
       width: $window.width(),
-      playerVars: { 'autoplay': 1, 'fs': 0,'showinfo':0,'color':'white','disablekb': 1},
+      playerVars: { 'autoplay': autoplay, 'fs': 0,'showinfo':0,'color':'white','disablekb': 1},
       videoId: track.video,
       events: {
         'onReady': function(e) {
-          e.target.playVideo()
           $logo.addClass('hide')
+          autoplay && e.target.playVideo()
+          onReady && onReady()
         },
         'onStateChange': function(e) {
           videoState = e.data
           videoTime = player.getCurrentTime()
 
           if (videoState == YT.PlayerState.PLAYING) {
-            $content.addClass('none')
-            $closeVideo.removeClass('none')
-            $share.removeClass('none')
+            hideCard()
           }
           else if (videoState == YT.PlayerState.PAUSED) {
-            showCard()
+            showCardDebounce()
           }
           else if (videoState == YT.PlayerState.ENDED) {
             closeIframe()
@@ -119,7 +141,11 @@ $(document).ready(function($) {
   })
 
   $closeCard.on('click', function () {
+    hideCard()
     player.playVideo()
+
+    // Reset share mode if any
+    $container.removeClass('share-mode')
   })
 
   $next.on('click', function () {
@@ -146,11 +172,22 @@ $(document).ready(function($) {
       data: imageData
     }).done(function(o) {
       $fbsend.attr('disabled', false)
-      console.log('saved', o)
 
-      var url = encodeURIComponent(document.location.origin + "/" + '?img=' + o.id + '&video=' + (track && track.video))
+      var vars = [
+        'img=' + o.id,
+        'video=' + (track && track.video),
+        't=' + videoTime
+      ]
+      var url = encodeURIComponent(document.location.origin + "/" + '?' + vars.join('&'))
+
       fbpopup.location.replace("https://www.facebook.com/sharer/sharer.php?u=" + url)
     })
+  })
+
+  $playShared.on('click', function () {
+    hideCard()
+    player.playVideo()
+    $container.removeClass('share-mode')
   })
 
   function closeIframe() {

@@ -43,6 +43,47 @@
     cursor: pointer;
 }
 
+#card-img {
+    display: none;
+}
+
+#play-shared {
+    width: 135px;
+    height: 47px;
+    position: absolute;
+    bottom: 0px;
+    left: 43%;
+    background-color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    display: none;
+}
+
+#play-shared:before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    background: url('/img/playvideo.png') 0 0 no-repeat;
+    background-size: contain;
+    width: 135px;
+    height: 47px;
+}
+
+#play-shared:hover {
+    background-color: #fff;
+}
+
+.video-container.share-mode #card,
+.video-container.share-mode #prev,
+.video-container.share-mode #next,
+.video-container.share-mode #fbsend {
+    display: none;
+}
+
+.video-container.share-mode #play-shared,
+.video-container.share-mode #card-img {
+    display: block;
+}
+
 #close-card {
     width: 40px;
     height: 40px;
@@ -103,6 +144,15 @@
 #share-result {
     position: absolute;
     bottom: -50px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+    #play-shared:before {
+        background-image: url('/img/playvideo@2x.png');
+    }
+    #fbsend:before {
+        background-image: url('/img/isend@2x.png');
+    }
 }
 
 @media only screen and (max-width: 705px) {
