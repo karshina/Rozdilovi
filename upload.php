@@ -2,6 +2,8 @@
 
 include_once 'utils.php';
 
+@mkdir(__DIR__ . '/uploads', 0755, true);
+
 $imageId = getRandomHex(10);
 $fileName = __DIR__ . '/uploads/' . $imageId . '.jpg';
 
