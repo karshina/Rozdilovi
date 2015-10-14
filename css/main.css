@@ -228,7 +228,17 @@ body:hover #foreground {
     height: auto;
     text-align: center;
     
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+
     /*border: blue solid 1px;*/
+}
+
+.word:active { 
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
 }
 
 .word img {
