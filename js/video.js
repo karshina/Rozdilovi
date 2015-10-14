@@ -19,18 +19,15 @@ $(document).ready(function($) {
   var $spinner = $('#spinner')
   
   var cards = [
-    'img/cards/card0.jpg',
-    'img/cards/card1.jpg',
-    'img/cards/card2.jpg',
-    'img/cards/card3.jpg',
-    'img/cards/card4.jpg',
-    'img/cards/card5.jpg',
-    'img/cards/card6.jpg',
-    'img/cards/card8.jpg',
-    'img/cards/card9.jpg',
-    'img/cards/card10.jpg',
-    'img/cards/card11.jpg',
-    'img/cards/card12.jpg'
+    'img/cards/_card1.jpg',
+    'img/cards/_card2.jpg',
+    'img/cards/_card5.jpg',
+    'img/cards/_card6.jpg',
+    'img/cards/_card7.jpg',
+    'img/cards/_card4.jpg',
+    'img/cards/_card8.jpg',
+    'img/cards/_card9.jpg',
+    'img/cards/_card10.jpg'
     ]
   var currentCard
   var player = {}
@@ -222,7 +219,7 @@ $(document).ready(function($) {
     ctx.scale(2,2)
 
     // Render the hidden text to preload the font
-    ctx.font = "300 30px FranklinGothicBook"
+    ctx.font = "300 30px FranklinGothicMedium"
     ctx.fillText("Привіт", -100, -100)
 
     function canvasWrapText(ctx, text, x, y, maxWidth, lineHeight) {
@@ -261,25 +258,26 @@ $(document).ready(function($) {
       $spinner.show()
 
       var drawText = function() {
-        ctx.font = "300 30px FranklinGothicBook"
+        ctx.font = "300 30px FranklinGothicMedium"
 
-        var paddingTop = 18
-        var paddingSides = 33
-        var txt = canvasWrapText(ctx, text, paddingSides, paddingTop, width-(paddingSides*2), 35)
+        var paddingTop = 15
+        var paddingSides = 30
+        var txt = canvasWrapText(ctx, text, paddingSides, paddingTop, width-(paddingSides*2), 33)
         for (var i = 0; i < txt.length; i++){
           ctx.fillStyle = '#444444'
-          ctx.fillRect(txt[i].x-8, txt[i].y-28, txt[i].width+8, 40);
-          ctx.fillStyle = '#ffffff'
+          //ctx.fillRect(txt[i].x-8, txt[i].y-28, txt[i].width+8, 40);
+          //ctx.fillStyle = '#ffffff'
           ctx.fillText(txt[i].text, txt[i].x, txt[i].y)
         }
 
-        // draw site URL
+        /* draw site URL
         ctx.font = "200 12px FranklinGothicBook"
         ctx.fillStyle = '#444444'
         var textWidth = ctx.measureText('rozdilovi.org').width
         ctx.fillRect(600-textWidth-33, height-35, textWidth+12, 17);
         ctx.fillStyle = '#ffffff'
         ctx.fillText('rozdilovi.org', 600-textWidth-33+6, height-23)
+        */
       }
 
       var drawBg = function() {
