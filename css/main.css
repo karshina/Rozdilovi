@@ -384,7 +384,7 @@ body:hover #foreground {
 }
 
 .nav-hide {
-    transform: translateX(-100%);
+   margin-left: -500px;
 }
 
 .nav-content {
