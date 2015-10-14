@@ -115,7 +115,7 @@ $(document).ready(function($) {
 
           if (videoState == YT.PlayerState.PLAYING) {
             hideCard()
-            $container.removeClass(‘share-mode’)
+            $container.removeClass('share-mode')
           }
           else if (videoState == YT.PlayerState.PAUSED) {
             showCardDebounce()
