@@ -2,7 +2,7 @@ all:
 	@echo make what?
 
 devserver:
-	@php -S localhost:8000 router.php
+	@php -S 0.0.0.0:8000 router.php
 
 lt:
 	@lt --port 8000
