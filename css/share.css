@@ -1,16 +1,16 @@
 @font-face {
-  font-family: FranklinGothicBook;
-  src: url(/font/franklin_gothic_book.ttf);
+  font-family: FranklinGothicMedium;
+  src: url(/font/franklin_gothic_medium.ttf);
 }
 
 .video-content-main {
     position: absolute;
-    background: #ffffff;
+    background: #fafafa;
     width: 600px;
     height: 325px;
     box-sizing: border-box;
     margin: 0 51px auto 51px;
-    font-family: FranklinGothicBook;
+    font-family: FranklinGothicMedium;
 }
 
 .card-simbol {
