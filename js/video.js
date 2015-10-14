@@ -57,16 +57,17 @@ $(document).ready(function($) {
   window.onYouTubeIframeAPIReady = function() {
     var s = (document.location.search||""),
         mi = s.match(/img=([^&]+)/),
-        mv = s.match(/video=([^&]+)/),
-        mt = s.match(/t=([^&]+)/);
+        mv = s.match(/video=([^&]+)/);
 
-    if (mi && mv && mt) {
+    if (mi && mv) {
       track = window.rozd.getCurrentTrack(mv[1])[0]
-      videoTime = parseInt(mt[1], 10)
       $cardImg.attr('src', '/uploads/' + mi[1] + '.jpg')
       playVideo(track, 0)
       $container.addClass('share-mode')
-      showCard()
+      // showCard()
+      $content.removeClass('none')
+      $closeVideo.addClass('none')
+      $share.addClass('none')
     }
   }
   if (YT && YT.loaded) {
@@ -81,9 +82,10 @@ $(document).ready(function($) {
     text = track.text.reduce(function (res, cur) {
       return videoTime > cur.time ? cur : res
     }, {})
-    $content.removeClass('none')
     currentCard = Math.floor(Math.random() * cards.length)
     card.draw(text.words || '', currentCard)
+
+    $content.removeClass('none')
     $closeVideo.addClass('none')
     $share.addClass('none')
   }
@@ -92,6 +94,8 @@ $(document).ready(function($) {
     $content.addClass('none')
     $closeVideo.removeClass('none')
     $share.removeClass('none')
+    // Reset share mode if any
+    $container.removeClass('share-mode')
   }
 
   function playVideo(track, autoplay, onReady) {
@@ -125,6 +129,7 @@ $(document).ready(function($) {
         },
       }
     });
+
     $container.removeClass('none')
   }
 
@@ -144,9 +149,6 @@ $(document).ready(function($) {
   $closeCard.on('click', function () {
     hideCard()
     player.playVideo()
-
-    // Reset share mode if any
-    $container.removeClass('share-mode')
   })
 
   $next.on('click', function () {
@@ -188,7 +190,6 @@ $(document).ready(function($) {
   $playShared.on('click', function () {
     hideCard()
     player.playVideo()
-    $container.removeClass('share-mode')
   })
 
   function closeIframe() {
