@@ -259,8 +259,8 @@
     }
 
     // Adjust destination delta to make words not overlap the play button
-    var wPadding = ghSize.width / 2,
-        hPadding = ghSize.height / 2;
+    var wPadding = ghSize.width / 2 * .8,
+        hPadding = ghSize.height / 2 * .8;
     if (deltaTop < 0) {
       hPadding = hPadding * -1;
     }
