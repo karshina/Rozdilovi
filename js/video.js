@@ -48,10 +48,23 @@ $(document).ready(function($) {
   $playGhost.on('click', function () {
     track = window.rozd.getCurrentTrack($play.attr('data-video-id'))[0]
     if (!track) return
+
+    ga('send', 'event', {
+      'eventCategory': 'video',
+      'eventAction': 'play',
+      'eventLabel': track.video
+    });
+
     playVideo(track, 1)
   })
 
   window.onYouTubeIframeAPIReady = function() {
+    ga('send', 'timing', {
+      'timingCategory': 'video',
+      'timingVar': 'youtube-api-ready',
+      'timingValue': new Date - window._t
+    });
+
     var s = (document.location.search||""),
         mi = s.match(/img=([^&]+)/),
         mv = s.match(/video=([^&]+)/);
@@ -65,6 +78,12 @@ $(document).ready(function($) {
       $content.removeClass('none')
       $closeVideo.addClass('none')
       $share.addClass('none')
+
+      ga('send', 'event', {
+        'eventCategory': 'video',
+        'eventAction': 'card-open-shared',
+        'eventLabel': track.video
+      });
     }
   }
   if (YT && YT.loaded) {
@@ -85,6 +104,13 @@ $(document).ready(function($) {
     $content.removeClass('none')
     $closeVideo.addClass('none')
     $share.addClass('none')
+
+    ga('send', 'event', {
+      'eventCategory': 'video',
+      'eventAction': 'card-show',
+      'eventLabel': track.video,
+      'eventValue': videoTime
+    });
   }
 
   function hideCard() {
@@ -133,10 +159,23 @@ $(document).ready(function($) {
 
   $(this).keydown(function(e) {
     if (e.which != 27) return
+
+    ga('send', 'event', {
+      'eventCategory': 'video',
+      'eventAction': 'esc',
+      'eventLabel': track.video
+    });
+
     closeIframe()
   })
 
   $closeVideo.on('click', function () {
+    ga('send', 'event', {
+      'eventCategory': 'video',
+      'eventAction': 'close-button-click',
+      'eventLabel': track.video
+    });
+
     closeIframe()
   })
 
@@ -145,6 +184,13 @@ $(document).ready(function($) {
   })
 
   $closeCard.on('click', function () {
+    ga('send', 'event', {
+      'eventCategory': 'video',
+      'eventAction': 'card-close-click',
+      'eventLabel': track.video,
+      'eventValue': videoTime
+    });
+
     hideCard()
     player.playVideo()
   })
@@ -152,11 +198,25 @@ $(document).ready(function($) {
   $next.on('click', function () {
     currentCard == cards.length - 1 ? currentCard = 0 : currentCard++
     card.draw(text.words || '', currentCard)
+
+    ga('send', 'event', {
+      'eventCategory': 'video',
+      'eventAction': 'card-next',
+      'eventLabel': track.video,
+      'eventValue': videoTime
+    });
   })
 
   $prev.on('click', function () {
     currentCard == 0 ? currentCard = cards.length - 1 : currentCard--
     card.draw(text.words || '', currentCard)
+
+    ga('send', 'event', {
+      'eventCategory': 'video',
+      'eventAction': 'card-prev',
+      'eventLabel': track.video,
+      'eventValue': videoTime
+    });
   })
 
   $fbsend.on('click', function() {
@@ -165,6 +225,7 @@ $(document).ready(function($) {
 
     // open fb popup earlier because otherwise browsers will block it after ajax request
     var fbpopup = window.open("/loading.html", "pop", "width=600, height=400, scrollbars=no")
+    var _t = new Date;
 
     $.ajax({
       type: "POST",
@@ -173,6 +234,13 @@ $(document).ready(function($) {
       data: imageData
     }).done(function(o) {
       $fbsend.attr('disabled', false)
+
+      ga('send', 'timing', {
+        'timingCategory': 'video',
+        'timingVar': 'card-upload-time',
+        'timingLabel': cards[currentCard],
+        'timingValue': new Date - _t
+      });
 
       var vars = [
         'img=' + o.id,
@@ -183,6 +251,26 @@ $(document).ready(function($) {
 
       fbpopup.location.replace("https://www.facebook.com/sharer/sharer.php?u=" + url)
     })
+
+    ga('send', 'event', {
+      'eventCategory': 'video',
+      'eventAction': 'card-fbshare',
+      'eventLabel': track.video,
+      'eventValue': videoTime
+    });
+
+    ga('send', 'event', {
+      'eventCategory': 'video',
+      'eventAction': 'card-fbshare-bg',
+      'eventLabel': cards[currentCard],
+      'eventValue': videoTime
+    });
+
+    ga('send', 'social', {
+      'socialNetwork': 'Facebook',
+      'socialAction': 'Send',
+      'socialTarget': track.video,
+    });
   })
 
   $playShared.on('click', function () {
@@ -255,6 +343,8 @@ $(document).ready(function($) {
       var bg = $cardImg[0]
       bg.src = cards[index]
 
+      var _t = new Date;
+
       $spinner.show()
 
       var drawText = function() {
@@ -280,17 +370,29 @@ $(document).ready(function($) {
         */
       }
 
-      var drawBg = function() {
+      var drawBg = function(wasComplete) {
         $spinner.hide()
         reset()
         ctx.drawImage(bg, 0, 0, 600, 325)
-        drawText()        
+        drawText()
+
+        if (!wasComplete) {
+          ga('send', 'timing', {
+            'timingCategory': 'video',
+            'timingVar': 'bg-load-time',
+            'timingLabel': cards[index],
+            'timingValue': new Date - _t
+          });
+        }
       }
 
       drawText()
 
-      if (bg.complete) return drawBg()
-      bg.onload = drawBg
+      if (bg.complete) return drawBg(true)
+        
+      bg.onload = function() {
+        drawBg(false)
+      }
     }
 
     function reset() {

@@ -3,6 +3,11 @@ $(document).ready(function() {
   $('.menu').on('click', function() {
     if ($nav.hasClass('nav-hide')) {
       $nav.removeClass('nav-hide')
+
+      ga('send', 'event', {
+        'eventCategory': 'ui',
+        'eventAction': 'show-menu'
+      });
     }
     else {
       $nav.addClass('nav-hide')
