@@ -59,7 +59,7 @@
     height: 47px;
     position: absolute;
     bottom: 0px;
-    left: 43%;
+    left: 42%;
     background-color: rgba(255, 255, 255, 0.8);
     cursor: pointer;
     display: none;
@@ -113,7 +113,7 @@
     height: 47px;
     position: absolute;
     bottom: 0px;
-    left: 43%;
+    left: 42%;
     background-color: rgba(255, 255, 255, 0.8);
     cursor: pointer;
 }
