@@ -27,9 +27,18 @@
   var ghostInitialDelay = 3000;
   var ghostInterval = 15000;
 
-  var doGhosts = true, ghostActive = false;
+  var figuredOutDragging = false;
+  var hadComboBefore = false;
+  var doGhosts = true, ghostActive = false, nGhosts = 0;
+  var t_loaded = new Date;
 
   function initUI() {
+    ga('send', 'timing', {
+      'timingCategory': 'loading',
+      'timingVar': 'doc-ready-time',
+      'timingValue': new Date - window._t
+    });
+
     slots = $(".slot")
     circle = $("#circle")
     field = $("#field")
@@ -50,6 +59,13 @@
     // Preload the rest of word images in advance as soon as words around the circle loaded
     var imgEls = $(".slot .word img"), i = imgEls.length;
     var done = function() {
+      ga('send', 'timing', {
+        'timingCategory': 'loading',
+        'timingVar': 'words-ready-time',
+        'timingValue': new Date - window._t
+      });
+      t_loaded = new Date
+
       // Kick off the initial ghost after ghostInitialDelay and then
       // start showing ghosts randomly every ghostInterval
       setTimeout(randomGhost, ghostInitialDelay)
@@ -76,6 +92,11 @@
     // If clicked on the field without having combo, then show ghost as a hint
     field.click(function() {
       if (!circle.hasClass("combo")) {
+        ga('send', 'event', {
+          'eventCategory': 'circle',
+          'eventAction': 'play-click-no-combo',
+          'eventLabel': figuredOutDragging ? 'dragged-before' : 'no-dragged-before'
+        });
         randomGhost();
       }
     })
@@ -84,8 +105,28 @@
       drop: function(event, ui) {
         var el = $(ui.draggable);
 
+        ga('send', 'event', {
+          'eventCategory': 'circle',
+          'eventAction': 'drop-word',
+          'eventLabel': el.attr('data-word')
+        });
+
+        if (!figuredOutDragging) {
+          ga('send', 'timing', {
+            'timingCategory': 'circle',
+            'timingVar': 'time-to-first-drag',
+            'timingValue': new Date - t_loaded
+          });
+          ga('send', 'timing', {
+            'timingCategory': 'circle',
+            'timingVar': 'ghosts-before-first-drag',
+            'timingValue': nGhosts
+          });
+        }
+
         // Once we drad at least one word, do not do ghosts anymore
         doGhosts = false;
+        figuredOutDragging = true;
 
         el.data('dropped-in-circle', true);
         if (el.data('was-in-circle')) {
@@ -127,6 +168,20 @@
             el.remove();
           })
           updateUI();
+
+          ga('send', 'event', {
+            'eventCategory': 'circle',
+            'eventAction': 'move-word-out',
+            'eventLabel': el.attr('data-word')
+          });
+        }
+
+        if (!el.data('was-in-circle')) {
+          ga('send', 'event', {
+            'eventCategory': 'circle',
+            'eventAction': 'drop-word-miss',
+            'eventLabel': el.attr('data-word')
+          });
         }
       },
     });
@@ -147,8 +202,27 @@
     fillSlots(newState.suggestedWords);
 
     if (newState.combo.length != 0) {
+      // take a random combo
+      var combo = newState.combo[Math.floor(Math.random() * newState.combo.length)]
+
       circle.addClass("combo");
-      play.attr('data-video-id', newState.combo[Math.floor(Math.random() * newState.combo.length)]);
+      play.attr('data-video-id', combo.video);
+
+      ga('send', 'event', {
+        'eventCategory': 'circle',
+        'eventAction': 'combo',
+        'eventLabel': combo.words.join(',')
+      });
+
+      if (!hadComboBefore) {
+        ga('send', 'timing', {
+          'timingCategory': 'circle',
+          'timingVar': 'time-to-first-combo',
+          'timingValue': new Date - t_loaded
+        });
+      }
+
+      hadComboBefore = true;
     }
 
     makeWordsDraggable();
@@ -218,6 +292,7 @@
   function ghost(slot, callback) {
     var ghSlot = slot.clone(true).addClass('ghost').fadeTo(0, .5).appendTo('.words');
     ghostActive = true;
+    nGhosts++;
 
     // make ghost hand
     var ghHand = $('<div class="ghost-hand"></div>').appendTo(ghSlot)
@@ -363,7 +438,7 @@
     }
 
     if (comboCopy.length == 0) {
-      result.combo = combo.video;
+      result.combo = combo;
     }
 
     result.suggestedWords = comboCopy;
