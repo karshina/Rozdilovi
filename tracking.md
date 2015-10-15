@@ -1,7 +1,7 @@
 | Category | Type | Name | Value | Label | Description |
 |----------|------|------|-------|-------|-------------|
-| **loading** | timing | documentReady | *ms* | | time to documentReady event |
-|             | timing | wordsLoaded | *ms* | | time to words loaded and visible |
+| **loading** | timing | doc-ready-time | *ms* | | time to documentReady event |
+|             | timing | words-ready-time | *ms* | | time to words loaded and visible |
 | **circle** | event | play-click-no-combo | | `dragged-before | no-dragged-before` | clicked on non-active play |
 |            | event | drop-word | | *word* | when word dropped into the circle |
 |            | event | drop-word-miss | | *word* | when word dropped not in the circle |
@@ -23,4 +23,4 @@
 |           | timing | youtube-api-ready | *ms* | | time to youtive iframe api loaded |
 |           | timing | card-upload-time | *ms* | *cardImg* | time to upload the card before fb share window appear |
 |           | timing | bg-load-time | *ms* | *cardImg* | time load card background image |
-| **Facebook** | Send | | **videoID** | | facebook share button clicked on card |
+| **Facebook** | | Send | *videoID* | | facebook share button clicked on card |
