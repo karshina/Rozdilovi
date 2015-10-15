@@ -305,7 +305,7 @@ body {
     }
 }
 
-@media only screen and (min-width: 480px) and (max-width: 800px) { 
+@media only screen and (min-width: 768px) and (max-width: 960px) { 
 
     #logo {
         width: 17vw;
@@ -320,6 +320,70 @@ body {
 
     .about-container .text {
         margin: 0 30px;
+    }
+
+    .about-container .artpole {
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) { 
+
+    #logo {
+        width: 17vw;
+        height: 9.29vw;
+        margin-left: -8vw;
+    }
+
+    .spot img {
+        width: 306px;
+        height: auto;
+        margin-top: 140px;
+    }
+
+    .about-container {
+        width: 440px;
+        font-size: 30px;
+        padding-top: 100px;
+    }
+
+    .about-container p {
+        font-size: 12px;
+    }
+
+    .about-container .photo img {
+        width: 440px;
+        height: auto;
+    }
+
+    .about-container .text {
+        margin: 0 20px;
+    }
+
+    .about-container .word {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .about-container .word img {
+        width: 150px;
+        height: auto;
+    }
+
+    .about-container .text-photo p {
+        font-size: 13px;
+    }
+
+    .about-container .text-quote div.quote {
+        margin-left: 10px;
+    }
+
+    .about-container .word.space-bottom {
+        margin-bottom: 10px;
+    }
+
+    .about-container .footer {
+        margin-top: 60px;
     }
 }
 

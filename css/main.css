@@ -490,15 +490,6 @@ body:hover #foreground {
         background-image: url('/img/play_btn@2x.png');
     }
 }
-   
-@media only screen and (min-width: 768px) and (max-width: 959px) { 
-
-    #play, #play-ghost {
-        margin-left: -38px;
-        margin-top: -46px;
-    }
-
-}
 
 @media only screen and (min-width: 480px) and (max-width: 767px) { 
 
@@ -511,8 +502,6 @@ body:hover #foreground {
     #play, #play-ghost {
         width: 16.87vh;
         height: 16vh;
-        margin-left: -23px;
-        margin-top: -29px;
     }
 
 }
