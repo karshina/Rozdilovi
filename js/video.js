@@ -274,6 +274,12 @@ $(document).ready(function($) {
   })
 
   $playShared.on('click', function () {
+    ga('send', 'event', {
+      'eventCategory': 'video',
+      'eventAction': 'card-shared-play',
+      'eventLabel': track.video
+    });
+
     hideCard()
     player.playVideo()
   })
@@ -389,7 +395,7 @@ $(document).ready(function($) {
       drawText()
 
       if (bg.complete) return drawBg(true)
-        
+
       bg.onload = function() {
         drawBg(false)
       }

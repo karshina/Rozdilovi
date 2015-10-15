@@ -12,6 +12,7 @@
 |            | timing | time-to-first-combo | *ms* | | time to enable the first combo |
 | **video** | event | play | | *videoID* | play button hit on video |
 |           | event | card-open-shared | | *videoID* | hit on a shared card |
+|           | event | card-shared-play | | *videoID* | clicked on play button of shared card |
 |           | event | card-show | *t* | *videoID* | show card on *t* second of a video |
 |           | event | card-close-click | *t* | *videoID* | close card on *t* second of a video |
 |           | event | card-next | *t* | *videoID* | next background |
