@@ -25,3 +25,4 @@
 |           | timing | card-upload-time | *ms* | *cardImg* | time to upload the card before fb share window appear |
 |           | timing | bg-load-time | *ms* | *cardImg* | time load card background image |
 | **Facebook** | | Send | *videoID* | | facebook share button clicked on card |
+| **ui**    | event | show-menu | | | opened left menu |
