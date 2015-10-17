@@ -73,7 +73,7 @@ window.rozd_combos = [
     ]
   },
   {
-    video: "28Im2yFzuC4", words: ["ніч", "любов"],
+    video: "28Im2yFzuC4", words: ["ніч"],
     text: [
       {words: "я з нею познайомився цілком випадково", time: 0},
       {words: "просто побачив, як вона відважно дивиться вгору", time: 7},

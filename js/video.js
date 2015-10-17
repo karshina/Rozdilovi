@@ -27,7 +27,11 @@ $(document).ready(function($) {
     'img/cards/_card4.jpg',
     'img/cards/_card8.jpg',
     'img/cards/_card9.jpg',
-    'img/cards/_card10.jpg'
+    'img/cards/_card10.jpg',
+    'img/cards/_card14.jpg',
+    'img/cards/_card12.jpg',
+    'img/cards/_card11.jpg',
+    'img/cards/_card13.jpg'
     ]
   var currentCard
   var player = {}
