@@ -155,7 +155,7 @@ body {
 
 .about-container .text {
     color: #000000;
-    margin: 40px 80px;
+    margin: 30px 80px 40px 80px;
     /*border: green 1px dashed;*/
 }
 
@@ -209,6 +209,13 @@ body {
 .about-container .photo {
     text-align: center;
     font-size: 0;
+}
+
+.about-container .copyright {
+    text-align: center;
+    font-size: 11px;
+    color: #aaaaaa;
+    margin: 5px 0 0 0;
 }
 
 .about-container .word {
