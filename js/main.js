@@ -29,7 +29,7 @@
 
   var figuredOutDragging = false;
   var hadComboBefore = false;
-  var doGhosts = true, ghostActive = false, nGhosts = 0;
+  var doGhosts = true, forceGhost = false; ghostActive = false, nGhosts = 0;
   var t_loaded = new Date;
 
   function initUI() {
@@ -97,7 +97,9 @@
           'eventAction': 'play-click-no-combo',
           'eventLabel': figuredOutDragging ? 'dragged-before' : 'no-dragged-before'
         });
+        forceGhost = true;
         randomGhost();
+        forceGhost = false;
       }
     })
 
@@ -278,7 +280,7 @@
   var tGhost = null;
 
   function randomGhost() {
-    if (!doGhosts) return;
+    if (!doGhosts && !forceGhost) return;
     if (ghostActive) return;
     clearTimeout(tGhost);
     // find slots that are not empty
