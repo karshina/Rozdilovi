@@ -25,7 +25,6 @@
 |           | event | card-fbshare | *t* | *videoID* | clicked facebook share on a card |
 |           | event | card-fbshare-bg | *t* | *cardImg* | clicked facebook share on a card (by card bg index) |
 |           | event | card-fbshare-window-open | *ms* | *videoID* | facebook share window opened, where *ms* is time to upload the card image |
-
 |           | event | esc | | *videoID* | ESC button clicked, close video |
 |           | event | close-button-click | | *videoID* | close button clicked |
 |           | event | youtube-api-ready | *ms* | | youtube iframe api has been loaded, *ms* is time it took to load |
