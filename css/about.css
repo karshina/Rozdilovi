@@ -256,6 +256,7 @@ body {
 
 .about-container .text-photo img {
     width: 4em;
+    height: auto;
 }
 
 .about-container .text-photo .right {
@@ -338,17 +339,21 @@ body {
     .spot img {
         width: 306px;
         height: auto;
-        margin-top: 140px;
+        margin-top: 130px;
     }
 
     .about-container {
         width: 440px;
         font-size: 30px;
-        padding-top: 100px;
+        padding-top: 90px;
     }
 
     .about-container p {
         font-size: 12px;
+    }
+
+    .about-container .text p.cities {
+        font-size: 11px;
     }
 
     .about-container .photo img {
@@ -358,6 +363,10 @@ body {
 
     .about-container .text {
         margin: 0 20px;
+    }
+
+    .about-container .space {
+        margin-top: 10px;
     }
 
     .about-container .word {
@@ -372,6 +381,24 @@ body {
 
     .about-container .text-photo p {
         font-size: 13px;
+        margin: 0 25px;
+        line-height: 1.7;
+    }
+
+    .about-container .text-photo img {
+        float: none;
+        width: 7em;
+        margin: 10px auto 0 auto;
+    }
+
+    .about-container .text-photo .right {
+        margin: 0 auto;
+    }
+
+    .about-container .text-photo .right h3 {
+        font-size: 13px;
+        text-align: center;
+        margin-top: 0;
     }
 
     .about-container .text-quote div.quote {
@@ -383,7 +410,27 @@ body {
     }
 
     .about-container .footer {
-        margin-top: 60px;
+        margin-top: 50px;
+        height: 180px;
+    }
+
+    .about-container .artpole {
+        float: none;
+        margin: 20px auto 10px auto;
+        max-width: 226px;
+    }
+
+    .about-container .artpole a img {
+        width: 190px;
+        height: auto;
+    }
+
+    .about-container .dev {
+        margin: 0;
+    }
+
+    .about-container .dev p {
+        font-size: 12px;
     }
 }
 
