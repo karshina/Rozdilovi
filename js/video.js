@@ -68,6 +68,11 @@ $(document).ready(function($) {
       'timingVar': 'youtube-api-ready',
       'timingValue': new Date - window._t
     });
+    ga('send', 'event', {
+      'eventCategory': 'video',
+      'eventAction': 'youtube-api-ready',
+      'eventValue': new Date - window._t
+    });
 
     var s = (document.location.search||""),
         mi = s.match(/img=([^&]+)/),
@@ -224,38 +229,6 @@ $(document).ready(function($) {
   })
 
   $fbsend.on('click', function() {
-    var imageData = card.getImageData()
-    $fbsend.attr('disabled', true)
-
-    // open fb popup earlier because otherwise browsers will block it after ajax request
-    var fbpopup = window.open("/loading.html", "pop", "width=600, height=400, scrollbars=no")
-    var _t = new Date;
-
-    $.ajax({
-      type: "POST",
-      url: "/upload.php",
-      processData: false,
-      data: imageData
-    }).done(function(o) {
-      $fbsend.attr('disabled', false)
-
-      ga('send', 'timing', {
-        'timingCategory': 'video',
-        'timingVar': 'card-upload-time',
-        'timingLabel': cards[currentCard],
-        'timingValue': new Date - _t
-      });
-
-      var vars = [
-        'img=' + o.id,
-        'video=' + (track && track.video),
-        't=' + videoTime
-      ]
-      var url = encodeURIComponent(document.location.origin + "/" + '?' + vars.join('&'))
-
-      fbpopup.location.replace("https://www.facebook.com/sharer/sharer.php?u=" + url)
-    })
-
     ga('send', 'event', {
       'eventCategory': 'video',
       'eventAction': 'card-fbshare',
@@ -275,6 +248,46 @@ $(document).ready(function($) {
       'socialAction': 'Send',
       'socialTarget': track.video,
     });
+
+    var imageData = card.getImageData()
+    $fbsend.attr('disabled', true)
+
+    // open fb popup earlier because otherwise browsers will block it after ajax request
+    var fbpopup = window.open("/loading.html", "pop", "width=600, height=400, scrollbars=no")
+    var _t = new Date;
+
+
+    $.ajax({
+      type: "POST",
+      url: "/upload.php",
+      processData: false,
+      data: imageData
+    }).done(function(o) {
+      ga('send', 'event', {
+        'eventCategory': 'video',
+        'eventAction': 'card-fbshare-window-open',
+        'eventLabel': cards[currentCard],
+        'eventValue': new Date - _t
+      });
+
+      ga('send', 'timing', {
+        'timingCategory': 'video',
+        'timingVar': 'card-upload-time',
+        'timingLabel': cards[currentCard],
+        'timingValue': new Date - _t
+      });
+
+      $fbsend.attr('disabled', false)
+
+      var vars = [
+        'img=' + o.id,
+        'video=' + (track && track.video),
+        't=' + videoTime
+      ]
+      var url = encodeURIComponent(document.location.origin + "/" + '?' + vars.join('&'))
+
+      fbpopup.location.replace("https://www.facebook.com/sharer/sharer.php?u=" + url)
+    })
   })
 
   $playShared.on('click', function () {
@@ -392,6 +405,12 @@ $(document).ready(function($) {
             'timingVar': 'bg-load-time',
             'timingLabel': cards[index],
             'timingValue': new Date - _t
+          });
+          ga('send', 'event', {
+            'eventCategory': 'video',
+            'eventAction': 'bg-load',
+            'eventLabel': cards[index],
+            'eventValue': new Date - _t
           });
         }
       }

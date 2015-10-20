@@ -38,6 +38,11 @@
       'timingVar': 'doc-ready-time',
       'timingValue': new Date - window._t
     });
+    ga('send', 'event', {
+      'eventCategory': 'loading',
+      'eventAction': 'doc-ready-time',
+      'eventValue': new Date - window._t
+    });
 
     slots = $(".slot")
     circle = $("#circle")
@@ -63,6 +68,11 @@
         'timingCategory': 'loading',
         'timingVar': 'words-ready-time',
         'timingValue': new Date - window._t
+      });
+      ga('send', 'event', {
+        'eventCategory': 'loading',
+        'eventAction': 'words-ready-time',
+        'eventValue': new Date - window._t
       });
       t_loaded = new Date
 
@@ -123,6 +133,16 @@
             'timingCategory': 'circle',
             'timingVar': 'ghosts-before-first-drag',
             'timingValue': nGhosts
+          });
+          ga('send', 'event', {
+            'eventCategory': 'circle',
+            'eventAction': 'first-drag',
+            'eventValue': new Date - t_loaded
+          });
+          ga('send', 'event', {
+            'eventCategory': 'circle',
+            'eventAction': 'first-drag-seen-ghosts',
+            'eventValue': nGhosts
           });
         }
 
@@ -221,6 +241,12 @@
           'timingCategory': 'circle',
           'timingVar': 'time-to-first-combo',
           'timingValue': new Date - t_loaded
+        });
+        ga('send', 'event', {
+          'eventCategory': 'circle',
+          'eventAction': 'first-combo',
+          'eventLabel': combo.words.join(','),
+          'eventValue': new Date - t_loaded
         });
       }
 
