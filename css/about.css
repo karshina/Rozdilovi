@@ -432,9 +432,11 @@ body {
     .about-container .dev p {
         font-size: 12px;
     }
+
 }
 
 @media (max-height: 580px) {
+
     .nav-content {
         margin-top: 50px;
     }
@@ -449,9 +451,130 @@ body {
     .nav-img-content {
         margin-bottom: 40px;
     }
+
 }
 
+@media screen and (max-width: 479px) {
 
+    .menu {
+        margin-left: 4vw;
+    }
+
+    #logo {
+        width: 28vw;
+        height: 15.3vw;
+        margin-left: -13vw;
+        top: 2vw;
+    }
+
+    .spot img {
+        width: 180px;
+        height: auto;
+        margin-top: 130px;
+    }
+
+    .about-container {
+        width: 280px;
+        font-size: 30px;
+        padding-top: 85px;
+    }
+
+    .about-container p {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+
+    .about-container .text .point {
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+
+    .about-container .text p.cities {
+        font-size: 10px;
+    }
+
+    .about-container .photo img {
+        width: 280px;
+        height: auto;
+    }
+
+    .about-container .text {
+        margin: 0 10px;
+    }
+
+    .about-container .space {
+        margin-top: 0px;
+        display: none;
+    }
+
+    .about-container .word {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .about-container .word img {
+        width: 130px;
+        height: auto;
+    }
+
+    .about-container .text-photo p {
+        font-size: 12px;
+        margin: 0 25px;
+        line-height: 1.7;
+    }
+
+    .about-container .text-photo img {
+        float: none;
+        width: 6em;
+        margin: 10px auto 0 auto;
+    }
+
+    .about-container .text-photo .right {
+        margin: 0 auto;
+    }
+
+    .about-container .text-photo .right h3 {
+        font-size: 13px;
+        text-align: center;
+        margin-top: 0;
+    }
+
+    .about-container .text-quote div.quote {
+        float: none;
+        width: 260px;
+        margin: 10px auto 0 auto;
+    }
+
+    .about-container .word.space-bottom {
+        margin-bottom: 10px;
+    }
+
+    .about-container .footer {
+        margin-top: 35px;
+        height: 150px;
+    }
+
+    .about-container .artpole {
+        float: none;
+        margin: 10px auto 0 auto;
+        max-width: 226px;
+    }
+
+    .about-container .artpole a img {
+        width: 140px;
+        height: auto;
+        margin: 0 42px;
+    }
+
+    .about-container .dev {
+        margin: 0;
+    }
+
+    .about-container .dev p {
+        font-size: 11px;
+    }
+
+}
 .clearfix:after {
      visibility: hidden;
      display: block;
