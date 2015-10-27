@@ -135,7 +135,7 @@ $(document).ready(function($) {
     $container.removeClass('share-mode')
   }
 
-  function playVideo(track, autoplay, onReady) {
+  function playVideo(track, autoplay) {
     $body.addClass('overflow-hidden')
     videoState = YT.PlayerState.PAUSED
 
@@ -148,7 +148,6 @@ $(document).ready(function($) {
         'onReady': function(e) {
           $logo.addClass('hide')
           autoplay && e.target.playVideo()
-          onReady && onReady()
         },
         'onStateChange': function(e) {
           videoState = e.data
