@@ -246,6 +246,8 @@ body:hover #foreground {
     cursor: -moz-grab;
     cursor: -webkit-grab;
 
+    max-width: 288px;
+
     /*border: blue solid 1px;*/
 }
 
@@ -262,8 +264,6 @@ body:hover #foreground {
 
 .slot {
     position: absolute;
-    max-height: 78px;
-    max-width: 288px;
 }
 
 .slot-left {
