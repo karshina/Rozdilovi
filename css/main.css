@@ -262,6 +262,8 @@ body:hover #foreground {
 
 .slot {
     position: absolute;
+    max-height: 78px;
+    max-width: 288px;
 }
 
 .slot-left {
@@ -289,7 +291,7 @@ body:hover #foreground {
 
 .slot4 {
     top: 17vh;
-    margin-left: 2vh;
+    margin-left: 1vh;
 }
 
 .slot5 {
@@ -299,17 +301,17 @@ body:hover #foreground {
 
 .slot6 {
     top: 36vh;
-    margin-left: 1vw;
+    margin-left: 0vw;
 }
 
 .slot7 {
     top: 54vh;
-    margin-right: -54vw;
+    margin-left: -11vw;
 }
 
 .slot8 {
     top: 58vh;
-    margin-left: -47vw;
+    margin-right: -13vw;
 
 }
 
@@ -517,18 +519,6 @@ body:hover #foreground {
 
 }
 
-@media only screen and (min-width: 1300px) {
-    .slot7 {
-        margin-right: -48vw;
-    }
-
-    .slot8 {
-        top: 56vh;
-        margin-left: -39vw;
-    }
-
-}
-
 @media only screen and (orientation:portrait) {
 
     .menu {
@@ -571,13 +561,13 @@ body:hover #foreground {
     }
 
     .slot1 {
-        top: -4vh;
-        margin-right: -26vw;
+        top: -1vh;
+        margin-right: -23vw;
     }
 
     .slot2 {
-        top: -4vh;
-        margin-left: -23vw;
+        top: -3vh;
+        margin-left: -22vw;
     }
 
     .slot3 {
@@ -597,17 +587,17 @@ body:hover #foreground {
 
     .slot6 {
         top: 34vw;
-        margin-left: -11vw;
+        margin-left: -9vw;
     }
 
     .slot7 {
         top: 53vw;
-        margin-right: -56vw;
+        margin-left: -23vw;
     }
 
     .slot8 {
         top: 54vw;
-        margin-left: -66vw;
+        margin-right: -26vw;
     }
 }
 
