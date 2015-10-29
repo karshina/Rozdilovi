@@ -188,8 +188,8 @@ body:hover #foreground {
     max-width: 97px;
     max-height: 92px;
     position: absolute;
-    margin-left: -33px;
-    margin-top: -58px;
+    margin-left: -4vh;
+    margin-top: -7vh;
     left: 50%;
     top: 50%;
 }
@@ -493,15 +493,6 @@ body:hover #foreground {
     }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 959px) { 
-
-    #play, #play-ghost {
-        margin-left: -38px;
-        margin-top: -46px;
-    }
-
-}
-
 @media only screen and (max-width: 767px) { 
 
     #logo {
@@ -513,8 +504,8 @@ body:hover #foreground {
     #play, #play-ghost {
         width: 16.87vh;
         height: 16vh;
-        margin-left: -23px;
-        margin-top: -29px;
+        margin-left: -5vh;
+        margin-top: -8vh;
     }
 
 }
@@ -547,8 +538,8 @@ body:hover #foreground {
     #play, #play-ghost {
         width: 18vw;
         height: 17.07vw;
-        margin-left: -22px;
-        margin-top: -40px;
+        margin-left: -5vw;
+        margin-top: -7vw;
     }
 
     .word {
