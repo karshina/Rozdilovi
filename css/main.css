@@ -104,15 +104,15 @@ body:hover #foreground {
     margin-top: 18vh;
     margin-bottom: 6vh;
     max-height: 556px;
-    max-width: 513px;
+    max-width: 545px;
 } 
 
 #circle {
     margin: auto;
     width: 59.8vh;
     height: 65vh;
-    max-height: 100%;
-    max-width: 100%;
+    max-height: 556px;
+    max-width: 513px;
     position: relative;
 }
 
