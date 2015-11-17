@@ -140,8 +140,8 @@ $(document).ready(function($) {
     videoState = YT.PlayerState.PAUSED
 
     player = new YT.Player('player', {
-      height: $window.height(),
-      width: $window.width(),
+      height: '100%',
+      width: '100%',
       playerVars: { 'autoplay': autoplay, 'fs': 0,'showinfo':0,'color':'white','disablekb': 1},
       videoId: track.video,
       events: {

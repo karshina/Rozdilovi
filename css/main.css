@@ -468,6 +468,12 @@ body:hover #foreground {
     overflow: hidden;
 }
 
+.player-content {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
 #close-video {
     position: absolute;
     right: 30px;
