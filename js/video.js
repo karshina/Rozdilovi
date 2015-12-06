@@ -37,7 +37,6 @@ $(document).ready(function($) {
     'img/cards/_card9.jpg',
     'img/cards/_card10.jpg',
     'img/cards/_card20.jpg',
-    'img/cards/_card25.jpg',
     'img/cards/_card12.jpg',
     'img/cards/_card11.jpg',
     'img/cards/_card13.jpg'
