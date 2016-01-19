@@ -24,6 +24,7 @@ $(document).ready(function($) {
     'img/cards/_card23b.jpg',
     'img/cards/_card2.jpg',
     'img/cards/_card14.jpg',
+    'img/cards/_card26.jpg',
     'img/cards/_card5.jpg',
     'img/cards/_card16.jpg',
     'img/cards/_card6.jpg',
@@ -39,6 +40,7 @@ $(document).ready(function($) {
     'img/cards/_card20.jpg',
     'img/cards/_card12.jpg',
     'img/cards/_card11.jpg',
+    'img/cards/_card27.jpg',
     'img/cards/_card13.jpg'
     ]
   var currentCard
