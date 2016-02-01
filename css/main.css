@@ -553,7 +553,8 @@ body:hover #foreground {
     font-weight: 300;
     display: block;
     text-decoration: none;
-    line-height: 58px;
+    line-height: 48px;
+    margin: 10px 0 10px 0; 
 }
 
 .nav-img-content {
