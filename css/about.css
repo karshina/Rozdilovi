@@ -303,6 +303,17 @@ body {
     font-size: 14px;
 }
 
+.about-container .dev p a {
+    color: #a3496a;
+    font-family: 'HelveticaBold', sans-serif;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.about-container .dev p a:hover {
+    text-decoration: underline;   
+}
+
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
 
     body {
@@ -332,6 +343,10 @@ body {
 
     .about-container .artpole {
         margin-top: 20px;
+    }
+
+    .about-container .dev {
+        margin-top: 30px; 
     }
 }
 
@@ -574,7 +589,7 @@ body {
     }
 
     .about-container .dev {
-        margin: 0;
+        margin: 0 10px;
     }
 
     .about-container .dev p {
