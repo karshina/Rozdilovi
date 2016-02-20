@@ -47,6 +47,8 @@
     position: absolute;
     left: 0px;
     top: 0px;
+    width: 600px;
+    height: 325px;
 }
 
 #card-img {
@@ -182,4 +184,75 @@
         right: 8%;
     }
 
+}
+
+@media only screen and (max-width: 600px) {
+    /* card width/height ratio 1.846 */
+
+    .video-content-main {
+        width: 568px;
+        height: 320px;
+        margin: 0;
+    }
+    
+    #card {
+        width: 568px;
+        height: 320px;
+    }
+
+    #card-img {
+        width: 568px;
+        height: 320px;
+    }
+
+    #prev {
+        left: 2px;
+        top: 45%;
+    }
+
+    #next {
+        right: 2px;
+        top: 45%;
+    }
+
+    #close-card {
+        right: 2px;
+        top: 5%;
+    }
+      
+/*
+    another option is to resize card so it does not take full screen:
+
+    .video-content-main {
+        width: 480px;
+        height: 260px;
+        margin: 0;
+        left: 45px;
+    }
+    
+    #card {
+        width: 480px;
+        height: 260px;
+    }
+
+    #card-img {
+        width: 480px;
+        height: 260px;
+    }
+
+    #prev {
+        left: 2px;
+        top: 45%;
+    }
+
+    #next {
+        right: 2px;
+        top: 45%;
+    }
+
+    #close-card {
+        right: 2px;
+        top: 5%;
+    }
+*/
 }

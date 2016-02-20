@@ -61,7 +61,7 @@ $(document).ready(function($) {
   var player = {}
   var text = {}
   var track
-  var videoState, videoTime
+  var videoState, videoTime = 1
 
   var showCardDebounce = _.debounce(showCard, 500);
 
@@ -220,7 +220,11 @@ $(document).ready(function($) {
   })
 
   $share.on('click', function () {
-    player.pauseVideo()
+    if (Modernizr.videoautoplay) {
+      player.pauseVideo()
+    } else {
+      showCardDebounce()
+    }
   })
 
   $closeCard.on('click', function () {
@@ -232,7 +236,7 @@ $(document).ready(function($) {
     });
 
     hideCard()
-    player.playVideo()
+    Modernizr.videoautoplay && player.playVideo()
   })
 
   $next.on('click', function () {
@@ -329,7 +333,7 @@ $(document).ready(function($) {
     });
 
     hideCard()
-    player.playVideo()
+    Modernizr.videoautoplay && player.playVideo()
   })
 
   function closeIframe() {
@@ -348,20 +352,29 @@ $(document).ready(function($) {
   // receives DOM element of canvas, like so: var card = Card(document.getElementById('card'))
   function Card(card) {
     var ctx = card.getContext('2d'),
-        width = card.width,
-        height = card.height,
-        markCorrectionX = 0,
-        markCorrectionY = 7
+        st = getComputedStyle(card),
+        width = parseInt(st.width, 10),
+        height = parseInt(st.height, 10),
+        fontSize = 30,
+        paddingTop = 15,
+        paddingSides = 30
 
     // Scale 2x to make high density image for retina displays
     card.style.width = width + "px"
     card.style.height = height + "px"
-    card.width = card.width * 2
-    card.height = card.height * 2
+    card.width = width * 2
+    card.height = height * 2
     ctx.scale(2,2)
 
+    // For mobile screens
+    if (width < 600) {
+      fontSize = 22
+      paddingTop = 15
+      paddingSides = 40
+    }
+
     // Render the hidden text to preload the font
-    ctx.font = "300 30px FranklinGothicMedium"
+    ctx.font = "bold " + fontSize + "px FranklinGothicMedium"
     ctx.fillText("Привіт", -100, -100)
 
     function canvasWrapText(ctx, text, x, y, maxWidth, lineHeight) {
@@ -390,6 +403,7 @@ $(document).ready(function($) {
     }
 
     function draw(text, index) {
+      // return
       reset()
 
       $cardImg.replaceWith('<img id="card-img" />')
@@ -402,10 +416,8 @@ $(document).ready(function($) {
       $spinner.show()
 
       var drawText = function() {
-        ctx.font = "300 30px FranklinGothicMedium"
+        ctx.font = "bold " + fontSize + "px FranklinGothicMedium"
 
-        var paddingTop = 15
-        var paddingSides = 30
         var txt = canvasWrapText(ctx, text, paddingSides, paddingTop, width-(paddingSides*2), 33)
         for (var i = 0; i < txt.length; i++){
           ctx.fillStyle = '#444444'
@@ -476,6 +488,7 @@ $(document).ready(function($) {
   if (document.location.hash == "#video-content-dev") {
     $container.removeClass('none')
     $content.removeClass('none')
+    $logo.addClass('hide')
     text = {words: "хочеться говорити тихо, щоби тебе ніхто не почув, а почувши – не зрозумів"}
     currentCard = 0
     card.draw(text.words, 0)

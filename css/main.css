@@ -742,8 +742,9 @@ body:hover #foreground {
 }
 
 @media only screen and (max-width: 600px) {
-    .video-content,  #share {
-        display: none;
+    .video-content {
+        width: 568px;
+        height: 320px;
     }
 
     #close-video {
@@ -752,10 +753,6 @@ body:hover #foreground {
 }
 
 @media only screen and (max-height: 390px) {
-    .video-content,  #share {
-        display: none;
-    }
-
     #close-video {
         display: block !important;
     }
