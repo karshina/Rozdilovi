@@ -155,7 +155,15 @@ $(document).ready(function($) {
   }
 
   function playVideo(track, autoplay) {
-    $body.addClass('overflow-hidden')
+
+    // Hidden overvlow looks very ugly on mobile, removing it does not seem to
+    // break the desktop UI too much, so I remove it.
+    // $body.addClass('overflow-hidden')
+
+    // Fix https://github.com/karshina/Rozdilovi/issues/51
+    // Do not autoplay on Mobile devices
+    autoplay = autoplay && Modernizr.videoautoplay
+
     videoState = YT.PlayerState.PAUSED
 
     player = new YT.Player('player', {
