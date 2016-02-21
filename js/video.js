@@ -374,7 +374,7 @@ $(document).ready(function($) {
     }
 
     // Render the hidden text to preload the font
-    ctx.font = "bold " + fontSize + "px FranklinGothicMedium"
+    ctx.font = "normal " + fontSize + "px FranklinGothicMedium"
     ctx.fillText("Привіт", -100, -100)
 
     function canvasWrapText(ctx, text, x, y, maxWidth, lineHeight) {
@@ -416,7 +416,7 @@ $(document).ready(function($) {
       $spinner.show()
 
       var drawText = function() {
-        ctx.font = "bold " + fontSize + "px FranklinGothicMedium"
+        ctx.font = "normal " + fontSize + "px FranklinGothicMedium"
 
         var txt = canvasWrapText(ctx, text, paddingSides, paddingTop, width-(paddingSides*2), 33)
         for (var i = 0; i < txt.length; i++){
