@@ -477,7 +477,7 @@ body:hover #foreground {
 #close-video {
     position: absolute;
     right: 30px;
-    top: 30px;
+    top: 3vh;
     background: url('/img/iclose.png') 0 0 no-repeat;
     background-size: contain;
     width: 40px; 
@@ -488,7 +488,7 @@ body:hover #foreground {
 #share {
     position: absolute;
     right: 90px;
-    top: 30px;
+    top: 3vh;
     background: url('/img/ishare.png') 0 0 no-repeat;
     background-size: contain;
     width: 40px; 
@@ -748,14 +748,14 @@ body:hover #foreground {
     }
 }
 
-@media only screen and (max-width: 534px) {
+@media only screen and (max-width: 567px) {
     .video-content {
         width: 480px;
         height: 260px;
     }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 479px) {
     .video-content {
         width: 320px;
         height: 175px;

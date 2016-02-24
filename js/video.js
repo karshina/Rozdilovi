@@ -69,6 +69,7 @@ $(document).ready(function($) {
 
   $window.resize(function() {
     if (!player.h) return
+    hideCard()
     player.h.h.width = $window.width()
     player.h.h.height = $window.height()
   })
@@ -352,7 +353,7 @@ $(document).ready(function($) {
   // receives DOM element of canvas, like so: var card = Card(document.getElementById('card'))
   function Card(card) {
     var ctx = card.getContext('2d'),
-        st = getComputedStyle(card),
+        st = getComputedStyle(document.getElementById("card-img")),
         width = 600,
         height = 325,
         fontSize = 30,
@@ -460,6 +461,9 @@ $(document).ready(function($) {
 
     function reset() {
       ctx.clearRect(0, 0, width, height)
+      st = getComputedStyle(document.getElementById("card-img")),
+      card.style.width = parseInt(st.width, 10) + "px"
+      card.style.height = parseInt(st.height, 10) + "px"
     }
 
     function getImageData() {

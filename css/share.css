@@ -264,7 +264,7 @@
 */
 }
 
-@media only screen and (max-width: 534px) {
+@media only screen and (max-width: 567px) {
 
     .video-content-main {
         width: 480px;
@@ -283,7 +283,7 @@
     }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 479px) {
 
     .video-content-main {
         width: 320px;
