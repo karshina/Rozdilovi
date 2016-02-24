@@ -741,19 +741,23 @@ body:hover #foreground {
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
     .video-content {
         width: 568px;
         height: 320px;
     }
+}
 
-    #close-video {
-        display: block !important;
+@media only screen and (max-width: 534px) {
+    .video-content {
+        width: 480px;
+        height: 260px;
     }
 }
 
-@media only screen and (max-height: 390px) {
-    #close-video {
-        display: block !important;
+@media only screen and (max-width: 375px) {
+    .video-content {
+        width: 320px;
+        height: 175px;
     }
 }

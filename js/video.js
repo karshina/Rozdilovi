@@ -353,25 +353,18 @@ $(document).ready(function($) {
   function Card(card) {
     var ctx = card.getContext('2d'),
         st = getComputedStyle(card),
-        width = parseInt(st.width, 10),
-        height = parseInt(st.height, 10),
+        width = 600,
+        height = 325,
         fontSize = 30,
         paddingTop = 15,
         paddingSides = 30
 
     // Scale 2x to make high density image for retina displays
-    card.style.width = width + "px"
-    card.style.height = height + "px"
-    card.width = width * 2
-    card.height = height * 2
+    card.style.width = parseInt(st.width, 10) + "px"
+    card.style.height = parseInt(st.height, 10) + "px"
+    card.width = width*2
+    card.height = height*2
     ctx.scale(2,2)
-
-    // For mobile screens
-    if (width < 600) {
-      fontSize = 22
-      paddingTop = 15
-      paddingSides = 40
-    }
 
     // Render the hidden text to preload the font
     ctx.font = "normal " + fontSize + "px FranklinGothicMedium"
@@ -421,8 +414,6 @@ $(document).ready(function($) {
         var txt = canvasWrapText(ctx, text, paddingSides, paddingTop, width-(paddingSides*2), 33)
         for (var i = 0; i < txt.length; i++){
           ctx.fillStyle = '#444444'
-          //ctx.fillRect(txt[i].x-8, txt[i].y-28, txt[i].width+8, 40);
-          //ctx.fillStyle = '#ffffff'
           ctx.fillText(txt[i].text, txt[i].x, txt[i].y)
         }
 
