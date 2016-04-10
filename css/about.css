@@ -205,12 +205,12 @@ body {
 
 .about-container .text a {
     font-style: normal;
-    text-decoration: none;
+    text-decoration: underline;
     color: #a3496a;
 }
 
 .about-container .text a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .about-container .photo {
@@ -266,7 +266,7 @@ body {
     height: auto;
 }
 
-.about-container .text-photo .right {
+.right {
     margin-left: 4em;
 }
 
@@ -277,6 +277,18 @@ body {
 .about-container .text-photo h3, .about-container .text-photo p {
     /*margin-left: 4em;*/
     font-size: 16px;
+}
+
+p.lead {
+    font-size: 18px;
+}
+
+.verse {
+    width: 31vw;
+    min-width: 380px;
+    margin: 0 0 0 auto;
+    font-size: 16px;
+    font-style: italic;
 }
 
 .about-container .footer {
@@ -338,7 +350,7 @@ body {
     }
 
     .about-container .text {
-        margin: 0 30px;
+        margin: 0 30px 20px 0;
     }
 
     .about-container .artpole {
@@ -383,8 +395,13 @@ body {
         height: auto;
     }
 
+    .about-container .photo iframe {
+        width: 440px;
+        height: 250px;   
+    }
+
     .about-container .text {
-        margin: 0 20px;
+        margin: 0 20px 20px 0;
     }
 
     .about-container .space {
@@ -407,13 +424,13 @@ body {
         line-height: 1.7;
     }
 
-    .about-container .text-photo img {
+    .about-container .text-photo img, .about-container .text-photo iframe {
         float: none;
         width: 7em;
         margin: 10px auto 0 auto;
     }
 
-    .about-container .text-photo .right {
+    .right {
         margin: 0 auto;
     }
 
@@ -421,6 +438,13 @@ body {
         font-size: 13px;
         text-align: center;
         margin-top: 0;
+    }
+
+    .verse {
+        margin: 0 auto;
+        font-size: 13px;
+        margin: 0 25px;
+        line-height: 1.7;
     }
 
     .about-container .text-quote div.quote {
@@ -520,8 +544,13 @@ body {
         height: auto;
     }
 
+    .about-container .photo iframe {
+        width: 280px;
+        height: 158px;   
+    }
+
     .about-container .text {
-        margin: 0 10px;
+        margin: 0 10px 10px 0;
     }
 
     .about-container .space {
@@ -551,7 +580,7 @@ body {
         margin: 10px auto 0 auto;
     }
 
-    .about-container .text-photo .right {
+    .right {
         margin: 0 auto;
     }
 
@@ -559,6 +588,13 @@ body {
         font-size: 13px;
         text-align: center;
         margin-top: 0;
+    }
+
+    .verse {
+        margin: 0 auto;
+        font-size: 12px;
+        margin: 0 25px;
+        line-height: 1.7;
     }
 
     .about-container .text-quote div.quote {
