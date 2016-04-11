@@ -283,6 +283,13 @@ p.lead {
     font-size: 18px;
 }
 
+p.column {
+    font-size: 18px;
+    width: 20em;
+    margin: 0 auto 20px;
+    padding-left: 5em;
+}
+
 .verse {
     width: 31vw;
     min-width: 380px;
@@ -292,7 +299,7 @@ p.lead {
 }
 
 .about-container .footer {
-    margin-top: 100px;
+    margin-top: 70px;
     height: 190px;
     position: relative;
     border-top: 1px solid #d3d3d3;
@@ -360,6 +367,10 @@ p.lead {
     .about-container .dev {
         margin-top: 30px; 
     }
+
+    p.column {
+        margin-top: 20px;
+    }
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) { 
@@ -400,6 +411,10 @@ p.lead {
         height: 250px;   
     }
 
+    .about-container .photo iframe.sound {
+        height: 165px;
+    }
+
     .about-container .text {
         margin: 0 20px 20px 0;
     }
@@ -414,8 +429,8 @@ p.lead {
     }
 
     .about-container .word img {
-        width: 150px;
-        height: auto;
+        height: 50px;
+        width: auto;
     }
 
     .about-container .text-photo p {
@@ -432,6 +447,11 @@ p.lead {
 
     .right {
         margin: 0 auto;
+    }
+
+    p.column {
+        margin-top: 10px;
+        font-size: 14px;
     }
 
     .about-container .text-photo .right h3 {
@@ -549,6 +569,10 @@ p.lead {
         height: 158px;   
     }
 
+    .about-container .photo iframe.sound {
+        height: 116px;   
+    }
+
     .about-container .text {
         margin: 0 10px 10px 0;
     }
@@ -564,8 +588,8 @@ p.lead {
     }
 
     .about-container .word img {
-        width: 130px;
-        height: auto;
+        height: 35px;
+        width: auto;
     }
 
     .about-container .text-photo p {
@@ -582,6 +606,12 @@ p.lead {
 
     .right {
         margin: 0 auto;
+    }
+
+    p.column {
+        margin-top: 10px;
+        font-size: 12px;
+        padding-left: 4em;
     }
 
     .about-container .text-photo .right h3 {
