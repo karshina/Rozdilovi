@@ -291,8 +291,7 @@ p.column {
 }
 
 .verse {
-    width: 31vw;
-    min-width: 380px;
+    width: 26em;
     margin: 0 0 0 auto;
     font-size: 16px;
     font-style: italic;
@@ -461,9 +460,9 @@ p.column {
     }
 
     .verse {
-        margin: 0 auto;
+        width: auto;
         font-size: 13px;
-        margin: 0 25px;
+        margin: 0 10px 0 25px;
         line-height: 1.7;
     }
 
@@ -621,9 +620,9 @@ p.column {
     }
 
     .verse {
-        margin: 0 auto;
+        width: auto;
         font-size: 12px;
-        margin: 0 25px;
+        margin: 0 10px;
         line-height: 1.7;
     }
 
