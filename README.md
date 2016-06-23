@@ -1,3 +1,11 @@
+# rozdiLOVi
+
+The virtual version of the interdisciplinary art project “rozdiLOVi” (http://www.artpole.org/ENG/archive/2016/2016_rozdilovi.html) starring Serhij Zhadan, Olia Mykhailiuk, Alexey Vorsoba and Vlad Kreimer.
+
+More info:
+* https://docs.google.com/document/d/1hm98ssjuLyB7wEDKmShQBXKuapEC6Rquxp07NsLByAE/edit?usp=sharing
+* http://www.5books.club/rozdilovi/
+
 # Develop
 To have the local site available on http://localhost:8000 (you need PHP to make it work):
 ```bash
