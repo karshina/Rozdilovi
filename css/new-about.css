@@ -305,6 +305,30 @@ body {
 }
 
 .footer {
-    padding: 20px 0;
+    padding: 40px 0;
     background-color: #262626;
+}
+
+
+.about-footer-logo,
+.about-footer-text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.about-footer-logo {
+    position: relative;
+    top: 3px;
+}
+
+.about-footer-text {
+    font-size: 18px;
+    color: rgba(237, 237, 237, 0.502);
+    line-height: 2.056;
+    margin-left: 20px;
+}
+
+.about-footer-container {
+    margin: 0 auto;
+    width: 960px;
 }
