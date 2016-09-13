@@ -31,6 +31,21 @@ body {
     line-height: 1.8;
 }
 
+.about-banner {
+    height: 500px;
+    padding: 80px 0;
+}
+
+.about-banner-img {
+    position: absolute;
+    right: 0;
+}
+
+.about-banner-logo {
+    position: relative;
+    top: 100px
+}
+
 .spot {
     position: absolute;
     left: 0;
@@ -273,12 +288,23 @@ body {
 .small-title-second {
     margin-top: -60px;
     display: block;
+    margin-bottom: 35px;
 }
 
-.small-author-right {
-
+.small-author-right,
+.small-author-left {
+    display: block;
+    width: 65%;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    margin-bottom: 45px;
 }
 
 .small-author-left {
+    margin-left: 35%;
+}
 
+.footer {
+    padding: 20px 0;
+    background-color: #262626;
 }
