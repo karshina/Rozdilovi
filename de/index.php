@@ -12,11 +12,11 @@ $index = str_replace('{{URL}}', htmlspecialchars(full_url($_SERVER, true)), $ind
 
 if (isset($_GET['img'])) {
   $uploadFilename = 'uploads/' . preg_replace('/[^a-z\d]/i', '', $_GET['img']) . '.jpg';
-  if (file_exists(__DIR__ . '../' . $uploadFilename)) {
-    $index = str_replace("{{IMAGE}}", url_origin($_SERVER, true) . '../' . $uploadFilename, $index);
+  if (file_exists(dirname(__DIR__) . '/' . $uploadFilename)) {
+    $index = str_replace("{{IMAGE}}", url_origin($_SERVER, true) . '/' . $uploadFilename, $index);
   }
 } else {
-  $index = str_replace('{{IMAGE}}', url_origin($_SERVER, true) . '../' . 'img/card8.png', $index);
+  $index = str_replace('{{IMAGE}}', url_origin($_SERVER, true) . '/' . 'img/card8.png', $index);
 }
 
 echo $index;
