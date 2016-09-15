@@ -338,7 +338,7 @@ $(document).ready(function($) {
         'video=' + (track && track.video),
         't=' + videoTime
       ]
-      var url = encodeURIComponent(document.location.origin + "/" + '?' + vars.join('&'))
+      var url = encodeURIComponent(document.location.origin + "/en/" + '?' + vars.join('&'))
 
       fbpopup.location.replace("https://www.facebook.com/sharer/sharer.php?u=" + url)
     })
