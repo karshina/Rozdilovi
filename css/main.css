@@ -69,6 +69,14 @@ body:hover #foreground {
     cursor: pointer;
 }
 
+.menu_en {
+    position: absolute;
+    margin-left: 2.5vw;
+    margin-top: 4vh;
+    z-index: 3;
+    cursor: pointer;
+}
+
 .menu img {
     width: 5vh; 
     height: 3.6vh;
@@ -477,7 +485,7 @@ body:hover #foreground {
 #close-video {
     position: absolute;
     right: 30px;
-    top: 3vh;
+    top: 4.5vh;
     background: url('/img/iclose.png') 0 0 no-repeat;
     background-size: contain;
     width: 40px; 
@@ -488,7 +496,7 @@ body:hover #foreground {
 #share {
     position: absolute;
     right: 90px;
-    top: 3vh;
+    top: 4.5vh;
     background: url('/img/ishare.png') 0 0 no-repeat;
     background-size: contain;
     width: 40px; 

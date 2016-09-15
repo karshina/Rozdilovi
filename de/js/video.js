@@ -2,10 +2,11 @@ $(document).ready(function($) {
   var $window = $(window)
   var $container = $('.video-container')
   var $play = $('#play')
-  var $playGhost = $('#play-ghost')
+  var $playGhost = $('#playen')
   var $playShared = $('#play-shared')
   var $body = $('body')
   var $content = $('.video-content')
+  var $dimmer = $('.dim-screen')
   var $card = $('#card')
   var $cardImg = $('#card-img')
   var $playerContent = $('.player-content')
@@ -16,6 +17,8 @@ $(document).ready(function($) {
   var $prev = $('#prev')
   var $fbsend = $('#fbsend')
   var $logo = $('#logo')
+  var $lang = $('.lang')
+  var $about = $('#about')
   var $spinner = $('#spinner')
   
   var cards = [
@@ -59,7 +62,9 @@ $(document).ready(function($) {
   })
 
   $playGhost.on('click', function () {
-    track = window.rozd.getCurrentTrack($play.attr('data-video-id'))[0]
+    
+    track = window.rozd.getCurrentTrack($playGhost.attr('data-video-id'))[0]
+
     if (!track) return
 
     ga('send', 'event', {
@@ -69,6 +74,9 @@ $(document).ready(function($) {
     });
 
     playVideo(track, 1)
+
+    $lang.addClass('none')
+    $about.addClass('none')
   })
 
   window.onYouTubeIframeAPIReady = function() {
@@ -94,14 +102,21 @@ $(document).ready(function($) {
       $container.addClass('share-mode')
       // showCard()
       $content.removeClass('none')
+      $dimmer.removeClass('none')
       $closeVideo.addClass('none')
       $share.addClass('none')
+      $dimmer.removeClass('none')
 
       ga('send', 'event', {
         'eventCategory': 'video',
         'eventAction': 'card-open-shared',
         'eventLabel': track.video
       });
+    } else {
+      //track = window.rozd.getCurrentTrack('1mq6r4_DAgw')[0]
+      //playVideo(track, 0)
+      //$closeVideo.addClass('none')
+      //t$share.addClass('none')
     }
   }
   if (YT && YT.loaded) {
@@ -109,7 +124,8 @@ $(document).ready(function($) {
   }
 
   function showCard() {
-    if (videoState !== YT.PlayerState.PAUSED) {
+
+    if ((videoState !== YT.PlayerState.PAUSED) && (videoState !== YT.PlayerState.ENDED)) {
       return
     }
 
@@ -120,6 +136,7 @@ $(document).ready(function($) {
     card.draw(text.words || '', currentCard)
 
     $content.removeClass('none')
+    $dimmer.removeClass('none')
     $closeVideo.addClass('none')
     $share.addClass('none')
 
@@ -133,8 +150,11 @@ $(document).ready(function($) {
 
   function hideCard() {
     $content.addClass('none')
-    $closeVideo.removeClass('none')
-    $share.removeClass('none')
+    $dimmer.addClass('none')
+    if (videoState == YT.PlayerState.PAUSED) {
+      $closeVideo.removeClass('none')
+      $share.removeClass('none')
+    }
     // Reset share mode if any
     $container.removeClass('share-mode')
   }
@@ -154,11 +174,10 @@ $(document).ready(function($) {
     player = new YT.Player('player', {
       height: '100%',
       width: '100%',
-      playerVars: { 'autoplay': autoplay, 'fs': 0,'showinfo':0,'color':'white','disablekb': 1},
+      playerVars: { 'autoplay': autoplay, 'fs': 0,'rel':0,'showinfo':0,'color':'white','disablekb': 1},
       videoId: track.video,
       events: {
         'onReady': function(e) {
-          $logo.addClass('hide')
           autoplay && e.target.playVideo()
         },
         'onStateChange': function(e) {
@@ -167,13 +186,14 @@ $(document).ready(function($) {
 
           if (videoState == YT.PlayerState.PLAYING) {
             hideCard()
+            $logo.addClass('hide')
             $container.removeClass('share-mode')
           }
           else if (videoState == YT.PlayerState.PAUSED) {
             showCardDebounce()
           }
           else if (videoState == YT.PlayerState.ENDED) {
-            closeIframe()
+            endVideo()
           }
         },
       }
@@ -195,12 +215,6 @@ $(document).ready(function($) {
   })
 
   $closeVideo.on('click', function () {
-    ga('send', 'event', {
-      'eventCategory': 'video',
-      'eventAction': 'close-button-click',
-      'eventLabel': track.video
-    });
-
     closeIframe()
   })
 
@@ -221,7 +235,12 @@ $(document).ready(function($) {
     });
 
     hideCard()
-    Modernizr.videoautoplay && player.playVideo()
+    if (videoState == YT.PlayerState.PAUSED) {
+      Modernizr.videoautoplay && player.playVideo()
+    }
+    if (videoState == YT.PlayerState.ENDED) {
+      closeIframe()
+    }
   })
 
   $next.on('click', function () {
@@ -318,19 +337,30 @@ $(document).ready(function($) {
     });
 
     hideCard()
+    $dimmer.addClass('none')
     Modernizr.videoautoplay && player.playVideo()
   })
 
   function closeIframe() {
-    rozd.dropUI()
-    rozd.updateUI()
-    $body.removeClass('overflow-hidden')
     player = null
     $playerContent.html('<div id="player"></div>')
     $container.addClass('none')
     $content.addClass('none')
+    $dimmer.addClass('none')
     $logo.removeClass('hide')
+    $lang.removeClass('none')
+    $about.removeClass('none')
     card.reset()
+  }
+
+  function endVideo() {
+    showCard()
+    player = null
+    $playerContent.html('<div id="player"></div>')
+    //$container.addClass('none')
+    //$content.addClass('none')
+    //$logo.removeClass('hide')
+    //$lang.removeClass('none')
   }
 
   // Card Class
@@ -384,36 +414,16 @@ $(document).ready(function($) {
       $cardImg.replaceWith('<img id="card-img" />')
 
       var bg = $cardImg[0]
-      bg.src = cards[index]
+      bg.src = '/de/card'+text+'.jpg'
 
       var _t = new Date;
 
       $spinner.show()
 
-      var drawText = function() {
-        ctx.font = "normal " + fontSize + "px FranklinGothicMedium"
-
-        var txt = canvasWrapText(ctx, text, paddingSides, paddingTop, width-(paddingSides*2), 33)
-        for (var i = 0; i < txt.length; i++){
-          ctx.fillStyle = '#444444'
-          ctx.fillText(txt[i].text, txt[i].x, txt[i].y)
-        }
-
-        /* draw site URL
-        ctx.font = "200 12px FranklinGothicBook"
-        ctx.fillStyle = '#444444'
-        var textWidth = ctx.measureText('rozdilovi.org').width
-        ctx.fillRect(600-textWidth-33, height-35, textWidth+12, 17);
-        ctx.fillStyle = '#ffffff'
-        ctx.fillText('rozdilovi.org', 600-textWidth-33+6, height-23)
-        */
-      }
-
       var drawBg = function(wasComplete) {
         $spinner.hide()
         reset()
         ctx.drawImage(bg, 0, 0, 600, 325)
-        drawText()
 
         if (!wasComplete) {
           ga('send', 'timing', {
@@ -430,8 +440,6 @@ $(document).ready(function($) {
           });
         }
       }
-
-      drawText()
 
       if (bg.complete) return drawBg(true)
 
@@ -461,6 +469,7 @@ $(document).ready(function($) {
   if (document.location.hash == "#video-content-dev") {
     $container.removeClass('none')
     $content.removeClass('none')
+    $dimmer.removeClass('none')
     $logo.addClass('hide')
     text = {words: "хочеться говорити тихо, щоби тебе ніхто не почув, а почувши – не зрозумів"}
     currentCard = 0

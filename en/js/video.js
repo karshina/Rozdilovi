@@ -2,10 +2,11 @@ $(document).ready(function($) {
   var $window = $(window)
   var $container = $('.video-container')
   var $play = $('#play')
-  var $playGhost = $('#play-ghost')
+  var $playGhost = $('#playen')
   var $playShared = $('#play-shared')
   var $body = $('body')
   var $content = $('.video-content')
+  var $dimmer = $('.dim-screen')
   var $card = $('#card')
   var $cardImg = $('#card-img')
   var $playerContent = $('.player-content')
@@ -16,9 +17,28 @@ $(document).ready(function($) {
   var $prev = $('#prev')
   var $fbsend = $('#fbsend')
   var $logo = $('#logo')
+  var $lang = $('.lang')
+  var $about = $('#about')
   var $spinner = $('#spinner')
   
   var cards = [
+    'img/cards/_card42.jpg',
+    'img/cards/_card43.jpg',
+    'img/cards/_card44.jpg',
+    'img/cards/_card45.jpg',
+    'img/cards/_card46.jpg',
+    'img/cards/_card47.jpg',
+    'img/cards/_card48.jpg',
+    'img/cards/_card49.jpg',
+    'img/cards/_card49a.jpg',
+    'img/cards/_card50.jpg',
+    'img/cards/_card50a.jpg',
+    'img/cards/_card51.jpg',
+    'img/cards/_card52.jpg',
+    'img/cards/_card53.jpg',
+    'img/cards/_card54.jpg',
+    'img/cards/_card55.jpg',
+    'img/cards/_card56.jpg',
     'img/cards/_card1.jpg',
     'img/cards/_card28.jpg',
     'img/cards/_card17.jpg',
@@ -59,7 +79,7 @@ $(document).ready(function($) {
   })
 
   $playGhost.on('click', function () {
-    track = window.rozd.getCurrentTrack($play.attr('data-video-id'))[0]
+    track = window.rozd.getCurrentTrack($playGhost.attr('data-video-id'))[0]
     if (!track) return
 
     ga('send', 'event', {
@@ -69,6 +89,9 @@ $(document).ready(function($) {
     });
 
     playVideo(track, 1)
+
+    $lang.addClass('none')
+    $about.addClass('none')
   })
 
   window.onYouTubeIframeAPIReady = function() {
@@ -96,12 +119,19 @@ $(document).ready(function($) {
       $content.removeClass('none')
       $closeVideo.addClass('none')
       $share.addClass('none')
+      $lang.addClass('none')
+      $dimmer.removeClass('none')
 
       ga('send', 'event', {
         'eventCategory': 'video',
         'eventAction': 'card-open-shared',
         'eventLabel': track.video
       });
+    } else {
+      //track = window.rozd.getCurrentTrack('1mq6r4_DAgw')[0]
+      //playVideo(track, 0)
+      //$closeVideo.addClass('none')
+      //t$share.addClass('none')
     }
   }
   if (YT && YT.loaded) {
@@ -109,7 +139,8 @@ $(document).ready(function($) {
   }
 
   function showCard() {
-    if (videoState !== YT.PlayerState.PAUSED) {
+
+    if ((videoState !== YT.PlayerState.PAUSED) && (videoState !== YT.PlayerState.ENDED)) {
       return
     }
 
@@ -133,8 +164,10 @@ $(document).ready(function($) {
 
   function hideCard() {
     $content.addClass('none')
-    $closeVideo.removeClass('none')
-    $share.removeClass('none')
+    if (videoState == YT.PlayerState.PAUSED) {
+      $closeVideo.removeClass('none')
+      $share.removeClass('none')
+    }
     // Reset share mode if any
     $container.removeClass('share-mode')
   }
@@ -154,11 +187,10 @@ $(document).ready(function($) {
     player = new YT.Player('player', {
       height: '100%',
       width: '100%',
-      playerVars: { 'autoplay': autoplay, 'fs': 0,'showinfo':0,'color':'white','disablekb': 1},
+      playerVars: { 'autoplay': autoplay, 'fs': 0,'rel':0,'showinfo':0,'color':'white','disablekb': 1},
       videoId: track.video,
       events: {
         'onReady': function(e) {
-          $logo.addClass('hide')
           autoplay && e.target.playVideo()
         },
         'onStateChange': function(e) {
@@ -167,13 +199,16 @@ $(document).ready(function($) {
 
           if (videoState == YT.PlayerState.PLAYING) {
             hideCard()
+            $logo.addClass('hide')
+            $closeVideo.addClass('reveal')
+            $share.addClass('reveal')
             $container.removeClass('share-mode')
           }
           else if (videoState == YT.PlayerState.PAUSED) {
             showCardDebounce()
           }
           else if (videoState == YT.PlayerState.ENDED) {
-            closeIframe()
+            endVideo()
           }
         },
       }
@@ -195,12 +230,6 @@ $(document).ready(function($) {
   })
 
   $closeVideo.on('click', function () {
-    ga('send', 'event', {
-      'eventCategory': 'video',
-      'eventAction': 'close-button-click',
-      'eventLabel': track.video
-    });
-
     closeIframe()
   })
 
@@ -221,7 +250,12 @@ $(document).ready(function($) {
     });
 
     hideCard()
-    Modernizr.videoautoplay && player.playVideo()
+    if (videoState == YT.PlayerState.PAUSED) {
+      Modernizr.videoautoplay && player.playVideo()
+    }
+    if (videoState == YT.PlayerState.ENDED) {
+      closeIframe()
+    }
   })
 
   $next.on('click', function () {
@@ -318,19 +352,29 @@ $(document).ready(function($) {
     });
 
     hideCard()
+    $dimmer.addClass('none')
     Modernizr.videoautoplay && player.playVideo()
   })
 
   function closeIframe() {
-    rozd.dropUI()
-    rozd.updateUI()
-    $body.removeClass('overflow-hidden')
     player = null
     $playerContent.html('<div id="player"></div>')
     $container.addClass('none')
     $content.addClass('none')
     $logo.removeClass('hide')
+    $lang.removeClass('none')
+    $about.removeClass('none')
     card.reset()
+  }
+
+  function endVideo() {
+    showCard()
+    player = null
+    $playerContent.html('<div id="player"></div>')
+    //$container.addClass('none')
+    //$content.addClass('none')
+    //$logo.removeClass('hide')
+    //$lang.removeClass('none')
   }
 
   // Card Class
@@ -384,7 +428,7 @@ $(document).ready(function($) {
       $cardImg.replaceWith('<img id="card-img" />')
 
       var bg = $cardImg[0]
-      bg.src = cards[index]
+      bg.src = '../'+cards[index]
 
       var _t = new Date;
 
