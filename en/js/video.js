@@ -29,7 +29,6 @@ $(document).ready(function($) {
     'img/cards/_card46.jpg',
     'img/cards/_card47.jpg',
     'img/cards/_card48.jpg',
-    'img/cards/_card49.jpg',
     'img/cards/_card49a.jpg',
     'img/cards/_card50.jpg',
     'img/cards/_card50a.jpg',

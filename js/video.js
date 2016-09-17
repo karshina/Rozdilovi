@@ -40,7 +40,23 @@ $(document).ready(function($) {
     'img/cards/_card30.jpg',
     'img/cards/_card11.jpg',
     'img/cards/_card27.jpg',
-    'img/cards/_card13.jpg'
+    'img/cards/_card13.jpg',
+    'img/cards/_card42.jpg',
+    'img/cards/_card43.jpg',
+    'img/cards/_card44.jpg',
+    'img/cards/_card45.jpg',
+    'img/cards/_card46.jpg',
+    'img/cards/_card47.jpg',
+    'img/cards/_card48.jpg',
+    'img/cards/_card49a.jpg',
+    'img/cards/_card50.jpg',
+    'img/cards/_card50a.jpg',
+    'img/cards/_card51.jpg',
+    'img/cards/_card52.jpg',
+    'img/cards/_card53.jpg',
+    'img/cards/_card54.jpg',
+    'img/cards/_card55.jpg',
+    'img/cards/_card56.jpg'
     ]
   var currentCard
   var player = {}
