@@ -16,7 +16,7 @@ if (isset($_GET['img'])) {
     $index = str_replace("{{IMAGE}}", url_origin($_SERVER, true) . '/' . $uploadFilename, $index);
   }
 } else {
-  $index = str_replace('{{IMAGE}}', url_origin($_SERVER, true) . '/' . 'img/card8.png', $index);
+  $index = str_replace('{{IMAGE}}', url_origin($_SERVER, true) . '/' . 'img/og_image_en.jpg', $index);
 }
 
 echo $index;
