@@ -105,6 +105,7 @@ $(document).ready(function($) {
       $dimmer.removeClass('none')
       $closeVideo.addClass('none')
       $share.addClass('none')
+      $lang.addClass('none')
       $dimmer.removeClass('none')
 
       ga('send', 'event', {
