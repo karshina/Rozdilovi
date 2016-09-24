@@ -16,6 +16,7 @@ $(document).ready(function($) {
   var $prev = $('#prev')
   var $fbsend = $('#fbsend')
   var $logo = $('#logo')
+  var $lang = $('.lang')
   var $spinner = $('#spinner')
   
   var cards = [
@@ -84,6 +85,8 @@ $(document).ready(function($) {
       'eventLabel': track.video
     });
 
+    $lang.addClass('none')
+
     playVideo(track, 1)
   })
 
@@ -110,6 +113,7 @@ $(document).ready(function($) {
       $container.addClass('share-mode')
       // showCard()
       $content.removeClass('none')
+      $lang.addClass('none')
       $closeVideo.addClass('none')
       $share.addClass('none')
 
@@ -346,6 +350,7 @@ $(document).ready(function($) {
     $container.addClass('none')
     $content.addClass('none')
     $logo.removeClass('hide')
+    $lang.removeClass('none')
     card.reset()
   }
 

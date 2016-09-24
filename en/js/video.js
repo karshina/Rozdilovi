@@ -163,10 +163,8 @@ $(document).ready(function($) {
 
   function hideCard() {
     $content.addClass('none')
-    if (videoState == YT.PlayerState.PAUSED) {
-      $closeVideo.removeClass('none')
-      $share.removeClass('none')
-    }
+    $closeVideo.removeClass('none')
+    $share.removeClass('none')
     // Reset share mode if any
     $container.removeClass('share-mode')
   }

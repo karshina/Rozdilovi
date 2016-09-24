@@ -31,6 +31,7 @@ body {
     line-height: 1.8;
 }
 
+/*
 .lang {
     position: absolute;
     right: 2.5vw;
@@ -55,6 +56,7 @@ body {
     color: #333333;
     text-decoration: underline;
 }
+*/
 
 .about-banner {
     padding: 80px 0 0 0;
@@ -94,20 +96,6 @@ body {
     position: absolute;
     left: 0;
     max-width: 668px;
-}
-
-.menu {
-    position: absolute;
-    margin-left: 2.5vw;
-    margin-top: 4vh;
-    z-index: 3;
-}
-
-.menu img {
-    width: 5vh;
-    height: 3.6vh;
-    max-width: 39px;
-    cursor: pointer;
 }
 
 .nav {
@@ -269,10 +257,8 @@ body {
     font-weight: bold;
     line-height: 1.5;
     text-align: left;
-    height: 39px;
     z-index: 95;
     display: block;
-    margin-top: 15px;
     margin-bottom: 60px;
 }
 
@@ -284,6 +270,7 @@ body {
     display: block;
     cursor: pointer;
     margin-top: 20px;
+    margin-bottom: 15px;
 }
 
 .tour-margin-bottom {

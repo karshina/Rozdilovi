@@ -61,28 +61,6 @@ body:hover #foreground {
     color: #a3496a;
 }
 
-.menu {
-    position: absolute;
-    margin-left: 2.5vw;
-    margin-top: -13vh;
-    z-index: 3;
-    cursor: pointer;
-}
-
-.menu_en {
-    position: absolute;
-    margin-left: 2.5vw;
-    margin-top: 4vh;
-    z-index: 3;
-    cursor: pointer;
-}
-
-.menu img {
-    width: 5vh; 
-    height: 3.6vh;
-    max-width: 39px;
-}
-
 #logo {
     position: absolute;
     background: url('/img/logo.png') 0 0 no-repeat;
@@ -105,6 +83,19 @@ body:hover #foreground {
 }
 
 #container {
+    position: absolute;
+    margin: auto; 
+    width: 50vw;
+    top: 18vh;
+    right: 0;
+    bottom: 6vh;
+    left: 0;
+    max-height: 556px;
+    max-width: 545px;
+} 
+
+/*
+#container {
     position: relative;
     margin-left: auto; 
     margin-right: auto; 
@@ -114,6 +105,7 @@ body:hover #foreground {
     max-height: 556px;
     max-width: 545px;
 } 
+*/
 
 #circle {
     margin: auto;
@@ -651,11 +643,6 @@ body:hover #foreground {
 }
 
 @media only screen and (orientation:portrait) {
-
-    .menu {
-        margin-top: -23vh;
-        margin-left: 4vw;
-    }
 
     #logo {
         width: 28vw;

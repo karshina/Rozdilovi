@@ -37,20 +37,6 @@ body {
     max-width: 668px;
 }
 
-.menu {
-    position: absolute;
-    margin-left: 2.5vw;
-    margin-top: 4vh;
-    z-index: 3;
-}
-
-.menu img {
-    width: 5vh; 
-    height: 3.6vh;
-    max-width: 39px;
-    cursor: pointer;
-}
-
 #logo {
     position: absolute;
     display: block;
@@ -520,10 +506,6 @@ p.column {
 }
 
 @media screen and (max-width: 479px) {
-
-    .menu {
-        margin-left: 4vw;
-    }
 
     #logo {
         width: 28vw;
