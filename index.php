@@ -3,7 +3,7 @@
 include_once 'utils.php';
 
 //if (strpos($_SERVER['HTTP_HOST'], 'rozdilovi.org') === false ) {
-	$index = file_get_contents(__DIR__ . '/index.html');
+$index = file_get_contents(__DIR__ . '/index.html');
 //} else {
 //	$index = file_get_contents(__DIR__ . '/indexstub.html');
 //}

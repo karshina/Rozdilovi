@@ -15,6 +15,7 @@ $(document).ready(function($) {
   var $next = $('#next')
   var $prev = $('#prev')
   var $fbsend = $('#fbsend')
+  var $emailsend = $('#emailsend')
   var $logo = $('#logo')
   var $lang = $('.lang')
   var $spinner = $('#spinner')
@@ -291,11 +292,11 @@ $(document).ready(function($) {
 
     var imageData = card.getImageData()
     $fbsend.attr('disabled', true)
+    $emailsend.attr('disabled', true)
 
     // open fb popup earlier because otherwise browsers will block it after ajax request
     var fbpopup = window.open("/loading.html", "pop", "width=600, height=400, scrollbars=no")
     var _t = new Date;
-
 
     $.ajax({
       type: "POST",
@@ -318,6 +319,7 @@ $(document).ready(function($) {
       });
 
       $fbsend.attr('disabled', false)
+      $emailsend.attr('disabled', false)
 
       var vars = [
         'img=' + o.id,
@@ -327,6 +329,63 @@ $(document).ready(function($) {
       var url = encodeURIComponent(document.location.origin + "/" + '?' + vars.join('&'))
 
       fbpopup.location.replace("https://www.facebook.com/sharer/sharer.php?u=" + url)
+    })
+  })
+
+$emailsend.on('click', function() {
+    ga('send', 'event', {
+      'eventCategory': 'video',
+      'eventAction': 'card-email',
+      'eventLabel': track.video,
+      'eventValue': videoTime
+    });
+
+    ga('send', 'event', {
+      'eventCategory': 'video',
+      'eventAction': 'card-email-bg',
+      'eventLabel': cards[currentCard],
+      'eventValue': videoTime
+    });
+
+    var imageData = card.getImageData()
+    $fbsend.attr('disabled', true)
+    $emailsend.attr('disabled', true)
+
+    // open fb popup earlier because otherwise browsers will block it after ajax request
+    var emailpage = window.open("/loading.html")
+    var _t = new Date;
+
+    $.ajax({
+      type: "POST",
+      url: "/upload.php",
+      processData: false,
+      data: imageData
+    }).done(function(o) {
+      ga('send', 'event', {
+        'eventCategory': 'video',
+        'eventAction': 'card-email-window-open',
+        'eventLabel': cards[currentCard],
+        'eventValue': new Date - _t
+      });
+
+      ga('send', 'timing', {
+        'timingCategory': 'video',
+        'timingVar': 'card-upload-time',
+        'timingLabel': cards[currentCard],
+        'timingValue': new Date - _t
+      });
+
+      $fbsend.attr('disabled', false)
+      $emailsend.attr('disabled', false)
+
+      var vars = [
+        'img=' + o.id,
+        'video=' + (track && track.video),
+        'text=' + text.words
+      ]
+      var url = document.location.origin + "/postcard.php" + '?' + vars.join('&')
+
+      emailpage.location.replace(url)
     })
   })
 

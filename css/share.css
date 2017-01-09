@@ -85,6 +85,7 @@
 .video-container.share-mode #card,
 .video-container.share-mode #prev,
 .video-container.share-mode #next,
+.video-container.share-mode #emailsend,
 .video-container.share-mode #fbsend {
     display: none;
 }
@@ -112,12 +113,12 @@
 }
 
 #fbsend {
-    width: 135px;
+    width: 200px;
     height: 47px;
     position: absolute;
     bottom: 2px;
-    left: 50%;
-    margin-left: -67px;
+    right: 277px;
+    /*margin-left: -67px;*/
     background-color: rgba(255, 255, 255, 0.8);
     cursor: pointer;
 }
@@ -126,13 +127,37 @@
     content: "";
     position: absolute;
     z-index: 2;
-    background: url('/img/isend.png') 0 0 no-repeat;
+    background: url('/img/fbsend.png') 0 0 no-repeat;
     background-size: contain;
-    width: 135px;
+    width: 200px;
     height: 47px;
 }
 
 #fbsend:hover {
+    background-color: #fff;
+}
+
+#emailsend {
+    width: 200px;
+    height: 47px;
+    position: absolute;
+    bottom: 2px;
+    right: 52px;
+    background-color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+#emailsend:before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    background: url('/img/emailsend.png') 0 0 no-repeat;
+    background-size: contain;
+    width: 200px;
+    height: 47px;
+}
+
+#emailsend:hover {
     background-color: #fff;
 }
 
@@ -168,7 +193,10 @@
         background-image: url('/img/playvideo@2x.png');
     }
     #fbsend:before {
-        background-image: url('/img/isend@2x.png');
+        background-image: url('/img/fbsend@2x.png');
+    }
+    #emailsend:before {
+        background-image: url('/img/emailsend@2x.png');
     }
 }
 
