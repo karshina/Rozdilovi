@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mail->IsHTML(true);
     $mail->Username = "lystonosha@rozdilovi.org";
     $mail->Password = "8tY72GMzS0hl";
-    if (!filter_var($_POST['replyto'], FILTER_VALIDATE_EMAIL))
+    if (filter_var($_POST['replyto'], FILTER_VALIDATE_EMAIL))
       $mail->AddReplyTo($_POST['replyto'], $_POST['name']);
     $mail->SetFrom("lystonosha@rozdilovi.org", $_POST['name']);
     $mail->AddAddress($_POST['email']);
