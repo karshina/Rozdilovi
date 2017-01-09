@@ -42,10 +42,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $template = file_get_contents(__DIR__ . '/email.html');
     $template = str_replace('{{IMG}}', url_origin($_SERVER, true).'/uploads/'.$_POST['img'].'.jpg', $template);
     $template = str_replace('{{LINK}}', $link, $template);
-    $template = str_replace('{{TEXT}}', $_POST['text'], $template);
 
     //$mail->Subject = $_POST['text'];
-    $mail->Subject = 'Листівка з rozdilovi.org';
+    $mail->Subject = $_POST['text'];
     $mail->Body    = $template;
     $mail->AltBody = 'Для перегляду листівки перейдіть за посиланням: '.$link;
 
