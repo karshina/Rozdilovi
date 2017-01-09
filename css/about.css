@@ -168,6 +168,7 @@ body {
     font-size: 18px;
     letter-spacing: 8px;
     padding-left: 25px;
+    text-transform: uppercase;
 }
 
 .about-container .text .point {
