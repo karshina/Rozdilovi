@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
         <link rel="stylesheet" href="/css/normalize.min.css">
-        <link rel="stylesheet" href="/css/about.css?v=1474746150">
+        <link rel="stylesheet" href="/css/about.css?v=1483995221">
         <link rel="stylesheet" href="/css/common.css?v=1474746150">
         <link rel="stylesheet" href="/css/form.css?v=1474746150">
 
