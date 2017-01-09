@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="text margin-small">
               <p class="header center grey">
-                <strong>Листівку відправлено</strong>
+                <strong>Листівку відправлено!</strong>
               </p><p class="center">
                 <button onclick="window.close()">Закрити</button>
               </p>
