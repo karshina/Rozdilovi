@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
 
             <?php if ($sent) { ?>
-            
+
             <div class="text margin-small">
               <p class="header center grey">
                 <strong>Листівку відправлено</strong>
@@ -100,16 +100,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <?php } else { ?>
 
             <form method="POST">
-              <?php if ($fail) { ?> 
-                <p class="error"><?php echo $fail; ?></p> 
+              <?php if ($fail) { ?>
+                <p class="error"><?php echo $fail; ?></p>
               <?php } ?>
 				      <input type="hidden" name="img" value="<?php echo $img; ?>"/>
               <input type="hidden" name="text" value="<?php echo $text; ?>"/>
               <input type="hidden" name="video" value="<?php echo $video; ?>"/>
-              <p><input type="text" name="email" value="Email отримувача" onfocus="if(this.value == 'Email отримувача') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Email отримувача'; }" /></p>
-				      <p><input type="text" name="name" value="Ваше ім'я" onfocus="if(this.value == 'Ваше ім\'я') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Ваше ім\'я'; }" /></p>
-              <p><input type="text" name="replyto" value="Ваш email" onfocus="if(this.value == 'Ваш email') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Ваш email'; }" /></p>
-				      <p><button type="submit">Відправити</button></p>
+              <input type="text" name="email" value="Email отримувача" onfocus="if(this.value == 'Email отримувача') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Email отримувача'; }" />
+				      <input type="text" name="name" value="Ваше ім'я" onfocus="if(this.value == 'Ваше ім\'я') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Ваше ім\'я'; }" />
+              <input type="text" name="replyto" value="Ваш email" onfocus="if(this.value == 'Ваш email') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Ваш email'; }" />
+				      <button type="submit">Відправити</button>
 			      </form>
 
             <?php } ?>

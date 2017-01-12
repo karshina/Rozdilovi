@@ -1,22 +1,27 @@
 form {
 	color: #000000;
-    /*margin: 30px 180px 40px 180px;*/
-    text-align: center;
-    margin: 30px 180px 40px 180px;
+	font-size: initial;
+	text-align: center;
+	max-width: 600px;
+	margin: 30px auto 40px;
 }
 
 input {
-	width: 300px;
+	box-sizing: border-box;
+	width: 330px;
 	height: 46px;
+	line-height: 46px;
 	border: 1px solid #979797;
 	background-color: #D8D8D8;
 	font-size: 13px;
 	color: #666666;
 	padding: 0px 10px 0px 15px;
+	margin-bottom: 17px;
 	vertical-align: middle;
 }
 
 button {
+	display: block;
 	width: 150px;
 	height: 46px;
 	border: 1px solid #979797;
@@ -24,6 +29,7 @@ button {
 	font-size: 15px;
 	color: #eeeeee;
 	padding: 2px 3px 0px 0px;
+	margin: 0 auto;
 	text-align: center;
 	vertical-align: middle;
 }
@@ -31,4 +37,10 @@ button {
 p.error {
 	color: #a3496a;
 	margin-left: 6px;
+}
+
+@media screen and (max-width: 479px) {
+	input {
+		width: 250px;
+	}
 }
