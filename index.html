@@ -12,9 +12,9 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
         <link rel="stylesheet" href="/css/normalize.min.css">
+        <link rel="stylesheet" href="/css/common.css?v=1474746150">
         <link rel="stylesheet" href="/css/main.css?v=1474746150">
-        <link rel="stylesheet" href="/css/common.css?v=1481403563">
-        <link rel="stylesheet" href="/css/share.css?v=1483995221">
+        <link rel="stylesheet" href="/css/share.css?v=1474746150">
         <link rel="stylesheet" href="/css/spinner.css">
 
         <meta property="og:title" content="{{TITLE}}"/>
@@ -45,78 +45,47 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <div id="midground"></div>
-    <div id="foreground"></div>
-
-    <a id="spilnokosht" href="https://biggggidea.com/project/rozdilovi-schastya/" target="_blank">
-        <img src="img/spilnokosht.png" data-at2x="img/spilnokosht@2x.png">
-    </a>
 
         <div class="menu">
           <img src="img/imenu.png" data-at2x="img/imenu@2x.png">
         </div>
-        <div id="logo"></div>
+        <div class="logo-light"></div>
         <div class="lang">
-            <a href="/en/">En</a>&nbsp;&nbsp;&nbsp;<a href="/de/">De</a>&nbsp;&nbsp;<a class="current" href="/">Укр</a>
+            <a class="current" href="/">Укр</a>&nbsp;&nbsp;&nbsp;<a href="/de/">De</a>&nbsp;&nbsp;<a href="/en/">En</a>
         </div>
         <div class="nav nav-hide">
             <div class="nav-content">
-                <a href="./" class="nav-a">Головна</a>
-                <a href="/march2016.html" class="nav-a">Нове</a>
+                <a class="nav-a">Головна</a>
+                <a href="/album.html" class="nav-a">Аудіо альбом</a>
+                <a href="/" class="nav-a">Тексти</a>
+                <a href="/" class="nav-a">Електронні листівки</a>
+                <a href="/" class="nav-a">Поштові листівки</a>
                 <a href="/about-ua.html" class="nav-a">Про проект</a>
-                <a href="/about.html" class="nav-a">Історія</a>
-            </div>
-            <div class="nav-img-content">
-                <a target="_blank" href="http://artpole.org/"><div id="nav-artpole"></div></a>
+                <a href="/about.html" class="nav-a">Історія/архів</a>
+                <a href="/" class="nav-a">Як долучитися</a>
             </div>
         </div>
-        <div id="container">
-          <!--<div id="arrow"></div>-->
-          <div id="circle">
-            <div id="play"></div>
-            <div id="field"></div>
-            <div id="play-ghost"></div>
-          </div>         
-          <div class="words">
-            <div class="slot slot-left slot1"></div>
-            <div class="slot slot-right slot2"></div>
-            <div class="slot slot-left slot3"></div>
-            <div class="slot slot-right slot4"></div>
-            <div class="slot slot-left slot5"></div>
-            <div class="slot slot-right slot6"></div>
-            <div class="slot slot-right slot7"></div>
-            <div class="slot slot-left slot8"></div>
-          </div>
-        </div>
-        <div class="video-container none">
-          <div id="close-video"></div>
-          <div id="share"></div>
-          <div class="video-content none">
-              <div class="video-content-main">
-                <img id="card-img" />
-                <canvas id="card"></canvas>
-                <div id="spinner">
-                  <div class="blockG" id="rotateG_01"></div>
-                  <div class="blockG" id="rotateG_02"></div>
-                  <div class="blockG" id="rotateG_03"></div>
-                  <div class="blockG" id="rotateG_04"></div>
-                  <div class="blockG" id="rotateG_05"></div>
-                  <div class="blockG" id="rotateG_06"></div>
-                  <div class="blockG" id="rotateG_07"></div>
-                  <div class="blockG" id="rotateG_08"></div>
-                </div>
-              </div>
-              <div id="close-card"></div>
-              <div id="prev"></div>
-              <div id="next"></div>
-              <div id="fbsend"></div>
-              <div id="emailsend"></div>
-              <div id="play-shared"></div>
-              <div id="share-result"></div>
-          </div>
-          <div class="player-content">
-            <div id="player"></div>
-          </div>
+
+        <a href="/about-ua.html" class="about-link">Про проект</a>
+
+        <a class="banner-tour" href="https://www.facebook.com/events/580758342120188/" target="_blank">
+            <img src="http://placehold.it/245x305" data-at2x="http://placehold.it/245x305" />
+        </a>
+
+        <a href="/" class="play-album">
+            <img src="img/playflat.png" data-at2x="img/playflat@2x.png"/>
+            <span class="title">
+                Дивитися онлайн
+                <small>з інтерактивними функціями</small>
+            </span>
+        </a>
+
+        <div class="frontpage-footer">
+            <a href="" target="_blank">Скачати альбом в аудіо</a>
+            <div>Відправити листівку:
+                <a href="/">електронну</a> |
+                <a href="/">поштову</a>
+            </div>
         </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -130,14 +99,11 @@
         <script src="/js/vendor/retina.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
-  
-        <script src="/js/combos.js?v=1483995221"></script>
-        <script src="/js/main.js"></script>
-        <script src="/js/video.js?v=1483995221"></script>
+
         <script src="/js/nav.js"></script>
 
         <script>
           $(document).ready(rozd.initUI);
-        </script>  
+        </script>
     </body>
 </html>
