@@ -16,12 +16,22 @@ body {
 }
 
 .logo-light {
+    position: relative;
     background: url('/img/logo-light.png') 0 0 no-repeat;
     background-size: contain;
     width: 218px;
     height: 45px;
     margin: 50px auto 0;
-    z-index: 1;
+    z-index: 3;
+    opacity: 1;
+    -webkit-transition: opacity 4s ease-in-out;
+    -moz-transition: opacity 4s ease-in-out;
+    -ms-transition: opacity 4s ease-in-out;
+    -o-transition: opacity 4s ease-in-out;
+}
+
+.logo-light.fade {
+    opacity: 0;
 }
 
 .banner-tour {
@@ -178,7 +188,7 @@ body {
 
 .note .list:before {
     background-image: url('/img/iplaylist.png');
-    width: 28px;
+    width: 32px;
     height: 28px;
     margin: 0;
 }

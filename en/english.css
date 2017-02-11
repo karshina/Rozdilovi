@@ -1,5 +1,5 @@
-html { 
-  background: url(/img/background_en2.jpg) no-repeat center center fixed; 
+html {
+  background: url(/img/background_en2.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -33,7 +33,7 @@ body {
     left: 50%;
     z-index: 2;
     opacity: 1;
-} 
+}
 
 #logo.hide {
     -webkit-transition: opacity 2s ease-in-out;
@@ -56,7 +56,7 @@ body {
 #playen {
     position: relative;
     margin: auto;
-    background: url('/img/playflat.png') 0 0 no-repeat; 
+    background: url('/img/playflat.png') 0 0 no-repeat;
     background-size: contain;
     width: 21vh;
     height: 21vh;
@@ -100,11 +100,11 @@ body {
   opacity: 0.45;
 }
 
-#close-video {
+#closeVideo {
   opacity: 0;
 }
 
-#close-video.reveal {
+#closeVideo.reveal {
     -webkit-transition: opacity 3s ease-in-out;
     -moz-transition: opacity 3s ease-in-out;
     -ms-transition: opacity 3s ease-in-out;
@@ -124,7 +124,7 @@ body {
     opacity: 1;
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 
     html {
         background-image: url('/img/background_en2@2x.jpg');
@@ -172,8 +172,8 @@ body {
 @media only screen and (max-height: 580px) {
     #about {
         bottom: 10vh;
-        font-size: 20px;   
-    }   
+        font-size: 20px;
+    }
 }
 
 

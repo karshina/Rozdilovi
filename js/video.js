@@ -9,7 +9,7 @@ $(document).ready(function($) {
   var $card = $('#card')
   var $cardImg = $('#card-img')
   var $playerContent = $('.player-content')
-  var $closeVideo = $('#close-video')
+  var $closeVideo = $('#closeVideo')
   var $share = $('#share')
   var $closeCard = $('#close-card')
   var $next = $('#next')
@@ -161,7 +161,8 @@ $(document).ready(function($) {
     $container.removeClass('share-mode')
   }
 
-  function playVideo(track, autoplay) {
+  function playVideo(currentTrack, autoplay) {
+    track = currentTrack;
 
     // Hidden overvlow looks very ugly on mobile, removing it does not seem to
     // break the desktop UI too much, so I remove it.
@@ -562,7 +563,6 @@ $(document).ready(function($) {
   }
 
   window.videoPlayer = {
-    play: playVideo,
-    reset: resetPlayer
+    play: playVideo
   };
 })

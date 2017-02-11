@@ -475,7 +475,7 @@ body:hover #foreground {
     background: #000;
 }
 
-#playlist, #lyric, #share, #close-video {
+#playlist, #lyric, #share, #closeVideo {
     position: absolute;
     top: 4.5vh;
     width: 40px;
@@ -502,7 +502,7 @@ body:hover #foreground {
     background-size: contain;
 }
 
-#close-video {
+#closeVideo {
     right: 30px;
     background: url('/img/iclose.png') 0 0 no-repeat;
     background-size: contain;

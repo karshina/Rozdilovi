@@ -1,8 +1,8 @@
 window.album2017 = {
-    '1': { video: '28Im2yFzuC4' },
-    '2': { video: 'BVYBdv7ki7s' },
-    '3': { video: 'h0J8jvClxjQ' },
-    '4': { video: 'OHfQnJyJz-c' }
+    '1': { video: '28Im2yFzuC4', text: [{ words: 'вночі він написав їй повідомлення', time: 0 }] },
+    '2': { video: 'BVYBdv7ki7s', text: [{ words: 'вночі він написав їй повідомлення', time: 0 }] },
+    '3': { video: 'h0J8jvClxjQ', text: [{ words: 'вночі він написав їй повідомлення', time: 0 }] },
+    '4': { video: 'OHfQnJyJz-c', text: [{ words: 'вночі він написав їй повідомлення', time: 0 }] }
 };
 
 $(document).ready(function($) {
@@ -22,12 +22,14 @@ $(document).ready(function($) {
     function toggleControls(isShown, opts) {
         opts = $.extend({
             preplay: isShown,
+            logoLight: isShown,
             lang: isShown,
             bannerTour: isShown,
             playlist: isShown
         }, opts || {});
 
         $('.banner-tour').toggle(opts.bannerTour);
+        $('.logo-light').toggleClass('fade', !opts.logoLight);
         $('.lang').toggleClass('none', !opts.lang);
         $('#preplay').toggleClass('hide', !opts.preplay);
         $('.playlist-album').toggleClass('playlist-hide', !opts.playlist);
@@ -35,23 +37,23 @@ $(document).ready(function($) {
 
     $playAlbum.on('click', function() {
         playVideoPart('1');
-        toggleControls(false, { preplay: true });
+        toggleControls(false, { preplay: true, logoLight: true });
     });
 
     $albumCTA.on('click', function() {
         toggleControls(false);
         playVideoPart('1', 1);
-    })
+    });
 
     $favoriteTrack.on('click', function(e) {
         toggleControls(false);
         var trackId = $(e.currentTarget).data('videoId');
         videoPlayer.play({ video: trackId }, 1);
-    })
+    });
 
     $playAlbumPart.on('click', function(e) {
         toggleControls(false);
         var part = $(e.currentTarget).data('videoPart');
         playVideoPart(part, 1);
-    })
+    });
 });

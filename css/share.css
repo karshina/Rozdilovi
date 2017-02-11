@@ -113,14 +113,13 @@
     position: absolute;
     bottom: 2px;
     right: 277px;
-    /*margin-left: -67px;*/
     background-color: rgba(255, 255, 255, 0.8);
     cursor: pointer;
 }
 
 #fbsend:before {
     content: "";
-    position: absolute;
+    display: inline-block;
     z-index: 2;
     background: url('/img/fbsend.png') 0 0 no-repeat;
     background-size: contain;
@@ -144,7 +143,7 @@
 
 #emailsend:before {
     content: "";
-    position: absolute;
+    display: inline-block;
     z-index: 2;
     background: url('/img/emailsend.png') 0 0 no-repeat;
     background-size: contain;
