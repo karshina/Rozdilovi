@@ -472,28 +472,40 @@ body:hover #foreground {
     margin: 0;
     padding: 0;
     height: 100%;
+    background: #000;
 }
 
-#close-video {
+#playlist, #lyric, #share, #close-video {
     position: absolute;
-    right: 30px;
     top: 4.5vh;
-    background: url('/img/iclose.png') 0 0 no-repeat;
-    background-size: contain;
     width: 40px;
     height: 40px;
     cursor: pointer;
+}
+
+#playlist {
+    right: 180px;
+    background: url('/img/iplaylist.png') 0 0 no-repeat;
+    background-size: contain;
+    z-index: 3;
+}
+
+#lyric {
+    right: 130px;
+    background: url('/img/ilyric.png') 0 0 no-repeat;
+    background-size: contain;
 }
 
 #share {
-    position: absolute;
-    right: 90px;
-    top: 4.5vh;
+    right: 80px;
     background: url('/img/ishare.png') 0 0 no-repeat;
     background-size: contain;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+}
+
+#close-video {
+    right: 30px;
+    background: url('/img/iclose.png') 0 0 no-repeat;
+    background-size: contain;
 }
 
 /* debugging stuff */
@@ -525,6 +537,15 @@ body:hover #foreground {
     }
     #play {
         background-image: url('/img/play_btn@2x.png');
+    }
+    #playlist {
+        background-image: url('/img/iplaylist@2x.png');
+    }
+    #lyric {
+        background-image: url('/img/ilyric@2x.png');
+    }
+    #share {
+        background-image: url('/img/ishare@2x.png');
     }
 }
 

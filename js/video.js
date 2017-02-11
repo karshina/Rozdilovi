@@ -19,7 +19,7 @@ $(document).ready(function($) {
   var $logo = $('#logo')
   var $lang = $('.lang')
   var $spinner = $('#spinner')
-  
+
   var cards = [
     'img/cards/_card1.jpg',
     'img/cards/_card28.jpg',
@@ -125,6 +125,7 @@ $(document).ready(function($) {
       });
     }
   }
+
   if (YT && YT.loaded) {
     window.onYouTubeIframeAPIReady()
   }
@@ -172,10 +173,18 @@ $(document).ready(function($) {
 
     videoState = YT.PlayerState.PAUSED
 
+    resetPlayer();
+
     player = new YT.Player('player', {
       height: '100%',
       width: '100%',
-      playerVars: { 'autoplay': autoplay, 'fs': 0,'showinfo':0,'color':'white','disablekb': 1},
+      playerVars: {
+        'autoplay': autoplay,
+        'fs': 0,'showinfo':0,
+        'color':'white',
+        'disablekb': 1,
+        'playlist': track.playlist
+      },
       videoId: track.video,
       events: {
         'onReady': function(e) {
@@ -332,7 +341,7 @@ $(document).ready(function($) {
     })
   })
 
-$emailsend.on('click', function() {
+  $emailsend.on('click', function() {
     ga('send', 'event', {
       'eventCategory': 'video',
       'eventAction': 'card-email',
@@ -400,12 +409,16 @@ $emailsend.on('click', function() {
     Modernizr.videoautoplay && player.playVideo()
   })
 
+  function resetPlayer() {
+    player = null
+    $playerContent.html('<div id="player"></div>')
+  }
+
   function closeIframe() {
     rozd.dropUI()
     rozd.updateUI()
     $body.removeClass('overflow-hidden')
-    player = null
-    $playerContent.html('<div id="player"></div>')
+    resetPlayer();
     $container.addClass('none')
     $content.addClass('none')
     $logo.removeClass('hide')
@@ -547,4 +560,9 @@ $emailsend.on('click', function() {
     card.draw(text.words, 0)
     window.card = card
   }
+
+  window.videoPlayer = {
+    play: playVideo,
+    reset: resetPlayer
+  };
 })

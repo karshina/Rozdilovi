@@ -11,12 +11,17 @@ body {
     text-align: center;
 }
 
+.hide {
+    display: none;
+}
+
 .logo-light {
     background: url('/img/logo-light.png') 0 0 no-repeat;
     background-size: contain;
     width: 218px;
     height: 45px;
     margin: 50px auto 0;
+    z-index: 1;
 }
 
 .banner-tour {
@@ -53,6 +58,7 @@ body {
     font-size: 36px;
     margin-top: 11vh;
     display: inline-block;
+    cursor: pointer;
 }
 
 .play-album:hover {
@@ -96,6 +102,205 @@ body {
 
 .frontpage-footer a:hover {
     opacity: 0.9;
+}
+
+.preplay-modal {
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 2;
+}
+
+.preplay-content {
+    overflow: hidden;
+    position: relative;
+    max-width: 770px;
+    margin: -180px auto;
+    padding: 30px 0;
+    background: rgba(0, 0, 0, 0.8);
+    height: 300px;
+    top: 50%;
+}
+
+.preplay-content .favorites-container,
+.preplay-content .note {
+    box-sizing: border-box;
+}
+
+.preplay-content .favorites-container {
+    width: 29%;
+    float: left;
+    height: 100%;
+    overflow: hidden;
+    border-right: 2px solid rgba(209, 209, 209, 0.6);
+    padding: 0 35px;
+    text-align: right;
+}
+
+.preplay-content .note {
+    width: 71%;
+    float: right;
+    color: rgba(233, 233, 232, 0.8);
+    font-size: 14px;
+    font-family: FranklinGothicBook;
+    text-align: left;
+    padding: 0 34px;
+}
+
+.preplay-content .note p {
+    font-size: 15px;
+    margin: 0 0 16px;
+    line-height: 20px;
+}
+
+.note .icon:before {
+    content: '';
+    background: no-repeat center;
+    background-size: contain;
+    height: 22px;
+    margin: 0 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.note .time:before {
+    background-image: url('/img/itime.png');
+    width: 20px;
+}
+
+.note .list:before {
+    background-image: url('/img/iplaylist.png');
+    width: 28px;
+    height: 28px;
+    margin: 0;
+}
+
+.note .share:before {
+    background-image: url('/img/ishare.png');
+    width: 22px;
+    margin-left: 0;
+}
+
+.note .lyric:before {
+    background-image: url('/img/ilyric-light.png');
+    width: 13px;
+    margin-right: 10px;
+}
+
+.favorites {
+    margin-top: 18px;
+}
+
+.favorites>div {
+    background: 0 0 no-repeat;
+    background-size: contain;
+    width: 130px;
+    height: 70px;
+    display: inline-block;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.favorites>div:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -17px 0 0 -17px;
+    width: 35px;
+    height: 35px;
+    background: url('/img/playflat.png') 0 0 no-repeat;
+    background-size: contain;
+}
+
+.favorites>div:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.note .view-album-cta {
+    display: block;
+    opacity: 0.7;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    line-height: 46px;
+    text-align: center;
+    width: 180px;
+    height: 46px;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.note .view-album-cta:hover {
+    opacity: 0.75;
+}
+
+.playlist-album {
+    background: rgba(0, 0, 0, 0.9);
+    transition: 0.4s;
+    z-index: 2;
+    text-align: left;
+    padding: 30px 0 10px;
+    width: auto;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: 0.4s;
+}
+
+.playlist-album h2 {
+    text-align: right;
+    font-size: 16px;
+    letter-spacing: 5px;
+    margin: 0 45px 40px;
+}
+
+.playlist-hide {
+    margin-right: -350px;
+}
+
+.album-part-cta {
+    display: block;
+    color: rgba(233, 233, 232, 0.8);
+    font-family: FranklinGothicBook;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 20px 0;
+    padding-right: 45px;
+}
+
+.album-part-cta:hover {
+    opacity: 0.8;
+}
+
+.album-part-cta:before {
+    content: '';
+    background: url('/img/playflat.png') no-repeat center;
+    background-size: contain;
+    height: 30px;
+    width: 30px;
+    margin: 0 25px 0 30px;
+    display: inline-block;
+    vertical-align: middle;'
+}
+
+.album-part-cta time {
+    font-size: 10px;
+    margin-left: 10px;
+    color: color: rgba(209, 209, 209, 0.8);;
 }
 
 @media only screen and (max-height: 400px) {
