@@ -1,34 +1,3 @@
-body {
-    background: url('/img/background_about.jpg') 0 0 repeat;
-    background-size: 100%;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Helvetica', sans-serif;
-    line-height: 1.8;
-}
-
-.album {
-    max-width: 640px;
-    margin: 0 auto;
-}
-
-.album p {
-    font-size: 22px;
-    color: #000;
-    font-family: Arial;
-    margin: 0 0 5px;
-}
-
-.logo-dark {
-    background: url('/img/logo-dark.png') 0 0 no-repeat;
-    background-size: contain;
-    width: 218px;
-    height: 121px;
-    margin: 10px auto 0;
-}
-
 .album-thumb {
     background: url('/img/album-thumb.jpg') no-repeat center center;
     -webkit-background-size: cover;
@@ -37,11 +6,11 @@ body {
     background-size: cover;
     max-width: 640px;
     height: 322px;
-    margin: 85px auto 140px;
+    margin: 85px auto 10px;
     text-align: center;
 }
 
-.album-thumb-cta {
+a.album-thumb-cta {
     position: relative;
     top: 36%;
     transform: translateY(-50%);
@@ -92,29 +61,14 @@ body {
     overflow: hidden;
 }
 
-.support-cta {
+a.support-cta {
     float: left;
-    color: #272727;
-    font-family: FranklinGothicBook;
     font-size: 24px;
+    padding-top: 6px;
 }
 
-.download-album-cta {
+a.download-album-cta {
     float: right;
-    color: #f3f3f3;
-    font-size: 20px;
-    background: rgba(29, 29, 29, 0.7);
-    text-decoration: none;
-    text-align: center;
-    width: 275px;
-    height: 60px;
-    line-height: 60px;
 }
 
-.support-cta:hover {
-    opacity: 0.85;
-}
 
-.download-album-cta:hover {
-    background: rgba(29, 29, 29, 0.75);
-}

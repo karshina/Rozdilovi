@@ -1,10 +1,4 @@
 body {
-    background: url('/img/background_about.jpg') 0px 0px repeat;
-    background-size: 100%;
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
     font-family: 'Helvetica', sans-serif;
     line-height: 1.8;
 }
@@ -212,6 +206,14 @@ body {
 
     .about-banner-img {
         background-image: url('/img/about-banner@2x.png');
+    }
+
+    .about-banner-logo-lat {
+        background-image: url('/img/about-logo-lat@2x.png');
+    }
+
+    .about-banner-logo {
+        background-image: url('/img/logo-dark@2x.png');
     }
 }
 

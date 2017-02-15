@@ -1,0 +1,11 @@
+.container.lyrics > a {
+    display: block;
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 15px;
+    color: #585a5f;
+}
+
+.container.lyrics > a:hover {
+    opacity: 0.9;
+}
