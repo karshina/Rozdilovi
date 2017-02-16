@@ -8,35 +8,50 @@ form {
 
 input {
 	box-sizing: border-box;
-	width: 330px;
-	height: 46px;
-	line-height: 46px;
-	border: 1px solid #979797;
-	background-color: #D8D8D8;
-	font-size: 13px;
+	width: 400px;
+	height: 50px;
+	line-height: 50px;
+	border: 1px solid #9f9f9f;
+	background-color: #d8d8d8;
+	font-size: 17px;
 	color: #666666;
-	padding: 0px 10px 0px 15px;
-	margin-bottom: 17px;
+	padding: 0 15px;
+	margin-bottom: 20px;
 	vertical-align: middle;
+	-webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
 }
 
-button {
-	display: block;
-	width: 150px;
-	height: 46px;
-	border: 1px solid #979797;
-	background-color: #666666;
-	font-size: 15px;
-	color: #eeeeee;
-	padding: 2px 3px 0px 0px;
-	margin: 0 auto;
-	text-align: center;
-	vertical-align: middle;
+input:focus {
+	border: 1px solid #666666;
+}
+
+input::-webkit-input-placeholder {
+  	color: #666666;
+}
+
+input::-moz-placeholder {
+  	color: #666666;
+}
+
+input:-ms-input-placeholder {
+  	color: #666666;
+}
+
+input:-moz-placeholder {
+  	color: #666666;
 }
 
 p.error {
 	color: #a3496a;
 	margin-left: 6px;
+}
+
+input:focus,
+button:focus {
+    outline: none;
 }
 
 @media screen and (max-width: 479px) {

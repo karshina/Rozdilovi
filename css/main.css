@@ -207,6 +207,7 @@ body {
 
 .favorites {
     margin-top: 18px;
+    line-height: 0;
 }
 
 .favorites>div {
@@ -257,7 +258,6 @@ body {
 
 .playlist-album {
     background: rgba(0, 0, 0, 0.9);
-    transition: 0.4s;
     z-index: 2;
     text-align: left;
     padding: 5px 0 10px;
@@ -266,6 +266,9 @@ body {
     position: absolute;
     top: 0;
     right: 0;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -o-transition: 0.4s;
     transition: 0.4s;
 }
 
