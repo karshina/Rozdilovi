@@ -33,10 +33,10 @@
     text-decoration: underline;
 }
 
-#spilnokosht {
+#tour {
     position: fixed;
     right: 0;
-    height: 345px;
+    height: 297px;
     top: 50%;
     margin-top: -170px;
     z-index: 2;
@@ -60,12 +60,12 @@
 
  @media only screen and (max-height: 400px) {
 
-    #spilnokosht {
+    #tour {
         height: 200px;
         margin-top: -100px;
     }
 
-    #spilnokosht img {
+    #tour img {
         height: 200px;
         width: auto;
     }
