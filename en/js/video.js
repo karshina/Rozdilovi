@@ -10,7 +10,7 @@ $(document).ready(function($) {
   var $card = $('#card')
   var $cardImg = $('#card-img')
   var $playerContent = $('.player-content')
-  var $closeVideo = $('#close-video')
+  var $closeVideo = $('#closeVideo')
   var $share = $('#share')
   var $closeCard = $('#close-card')
   var $next = $('#next')
@@ -20,7 +20,7 @@ $(document).ready(function($) {
   var $lang = $('.lang')
   var $about = $('#about')
   var $spinner = $('#spinner')
-  
+
   var cards = [
     'img/cards/_card42.jpg',
     'img/cards/_card43.jpg',

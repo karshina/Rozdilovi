@@ -1,5 +1,5 @@
 <?php
-// php router script for development purposes 
+// php router script for development purposes
 
 if (file_exists(__DIR__.$_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] != "/index.html") {
     return false;    // serve the requested resource as-is.
@@ -10,3 +10,5 @@ if ($_SERVER["REQUEST_URI"] == "/upload/") {
 } else {
   include_once __DIR__ . "/index.php";
 }
+
+// TODO: add redirect to 2015.php from old shares

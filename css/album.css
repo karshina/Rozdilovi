@@ -1,0 +1,75 @@
+.album-thumb {
+    background: url('/img/album-thumb.jpg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    max-width: 640px;
+    height: 322px;
+    margin: 85px auto 10px;
+    text-align: center;
+}
+
+a.album-thumb-cta {
+    position: relative;
+    top: 36%;
+    transform: translateY(-50%);
+    color: #e9e9e9;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.album-thumb-cta:hover {
+    opacity: 0.9;
+}
+
+.album-thumb-cta .playflat-icon {
+    width: 85px;
+    height: 85px;
+    margin-right: 15px;
+}
+
+.album-thumb-cta .album-thumb-label {
+    width: 270px;
+    display: inline-block;
+    text-align: left;
+    line-height: 28px;
+}
+
+.album-thumb-cta .playflat-icon,
+.album-thumb-cta .album-thumb-label {
+    vertical-align: middle;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo-dark {
+        background-image: url('/img/logo-dark@2x.png');
+    }
+    .album-thumb {
+        background-image: url('/img/album-thumb@2x.jpg');
+    }
+}
+
+.embed-soundcloud {
+    display: block;
+    width: 100%;
+    height: 245px;
+    margin: 50px 0 65px;
+}
+
+.album-cta {
+    overflow: hidden;
+}
+
+a.support-cta {
+    float: left;
+    font-size: 24px;
+    padding-top: 6px;
+}
+
+a.download-album-cta {
+    float: right;
+    width: 300px;
+}
+
+
