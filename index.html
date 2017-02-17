@@ -12,8 +12,9 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
         <link rel="stylesheet" href="/css/normalize.min.css">
-        <link rel="stylesheet" href="/css/main.css?v=1474746150">
         <link rel="stylesheet" href="/css/common.css?v=1487237480">
+        <link rel="stylesheet" href="/css/2015.css?v=1474746150">
+        <link rel="stylesheet" href="/css/main.css?v=1474746150">
         <link rel="stylesheet" href="/css/share.css?v=1483995221">
         <link rel="stylesheet" href="/css/spinner.css">
 
@@ -45,52 +46,92 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <div id="midground"></div>
-    <div id="foreground"></div>
 
-    <a id="tour" href="http://artpole.org/archive/2017/2017_rozdilovi_tour.html" target="_blank">
-        <img src="img/tour.png" data-at2x="img/tour@2x.png">
-    </a>
+        <a id="tour" href="http://artpole.org/archive/2017/2017_rozdilovi_tour.html" target="_blank">
+          <img src="img/tour.png" data-at2x="img/tour@2x.png">
+        </a>
 
         <div class="menu">
           <img src="img/imenu.png" data-at2x="img/imenu@2x.png">
         </div>
-        <div id="logo"></div>
+        <div class="logo-light"></div>
         <div class="lang">
-            <a href="/en/">En</a>&nbsp;&nbsp;&nbsp;<a href="/de/">De</a>&nbsp;&nbsp;<a class="current" href="/">Укр</a>
+            <a class="current" href="/">Укр</a>&nbsp;&nbsp;&nbsp;<a href="/de/">De</a>&nbsp;&nbsp;<a href="/en/">En</a>
         </div>
         <div class="nav nav-hide">
             <div class="nav-content">
-                <a href="./" class="nav-a">Головна</a>
-                <a href="/march2016.html" class="nav-a">Нове</a>
+                <a class="nav-a">Головна</a>
+                <a href="/album.html" class="nav-a">Аудіо-альбом</a>
+                <a href="/lyrics.html" class="nav-a">Тексти</a>
+                <a href="/send-ecards.html" class="nav-a">Електронні листівки</a>
+                <a href="/send-postcards.html" class="nav-a">Поштові листівки</a>
                 <a href="/about-ua.html" class="nav-a">Про проект</a>
                 <a href="/about.html" class="nav-a">Історія</a>
+                <a href="/2015.php" class="nav-a">Архів</a>
+                <a href="/support-us.html" class="nav-a">Як долучитися</a>
             </div>
             <div class="nav-img-content">
-                <a target="_blank" href="http://artpole.org/"><div id="nav-artpole"></div></a>
+                <a target="_blank" href="http://artpole.org/">
+                    <div id="nav-artpole"></div>
+                </a>
             </div>
         </div>
-        <div id="container">
-          <!--<div id="arrow"></div>-->
-          <div id="circle">
-            <div id="play"></div>
-            <div id="field"></div>
-            <div id="play-ghost"></div>
-          </div>         
-          <div class="words">
-            <div class="slot slot-left slot1"></div>
-            <div class="slot slot-right slot2"></div>
-            <div class="slot slot-left slot3"></div>
-            <div class="slot slot-right slot4"></div>
-            <div class="slot slot-left slot5"></div>
-            <div class="slot slot-right slot6"></div>
-            <div class="slot slot-right slot7"></div>
-            <div class="slot slot-left slot8"></div>
-          </div>
+
+        <a href="/about-ua.html" class="about-link">Про проект</a>
+
+        <a class="banner-tour" href="http://www.artpole.org/archive/2017/2017_rozdilovi_tour.html" target="_blank">
+            <img src="http://placehold.it/245x305" data-at2x="http://placehold.it/245x305" />
+        </a>
+
+        <a id="playAlbum" class="play-album">
+            <img src="img/playflat.png" data-at2x="img/playflat@2x.png"/>
+            <span class="title">
+                Дивитися онлайн
+                <small>з інтерактивними функціями</small>
+            </span>
+        </a>
+
+        <div class="frontpage-footer">
+            <a href="/" target="_blank">Скачати альбом в аудіо</a>
+            <div>Відправити листівку:
+                <a href="/send-ecards.html">електронну</a> |
+                <a href="/send-postcards.html">поштову</a>
+            </div>
         </div>
+
+        <div id="preplay" class="preplay-modal hide">
+            <div class="preplay-content">
+                <div class="favorites-container">
+                    <h2>Вибрані фрагменти</h2>
+                    <div class="favorites">
+                        <div data-video-id="28Im2yFzuC4" style="background-image: url(http://placehold.it/130x70);"></div>
+                        <div data-video-id="BVYBdv7ki7s" style="background-image: url(http://placehold.it/130x70);"></div>
+                        <div data-video-id="h0J8jvClxjQ" style="background-image: url(http://placehold.it/130x70);"></div>
+                    </div>
+                </div>
+                <div class="note">
+                    <p>Дивіться віртуальну версію проекту "роздІловІ" онлайн у зручний для вас час</p>
+                    <p>Загальна тривалість &nbsp; — <span class="icon time">1 година 11 хвилин</span></p>
+                    <p>Твір складається з чотирьох частин. Ви можете переходити між ними, користуючись списком перегляду<span class="icon list">або інтерфейсом програвача</span></p>
+                    <p><span class="icon share"> — &nbsp; створити листівку з останньою почутою фразою і відповідною графікою</span></p>
+                    <p><span class="icon lyric"> — &nbsp; переглянути текст поточної композиції</span></p>
+                    <a class="view-album-cta">Дивитися</a>
+                </div>
+            </div>
+        </div>
+
         <div class="video-container none">
-          <div id="close-video"></div>
+          <div id="playlist"></div>
+          <div id="lyric"></div>
+          <div id="closeVideo"></div>
           <div id="share"></div>
+          <div class="playlist-album playlist-hide">
+            <h2>Частини:</h2>
+            <a class="album-part-cta" data-video-part="1">перша<time>10:03</time></a>
+            <a class="album-part-cta" data-video-part="2">друга<time>20:14</time></a>
+            <a class="album-part-cta" data-video-part="3">третя<time>24:32</time></a>
+            <a class="album-part-cta" data-video-part="4">черверта<time>27:50</time></a>
+            </div>
           <div class="video-content none">
               <div class="video-content-main">
                 <img id="card-img" />
@@ -123,21 +164,21 @@
         <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
         <script src="/js/vendor/lodash.min.js"></script>
 
-        <script src="https://www.youtube.com/iframe_api"></script>
+        <script src="//www.youtube.com/iframe_api"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         <script src="/js/vendor/jquery.transform2d.js"></script>
         <script src="/js/vendor/jquery.ui.touch-punch.js"></script>
         <script src="/js/vendor/retina.min.js"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
-  
-        <script src="/js/combos.js?v=1483995221"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+
+        <script src="/js/video.js"></script>
         <script src="/js/main.js"></script>
-        <script src="/js/video.js?v=1483995221"></script>
+        <script src="/js/2015.js"></script>
         <script src="/js/nav.js"></script>
 
         <script>
           $(document).ready(rozd.initUI);
-        </script>  
+        </script>
     </body>
 </html>
