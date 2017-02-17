@@ -175,6 +175,19 @@
 
         <script>
           $(document).ready(rozd.initUI);
+          $(document).ready(function() {
+              var autoplay = function() {
+                  if (location.hash == '#autopreplay') {
+                      $('#playAlbum').trigger('click');
+                  };
+              };
+
+              if (YT && YT.loaded) {
+                  autoplay();
+              } else {
+                  window.onYoutubeReady.add(autoplay);
+              };
+          });
         </script>
     </body>
 </html>

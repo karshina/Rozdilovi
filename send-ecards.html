@@ -94,17 +94,17 @@
             </div>
 
             <div class="share-label">Відправити:</div>
-            <div class="share-tab email active">Email</div>
+            <div class="share-tab email" data-content-id="shareEmail">Email</div>
             <div class="share-tab facebook">Facebook</div>
-            <div class="share-tab embed">Посилання</div>
+            <div class="share-tab embed" data-content-id="shareEmbed">Посилання</div>
 
-            <form>
+            <form id="shareEmail" class="share-content none">
                 <input type="email" name="email" placeholder="Email отримувача" />
                 <input type="text" name="name" placeholder="Ваше ім'я" />
                 <button type="submit">Відправити</button>
             </form>
 
-            <form>
+            <form id="shareEmbed" class="share-content none">
                 <label>Пряме посилання на листівку:</label>
                 <input type="text" name="embedEcard" value="http://rozdilovi.org/..." readonly />
                 <button type="submit">Скопіювати</button>
@@ -116,5 +116,6 @@
 
         <script src="/js/vendor/retina.min.js"></script>
         <script src="/js/nav.js"></script>
+        <script src="/js/share.js"></script>
     </body>
 </html>

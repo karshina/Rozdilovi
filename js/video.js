@@ -1,3 +1,5 @@
+window.onYoutubeReady = $.Callbacks();
+
 $(document).ready(function($) {
   var $window = $(window)
   var $container = $('.video-container')
@@ -124,6 +126,8 @@ $(document).ready(function($) {
         'eventLabel': track.video
       });
     }
+
+    window.onYoutubeReady.fire();
   }
 
   if (YT && YT.loaded) {

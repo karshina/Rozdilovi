@@ -42,7 +42,6 @@ a.generate-lyrics {
     position: absolute;
     z-index: 2;
     text-align: left;
-    padding: 0 40px;
     background: #fff;
     border: 1px solid #9f9f9f;
     top: 64px;
@@ -164,6 +163,14 @@ div.share-label {
 .share-tab:hover:before {
     background-color: rgba(29, 29, 29, 0.7);
     border: 1px solid rgba(29, 29, 29, 0.4);
+}
+
+.share-content {
+    clear: both;
+}
+
+.share-content.none {
+    display: none;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
