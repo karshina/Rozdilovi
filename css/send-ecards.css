@@ -1,5 +1,6 @@
 .container.send-ecards {
     text-align: center;
+    max-width: 702px;
 }
 
 .container form {
@@ -12,6 +13,24 @@
 
 .container label {
     margin-bottom: 10px;
+}
+
+.container .video-content {
+    position: relative;
+    height: 325px;
+    margin: 40px 0 20px;
+    transform: none;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    top: 0;
+    left: 0;
+}
+
+.container .video-content #prev, .container .video-content #next {
+    top: 50%;
+    margin-top: -20px;
 }
 
 a.generate-lyrics {
@@ -32,7 +51,7 @@ a.generate-lyrics {
     height: 65px;
     display: block;
     position: absolute;
-    left: 20px;
+    left: 51px;
     top: 0;
     z-index: 2;
 }
@@ -42,12 +61,11 @@ a.generate-lyrics {
     position: absolute;
     z-index: 2;
     text-align: left;
-    padding: 0 40px;
     background: #fff;
     border: 1px solid #9f9f9f;
     top: 64px;
     left: 0;
-    margin: 0 20px;
+    margin: 0 51px;
     padding: 30px 25px;
     height: 260px;
     display: block;
@@ -71,7 +89,7 @@ a.generate-lyrics {
 }
 
 .search-input {
-    margin: 0 20px;
+    margin: 0 51px;
     width: 600px;
     font-size: 26px;
     height: 65px;
@@ -90,7 +108,7 @@ a.generate-lyrics {
 
 div.share-label {
     display: inline-block;
-    margin: 33px 0 0 20px;
+    margin: 33px 0 0 51px;
     font-size: 24px;
     float: left;
 }
@@ -164,6 +182,14 @@ div.share-label {
 .share-tab:hover:before {
     background-color: rgba(29, 29, 29, 0.7);
     border: 1px solid rgba(29, 29, 29, 0.4);
+}
+
+.share-content {
+    clear: both;
+}
+
+.share-content.none {
+    display: none;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {

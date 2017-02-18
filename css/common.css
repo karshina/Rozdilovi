@@ -42,8 +42,10 @@ h3 {
 .container {
     max-width: 640px;
     margin: 0 auto;
-    padding-bottom: 130px;
     overflow: hidden;
+}
+.container:last-of-type {
+    padding-bottom: 130px;
 }
 
 .container a, .container p,
