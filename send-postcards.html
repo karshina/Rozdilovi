@@ -13,6 +13,7 @@
 
         <link rel="stylesheet" href="/css/normalize.min.css">
         <link rel="stylesheet" href="/css/common.css?v=1481403563">
+        <link rel="stylesheet" href="/css/share.css?v=1481403563">
         <link rel="stylesheet" href="/css/send-postcards.css">
 
         <meta property="og:title" content="роздІловІ"/>
@@ -70,7 +71,7 @@
             <a class="current" href="/">Укр</a>&nbsp;&nbsp;&nbsp;<a href="/de/">De</a>&nbsp;&nbsp;<a href="/en/">En</a>
         </div>
 
-        <article class="container">
+        <section class="container">
             <div class="logo-dark"></div>
             <h1>Поштові листівки</h1>
             <p>
@@ -81,17 +82,70 @@
                 Якщо ви хочете, щоб ми продовжували це робити, будь ласка, <a href="https://www.liqpay.com/api/3/checkout?data=&signature=" target="_blank">підтримайте проект довільним грошовим внеском</a>.
             </p><br/>
             <p>1. Оберіть листівку:</p>
-            <br/>
+        </section>
 
+        <div class="postcards-slider">
+            <div>
+                <div class="postcard">
+                    <div class="number">1</div>
+                    <div class="flip">
+                        <img class="front" src="http://placehold.it/600x325?text=front" />
+                        <img class="back" src="http://placehold.it/600x325?text=back" />
+                    </div>
+                </div>
+                <div class="postcard current">
+                    <div class="number">2</div>
+                    <div class="flip">
+                        <img class="front" src="http://placehold.it/600x325?text=front" />
+                        <img class="back" src="http://placehold.it/600x325?text=back" />
+                    </div>
+                </div>
+                <div class="postcard">
+                    <div class="number">3</div>
+                    <div class="flip">
+                        <img class="front" src="http://placehold.it/600x325?text=front" />
+                        <img class="back" src="http://placehold.it/600x325?text=back" />
+                    </div>
+                </div>
+                <div class="postcard">
+                    <div class="number">4</div>
+                    <div class="flip">
+                        <img class="front" src="http://placehold.it/600x325?text=front" />
+                        <img class="back" src="http://placehold.it/600x325?text=back" />
+                    </div>
+                </div>
+                <div class="postcard">
+                    <div class="number">5</div>
+                    <div class="flip">
+                        <img class="front" src="http://placehold.it/600x325?text=front" />
+                        <img class="back" src="http://placehold.it/600x325?text=back" />
+                    </div>
+                </div>
+                <div class="postcard">
+                    <div class="number">6</div>
+                    <div class="flip">
+                        <img class="front" src="http://placehold.it/600x325?text=front" />
+                        <img class="back" src="http://placehold.it/600x325?text=back" />
+                    </div>
+                </div>
+            </div>
+
+            <div id="prev"></div>
+            <div id="next"></div>
+            <div id="rotate"></div>
+        </div>
+
+        <section class="container">
             <p>2. Запам'ятайте номер листівки й <a href="https://docs.google.com/forms/" target="_blank">заповніть форму відправки</a></p>
             <br/>
             <p>Всі, хто підтримає проект на суму від Х грн, можуть також <a href="https://docs.google.com/forms/" target="_blank">замовити повний набір з 16 листівок і наші власні поштові марки</a>.</p>
-        </article>
+        </section>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
         <script src="/js/vendor/retina.min.js"></script>
         <script src="/js/nav.js"></script>
+        <script src="/js/slider.js"></script>
     </body>
 </html>

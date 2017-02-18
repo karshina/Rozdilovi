@@ -1,4 +1,3 @@
-
 $(document).ready(function($) {
     $('.share-tab').on('click', function(e) {
         var $tab = $(e.currentTarget);

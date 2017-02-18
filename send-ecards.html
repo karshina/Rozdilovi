@@ -13,6 +13,9 @@
 
         <link rel="stylesheet" href="/css/normalize.min.css">
         <link rel="stylesheet" href="/css/common.css?v=1481403563">
+        <link rel="stylesheet" href="/css/2015.css?v=1474746150">
+        <link rel="stylesheet" href="/css/share.css?v=1483995221">
+        <link rel="stylesheet" href="/css/spinner.css">
         <link rel="stylesheet" href="/css/form.css?v=1481403563">
         <link rel="stylesheet" href="/css/send-ecards.css">
 
@@ -75,6 +78,26 @@
             <div class="logo-dark"></div>
             <h1>Віртуальні листівки</h1>
 
+
+              <div class="video-content">
+                  <div class="video-content-main">
+                    <img id="card-img" />
+                    <canvas id="card"></canvas>
+                    <div id="spinner">
+                        <div class="blockG" id="rotateG_01"></div>
+                        <div class="blockG" id="rotateG_02"></div>
+                        <div class="blockG" id="rotateG_03"></div>
+                        <div class="blockG" id="rotateG_04"></div>
+                        <div class="blockG" id="rotateG_05"></div>
+                        <div class="blockG" id="rotateG_06"></div>
+                        <div class="blockG" id="rotateG_07"></div>
+                        <div class="blockG" id="rotateG_08"></div>
+                    </div>
+                  </div>
+                  <div id="prev"></div>
+                  <div id="next"></div>
+              </div>
+
             <a class="generate-lyrics">згенерувати іншу фразу</a>
             <div>або</div>
             <div class="search-wrapper">
@@ -113,9 +136,24 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script src="/js/vendor/lodash.min.js"></script>
 
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="/js/vendor/jquery.transform2d.js"></script>
+        <script src="/js/vendor/jquery.ui.touch-punch.js"></script>
         <script src="/js/vendor/retina.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+
+        <script src="/js/combos.js?v=1483995221"></script>
+        <script src="/js/2015.js"></script>
+        <script src="/js/video.js?v=1483995221"></script>
         <script src="/js/nav.js"></script>
         <script src="/js/share.js"></script>
+
+        <script>
+          $(document).ready(rozd.initUI);
+        </script>
     </body>
 </html>
