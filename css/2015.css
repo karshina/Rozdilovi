@@ -479,14 +479,14 @@ body:hover #foreground {
 }
 
 #playlist {
-    right: 180px;
+    right: 130px;
     background: url('/img/iplaylist.png') 0 0 no-repeat;
     background-size: contain;
     z-index: 3;
 }
 
 #lyric {
-    right: 130px;
+    right: 180px;
     background: url('/img/ilyric.png') 0 0 no-repeat;
     background-size: contain;
 }
