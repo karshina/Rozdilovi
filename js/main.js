@@ -22,7 +22,7 @@ $(document).ready(function($) {
         }, opts || {});
 
         $('.banner-tour').toggle(opts.bannerTour);
-        $('.logo-light').toggleClass('fade', !opts.logoLight);
+        //$('.logo-light').toggleClass('fade', !opts.logoLight);
         $('.lang').toggleClass('none', !opts.lang);
         $('#preplay').toggleClass('hide', !opts.preplay);
         $('.playlist-album').toggleClass('playlist-hide', !opts.playlist);

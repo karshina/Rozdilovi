@@ -18,7 +18,7 @@ $(document).ready(function($) {
   var $prev = $('#prev')
   var $fbsend = $('#fbsend')
   var $emailsend = $('#emailsend')
-  var $logo = $('#logo')
+  var $logo = $('.logo-light')
   var $lang = $('.lang')
   var $spinner = $('#spinner')
 
