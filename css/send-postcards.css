@@ -137,3 +137,19 @@
         background-image: url('/img/irotate@2x.png');
     }
 }
+
+@media (orientation: portrait) {
+    .postcards-slider .postcard.current .flip {
+        width: 285px;
+        height: 154px;
+    }
+
+    .postcards-slider .postcard .flip {
+        width: 298px;
+        height: 161px;
+    }
+
+    .postcards-slider {
+        height: 215px;
+    }
+}
