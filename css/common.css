@@ -41,9 +41,11 @@ h3 {
 
 .container {
     max-width: 640px;
+    padding: 0 10px;
     margin: 0 auto;
     overflow: hidden;
 }
+
 .container:last-of-type {
     padding-bottom: 130px;
 }
@@ -149,8 +151,8 @@ a.button:hover, button:hover {
     margin-top: -170px;
     z-index: 2;
     opacity: 1;
-    overflow-y: auto; 
-} 
+    overflow-y: auto;
+}
 
 .nav {
     width: 30%;
@@ -346,5 +348,49 @@ a.album-thumb-cta {
 
     .album-thumb {
         background-image: url('/img/album-thumb@2x.jpg');
+    }
+}
+
+@media (orientation: portrait) {
+    .logo-dark {
+        margin-top: 30px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .footer-text {
+        margin-left: 0;
+    }
+
+    .album-thumb-cta .playflat-icon {
+        width: 60px;
+        height: 60px;
+        margin-right: 5px;
+    }
+
+    .album-thumb-cta .album-thumb-label {
+        width: 215px;
+    }
+}
+
+@media (orientation: landscape) {
+    .footer-text {
+        margin-left: 10px;
+    }
+}
+
+@media (orientation: portrait), (orientation: landscape) {
+    .container:last-of-type {
+        padding-bottom: 45px;
+    }
+
+    .footer {
+        padding: 25px 10px;
+    }
+
+    .album-thumb {
+        margin-top: 45px;
     }
 }

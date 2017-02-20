@@ -108,7 +108,7 @@ a.generate-lyrics {
 
 div.share-label {
     display: inline-block;
-    margin: 33px 0 0 51px;
+    margin: 33px 35px 0 51px;
     font-size: 24px;
     float: left;
 }
@@ -169,6 +169,10 @@ div.share-label {
 
 .share-tab.active.facebook:before {
     background: rgba(29, 29, 29, 0.7) url('/img/ishare-facebook-active.png') no-repeat center center;
+}
+
+.share-tab.embed {
+    margin-left: 50px;
 }
 
 .share-tab.embed:before {

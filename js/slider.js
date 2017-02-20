@@ -28,7 +28,7 @@ $(document).ready(function() {
         $('.postcards-slider .postcard.current .flip').toggleClass('rotate');
     });
 
-    $( window ).resize(function() {
+    $(window).resize(function() {
         centerCurrentSlide();
     });
 
