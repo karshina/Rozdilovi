@@ -1,10 +1,3 @@
-window.album2017 = {
-    '1': { video: '28Im2yFzuC4', text: [{ words: 'вночі він написав їй повідомлення', time: 0 }] },
-    '2': { video: 'BVYBdv7ki7s', text: [{ words: 'вночі він написав їй повідомлення', time: 0 }] },
-    '3': { video: 'h0J8jvClxjQ', text: [{ words: 'вночі він написав їй повідомлення', time: 0 }] },
-    '4': { video: 'OHfQnJyJz-c', text: [{ words: 'вночі він написав їй повідомлення', time: 0 }] }
-};
-
 $(document).ready(function($) {
     var $playAlbum = $('#playAlbum');
     var $playAlbumPart = $('.album-part-cta');
