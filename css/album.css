@@ -72,4 +72,38 @@ a.download-album-cta {
     width: 300px;
 }
 
+@media (orientation: portrait) {
+    .album-cta {
+        text-align: center;
+    }
 
+    a.support-cta, a.download-album-cta {
+        float: none;
+    }
+
+    a.support-cta {
+        display: inline-block;
+        margin-bottom: 25px;
+    }
+
+    .album-thumb-cta .playflat-icon {
+        width: 60px;
+        height: 60px;
+        margin-right: 5px;
+    }
+
+    .album-thumb-cta .album-thumb-label {
+        width: 215px;
+    }
+}
+
+@media (orientation: portrait), (orientation: landscape) {
+    .album-thumb {
+        margin-top: 45px;
+    }
+
+    .embed-soundcloud {
+        height: 405px;
+        margin: 30px 0;
+    }
+}

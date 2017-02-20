@@ -34,17 +34,6 @@ body {
     opacity: 0;
 }
 
-.banner-tour {
-    position: fixed;
-    right: 0;
-    height: 305px;
-    top: 50%;
-    margin-top: -150px;
-    z-index: 2;
-    opacity: 1;
-    overflow-y: auto;
-}
-
 .about-link {
     position: absolute;
     top: 5vh;
@@ -316,18 +305,6 @@ body {
     color: color: rgba(209, 209, 209, 0.8);;
 }
 
-@media only screen and (max-height: 400px) {
-    .banner-tour {
-        height: 180px;
-        margin-top: -90px;
-    }
-
-    .banner-tour img {
-        height: 180px;
-        width: auto;
-    }
-}
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     html {
         background-image: url('/img/background_ua@2x.jpg');
@@ -335,5 +312,51 @@ body {
 
     .logo-light {
         background-image: url('/img/logo-light@2x.png');
+    }
+}
+
+@media (orientation: portrait), (orientation: landscape) {
+    .about-link {
+        right: 160px;
+    }
+}
+
+@media (orientation: portrait) {
+    .logo-light {
+        margin-top: 70px;
+    }
+
+    .about-link {
+        top: 3.5vh;
+    }
+
+    .frontpage-footer {
+        left: 30px;
+        margin: 20px auto;
+    }
+
+    .play-album .title {
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+@media (orientation: landscape) {
+    .logo-light {
+        margin-top: 60px;
+    }
+
+    .about-link {
+        top: 5.5vh;
+    }
+
+    .frontpage-footer {
+        position: static;
+        margin: 20px auto;
+        display: inline-block;
+    }
+
+    .play-album {
+        margin-top: 20px;
     }
 }

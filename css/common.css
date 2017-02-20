@@ -41,9 +41,11 @@ h3 {
 
 .container {
     max-width: 640px;
+    padding: 0 10px;
     margin: 0 auto;
     overflow: hidden;
 }
+
 .container:last-of-type {
     padding-bottom: 130px;
 }
@@ -273,5 +275,35 @@ a.button:hover, button:hover {
 
     #nav-artpole {
         /*background-image: url('/img/art_logo@2x.png');*/
+    }
+}
+
+@media (orientation: portrait) {
+    .logo-dark {
+        margin-top: 30px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .footer-text {
+        margin-left: 0;
+    }
+}
+
+@media (orientation: landscape) {
+    .footer-text {
+        margin-left: 10px;
+    }
+}
+
+@media (orientation: portrait), (orientation: landscape) {
+    .container:last-of-type {
+        padding-bottom: 45px;
+    }
+
+    .footer {
+        padding: 25px 10px;
     }
 }
