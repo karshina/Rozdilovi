@@ -68,6 +68,10 @@ $(document).ready(function($) {
   var track
   var videoState, videoTime = 1
 
+  var playlist = $.map(window.album2017, function (video) {
+        return video.video;
+  });
+
   var showCardDebounce = _.debounce(showCard, 500);
 
   var card = Card($card[0])
@@ -166,7 +170,7 @@ $(document).ready(function($) {
   }
 
   function playVideo(currentTrack, autoplay) {
-    track = currentTrack;
+    track = album2017[currentTrack];
 
     // Hidden overvlow looks very ugly on mobile, removing it does not seem to
     // break the desktop UI too much, so I remove it.
@@ -185,16 +189,20 @@ $(document).ready(function($) {
       width: '100%',
       playerVars: {
         'autoplay': autoplay,
-        'fs': 0,'showinfo':0,
+        'fs': 0,'showinfo':0,'rel':0,
         'color':'white',
         'disablekb': 1,
-        'playlist': track.playlist
+        'modestbranding': 1,
+        'playlist': playlist.join(),
+        'loop': 1
+        //'listType': 'playlist',
+        //'list': 'PLhDqT4Y3v_tL095_KOrrmL6lm20gbRsNQ'
       },
-      videoId: track.video,
+      //videoId: track.video,
       events: {
         'onReady': function(e) {
-          $logo.addClass('hide')
-          autoplay && e.target.playVideo()
+          $logo.addClass('fade')
+          autoplay && e.target.playVideoAt(currentTrack)
         },
         'onStateChange': function(e) {
           videoState = e.data
@@ -203,12 +211,13 @@ $(document).ready(function($) {
           if (videoState == YT.PlayerState.PLAYING) {
             hideCard()
             $container.removeClass('share-mode')
+            track = window.album2017[player.getPlaylistIndex()]
           }
           else if (videoState == YT.PlayerState.PAUSED) {
             showCardDebounce()
           }
           else if (videoState == YT.PlayerState.ENDED) {
-            closeIframe()
+            player.nextVideo()
           }
         },
       }
@@ -426,7 +435,7 @@ $(document).ready(function($) {
     resetPlayer();
     $container.addClass('none')
     $content.addClass('none')
-    $logo.removeClass('hide')
+    $logo.removeClass('fade')
     $lang.removeClass('none')
     card.reset()
   }
@@ -559,7 +568,7 @@ $(document).ready(function($) {
   if (document.location.hash == "#video-content-dev") {
     $container.removeClass('none')
     $content.removeClass('none')
-    $logo.addClass('hide')
+    $logo.addClass('fade')
     text = {words: "хочеться говорити тихо, щоби тебе ніхто не почув, а почувши – не зрозумів"}
     currentCard = 0
     card.draw(text.words, 0)

@@ -5,11 +5,8 @@ $(document).ready(function($) {
     var $favoriteTrack = $('.favorites>div');
 
     function playVideoPart(part, autoplay) {
-        var playlist = $.map(album2017, function (video) {
-            return video.video;
-        });
-        var video = $.extend({ playlist: playlist }, album2017[part]);
-        videoPlayer.play(video, autoplay);
+        //var video = album2017[part];
+        videoPlayer.play(part, autoplay);
     }
 
     function toggleControls(isShown, opts) {
@@ -38,7 +35,7 @@ $(document).ready(function($) {
 
     $albumCTA.on('click', function() {
         toggleControls(false);
-        playVideoPart('1', 1);
+        playVideoPart('0', 1);
     });
 
     $favoriteTrack.on('click', function(e) {
