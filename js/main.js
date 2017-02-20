@@ -29,8 +29,11 @@ $(document).ready(function($) {
     }
 
     $playAlbum.on('click', function() {
-        playVideoPart('1');
-        toggleControls(false, { preplay: true, logoLight: true });
+        //TMP: skip preplay
+        //playVideoPart('1');
+        //toggleControls(false, { preplay: true, logoLight: true });
+        toggleControls(false);
+        playVideoPart('0', 1);
     });
 
     $albumCTA.on('click', function() {
