@@ -13,6 +13,7 @@ $(document).ready(function($) {
   var $playerContent = $('.player-content')
   var $closeVideo = $('#closeVideo')
   var $share = $('#share')
+  var $playlist = $('#playlist')
   var $closeCard = $('#close-card')
   var $next = $('#next')
   var $prev = $('#prev')
@@ -121,6 +122,7 @@ $(document).ready(function($) {
       // showCard()
       $content.removeClass('none')
       $lang.addClass('none')
+      $playlist.addClass('none')
       $closeVideo.addClass('none')
       $share.addClass('none')
 
@@ -150,6 +152,7 @@ $(document).ready(function($) {
     card.draw(text.words || '', currentCard)
 
     $content.removeClass('none')
+    $playlist.addClass('none')
     $closeVideo.addClass('none')
     $share.addClass('none')
 
@@ -163,6 +166,7 @@ $(document).ready(function($) {
 
   function hideCard() {
     $content.addClass('none')
+    $playlist.removeClass('none')
     $closeVideo.removeClass('none')
     $share.removeClass('none')
     // Reset share mode if any
