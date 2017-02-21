@@ -11,7 +11,7 @@ $index = file_get_contents(__DIR__ . '/index.html');
 $index = str_replace('{{URL}}', htmlspecialchars(full_url($_SERVER, true)), $index);
 
 if (isset($_GET['img'])) {
-  $index = str_replace('{{DESC}}', '', $index);
+  $index = str_replace('{{DESC}}', ' ', $index);
   $index = str_replace('{{TITLE}}', '||', $index);
   $uploadFilename = 'uploads/' . preg_replace('/[^a-z\d]/i', '', $_GET['img']) . '.jpg';
   if (file_exists(__DIR__ . '/' . $uploadFilename)) {
