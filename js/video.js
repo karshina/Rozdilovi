@@ -115,9 +115,9 @@ $(document).ready(function($) {
         mv = s.match(/video=([^&]+)/);
 
     if (mi && mv) {
-      track = window.rozd.getCurrentTrack(mv[1])[0]
+      //track = window.rozd.getCurrentTrack(mv[1])[0]
       $cardImg.attr('src', '/uploads/' + mi[1] + '.jpg')
-      playVideo(track, 0)
+      playVideo(0, 0)
       $container.addClass('share-mode')
       // showCard()
       $content.removeClass('none')
@@ -433,8 +433,8 @@ $(document).ready(function($) {
   }
 
   function closeIframe() {
-    rozd.dropUI()
-    rozd.updateUI()
+    //rozd.dropUI()
+    //rozd.updateUI()
     $body.removeClass('overflow-hidden')
     resetPlayer();
     $container.addClass('none')

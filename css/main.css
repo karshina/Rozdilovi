@@ -21,7 +21,7 @@ body {
     background-size: contain;
     width: 218px;
     height: 45px;
-    margin: 50px auto 0;
+    margin: 5vh auto 0;
     z-index: 3;
     opacity: 1;
     -webkit-transition: opacity 3s ease-in-out;
@@ -342,7 +342,7 @@ body {
         background-image: url('/img/logo-light@2x.png');
     }
 }
-
+/*
 @media (orientation: portrait), (orientation: landscape) {
     .about-link {
         right: 160px;
@@ -387,4 +387,4 @@ body {
     .play-album {
         margin-top: 20px;
     }
-}
+}*/
