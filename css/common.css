@@ -256,7 +256,7 @@ a.button:hover, button:hover {
     background-size: cover;
     max-width: 640px;
     height: 322px;
-    margin: 0px auto 20px;
+    margin: 0px auto 30px;
     text-align: center;
     font-size: 22px;
 }
