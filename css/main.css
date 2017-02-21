@@ -342,19 +342,14 @@ body {
         background-image: url('/img/logo-light@2x.png');
     }
 }
-/*
-@media (orientation: portrait), (orientation: landscape) {
-    .about-link {
-        right: 160px;
-    }
-}
 
-@media (orientation: portrait) {
+@media only screen and (max-width: 375px) {
     .logo-light {
-        margin-top: 70px;
+        margin-top: 65px;
     }
 
     .about-link {
+        right: 155px;
         top: 3.5vh;
     }
 
@@ -367,14 +362,19 @@ body {
         text-align: center;
         margin-top: 20px;
     }
+
+    .play-album {
+        margin-top: 38px;
+    }
 }
 
-@media (orientation: landscape) {
+@media only screen and (min-width: 376px) and (max-width: 667px) {
     .logo-light {
         margin-top: 60px;
     }
 
     .about-link {
+        right: 160px;
         top: 5.5vh;
     }
 
@@ -387,4 +387,4 @@ body {
     .play-album {
         margin-top: 20px;
     }
-}*/
+}
