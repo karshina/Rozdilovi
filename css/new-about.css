@@ -46,7 +46,6 @@ body {
 .about-container {
     margin: 0 auto;
     width: 960px;
-    padding-top: 5vw;
     position: relative;
     font-size: 80px;
 }
@@ -135,13 +134,14 @@ body {
 }
 
 .about-decor {
-    position: absolute;
-    left: 0;
+    background: url('/img/about-decor.png') 0 0 no-repeat;
+    height: 93px;
+    max-width: 1034px;
     margin-top: 35px;
-}
-
-.about-container-margin-top {
-    margin-top: 30px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .small-title {
@@ -214,6 +214,10 @@ body {
 
     .about-banner-logo {
         background-image: url('/img/logo-dark@2x.png');
+    }
+
+    .about-decor {
+        background-image: url('/img/about-decor@2x.png');
     }
 }
 

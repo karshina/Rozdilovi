@@ -350,8 +350,22 @@ a.album-thumb-cta {
         background-image: url('/img/album-thumb@2x.jpg');
     }
 }
-/*
-@media (orientation: portrait) {
+
+@media only screen and (max-width: 667px) {
+    .container:last-of-type {
+        padding-bottom: 45px;
+    }
+
+    .footer {
+        padding: 25px 10px;
+    }
+
+    .album-thumb {
+        margin-top: 45px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
     .logo-dark {
         margin-top: 30px;
     }
@@ -375,22 +389,8 @@ a.album-thumb-cta {
     }
 }
 
-@media (orientation: landscape) {
+@media only screen and (min-width: 376px) and (max-width: 667px) {
     .footer-text {
         margin-left: 10px;
     }
 }
-
-@media (orientation: portrait), (orientation: landscape) {
-    .container:last-of-type {
-        padding-bottom: 45px;
-    }
-
-    .footer {
-        padding: 25px 10px;
-    }
-
-    .album-thumb {
-        margin-top: 45px;
-    }
-}*/
