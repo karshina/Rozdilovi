@@ -220,9 +220,6 @@ $(document).ready(function($) {
           else if (videoState == YT.PlayerState.PAUSED) {
             showCardDebounce()
           }
-          else if (videoState == YT.PlayerState.ENDED) {
-            player.nextVideo()
-          }
         },
       }
     });
