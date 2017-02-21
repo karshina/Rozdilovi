@@ -20,6 +20,7 @@ body {
 }
 
 .about-banner-logo {
+    display: block;
     background: url('/img/logo-dark.png') 0 0 no-repeat;
     background-size: contain;
     position: relative;
@@ -29,6 +30,7 @@ body {
 }
 
 .about-banner-logo-lat {
+    display: block;
     background: url('/img/about-logo-lat.png') 0 0 no-repeat;
     background-size: contain;
     position: relative;

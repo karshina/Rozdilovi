@@ -12,13 +12,12 @@ body {
 #logo {
     position: absolute;
     display: block;
-    background: url('/img/logo.png') 0 0 no-repeat;
+    background: url('/img/logo-dark.png') 0 0 no-repeat;
     background-size: contain;
-    width: 13vw;
-    height: 7.65vw;
-    top: 1vw;
+    width: 16vw;
+    height: 8.95vw;
     left: 50%;
-    margin-left: -6vw;
+    margin-left: -8vw;
     z-index: 2;
 }
 

@@ -205,7 +205,6 @@ $(document).ready(function($) {
       //videoId: track.video,
       events: {
         'onReady': function(e) {
-          $logo.addClass('fade')
           autoplay && e.target.playVideoAt(currentTrack)
         },
         'onStateChange': function(e) {
@@ -213,6 +212,7 @@ $(document).ready(function($) {
           videoTime = player.getCurrentTime()
 
           if (videoState == YT.PlayerState.PLAYING) {
+            $logo.addClass('fade')
             hideCard()
             $container.removeClass('share-mode')
             track = window.album2017[player.getPlaylistIndex()]
