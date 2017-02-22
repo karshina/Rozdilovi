@@ -18,7 +18,7 @@ if (isset($_GET['img'])) {
     $index = str_replace("{{IMAGE}}", url_origin($_SERVER, true) . '/' . $uploadFilename, $index);
   }
 } else {
-  $index = str_replace('{{IMAGE}}', url_origin($_SERVER, true) . '/' . 'img/card8.png', $index);
+  $index = str_replace('{{IMAGE}}', url_origin($_SERVER, true) . '/' . 'img/og_image_about.jpg', $index);
   $index = str_replace('{{DESC}}', 'роздІловІ — це поетично-музично-візуальний проект від творчої агенції АртПоле. Текст і голос: Сергій Жадан, ідея та візуалізація: Оля Михайлюк, музика: Олексій Ворсоба і Влад Креймер.', $index);
   $index = str_replace('{{TITLE}}', 'роздІловІ', $index);
 }
