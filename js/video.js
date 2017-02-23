@@ -22,6 +22,7 @@ $(document).ready(function($) {
   var $logo = $('.logo-light')
   var $lang = $('.lang')
   var $spinner = $('#spinner')
+  var $playlistAlbum = $('.playlist-album')
 
   var cards = [
     'img/cards/_card1.jpg',
@@ -155,6 +156,8 @@ $(document).ready(function($) {
     $playlist.addClass('none')
     $closeVideo.addClass('none')
     $share.addClass('none')
+
+    $playlistAlbum.addClass('playlist-hide')
 
     ga('send', 'event', {
       'eventCategory': 'video',
