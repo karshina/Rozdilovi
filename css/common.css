@@ -46,10 +46,6 @@ h3 {
     z-index: -1;
 }
 
-.spot img {
-    width: 100%;
-}
-
 .container {
     max-width: 640px;
     padding: 0 10px;
@@ -375,10 +371,6 @@ a.album-thumb-cta {
     .album-thumb {
         margin-top: 45px;
     }
-
-    .spot {
-        opacity: 0.9;
-    }
 }
 
 @media only screen and (max-width: 375px) {
@@ -405,20 +397,10 @@ a.album-thumb-cta {
     .album-thumb-cta .album-thumb-label {
         width: 215px;
     }
-
-    .spot {
-        top: 55px;
-    }
 }
 
 @media only screen and (min-width: 376px) and (max-width: 667px) {
     .footer-text {
         margin-left: 10px;
-    }
-}
-
-@media only screen and (min-width: 376px) and (max-width: 1000px) {
-    .spot {
-        top: -210px;
     }
 }

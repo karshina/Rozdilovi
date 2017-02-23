@@ -7,3 +7,25 @@
     clear: left;
     float: left;
 }
+
+.spot img {
+    width: 100%;
+}
+
+@media only screen and (max-width: 667px) {
+    .spot {
+        opacity: 0.9;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .spot {
+        top: 55px;
+    }
+}
+
+@media only screen and (min-width: 376px) and (max-width: 1000px) {
+    .spot {
+        top: -210px;
+    }
+}
