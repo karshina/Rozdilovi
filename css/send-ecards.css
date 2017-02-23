@@ -18,7 +18,7 @@
 .container .video-content {
     position: relative;
     height: 325px;
-    margin: 40px 0 20px;
+    margin: 40px auto 20px;
     transform: none;
     -webkit-transform: none;
     -moz-transform: none;
@@ -99,6 +99,9 @@ a.generate-lyrics {
     -moz-transition: 0.2s;
     -o-transition: 0.2s;
     transition: 0.2s;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
 }
 
 .search-input.active {
@@ -223,5 +226,118 @@ div.share-label {
 
     .search-wrapper:before {
         background-image: url('/img/isearch@2x.png');
+    }
+}
+
+@media only screen and (min-width: 569px) and (max-width: 720px) {
+    .container .video-content {
+        width: 568px;
+        height: 320px;
+    }
+
+    .video-content-main {
+        width: 568px;
+        height: 320px;
+        margin: 0;
+    }
+
+    #card {
+        width: 568px;
+        height: 320px;
+    }
+
+    #card-img {
+        width: 568px;
+        height: 320px;
+    }
+
+    .container .video-content #prev {
+        left: 5px;
+    }
+
+    .container .video-content #next {
+        right: 5px;
+    }
+}
+
+@media only screen and (max-width: 568px) {
+    .container .video-content {
+        width: 480px;
+        height: 260px;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    .container .video-content {
+        width: 320px;
+        height: 175px;
+    }
+}
+
+@media only screen and (max-width: 667px) {
+    .search-wrapper {
+        padding: 0 51px;
+    }
+
+    .search-input {
+        width: 100%;
+        margin: 0;
+    }
+
+    .share-tab {
+        margin-left: 45px;
+    }
+
+    .share-tab.embed {
+        margin-left: 25px;
+    }
+
+    .share-tab:before {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .container:last-of-type {
+        padding-bottom: 25px;
+    }
+
+    div.share-label {
+        margin: 0;
+    }
+
+    .share-tab.email {
+        clear: left;
+        margin-left: 0;
+    }
+
+    .share-tab {
+        margin: 10px 0 20px 45px;
+    }
+
+    .share-tab.embed {
+        margin-left: 25px;
+    }
+
+    .share-tab:before {
+        width: 45px;
+        height: 45px;
+    }
+
+    .search-input {
+        margin: 0;
+        padding-left: 45px;
+        font-size: 22px;
+    }
+
+    .search-result {
+        margin: 0;
+    }
+
+    .search-result p {
+        line-height: 26px;
+        font-size: 20px;
+        margin-bottom: 15px;
     }
 }

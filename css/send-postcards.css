@@ -138,7 +138,7 @@
     }
 }
 
-@media (orientation: portrait) {
+@media only screen and (max-width: 375px) {
     .postcards-slider .postcard.current .flip {
         width: 285px;
         height: 154px;
@@ -151,5 +151,13 @@
 
     .postcards-slider {
         height: 215px;
+    }
+
+    .postcards-slider #prev {
+        left: 15px;
+    }
+
+    .postcards-slider #next {
+        right: 15px;
     }
 }
