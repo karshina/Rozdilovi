@@ -21,8 +21,14 @@ a.download-album-cta {
     width: 300px;
 }
 
+@media only screen and (max-width: 667px) {
+    .embed-soundcloud {
+        height: 405px;
+        margin: 30px 0;
+    }
+}
 
-@media (orientation: portrait) {
+@media only screen and (max-width: 375px) {
     .album-cta {
         text-align: center;
     }
@@ -34,12 +40,5 @@ a.download-album-cta {
     a.support-cta {
         display: inline-block;
         margin-bottom: 25px;
-    }
-}
-
-@media (orientation: portrait), (orientation: landscape) {
-    .embed-soundcloud {
-        height: 405px;
-        margin: 30px 0;
     }
 }
