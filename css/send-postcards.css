@@ -1,6 +1,6 @@
 .postcards-slider {
     position: relative;
-    height: 321px;
+    height: 426px;
     margin: 30px 0;
     overflow: hidden;
 }
@@ -42,7 +42,7 @@
     border: 1px solid #9f9f9f;
     position: relative;
     width: 500px;
-    height: 271px;
+    height: 355px;
 }
 
 .postcards-slider .postcard.current {
@@ -52,7 +52,7 @@
 
 .postcards-slider .postcard.current .flip {
     width: 490px;
-    height: 265px;
+    height: 348px;
     -moz-transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
     -o-transform-style: preserve-3d;
