@@ -26,6 +26,11 @@
     left: 20px;
 }
 
+.postcards-slider #prev:hover,
+.postcards-slider #next:hover {
+    opacity: 0.95;
+}
+
 .postcards-slider #next {
     right: 20px;
 }
@@ -106,12 +111,16 @@
     position: absolute;
     width: 490px;
     height: 348px;
-    top: 0;
+    top: 3px;
     left: 50%;
     margin-left: -245px;
     cursor: pointer;
     z-index: 1;
     background: url('/img/irotate.png') no-repeat center center;
+}
+
+#rotate:hover {
+    opacity: 0.95;
 }
 
 .postcards-slider .postcard .number {
@@ -142,7 +151,7 @@
         width: 55px;
         height: 55px;
         top: 50%;
-        margin-left: -23px;
+        margin-left: -27px;
         margin-top: -55px;
     }
 }
@@ -150,16 +159,16 @@
 @media only screen and (max-width: 375px) {
     .postcards-slider .postcard.current .flip {
         width: 285px;
-        height: 154px;
+        height: 202px;
     }
 
     .postcards-slider .postcard .flip {
         width: 298px;
-        height: 161px;
+        height: 212px;
     }
 
     .postcards-slider {
-        height: 215px;
+        height: 255px;
     }
 
     .postcards-slider #prev {
