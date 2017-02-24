@@ -104,15 +104,14 @@
 #rotate {
     display: block;
     position: absolute;
-    width: 40px;
-    height: 40px;
-    top: 50%;
+    width: 490px;
+    height: 348px;
+    top: 0;
     left: 50%;
-    margin-left: -20px;
-    margin-top: -45px;
+    margin-left: -245px;
     cursor: pointer;
     z-index: 1;
-    background: green url('/img/irotate.png') no-repeat center center;
+    background: url('/img/irotate.png') no-repeat center center;
 }
 
 .postcards-slider .postcard .number {
@@ -135,6 +134,16 @@
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .postcards-slider .postcard.current:before {
         background-image: url('/img/irotate@2x.png');
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    #rotate {
+        width: 55px;
+        height: 55px;
+        top: 50%;
+        margin-left: -23px;
+        margin-top: -55px;
     }
 }
 
