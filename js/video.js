@@ -14,6 +14,7 @@ $(document).ready(function($) {
   var $closeVideo = $('#closeVideo')
   var $share = $('#share')
   var $playlist = $('#playlist')
+  var $lyrics = $('#lyric')
   var $closeCard = $('#close-card')
   var $next = $('#next')
   var $prev = $('#prev')
@@ -250,6 +251,16 @@ $(document).ready(function($) {
     });
 
     closeIframe()
+  })
+
+  $lyrics.on('click', function () {
+      // player.pauseVideo()
+      videoTime = player.getCurrentTime()
+      link = track.lyrics.reduce(function (res, cur) {
+        return videoTime > cur.time ? cur : res
+      }, {})
+      //alert(JSON.stringify(link))
+      var lyricspage = window.open(link.link, "lyrics")
   })
 
   $share.on('click', function () {
