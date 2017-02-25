@@ -1,5 +1,10 @@
 window.album2017 = {
     '0': { video: '3_VOPQ1B-F0',
+           lyrics:
+            [
+              {link: "/vnochi-vin-napysav-yii-povidomlennia.html", time: 0},
+              {link: "/shche-nichoho-nemaie.html", time: 83}
+            ],
            text:
             [
               {words: "вночі він написав їй повідомлення", time: 0},
@@ -139,6 +144,11 @@ window.album2017 = {
             ]
          },
     '1': { video: 'N9A42nGrxNE',
+           lyrics:
+            [
+              {link: "/vnochi-vin-napysav-yii-povidomlennia.html", time: 0},
+              {link: "/shche-nichoho-nemaie.html", time: 83}
+            ],
            text:
             [
               {words: "місто, в якому вона заховалася", time: 0},
@@ -230,6 +240,11 @@ window.album2017 = {
             ]
          },
     '2': { video: 'stVTYmd4umc',
+           lyrics:
+            [
+              {link: "/vnochi-vin-napysav-yii-povidomlennia.html", time: 0},
+              {link: "/shche-nichoho-nemaie.html", time: 83}
+            ],
            text:
             [
               {words: "чому я не веду щоденник", time: 0},
@@ -364,6 +379,11 @@ window.album2017 = {
             ]
          },
     '3': { video: 'qmvG2TC_aQw',
+           lyrics:
+            [
+              {link: "/vnochi-vin-napysav-yii-povidomlennia.html", time: 0},
+              {link: "/shche-nichoho-nemaie.html", time: 83}
+            ],
            text:
             [
               {words: "нічого", time: 0},
