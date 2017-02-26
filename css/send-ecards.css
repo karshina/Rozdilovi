@@ -33,7 +33,7 @@
     margin-top: -20px;
 }
 
-a.generate-lyrics {
+a.generate-text {
     font-size: 28px;
     cursor: pointer;
     text-decoration: underline;
@@ -42,7 +42,7 @@ a.generate-lyrics {
 .search-wrapper {
     position: relative;
     margin: 20px auto;
-    padding: 0 51px;
+    margin: 0 51px;
 }
 
 .search-wrapper:before {
@@ -59,6 +59,7 @@ a.generate-lyrics {
 
 .search-result {
     box-sizing: border-box;
+    width: 100%;
     position: absolute;
     z-index: 2;
     text-align: left;
@@ -66,7 +67,7 @@ a.generate-lyrics {
     border: 1px solid #9f9f9f;
     top: 64px;
     left: 0;
-    margin: 0 51px;
+    margin: 0;
     padding: 30px 25px;
     height: 260px;
     display: block;
@@ -232,7 +233,7 @@ div.share-label {
 
 @media only screen and (max-width: 720px) {
     .search-wrapper {
-        padding: 0;
+        margin: 0;
     }
 }
 
@@ -327,10 +328,6 @@ div.share-label {
         margin: 0;
         padding-left: 45px;
         font-size: 22px;
-    }
-
-    .search-result {
-        margin: 0;
     }
 
     .search-result p {
