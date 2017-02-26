@@ -2,8 +2,16 @@ window.album2017 = {
     '0': { video: '3_VOPQ1B-F0',
            lyrics:
             [
-              {link: "/vnochi-vin-napysav-yii-povidomlennia.html", time: 0},
-              {link: "/shche-nichoho-nemaie.html", time: 83}
+              {link: "/lyrics/vnochi-vin-napysav-yii-povidomlennia.html", time: 0},
+              {link: "/lyrics/shche-nichoho-nemaie.html", time: 74},
+              {link: "/lyrics/ya-hovoriu.html", time: 182},
+              {link: "/lyrics/ya-tak-nikoly-y-ne-navchusia.html", time: 370},
+              {link: "/lyrics/ya-z-neiu-y-poznaiomyvsia-tsilkom-vypadkovo.html", time: 421},
+              {link: "/lyrics/zhinky-nashi-maiut-dyvnu-vlastyvist.html", time: 534},
+              {link: "/lyrics/ti-zhinky.html", time: 683},
+              {link: "/lyrics/shcho-ty-maliuiesh-uves-chas.html", time: 854},
+              {link: "/lyrics/adzhe-vse-zalezhyt-vid-nas.html", time: 937},
+              {link: "/lyrics/vsia-pravda-maie-lyshatys-poza-virshamy.html", time: 1043}
             ],
            text:
             [
@@ -94,7 +102,7 @@ window.album2017 = {
 
               {words: "виростають аби любити", time: 712},
 
-              //{words: "ті жінки", time: 684},
+              {words: "впольоване темне сонце", time: 685},
 
               {words: "малюєш увесь час", time: 861},
               {words: "чому жінки в тебе завжди плачуть", time: 867},
@@ -146,8 +154,12 @@ window.album2017 = {
     '1': { video: 'N9A42nGrxNE',
            lyrics:
             [
-              {link: "/vnochi-vin-napysav-yii-povidomlennia.html", time: 0},
-              {link: "/shche-nichoho-nemaie.html", time: 83}
+              {link: "/lyrics/misto-v-yakomu-vona-zakhovalasia.html", time: 0},
+              {link: "/lyrics/shchastia-ne-omynesh.html", time: 171},
+              {link: "/lyrics/tak-lehko-tremtiat-nebesni-perekryttia.html", time: 273},
+              {link: "/lyrics/rankove-povitria.html", time: 370},
+              {link: "/lyrics/Sviatyi-Frantsysk.html", time: 605},
+              {link: "/lyrics/os-znovu-ya-pyshu-pro-nei.html", time: 745}
             ],
            text:
             [
@@ -242,8 +254,17 @@ window.album2017 = {
     '2': { video: 'stVTYmd4umc',
            lyrics:
             [
-              {link: "/vnochi-vin-napysav-yii-povidomlennia.html", time: 0},
-              {link: "/shche-nichoho-nemaie.html", time: 83}
+              {link: "/lyrics/chomu-ya-ne-vedu-shchodennyk.html", time: 0},
+              {link: "/lyrics/zhyttia-zazvychai-zakinchuietsia.html", time: 169},
+              {link: "/lyrics/yak-dobre.html", time: 227},
+              {link: "/lyrics/stilky-doshchu.html", time: 333},
+              {link: "/lyrics/vlitku.html", time: 445},
+              {link: "/lyrics/shche-odyn-rik-svoi-trymaiutsia-za-svoikh.html", time: 498},
+              {link: "/lyrics/zavzhdy-povertatys-na-tsi-pahorby-y-riky.html", time: 615},
+              {link: "/lyrics/ya-chekav-koly-zakinchytsia-tse-teplo.html", time: 705},
+              {link: "/lyrics/slova-yakymy-mozhna-vse-poiasnyty.html", time: 810},
+              {link: "/lyrics/davai-skazhy-yii-shchos-zupyny.html", time: 998},
+              {link: "/lyrics/vnochi-ya-ne-vstyh-pro-tse-skazaty.html", time: 1125}
             ],
            text:
             [
@@ -381,8 +402,10 @@ window.album2017 = {
     '3': { video: 'qmvG2TC_aQw',
            lyrics:
             [
-              {link: "/vnochi-vin-napysav-yii-povidomlennia.html", time: 0},
-              {link: "/shche-nichoho-nemaie.html", time: 83}
+              {link: "/lyrics/shcho-ishche.html", time: 0},
+              {link: "/lyrics/z-choho-vse-pochalosia.html", time: 97},
+              {link: "/lyrics/i-todi-vona-kazhe.html", time: 217},
+              {link: "/lyrics/plyvy-rybo-plyvy.html", time: 307}
             ],
            text:
             [

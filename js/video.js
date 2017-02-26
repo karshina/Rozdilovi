@@ -97,7 +97,7 @@ $(document).ready(function($) {
 
     $lang.addClass('none')
 
-    playVideo(track, 1)
+    playVideo(track, 0, 1)
   })
 
   window.onYouTubeIframeAPIReady = function() {
@@ -119,7 +119,7 @@ $(document).ready(function($) {
     if (mi && mv) {
       //track = window.rozd.getCurrentTrack(mv[1])[0]
       $cardImg.attr('src', '/uploads/' + mi[1] + '.jpg')
-      playVideo(0, 0)
+      playVideo(0, 0, 0)
       $container.addClass('share-mode')
       // showCard()
       $content.removeClass('none')
@@ -155,6 +155,7 @@ $(document).ready(function($) {
 
     $content.removeClass('none')
     $playlist.addClass('none')
+    $lyrics.addClass('none')
     $closeVideo.addClass('none')
     $share.addClass('none')
 
@@ -171,13 +172,14 @@ $(document).ready(function($) {
   function hideCard() {
     $content.addClass('none')
     $playlist.removeClass('none')
+    $lyrics.removeClass('none')
     $closeVideo.removeClass('none')
     $share.removeClass('none')
     // Reset share mode if any
     $container.removeClass('share-mode')
   }
 
-  function playVideo(currentTrack, autoplay) {
+  function playVideo(currentTrack, seek, autoplay) {
     track = album2017[currentTrack];
 
     // Hidden overvlow looks very ugly on mobile, removing it does not seem to
@@ -186,7 +188,7 @@ $(document).ready(function($) {
 
     // Fix https://github.com/karshina/Rozdilovi/issues/51
     // Do not autoplay on Mobile devices
-    autoplay = autoplay && Modernizr.videoautoplay
+    autoplay = autoplay //&& Modernizr.videoautoplay
 
     videoState = YT.PlayerState.PAUSED
 
@@ -210,6 +212,8 @@ $(document).ready(function($) {
       events: {
         'onReady': function(e) {
           autoplay && e.target.playVideoAt(currentTrack)
+          if (seek > 0)
+            e.target.seekTo(seek, true)
         },
         'onStateChange': function(e) {
           videoState = e.data
