@@ -343,6 +343,13 @@ body {
     }
 }
 
+@media only screen and (min-width: 668px) and (max-width: 1024px) {
+    .about-link {
+        right: 160px;
+        top: 5.5vh;
+    }
+}
+
 @media only screen and (max-width: 375px) {
     .logo-light {
         margin-top: 65px;
