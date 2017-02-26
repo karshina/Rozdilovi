@@ -4,9 +4,15 @@ $(document).ready(function($) {
     var $albumCTA = $('.view-album-cta');
     var $favoriteTrack = $('.favorites>div');
 
-    function playVideoPart(part, autoplay) {
+    function getUrlParam(param){
+        var value = decodeURIComponent(
+            (RegExp(param + '=' + '(.+?)(&|$)').exec(location.search)||["",""])[1]);
+        return value;
+    }
+
+    function playVideoPart(part, time, autoplay) {
         //var video = album2017[part];
-        videoPlayer.play(part, autoplay);
+        videoPlayer.play(part, time, autoplay);
     }
 
     function toggleControls(isShown, opts) {
@@ -30,7 +36,9 @@ $(document).ready(function($) {
         //playVideoPart('1');
         //toggleControls(false, { preplay: true, logoLight: true });
         toggleControls(false);
-        playVideoPart('0', 1);
+        $part = getUrlParam('p') != '' ? getUrlParam('p') : '0'
+        $time = getUrlParam('t') != '' ? parseInt(getUrlParam('t')) : 0
+        playVideoPart($part, $time, 1);
     });
 
     $albumCTA.on('click', function() {
@@ -47,6 +55,6 @@ $(document).ready(function($) {
     $playAlbumPart.on('click', function(e) {
         toggleControls(false);
         var part = $(e.currentTarget).data('videoPart');
-        playVideoPart(part, 1);
+        playVideoPart(part, 0, 1);
     });
 });
