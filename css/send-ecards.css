@@ -42,6 +42,7 @@ a.generate-lyrics {
 .search-wrapper {
     position: relative;
     margin: 20px auto;
+    padding: 0 51px;
 }
 
 .search-wrapper:before {
@@ -89,8 +90,8 @@ a.generate-lyrics {
 }
 
 .search-input {
-    margin: 0 51px;
-    width: 600px;
+    margin: 0;
+    width: 100%;
     font-size: 26px;
     height: 65px;
     line-height: 65px;
@@ -229,6 +230,12 @@ div.share-label {
     }
 }
 
+@media only screen and (max-width: 720px) {
+    .search-wrapper {
+        padding: 0;
+    }
+}
+
 @media only screen and (min-width: 569px) and (max-width: 720px) {
     .container .video-content {
         width: 568px;
@@ -275,15 +282,6 @@ div.share-label {
 }
 
 @media only screen and (max-width: 667px) {
-    .search-wrapper {
-        padding: 0 51px;
-    }
-
-    .search-input {
-        width: 100%;
-        margin: 0;
-    }
-
     .share-tab {
         margin-left: 45px;
     }
