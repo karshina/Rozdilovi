@@ -17,9 +17,7 @@ function AutoSuggestion(data) {
         for(var i = 1; i <= MAX_LENGTH; i++) {
             for(var j = 0; j < text.length; j++) {
                 var currentNgram = text.substring(j, j+i).toLowerCase();
-                if (!/^ ?[\wа-яіїє]+ ?$/ig.test(currentNgram)) {
-                    continue;
-                };
+                if (!/^ ?[\wа-яіїє]+ ?$/ig.test(currentNgram)) continue;
 
                 ngramExist = false;
                 _.forEach(result, function(e) {
@@ -63,9 +61,7 @@ function AutoSuggestion(data) {
         var scores = {};
 
         _.forEach(queryNgrams, function(ngram) {
-            if (!index[ngram.ngram]) {
-                return;
-            }
+            if (!index[ngram.ngram]) return;
 
             _.forEach(index[ngram.ngram], function (i) {
                 if (!scores[i.sentenceIndex]) {

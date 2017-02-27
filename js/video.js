@@ -76,6 +76,7 @@ $(document).ready(function($) {
   });
 
   var showCardDebounce = _.debounce(showCard, 500);
+  var updateCardDebounce = _.debounce(updateCard, 500);
 
   var card = Card($card[0])
 
@@ -140,6 +141,12 @@ $(document).ready(function($) {
 
   if (YT && YT.loaded) {
     window.onYouTubeIframeAPIReady()
+  }
+
+  function updateCard(words) {
+    text = { words: words };
+    currentCard = currentCard || Math.floor(Math.random() * cards.length);
+    card.draw(text.words || '', currentCard);
   }
 
   function showCard() {
@@ -597,4 +604,8 @@ $(document).ready(function($) {
   window.videoPlayer = {
     play: playVideo
   };
+
+  window.card = {
+    update: updateCardDebounce
+  }
 })
