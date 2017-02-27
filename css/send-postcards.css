@@ -1,7 +1,8 @@
 .postcards-slider {
     position: relative;
     height: 426px;
-    margin: 30px 0;
+    margin: 0 0 30px;
+    padding-top: 40px;
     overflow: hidden;
 }
 
@@ -19,7 +20,7 @@
 .postcards-slider #prev,
 .postcards-slider #next {
     top: 50%;
-    margin-top: -45px;
+    margin-top: -37px;
 }
 
 .postcards-slider #prev {
@@ -28,6 +29,11 @@
 
 .postcards-slider #next {
     right: 20px;
+}
+
+.postcards-slider #prev:hover,
+.postcards-slider #next:hover {
+    opacity: 0.95;
 }
 
 .postcards-slider .postcard {
@@ -39,7 +45,6 @@
 }
 
 .postcards-slider .postcard .flip {
-    border: 1px solid #9f9f9f;
     position: relative;
     width: 500px;
     height: 355px;
@@ -53,21 +58,16 @@
 .postcards-slider .postcard.current .flip {
     width: 490px;
     height: 348px;
-    -moz-transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    -o-transform-style: preserve-3d;
-    -ms-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -webkit-transition: transform 1s;
-    -moz-transition: transform 1s;
-    -o-transition: transform 1s;
-    -ms-transition: transform 1s;
-    transition: transform 1s;
-    -webkit-perspective: 800px;
-    -moz-perspective: 800px;
-    -o-perspective: 800px;
-    -ms-perspective: 800px;
-    perspective: 800px;
+    -webkit-transition: transform 0.8s;
+    -moz-transition: transform 0.8s;
+    -o-transition: transform 0.8s;
+    -ms-transition: transform 0.8s;
+    transition: transform 0.8s;
+    -webkit-perspective: 1400px;
+    -moz-perspective: 1400px;
+    -o-perspective: 1400px;
+    -ms-perspective: 1400px;
+    perspective: 1400px;
 }
 
 .postcards-slider .postcard .front,
@@ -76,6 +76,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    border: 1px solid #9f9f9f;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
@@ -83,9 +84,30 @@
     -o-backface-visibility: hidden;
     -ms-backface-visibility: hidden;
     backface-visibility: hidden;
+    -webkit-transition: transform 0.8s;
+    -moz-transition: transform 0.8s;
+    -o-transition: transform 0.8s;
+    -ms-transition: transform 0.8s;
+    transition: transform 0.8s;
 }
 
-.postcards-slider .postcard.current .back {
+.postcards-slider .postcard .front {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+
+.postcards-slider .postcard .back {
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+.postcards-slider .postcard .flip.rotate .front {
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
     -o-transform: rotateY(180deg);
@@ -93,12 +115,13 @@
     transform: rotateY(180deg);
 }
 
-.postcards-slider .postcard.current .flip.rotate {
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
-    -ms-transform: rotateY(180deg);
-    transform: rotateY(180deg);
+.postcards-slider .postcard .flip.rotate .back {
+    z-index: 1;
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
 }
 
 #rotate {
@@ -106,12 +129,16 @@
     position: absolute;
     width: 490px;
     height: 348px;
-    top: 0;
+    top: 44px;
     left: 50%;
     margin-left: -245px;
     cursor: pointer;
     z-index: 1;
     background: url('/img/irotate.png') no-repeat center center;
+}
+
+#rotate:hover {
+    opacity: 0.95;
 }
 
 .postcards-slider .postcard .number {
@@ -142,24 +169,24 @@
         width: 55px;
         height: 55px;
         top: 50%;
-        margin-left: -23px;
-        margin-top: -55px;
+        margin-left: -27px;
+        margin-top: -45px;
     }
 }
 
 @media only screen and (max-width: 375px) {
     .postcards-slider .postcard.current .flip {
         width: 285px;
-        height: 154px;
+        height: 202px;
     }
 
     .postcards-slider .postcard .flip {
         width: 298px;
-        height: 161px;
+        height: 212px;
     }
 
     .postcards-slider {
-        height: 215px;
+        height: 255px;
     }
 
     .postcards-slider #prev {
@@ -168,5 +195,18 @@
 
     .postcards-slider #next {
         right: 15px;
+    }
+
+    .postcards-slider {
+        padding-top: 20px;
+    }
+
+    #rotate {
+        margin-top: -35px;
+    }
+
+    .postcards-slider #prev,
+    .postcards-slider #next {
+        margin-top: -28px;
     }
 }
