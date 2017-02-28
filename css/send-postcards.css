@@ -27,6 +27,11 @@
     left: 20px;
 }
 
+.postcards-slider #prev:hover,
+.postcards-slider #next:hover {
+    opacity: 0.95;
+}
+
 .postcards-slider #next {
     right: 20px;
 }

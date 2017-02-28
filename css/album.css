@@ -28,7 +28,7 @@ a.download-album-cta {
     }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 520px) {
     .album-cta {
         text-align: center;
     }

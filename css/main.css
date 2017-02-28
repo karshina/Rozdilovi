@@ -388,7 +388,7 @@ body {
     .frontpage-footer {
         position: static;
         margin: 20px auto;
-        display: inline-block;
+        text-align: center;
     }
 
     .play-album {

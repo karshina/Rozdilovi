@@ -76,6 +76,7 @@ $(document).ready(function($) {
   });
 
   var showCardDebounce = _.debounce(showCard, 500);
+  var updateCardDebounce = _.debounce(updateCard, 500);
 
   var card = Card($card[0])
 
@@ -142,6 +143,12 @@ $(document).ready(function($) {
     window.onYouTubeIframeAPIReady()
   }
 
+  function updateCard(words) {
+    text = { words: words };
+    currentCard = currentCard || Math.floor(Math.random() * cards.length);
+    card.draw(text.words || '', currentCard);
+  }
+
   function showCard() {
     if (videoState !== YT.PlayerState.PAUSED) {
       return
@@ -188,7 +195,7 @@ $(document).ready(function($) {
 
     // Fix https://github.com/karshina/Rozdilovi/issues/51
     // Do not autoplay on Mobile devices
-    autoplay = autoplay && Modernizr.videoautoplay
+    autoplay = autoplay //&& Modernizr.videoautoplay
 
     videoState = YT.PlayerState.PAUSED
 
@@ -597,4 +604,8 @@ $(document).ready(function($) {
   window.videoPlayer = {
     play: playVideo
   };
+
+  window.card = {
+    update: updateCardDebounce
+  }
 })
