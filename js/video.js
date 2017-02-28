@@ -188,7 +188,7 @@ $(document).ready(function($) {
 
     // Fix https://github.com/karshina/Rozdilovi/issues/51
     // Do not autoplay on Mobile devices
-    autoplay = autoplay //&& Modernizr.videoautoplay
+    autoplay = autoplay && Modernizr.videoautoplay
 
     videoState = YT.PlayerState.PAUSED
 
