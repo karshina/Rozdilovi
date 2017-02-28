@@ -128,6 +128,7 @@ $(document).ready(function($) {
       $playlist.addClass('none')
       $closeVideo.addClass('none')
       $share.addClass('none')
+      $lyrics.addClass('none')
 
       ga('send', 'event', {
         'eventCategory': 'video',
