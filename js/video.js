@@ -299,6 +299,9 @@ $(document).ready(function($) {
     currentCard == cards.length - 1 ? currentCard = 0 : currentCard++
     card.draw(text.words || '', currentCard)
 
+    //TMP: skip GA
+    if (!track) return
+
     ga('send', 'event', {
       'eventCategory': 'video',
       'eventAction': 'card-next',
@@ -310,6 +313,9 @@ $(document).ready(function($) {
   $prev.on('click', function () {
     currentCard == 0 ? currentCard = cards.length - 1 : currentCard--
     card.draw(text.words || '', currentCard)
+
+    //TMP: skip GA
+    if (!track) return
 
     ga('send', 'event', {
       'eventCategory': 'video',
@@ -547,6 +553,7 @@ $(document).ready(function($) {
         $spinner.hide()
         reset()
         ctx.drawImage(bg, 0, 0, 600, 325)
+
         drawText()
 
         if (!wasComplete) {
@@ -567,7 +574,11 @@ $(document).ready(function($) {
 
       drawText()
 
-      if (bg.complete) return drawBg(true)
+      if (bg.complete) {
+        // get rid of old callback
+        bg.onload = function() {}
+        return drawBg(true)
+      }
 
       bg.onload = function() {
         drawBg(false)
