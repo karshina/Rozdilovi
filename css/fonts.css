@@ -22,10 +22,21 @@
 
 @font-face {
     font-family: FranklinGothicMedium;
-    src: url(/fonts/franklin_gothic_medium.ttf);
+    src: url('/fonts/franklin_gothic_medium.eot') format('embedded-opentype'),
+         url('/fonts/franklin_gothic_medium.ttf') format('truetype');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: FranklinGothicMedium;
+    src: url('/fonts/franklin_gothic_medium_italic.eot') format('embedded-opentype'),
+         url('/fonts/franklin_gothic_medium_italic.ttf') format('truetype');
+    font-style: italic;
 }
 
 @font-face {
     font-family: FranklinGothicBook;
-    src: url(/fonts/franklin_gothic_book.ttf);
+    src: url('/fonts/franklin_gothic_book.eot') format('embedded-opentype'),
+         url('/fonts/franklin_gothic_book.ttf') format('truetype');
+    font-style: normal;
 }
