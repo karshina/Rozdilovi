@@ -80,7 +80,10 @@ function AutoSuggestion(data) {
             });
         });
 
-        var sortedScores = Object.values(scores).sort(function(a, b) {
+
+        var sortedScores = Object.keys(scores).map(function(key) {
+                                return scores[key];
+                            }).sort(function(a, b) {
             return b.score - a.score;
         });
 
