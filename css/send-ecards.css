@@ -52,7 +52,7 @@ a.random-words {
     height: 65px;
     display: block;
     position: absolute;
-    left: 51px;
+    left: 0;
     top: 0;
     z-index: 2;
 }
@@ -71,15 +71,14 @@ a.random-words {
     height: 260px;
     display: block;
     overflow-y: scroll;
-    -webkit-transition: 0.2s;
-    -moz-transition: 0.2s;
-    -o-transition: 0.2s;
-    transition: 0.2s;
+    transition: height 0.2s linear;
+    -webkit-transition: height 0.2s linear;
+    -moz-transition: height 0.2s linear;
+    -o-transition: height 0.2s linear;
 }
 
 .search-result.shrink {
     height: 0;
-    padding: 0 25px;
     border: none;
 }
 
@@ -338,6 +337,13 @@ div.share-label {
         margin: 0;
         padding-left: 45px;
         font-size: 22px;
+        height: 45px;
+        line-height: 45px;
+    }
+
+    .search-wrapper:before {
+        width: 45px;
+        height: 45px;
     }
 
     .search-result p {

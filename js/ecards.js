@@ -2,7 +2,6 @@ $(document).ready(function($) {
     var $randomWords = $('.random-words');
     var $searchQuery = $('.search-input');
     var $searchResult = $('.search-result');
-    var $searchResultItem = $('.search-result p');
     var data = [];
 
     var prepareData = function () {
@@ -25,9 +24,9 @@ $(document).ready(function($) {
 
     $searchQuery.on('keydown', function(e) {
         var key = e.which;
+        var $sel = $('.search-result p.selected');
 
         if (key == 40 || key == 38) {
-            var $sel = $('.search-result p.selected');
             if ($sel.length == 0) return;
 
             $('.search-result p').removeClass('selected');
@@ -46,12 +45,12 @@ $(document).ready(function($) {
                 }
             }
         } else if (key == 13) {
-            // card.update();
+            card.update($sel.text());
         }
     });
 
     $searchQuery.on('keyup', _.debounce(function (e) {
-        if (e.keyCode == 40 || e.keyCode == 38) return;
+        if (e.which == 40 || e.which == 38) return;
         $searchResult.empty();
 
         var query = $searchQuery.val().trim();
@@ -71,8 +70,8 @@ $(document).ready(function($) {
         $searchResult.addClass('shrink');
     });
 
-    $searchResultItem.on('click', function(e) {
-        // card.update();
+    $(document).on('click', '.search-result p', function(e) {
+        card.update($(e.currentTarget).text());
     });
 
     $randomWords.on('click', function(e) {

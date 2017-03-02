@@ -10,11 +10,6 @@ $(document).ready(function($) {
         return value;
     }
 
-    function playVideoPart(part, time, autoplay) {
-        //var video = album2017[part];
-        videoPlayer.play(part, time, autoplay);
-    }
-
     function toggleControls(isShown, opts) {
         opts = $.extend({
             preplay: isShown,
@@ -38,12 +33,12 @@ $(document).ready(function($) {
         toggleControls(false);
         $part = getUrlParam('p') != '' ? getUrlParam('p') : '0'
         $time = getUrlParam('t') != '' ? parseInt(getUrlParam('t')) : 0
-        playVideoPart($part, $time, 1);
+        videoPlayer.play($part, $time, 1);
     });
 
     $albumCTA.on('click', function() {
         toggleControls(false);
-        playVideoPart('0', 1);
+        videoPlayer.play('0', 0, 1);
     });
 
     $favoriteTrack.on('click', function(e) {
@@ -55,6 +50,6 @@ $(document).ready(function($) {
     $playAlbumPart.on('click', function(e) {
         toggleControls(false);
         var part = $(e.currentTarget).data('videoPart');
-        playVideoPart(part, 0, 1);
+        videoPlayer.play(part, 0, 1);
     });
 });

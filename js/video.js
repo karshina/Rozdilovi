@@ -212,16 +212,35 @@ $(document).ready(function($) {
         'disablekb': 1,
         'modestbranding': 1,
         'playlist': playlist.join(),
-        'loop': 1
+        'loop': 1,
+        'start': seek,
         //'listType': 'playlist',
         //'list': 'PLhDqT4Y3v_tL095_KOrrmL6lm20gbRsNQ'
       },
-      //videoId: track.video,
+      // TODO: if autoplay == 0 videoId shoud be defined to resume video playing from 'start' position
+      //       if so, playlist indices should be revised
+      // videoId: track.video,
       events: {
         'onReady': function(e) {
-          autoplay && e.target.playVideoAt(currentTrack)
-          if (seek > 0)
-            e.target.seekTo(seek, true)
+          var tries = 10;
+
+          var startPlaying = function() {
+            player.playVideoAt(currentTrack)
+
+            if (seek > 0)
+              e.target.seekTo(seek, true)
+
+            var videoState = player.getPlayerState()
+            var okStates = [YT.PlayerState.PLAYING, YT.PlayerState.BUFFERING]
+
+            if (!_.contains(okStates, videoState) && tries > 0) {
+              tries -= 1;
+              setTimeout(startPlaying, 50)
+            }
+          }
+
+          if (autoplay)
+            startPlaying()
         },
         'onStateChange': function(e) {
           videoState = e.data
@@ -299,6 +318,9 @@ $(document).ready(function($) {
     currentCard == cards.length - 1 ? currentCard = 0 : currentCard++
     card.draw(text.words || '', currentCard)
 
+    //TMP: skip GA
+    if (!track) return
+
     ga('send', 'event', {
       'eventCategory': 'video',
       'eventAction': 'card-next',
@@ -310,6 +332,9 @@ $(document).ready(function($) {
   $prev.on('click', function () {
     currentCard == 0 ? currentCard = cards.length - 1 : currentCard--
     card.draw(text.words || '', currentCard)
+
+    //TMP: skip GA
+    if (!track) return
 
     ga('send', 'event', {
       'eventCategory': 'video',
@@ -547,6 +572,7 @@ $(document).ready(function($) {
         $spinner.hide()
         reset()
         ctx.drawImage(bg, 0, 0, 600, 325)
+
         drawText()
 
         if (!wasComplete) {
@@ -567,7 +593,11 @@ $(document).ready(function($) {
 
       drawText()
 
-      if (bg.complete) return drawBg(true)
+      if (bg.complete) {
+        // get rid of old callback
+        bg.onload = function() {}
+        return drawBg(true)
+      }
 
       bg.onload = function() {
         drawBg(false)
