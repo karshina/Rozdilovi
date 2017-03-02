@@ -1,7 +1,6 @@
 .embed-soundcloud {
     display: block;
     width: 100%;
-    height: 245px;
     margin: 50px 0 65px;
 }
 
@@ -19,7 +18,55 @@ a.support-cta {
 a.download-album-cta {
     float: right;
     width: 300px;
+    cursor: pointer;
 }
+
+p.smallscript {
+    font-size: 18px;
+    margin: 10px 0 15px 0;
+}
+
+p.smallscript strong {
+    font-size: 18px;
+    font-family: FranklinGothicMedium;
+}
+
+p.smallscript a {
+    font-size: 18px;
+}
+
+
+
+.author-row {
+    margin-top: 10px;
+}
+
+.author-row-text {
+    display: inline-block;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    line-height: 1.667;
+    text-align: left;
+    vertical-align: top;
+}
+
+.author-row-text a {
+    color: rgb(165, 72, 106);
+}
+
+.author-row-text a:hover {
+    text-decoration: none;
+}
+
+.author-img {
+    display: inline-block;
+    width: 100px;
+    vertical-align: top;
+}
+
+
+
 
 @media only screen and (max-width: 667px) {
     .embed-soundcloud {
