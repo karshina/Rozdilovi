@@ -217,7 +217,7 @@ $(document).ready(function($) {
         //'listType': 'playlist',
         //'list': 'PLhDqT4Y3v_tL095_KOrrmL6lm20gbRsNQ'
       },
-      // TODO: if autoplay == 0 videoId shoud be defined to resume video playing from 'start' position
+      // TODO: if !autoplay videoId shoud be defined to resume video playing from 'start' position
       //       if so, playlist indices should be revised
       // videoId: track.video,
       events: {
