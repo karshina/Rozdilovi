@@ -8,7 +8,7 @@ $(document).ready(function() {
         'eventLabel': 'Shchastya'
         });
 
-        var emailpage = window.open("/rozdilovi_shchastia_mp3.zip")
+        window.open("/rozdilovi_shchastia_mp3.zip")
     });
 
 });
