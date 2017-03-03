@@ -217,15 +217,13 @@ $(document).ready(function($) {
         //'listType': 'playlist',
         //'list': 'PLhDqT4Y3v_tL095_KOrrmL6lm20gbRsNQ'
       },
-      // TODO: if !autoplay videoId shoud be defined to resume video playing from 'start' position
-      //       if so, playlist indices should be revised
-      // videoId: track.video,
+      videoId: track.video,
       events: {
         'onReady': function(e) {
           var tries = 10;
 
           var startPlaying = function() {
-            player.playVideoAt(currentTrack)
+            player.playVideoAt(currentTrack + 1)
 
             if (seek > 0)
               e.target.seekTo(seek, true)
@@ -250,7 +248,10 @@ $(document).ready(function($) {
             $logo.addClass('fade')
             hideCard()
             $container.removeClass('share-mode')
-            track = window.album2017[player.getPlaylistIndex()]
+
+            track = _.find(window.album2017, function(item) {
+                return item.video == player.getVideoData().video_id;
+            })
           }
           else if (videoState == YT.PlayerState.PAUSED) {
             showCardDebounce()
