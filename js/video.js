@@ -75,6 +75,11 @@ $(document).ready(function($) {
         return video.video;
   });
 
+  var shiftedPlaylist = function(videoId) {
+    var vIndex = _.indexOf(playlist, videoId)
+    return _.union(_.rest(playlist, vIndex + 1), _.first(playlist, vIndex))
+  }
+
   var showCardDebounce = _.debounce(showCard, 500);
   var updateCardDebounce = _.debounce(updateCard, 500);
 
@@ -211,7 +216,7 @@ $(document).ready(function($) {
         'color':'white',
         'disablekb': 1,
         'modestbranding': 1,
-        'playlist': playlist.join(),
+        'playlist': shiftedPlaylist(track.video).join(),
         'loop': 1,
         'start': seek,
         //'listType': 'playlist',
@@ -223,7 +228,7 @@ $(document).ready(function($) {
           var tries = 10;
 
           var startPlaying = function() {
-            player.playVideoAt(currentTrack + 1)
+            player.playVideo()
 
             if (seek > 0)
               e.target.seekTo(seek, true)
