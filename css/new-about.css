@@ -4,18 +4,12 @@ body {
 }
 
 .about-banner {
-    padding: 80px 0 0 0;
-    min-height: 500px;
-}
-
-.about-banner-img {
-    background: url('/img/about-banner.png') 0 0 no-repeat;
-    background-position: 100% 0;
+    margin-top: 80px;
+    background: url('/img/about-banner.png') 100% center no-repeat;
     background-size: contain;
-    position: absolute;
-    right: 0;
-    width: 70vw;
-    max-width: 900px;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
     height: 500px;
 }
 
@@ -23,20 +17,15 @@ body {
     display: block;
     background: url('/img/logo-dark.png') 0 0 no-repeat;
     background-size: contain;
-    position: relative;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
     width: 218px;
     height: 121px;
-    top: 160px;
 }
 
-.about-banner-logo-lat {
-    display: block;
-    background: url('/img/about-logo-lat.png') 0 0 no-repeat;
-    background-size: contain;
-    position: relative;
-    width: 218px;
-    height: 121px;
-    top: 100px;
+.about-banner-logo.lat {
+    background-image: url('/img/about-logo-lat.png');
 }
 
 .spot {
@@ -50,6 +39,16 @@ body {
     padding: 0 10px;
     max-width: 960px;
     position: relative;
+}
+
+.about-container.hero {
+    position: relative;
+    top: 44%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
 }
 
 .about-container-top {
@@ -215,11 +214,11 @@ body {
         background-image: url('/img/background_about@2x.jpg');
     }
 
-    .about-banner-img {
+    .about-banner {
         background-image: url('/img/about-banner@2x.png');
     }
 
-    .about-banner-logo-lat {
+    .about-banner-logo.lat {
         background-image: url('/img/about-logo-lat@2x.png');
     }
 
@@ -234,26 +233,27 @@ body {
 
 @media only screen and (max-width: 1024px) {
     .about-banner {
-        padding: 60px 0 0 0;
-        min-height: 400px;
+        margin-top: 60px;
+        height: 350px;
+        background-size: 60% auto;
+        -webkit-background-size: 60% auto;
+        -moz-background-size: 60% auto;
+        -o-background-size: 60% auto;
     }
 
-    .about-banner-logo {
-        position: relative;
-        top: 100px;
-        width: 20vw;
-    }
-
-    .about-banner-logo-lat {
-        position: relative;
-        top: 100px;
-        width: 20vw;
+    .about-container.hero {
+        max-width: 640px;
     }
 
     .author-row-text {
         font-size: 16px;
     }
+}
 
+@media only screen and (min-width: 860px) and (max-width: 1024px) {
+    .about-container.hero {
+        max-width: 750px;
+    }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 960px) {
@@ -272,16 +272,13 @@ body {
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-
     .about-banner {
-        min-height: 300px
+        height: 200px;
+        background-size: 50% auto;
+        -webkit-background-size: 50% auto;
+        -moz-background-size: 50% auto;
+        -o-background-size: 50% auto;
     }
-
-    .about-banner-img {
-        width: 50vw;
-        height: 300px;
-    }
-
 
     .about-container-top-p {
         font-size: 14px
@@ -306,14 +303,13 @@ body {
 }
 
 @media screen and (max-width: 479px) {
-
     .about-banner {
-        min-height: 300px
+        height: 300px;
+        background-position: 100% 100%;
     }
 
-    .about-banner-img {
-        width: 50vw;
-        height: 300px;
+    .about-container.hero {
+        top: 25%;
     }
 
     .about-container-top-p {
@@ -343,5 +339,11 @@ body {
 
     .about-container-tour-left-text {
         font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 376px) {
+     .about-banner {
+        height: 250px;
     }
 }
