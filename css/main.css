@@ -260,7 +260,7 @@ body {
     background: rgba(0, 0, 0, 0.9);
     z-index: 2;
     text-align: left;
-    padding: 5px 0 20px;
+    padding: 5px 0 0;
     width: auto;
     height: 100%;
     display: inline-block;
@@ -293,7 +293,7 @@ body {
     text-decoration: none;
     cursor: pointer;
     margin: 20px 0;
-    padding-right: 45px;
+    padding: 0 45px 0 85px;
 }
 
 .album-part-cta:hover {
@@ -306,7 +306,7 @@ body {
     background-size: contain;
     height: 30px;
     width: 30px;
-    margin: 0 25px 0 30px;
+    margin: 0 25px 0 -55px;
     display: inline-block;
     vertical-align: middle;'
 }
@@ -372,6 +372,18 @@ body {
 
     .play-album {
         margin-top: 38px;
+    }
+
+    .playlist-album {
+        width: 95vw;
+    }
+
+    .playlist-album h2 {
+        text-align: right;
+    }
+
+    .album-part-cta {
+        line-height: 22px;
     }
 }
 

@@ -75,6 +75,11 @@ $(document).ready(function($) {
         return video.video;
   });
 
+  var shiftedPlaylist = function(videoId) {
+    var vIndex = _.indexOf(playlist, videoId)
+    return _.union(_.rest(playlist, vIndex + 1), _.first(playlist, vIndex))
+  }
+
   var showCardDebounce = _.debounce(showCard, 500);
   var updateCardDebounce = _.debounce(updateCard, 500);
 
@@ -211,21 +216,19 @@ $(document).ready(function($) {
         'color':'white',
         'disablekb': 1,
         'modestbranding': 1,
-        'playlist': playlist.join(),
+        'playlist': shiftedPlaylist(track.video).join(),
         'loop': 1,
         'start': seek,
         //'listType': 'playlist',
         //'list': 'PLhDqT4Y3v_tL095_KOrrmL6lm20gbRsNQ'
       },
-      // TODO: if autoplay == 0 videoId shoud be defined to resume video playing from 'start' position
-      //       if so, playlist indices should be revised
-      // videoId: track.video,
+      videoId: track.video,
       events: {
         'onReady': function(e) {
           var tries = 10;
 
           var startPlaying = function() {
-            player.playVideoAt(currentTrack)
+            player.playVideo()
 
             if (seek > 0)
               e.target.seekTo(seek, true)
@@ -250,7 +253,10 @@ $(document).ready(function($) {
             $logo.addClass('fade')
             hideCard()
             $container.removeClass('share-mode')
-            track = window.album2017[player.getPlaylistIndex()]
+
+            track = _.find(window.album2017, function(item) {
+                return item.video == player.getVideoData().video_id;
+            })
           }
           else if (videoState == YT.PlayerState.PAUSED) {
             showCardDebounce()

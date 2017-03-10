@@ -70,9 +70,9 @@ function AutoSuggestion(data) {
 
                 scoreObject = scores[i.sentenceIndex];
 
-                var score = 10**(ngram.ngram.length - 1) / Math.log2(i.position + 2);
+                var score = Math.pow(10, (ngram.ngram.length - 1)) / Math.log2(i.position + 2);
                 if (ngram.ngram[0] == ' ') {
-                    score += 5**ngram.ngram.length;
+                    score += Math.pow(5, ngram.ngram.length);
                 }
 
                 scoreObject.score += score;
@@ -80,10 +80,11 @@ function AutoSuggestion(data) {
             });
         });
 
+        var scoreArray = Object.keys(scores).map(function(key) {
+            return scores[key];
+        })
 
-        var sortedScores = Object.keys(scores).map(function(key) {
-                                return scores[key];
-                            }).sort(function(a, b) {
+        var sortedScores = scoreArray.sort(function(a, b) {
             return b.score - a.score;
         });
 

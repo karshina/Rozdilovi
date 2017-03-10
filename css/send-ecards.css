@@ -1,6 +1,13 @@
 .container.send-ecards {
     text-align: center;
     max-width: 702px;
+    overflow: visible;
+}
+
+.container.send-ecards:after {
+    content: '';
+    display: block;
+    clear: both;
 }
 
 .container form {
@@ -244,6 +251,10 @@ div.share-label {
     .search-wrapper {
         margin: 0;
     }
+
+    div.share-label {
+        margin: 33px 0 0 0;
+    }
 }
 
 @media only screen and (min-width: 569px) and (max-width: 720px) {
@@ -346,9 +357,14 @@ div.share-label {
         height: 45px;
     }
 
+    .search-result {
+        top: 45px;
+    }
+
     .search-result p {
         line-height: 26px;
         font-size: 20px;
-        margin-bottom: 15px;
+
+        padding: 15px 10px;
     }
 }
