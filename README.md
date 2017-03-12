@@ -1,9 +1,10 @@
 # rozdiLOVi
 
-The virtual version of the interdisciplinary art project “rozdiLOVi” (http://www.artpole.org/ENG/archive/2016/2016_rozdilovi.html) starring Serhij Zhadan, Olia Mykhailiuk, Alexey Vorsoba and Vlad Kreimer.
+The virtual version of the interdisciplinary art project “rozdiLOVi” by ArtPole Agency / Ukraine. 
+Text and voice: Serhiy Zhadan, idea and visualization: Olia Mykhailyuk, music: Aleksey Vorsoba and Vlad Kreymer.
 
 More info:
-* https://docs.google.com/document/d/1hm98ssjuLyB7wEDKmShQBXKuapEC6Rquxp07NsLByAE/edit?usp=sharing
+* http://rozdilovi.org/about-ua.html (UA)
 * http://www.5books.club/rozdilovi/
 
 # Develop
