@@ -70,7 +70,7 @@ function AutoSuggestion(data) {
 
                 scoreObject = scores[i.sentenceIndex];
 
-                var score = Math.pow(10, (ngram.ngram.length - 1)) / Math.log2(i.position + 2);
+                var score = Math.pow(10, (ngram.ngram.length - 1)) / (Math.log(i.position + 2) * Math.LOG2E);
                 if (ngram.ngram[0] == ' ') {
                     score += Math.pow(5, ngram.ngram.length);
                 }
