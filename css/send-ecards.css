@@ -46,10 +46,24 @@ a.random-words {
     text-decoration: underline;
 }
 
+p.throw-error {
+    color: #a3496a;
+    font-size: 17px;
+    margin: 0 0 15px 0;
+}
+
+.success {
+    position: relative;
+    display: inline;
+    color: #a3496a !important;
+    font-size: 22px !important;
+    margin-left: 30px;
+    top: 2px;
+}
+
 .search-wrapper {
     position: relative;
-    margin: 20px auto;
-    margin: 0 51px;
+    margin: 15px 51px;
 }
 
 .search-wrapper:before {
@@ -75,7 +89,7 @@ a.random-words {
     top: 64px;
     left: 0;
     margin: 0;
-    height: 260px;
+    height: 310px;
     display: block;
     overflow-y: scroll;
     transition: height 0.2s linear;
@@ -129,7 +143,7 @@ a.random-words {
 
 div.share-label {
     display: inline-block;
-    margin: 33px 35px 0 51px;
+    margin: 53px 35px 0 51px;
     font-size: 24px;
     float: left;
 }
@@ -138,7 +152,7 @@ div.share-label {
     display: inline-block;
     cursor: pointer;
     float: left;
-    margin: 20px 0 20px 65px;
+    margin: 40px 0 20px 65px;
     -webkit-transition: 0.2s;
     -moz-transition: 0.2s;
     -o-transition: 0.2s;
@@ -177,19 +191,19 @@ div.share-label {
 }
 
 .share-tab.email:before {
-    background: #d8d8d8 url('/img/ishare-email.png') no-repeat center center;
+    background: #d8d8d8 url('/img/sendemail.png') no-repeat center center;
 }
 
 .share-tab.active.email:before {
-    background: rgba(29, 29, 29, 0.7) url('/img/ishare-email-active.png') no-repeat center center;
+    background: rgba(29, 29, 29, 0.7) url('/img/sendemail.png') no-repeat center center;
 }
 
 .share-tab.facebook:before {
-    background: #d8d8d8 url('/img/ishare-facebook.png') no-repeat center center;
+    background: #d8d8d8 url('/img/sendfb.png') no-repeat center center;
 }
 
 .share-tab.active.facebook:before {
-    background: rgba(29, 29, 29, 0.7) url('/img/ishare-facebook-active.png') no-repeat center center;
+    background: rgba(29, 29, 29, 0.7) url('/img/sendfb.png') no-repeat center center;
 }
 
 .share-tab.embed {
@@ -197,11 +211,11 @@ div.share-label {
 }
 
 .share-tab.embed:before {
-    background: #d8d8d8 url('/img/ishare-embed.png') no-repeat center center;
+    background: #d8d8d8 url('/img/sendlink.png') no-repeat center center;
 }
 
 .share-tab.active.embed:before {
-    background: rgba(29, 29, 29, 0.7) url('/img/ishare-embed-active.png') no-repeat center center;
+    background: rgba(29, 29, 29, 0.7) url('/img/sendlink.png') no-repeat center center;
 }
 
 .share-tab:hover:before {

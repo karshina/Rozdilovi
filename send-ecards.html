@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>роздІловІ · Електронні листівки</title>
-        <meta name="description" content="роздІловІ — це поетично-музично-візуальний проект від творчої агенції АртПоле. Текст і голос: Сергій Жадан, ідея та візуалізація: Оля Михайлюк, музика: Олексій Ворсоба і Влад Креймер.">
+        <meta name="description" content="Проект агенції АртПоле. Текст і голос: Сергій Жадан, ідея та візуалізація: Оля Михайлюк, музика: Олексій Ворсоба і Влад Креймер.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -78,20 +78,13 @@
             <a href="/" class="logo-dark"></a>
             <h1>Віртуальні листівки</h1>
 
-
               <div class="video-content">
                   <div class="video-content-main">
                     <img id="card-img" />
                     <canvas id="card"></canvas>
                     <div id="spinner">
-                        <div class="blockG" id="rotateG_01"></div>
-                        <div class="blockG" id="rotateG_02"></div>
-                        <div class="blockG" id="rotateG_03"></div>
-                        <div class="blockG" id="rotateG_04"></div>
-                        <div class="blockG" id="rotateG_05"></div>
-                        <div class="blockG" id="rotateG_06"></div>
-                        <div class="blockG" id="rotateG_07"></div>
-                        <div class="blockG" id="rotateG_08"></div>
+                        <div class="double-bounce1"></div>
+                        <div class="double-bounce2"></div>
                     </div>
                   </div>
                   <div id="prev"></div>
@@ -111,16 +104,25 @@
             <div class="share-tab facebook">Facebook</div>
             <div class="share-tab embed" data-content-id="shareEmbed">Посилання</div>
 
-            <form id="shareEmail" class="share-content none">
-                <input type="email" name="email" placeholder="Email отримувача" />
-                <input type="text" name="name" placeholder="Ваше ім'я" />
-                <button type="submit">Відправити</button>
+            <form id="shareEmail" class="share-content none" method="POST">
+                <input type="hidden" name="img" id="img"/>
+                <input type="text" name="email" id="email" value="Email отримувача" onfocus="if(this.value == 'Email отримувача') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Email отримувача'; }" />
+                <input type="text" name="name" id="name" value="Ваше ім'я" onfocus="if(this.value == 'Ваше ім\'я') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Ваше ім\'я'; }" />
+                <input type="text" name="replyto" id="replyto" value="Ваш email" onfocus="if(this.value == 'Ваш email') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Ваш email'; }" />
+                <p class="throw-error"></p>
+                <a class="button" id="sendEmail">Відправити</a>
+                <div id="spinner2">
+                  <div class="double-bounce1"></div>
+                  <div class="double-bounce2"></div>
+                </div>
+                <div class="success none">Листівку відправлено!</div>
             </form>
 
             <form id="shareEmbed" class="share-content none">
                 <label>Пряме посилання на листівку:</label>
-                <input type="text" name="embedEcard" value="http://rozdilovi.org/..." readonly />
-                <button type="submit">Скопіювати</button>
+                <input type="text" name="embedEcard" id="embedEcard" value="http://rozdilovi.org/..." readonly />
+                <a class="button" id="copyButton" data-clipboard-target="#embedEcard">Скопіювати</a>
+                <div class="success none">Посилання в буфері!</div>
             </form>
         </article>
 
@@ -138,6 +140,7 @@
         <script src="/js/vendor/jquery.transform2d.js"></script>
         <script src="/js/vendor/jquery.ui.touch-punch.js"></script>
         <script src="/js/vendor/retina.min.js"></script>
+        <script src="/js/vendor/clipboard.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
 

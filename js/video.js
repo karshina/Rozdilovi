@@ -26,7 +26,7 @@ $(document).ready(function($) {
   var $playlistAlbum = $('.playlist-album')
 
   var cards = [
-    'img/cards/_card1.jpg',
+  /*  'img/cards/_card1.jpg',
     'img/cards/_card28.jpg',
     'img/cards/_card17.jpg',
     'img/cards/_card29.jpg',
@@ -63,7 +63,36 @@ $(document).ready(function($) {
     'img/cards/_card53.jpg',
     'img/cards/_card54.jpg',
     'img/cards/_card55.jpg',
-    'img/cards/_card56.jpg'
+    'img/cards/_card56.jpg' */
+    'img/cards/card2017-1.jpg',
+    'img/cards/card2017-2.jpg',
+    'img/cards/card2017-3.jpg',
+    'img/cards/card2017-4.jpg',
+    'img/cards/card2017-5.jpg',
+    'img/cards/card2017-6.jpg',
+    'img/cards/card2017-7.jpg',
+    'img/cards/card2017-8.jpg',
+    'img/cards/card2017-9.jpg',
+    'img/cards/card2017-10.jpg',
+    'img/cards/card2017-11.jpg',
+    'img/cards/card2017-12.jpg',
+    'img/cards/card2017-13.jpg',
+    'img/cards/card2017-14.jpg',
+    'img/cards/card2017-15.jpg',
+    'img/cards/card2017-16.jpg',
+    'img/cards/card2017-17.jpg',
+    'img/cards/card2017-18.jpg',
+    'img/cards/card2017-19.jpg',
+    'img/cards/card2017-20.jpg',
+    'img/cards/card2017-21.jpg',
+    'img/cards/card2017-22.jpg',
+    'img/cards/card2017-23.jpg',
+    'img/cards/card2017-24.jpg',
+    'img/cards/card2017-25.jpg',
+    'img/cards/card2017-26.jpg',
+    'img/cards/card2017-27.jpg',
+    'img/cards/card2017-28.jpg',
+    'img/cards/card2017-29.jpg'
     ]
   var currentCard
   var player = {}
@@ -351,6 +380,7 @@ $(document).ready(function($) {
   })
 
   $fbsend.on('click', function() {
+
     ga('send', 'event', {
       'eventCategory': 'video',
       'eventAction': 'card-fbshare',
@@ -504,7 +534,7 @@ $(document).ready(function($) {
     var ctx = card.getContext('2d'),
         width = 600,
         height = 325,
-        fontSize = 30,
+        fontSize = 29,
         paddingTop = 15,
         paddingSides = 30
 
@@ -514,7 +544,7 @@ $(document).ready(function($) {
     ctx.scale(2,2)
 
     // Render the hidden text to preload the font
-    ctx.font = "normal " + fontSize + "px FranklinGothicMedium"
+    ctx.font = "normal " + fontSize + "px FranklinGothicBook"
     ctx.fillText("Привіт", -100, -100)
 
     function canvasWrapText(ctx, text, x, y, maxWidth, lineHeight) {
@@ -522,7 +552,7 @@ $(document).ready(function($) {
           line = '',
           lines = []
 
-      y += lineHeight
+      y = 75
 
       for (var n = 0, len = words.length; n < len; n++) {
         var testLine = line + words[n] + ' ',
@@ -556,12 +586,12 @@ $(document).ready(function($) {
       $spinner.show()
 
       var drawText = function() {
-        ctx.font = "normal " + fontSize + "px FranklinGothicMedium"
+        ctx.font = "normal " + fontSize + "px FranklinGothicBook"
 
         var txt = canvasWrapText(ctx, text, paddingSides, paddingTop, width-(paddingSides*2), 33)
         for (var i = 0; i < txt.length; i++){
           ctx.fillStyle = '#444444'
-          ctx.fillText(txt[i].text, txt[i].x, txt[i].y)
+          ctx.fillText(txt[i].text.replace("&nbsp;", " "), width/2-(txt[i].width/2), txt[i].y)
         }
 
         /* draw site URL
@@ -620,10 +650,15 @@ $(document).ready(function($) {
       return url.substr(prefix.length)
     }
 
+    function getWords() {
+      return text.words
+    }
+
     return {
       draw: draw,
       reset: reset,
-      getImageData: getImageData
+      getImageData: getImageData,
+      getWords: getWords
     }
   }
 
@@ -643,6 +678,8 @@ $(document).ready(function($) {
   };
 
   window.card = {
-    update: updateCardDebounce
+    update: updateCardDebounce,
+    getImageData: card.getImageData,
+    getWords: card.getWords
   }
 })

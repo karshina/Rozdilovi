@@ -3,6 +3,8 @@
 include_once 'utils.php';
 require 'phpmailer/PHPMailerAutoload.php';
 
+$config = parse_ini_file('../config.ini');
+
 $img = isset($_POST['img']) ? $_POST['img'] : $_GET['img'];
 $text = isset($_POST['text']) ? $_POST['text'] : $_GET['text'];
 $video = isset($_POST['video']) ? $_POST['video'] : $_GET['video'];
@@ -18,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
     $mail->SMTPAuth = true; // authentication enabled
     $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-    $mail->Host = "mail.ukraine.com.ua";
-    $mail->Port = 465; // or 587
+    $mail->Host = $config['mailhost'];
+    $mail->Port = $config['mailport']; // or 587
 
     //$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
     //$mail->Port = 587;                                    // TCP port to connect to
@@ -27,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mail->CharSet = 'UTF-8';
 
     $mail->IsHTML(true);
-    $mail->Username = "lystonosha@rozdilovi.org";
-    $mail->Password = "8tY72GMzS0hl";
+    $mail->Username = $config['mailuser'];
+    $mail->Password = $config['mailpassword'];
     if (filter_var($_POST['replyto'], FILTER_VALIDATE_EMAIL))
       $mail->AddReplyTo($_POST['replyto'], $_POST['name']);
     $mail->SetFrom("lystonosha@rozdilovi.org", $_POST['name']);
