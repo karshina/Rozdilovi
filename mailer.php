@@ -23,12 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mail->IsSMTP(); // enable SMTP
     //$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
     $mail->SMTPAuth = true; // authentication enabled
-    $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+    //$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
     $mail->Host = $config['mailhost'];
     $mail->Port = $config['mailport']; // or 587
 
-    //$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-    //$mail->Port = 587;                                    // TCP port to connect to
+    $mail->SMTPSecure = $config['mailsecurity'];            // Enable TLS encryption, `ssl` also accepted
 
     $mail->CharSet = 'UTF-8';
 
@@ -56,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if(!$mail->send()) {
         $errors['name'] = 'При відправці сталася помилка. Будь-ласка, перевірте дані або спробуйте пізніше.';
+        //$errors['name'] = $mail->ErrorInfo;
         //echo 'Mailer Error: ' . $mail->ErrorInfo;
     }
   }
