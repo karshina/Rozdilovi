@@ -108,6 +108,10 @@
 
 $('.search-wrapper').dropdown();
 
+$('.search-wrapper').on("click", function() {
+    $('.search-input').focus();
+});
+
 function resetShare() {
     $('.share-tab').removeClass('active');
     $('.share-content').addClass('none');
