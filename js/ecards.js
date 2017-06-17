@@ -225,6 +225,12 @@ $(document).ready(function($) {
 
     $copyButton.on('click', function(e) {
 
+        ga('send', 'event', {
+        'eventCategory': 'ecard',
+        'eventAction': 'copy',
+        'eventLabel': 'link'
+        });
+
         $embeddableLink.select();
         document.execCommand("copy");
 
@@ -233,6 +239,12 @@ $(document).ready(function($) {
     });
 
     $sendFB.on('click', function(e) {
+
+        ga('send', 'event', {
+        'eventCategory': 'ecard',
+        'eventAction': 'fbshare',
+        'eventLabel': 'facebook'
+        });
         
         var $imageData = card.getImageData();
 
@@ -258,6 +270,12 @@ $(document).ready(function($) {
     });
 
     $sendEmail.on('click', function(e) {
+
+        ga('send', 'event', {
+        'eventCategory': 'ecard',
+        'eventAction': 'send',
+        'eventLabel': 'email'
+        });
         
         var $imageData = card.getImageData();
 
