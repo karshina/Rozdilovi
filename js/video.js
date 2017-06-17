@@ -64,35 +64,36 @@ $(document).ready(function($) {
     'img/cards/_card54.jpg',
     'img/cards/_card55.jpg',
     'img/cards/_card56.jpg' */
-    'img/cards/card2017-1.jpg',
-    'img/cards/card2017-2.jpg',
-    'img/cards/card2017-3.jpg',
-    'img/cards/card2017-4.jpg',
-    'img/cards/card2017-5.jpg',
-    'img/cards/card2017-6.jpg',
-    'img/cards/card2017-7.jpg',
-    'img/cards/card2017-8.jpg',
-    'img/cards/card2017-9.jpg',
-    'img/cards/card2017-10.jpg',
-    'img/cards/card2017-11.jpg',
-    'img/cards/card2017-12.jpg',
-    'img/cards/card2017-13.jpg',
-    'img/cards/card2017-14.jpg',
-    'img/cards/card2017-15.jpg',
-    'img/cards/card2017-16.jpg',
-    'img/cards/card2017-17.jpg',
-    'img/cards/card2017-18.jpg',
-    'img/cards/card2017-19.jpg',
-    'img/cards/card2017-20.jpg',
-    'img/cards/card2017-21.jpg',
-    'img/cards/card2017-22.jpg',
-    'img/cards/card2017-23.jpg',
-    'img/cards/card2017-24.jpg',
-    'img/cards/card2017-25.jpg',
-    'img/cards/card2017-26.jpg',
-    'img/cards/card2017-27.jpg',
-    'img/cards/card2017-28.jpg',
-    'img/cards/card2017-29.jpg'
+    'img/cards/_card2017-1.jpg',
+    'img/cards/_card2017-2.jpg',
+    'img/cards/_card2017-3.jpg',
+    'img/cards/_card2017-4.jpg',
+    'img/cards/_card2017-5.jpg',
+    'img/cards/_card2017-6.jpg',
+    'img/cards/_card2017-7.jpg',
+    'img/cards/_card2017-8.jpg',
+    'img/cards/_card2017-9.jpg',
+    'img/cards/_card2017-22.jpg',
+    'img/cards/_card2017-10.jpg',
+    'img/cards/_card2017-11.jpg',
+    'img/cards/_card2017-12.jpg',
+    'img/cards/_card2017-13.jpg',
+    'img/cards/_card2017-14.jpg',
+    'img/cards/_card2017-15.jpg',
+    'img/cards/_card2017-16.jpg',
+    'img/cards/_card2017-17.jpg',
+    'img/cards/_card2017-18.jpg',
+    'img/cards/_card2017-19.jpg',
+    'img/cards/_card2017-20.jpg',
+    'img/cards/_card2017-21.jpg',
+    'img/cards/_card2017-23.jpg',
+    'img/cards/_card2017-24.jpg',
+    'img/cards/_card2017-25.jpg',
+    //'img/cards/_card2017-26.jpg',
+    'img/cards/_card2017-27.jpg',
+    'img/cards/_card2017-28.jpg',
+    'img/cards/_card2017-29.jpg',
+    'img/cards/_card2017-30.jpg'
     ]
   var currentCard
   var player = {}
@@ -299,12 +300,6 @@ $(document).ready(function($) {
 
   $(this).keydown(function(e) {
     if (e.which != 27) return
-
-    ga('send', 'event', {
-      'eventCategory': 'video',
-      'eventAction': 'esc',
-      'eventLabel': track.video
-    });
 
     closeIframe()
   })
