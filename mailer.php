@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //$mail->addReplyTo('dmitry.leader@gmail.com', 'Information');
     //$mail->addBCC('bcc@example.com');
 
-    $link = url_origin($_SERVER, true).'/?img='.$_POST['img'].'&video=3_VOPQ1B-F0';
+    $link = url_origin($_SERVER, true).'/?img='.$_POST['img'];
 
     $template = file_get_contents(__DIR__ . '/email.html');
     $template = str_replace('{{IMG}}', url_origin($_SERVER, true).'/uploads/'.$_POST['img'].'.jpg', $template);

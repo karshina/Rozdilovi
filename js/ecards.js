@@ -207,11 +207,7 @@ $(document).ready(function($) {
             data: $imageData
         }).done(function(o) {
 
-            var vars = [
-                'img=' + o.id,
-                'video=3_VOPQ1B-F0'
-            ]
-            var url = document.location.origin + "/" + '?' + vars.join('&')
+            var url = document.location.origin + "/" + '?img=' + o.id
 
             document.getElementById("embedEcard").value = url
             $copyButton.attr('disabled', false)
@@ -257,11 +253,7 @@ $(document).ready(function($) {
             data: $imageData
         }).done(function(o) {
 
-            var vars = [
-                'img=' + o.id,
-                'video=3_VOPQ1B-F0'
-            ]
-            var url = encodeURIComponent(document.location.origin + "/" + '?' + vars.join('&'))
+            var url = encodeURIComponent(document.location.origin + "/" + '?img=' + o.id)
 
             fbpopup.location.replace("https://www.facebook.com/sharer/sharer.php?u=" + url);
 

@@ -125,7 +125,7 @@ $(document).ready(function($) {
   var card = Card($card[0])
 
   $window.resize(function() {
-    if (!player.h) return
+    if (!player.h.h) return
     player.h.h.width = $window.width()
     player.h.h.height = $window.height()
   })
@@ -158,10 +158,9 @@ $(document).ready(function($) {
     });
 
     var s = (document.location.search||""),
-        mi = s.match(/img=([^&]+)/),
-        mv = s.match(/video=([^&]+)/);
+        mi = s.match(/img=([^&]+)/);
 
-    if (mi && mv) {
+    if (mi) {
       //track = window.rozd.getCurrentTrack(mv[1])[0]
       $cardImg.attr('src', '/uploads/' + mi[1] + '.jpg')
       playVideo(0, 0, 0)
