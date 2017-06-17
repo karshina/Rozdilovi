@@ -93,7 +93,16 @@ $(document).ready(function($) {
     'img/cards/_card2017-27.jpg',
     'img/cards/_card2017-28.jpg',
     'img/cards/_card2017-29.jpg',
-    'img/cards/_card2017-30.jpg'
+    'img/cards/_card2017-30.jpg',
+    'img/cards/_card2017-31.jpg',
+    'img/cards/_card2017-32.jpg',
+    'img/cards/_card2017-33.jpg',
+    'img/cards/_card2017-34.jpg',
+    'img/cards/_card2017-35.jpg',
+    'img/cards/_card2017-36.jpg',
+    'img/cards/_card2017-37.jpg',
+    'img/cards/_card2017-38.jpg',
+    'img/cards/_card2017-39.jpg'
     ]
   var currentCard
   var player = {}
