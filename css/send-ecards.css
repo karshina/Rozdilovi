@@ -69,6 +69,7 @@ p.throw-error {
 .search-wrapper:before {
     content: '';
     background: url('/img/isearch.png') no-repeat center center;
+    background-size: 65px;
     width: 65px;
     height: 65px;
     display: block;
@@ -185,25 +186,12 @@ div.share-label {
     cursor: default;
 }
 
-.share-tab.active:before {
-    background-color: rgba(29, 29, 29, 0.7);
-    border: 1px solid rgba(29, 29, 29, 0.4);
-}
-
 .share-tab.email:before {
     background: #d8d8d8 url('/img/sendemail.png') no-repeat center center;
 }
 
-.share-tab.active.email:before {
-    background: rgba(29, 29, 29, 0.7) url('/img/sendemail.png') no-repeat center center;
-}
-
 .share-tab.facebook:before {
     background: #d8d8d8 url('/img/sendfb.png') no-repeat center center;
-}
-
-.share-tab.active.facebook:before {
-    background: rgba(29, 29, 29, 0.7) url('/img/sendfb.png') no-repeat center center;
 }
 
 .share-tab.embed {
@@ -214,8 +202,15 @@ div.share-label {
     background: #d8d8d8 url('/img/sendlink.png') no-repeat center center;
 }
 
-.share-tab.active.embed:before {
-    background: rgba(29, 29, 29, 0.7) url('/img/sendlink.png') no-repeat center center;
+.share-tab.active:before {
+    background-color: rgba(29, 29, 29, 0.7);
+    border: 1px solid rgba(29, 29, 29, 0.4);
+}
+
+.share-tab.email:before,
+.share-tab.facebook:before,
+.share-tab.embed:before {
+    background-size: 60px;
 }
 
 .share-tab:hover:before {
@@ -233,27 +228,15 @@ div.share-label {
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .share-tab.email:before {
-        background-image: url('/img/ishare-email@2x.png');
-    }
-
-    .share-tab.active.email:before {
-        background-image: url('/img/ishare-email-active@2x.png');
+        background-image: url('/img/sendemail@2x.png');
     }
 
     .share-tab.facebook:before {
-        background-image: url('/img/ishare-facebook@2x.png');
-    }
-
-    .share-tab.active.facebook:before {
-        background-image: url('/img/ishare-facebook-active@2x.png');
+        background-image: url('/img/sendfb@2x.png');
     }
 
     .share-tab.embed:before {
-        background-image: url('/img/ishare-embed@2x.png');
-    }
-
-    .share-tab.active.embed:before {
-        background-image: url('/img/ishare-embed-active@2x.png');
+        background-image: url('/img/sendlink@2x.png');
     }
 
     .search-wrapper:before {
