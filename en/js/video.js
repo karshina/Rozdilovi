@@ -22,44 +22,45 @@ $(document).ready(function($) {
   var $spinner = $('#spinner')
 
   var cards = [
-    'img/cards/_card42.jpg',
-    'img/cards/_card43.jpg',
-    'img/cards/_card44.jpg',
-    'img/cards/_card45.jpg',
-    'img/cards/_card46.jpg',
-    'img/cards/_card47.jpg',
-    'img/cards/_card48.jpg',
-    'img/cards/_card49a.jpg',
-    'img/cards/_card50.jpg',
-    'img/cards/_card50a.jpg',
-    'img/cards/_card51.jpg',
-    'img/cards/_card52.jpg',
-    'img/cards/_card53.jpg',
-    'img/cards/_card54.jpg',
-    'img/cards/_card55.jpg',
-    'img/cards/_card56.jpg',
-    'img/cards/_card1.jpg',
-    'img/cards/_card28.jpg',
-    'img/cards/_card17.jpg',
-    'img/cards/_card29.jpg',
-    'img/cards/_card31.jpg',
-    'img/cards/_card26.jpg',
-    'img/cards/_card5.jpg',
-    'img/cards/_card16.jpg',
-    'img/cards/_card36.jpg',
-    'img/cards/_card21b.jpg',
-    'img/cards/_card4.jpg',
-    'img/cards/_card22.jpg',
-    'img/cards/_card41.jpg',
-    'img/cards/_card8.jpg',
-    'img/cards/_card19.jpg',
-    'img/cards/_card32.jpg',
-    'img/cards/_card20.jpg',
-    'img/cards/_card12.jpg',
-    'img/cards/_card30.jpg',
-    'img/cards/_card11.jpg',
-    'img/cards/_card27.jpg',
-    'img/cards/_card13.jpg'
+    'img/cards/_card2017-1.jpg',
+    'img/cards/_card2017-2.jpg',
+    'img/cards/_card2017-3.jpg',
+    'img/cards/_card2017-4.jpg',
+    'img/cards/_card2017-5.jpg',
+    'img/cards/_card2017-6.jpg',
+    'img/cards/_card2017-7.jpg',
+    'img/cards/_card2017-8.jpg',
+    'img/cards/_card2017-9.jpg',
+    'img/cards/_card2017-22.jpg',
+    'img/cards/_card2017-10.jpg',
+    'img/cards/_card2017-11.jpg',
+    'img/cards/_card2017-12.jpg',
+    'img/cards/_card2017-13.jpg',
+    'img/cards/_card2017-14.jpg',
+    'img/cards/_card2017-15.jpg',
+    'img/cards/_card2017-16.jpg',
+    'img/cards/_card2017-17.jpg',
+    'img/cards/_card2017-18.jpg',
+    'img/cards/_card2017-19.jpg',
+    'img/cards/_card2017-20.jpg',
+    'img/cards/_card2017-21.jpg',
+    'img/cards/_card2017-23.jpg',
+    'img/cards/_card2017-24.jpg',
+    'img/cards/_card2017-25.jpg',
+    //'img/cards/_card2017-26.jpg',
+    'img/cards/_card2017-27.jpg',
+    'img/cards/_card2017-28.jpg',
+    'img/cards/_card2017-29.jpg',
+    'img/cards/_card2017-30.jpg',
+    'img/cards/_card2017-31.jpg',
+    'img/cards/_card2017-32.jpg',
+    'img/cards/_card2017-33.jpg',
+    'img/cards/_card2017-34.jpg',
+    'img/cards/_card2017-35.jpg',
+    'img/cards/_card2017-36.jpg',
+    'img/cards/_card2017-37.jpg',
+    'img/cards/_card2017-38.jpg',
+    'img/cards/_card2017-39.jpg'
     ]
   var currentCard
   var player = {}
@@ -398,7 +399,7 @@ $(document).ready(function($) {
           line = '',
           lines = []
 
-      y += lineHeight
+      y = 75
 
       for (var n = 0, len = words.length; n < len; n++) {
         var testLine = line + words[n] + ' ',
@@ -432,12 +433,12 @@ $(document).ready(function($) {
       $spinner.show()
 
       var drawText = function() {
-        ctx.font = "normal " + fontSize + "px FranklinGothicMedium"
+        ctx.font = "normal " + fontSize + "px FranklinGothicBook"
 
         var txt = canvasWrapText(ctx, text, paddingSides, paddingTop, width-(paddingSides*2), 33)
         for (var i = 0; i < txt.length; i++){
           ctx.fillStyle = '#444444'
-          ctx.fillText(txt[i].text, txt[i].x, txt[i].y)
+          ctx.fillText(txt[i].text.replace("&nbsp;", " "), width/2-(txt[i].width/2), txt[i].y)
         }
 
         /* draw site URL

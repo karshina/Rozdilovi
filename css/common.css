@@ -158,6 +158,7 @@ a.button:hover, button:hover {
 .lang a.current {
     color: #e9e9e9;
     text-decoration: underline;
+    opacity: 0.5;
 }
 
 #tour {
