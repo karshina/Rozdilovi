@@ -551,27 +551,51 @@ $(document).ready(function($) {
     ctx.fillText("Привіт", -100, -100)
 
     function canvasWrapText(ctx, text, x, y, maxWidth, lineHeight) {
-      var words = text.split(' '),
-          line = '',
-          lines = []
+      var line = '',
+          lines = [],
+          commalines = text.split(','),
+          newlines = text.split('\n'),
+          textlines = [],
+          y = 75,
 
-      y = 75
+          n = commalines.length,
+          commasok = true
 
-      for (var n = 0, len = words.length; n < len; n++) {
-        var testLine = line + words[n] + ' ',
-            metrics = ctx.measureText(testLine),
-            testWidth = metrics.width
-
-        if (testWidth > maxWidth) {
-          lines.push({ text: line, x: x, y: y, width: ctx.measureText(line).width })
-          line = words[n] + ' '
-          y += lineHeight
-        } else {
-          line = testLine
+      if (n > 2) {
+        commasok = false
+      } else {
+        for (var k = 0; k < n; k++) {
+            if (ctx.measureText(commalines[k]).width > maxWidth)
+              commasok = false
         }
       }
 
-      lines.push({ text: line, x: x, y: y, width: ctx.measureText(line).width })
+      textlines = (commasok && (newlines.length == 1)) ? commalines : newlines
+        
+      for (var i = 0, l = textlines.length; i < l; i++) {
+
+        words = textlines[i].trim().split(' ')
+        line = ''
+
+        for (var j = 0, m = words.length; j < m; j++) {
+          var testLine = line + words[j],
+              metrics = ctx.measureText(testLine),
+              testWidth = metrics.width
+
+          if (testWidth > maxWidth) {
+            lines.push({ text: line.trim(), x: x, y: y, width: ctx.measureText(line).width })
+            line = words[j] + ' '
+            y += lineHeight
+          } else {
+            line = testLine + ' '
+          }
+        }
+
+        lines.push({ text: line.trim(), x: x, y: y, width: ctx.measureText(line).width })
+        y += lineHeight
+
+      }
+
       return lines
     }
 
@@ -629,8 +653,6 @@ $(document).ready(function($) {
           });
         }
       }
-
-      drawText()
 
       if (bg.complete) {
         // get rid of old callback
