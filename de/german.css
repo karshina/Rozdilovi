@@ -25,15 +25,16 @@ body {
 
 #logo {
     position: absolute;
-    background: url('/img/logo_lat.png') 0 0 no-repeat;
+    background: url('/img/logo-light-en.png') 0 0 no-repeat;
     background-size: contain;
-    top: 6vh;
-    width: 149px;
-    margin-left: -75px;
+    top: 5vh;
+    width: 218px;
+    height: 45px;
+    margin-left: -109px;
     left: 50%;
     z-index: 2;
     opacity: 1;
-} 
+}
 
 #logo.hide {
     -webkit-transition: opacity 2s ease-in-out;
