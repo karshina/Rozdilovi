@@ -102,7 +102,18 @@ $(document).ready(function($) {
     'img/cards/_card2017-36.jpg',
     'img/cards/_card2017-37.jpg',
     'img/cards/_card2017-38.jpg',
-    'img/cards/_card2017-39.jpg'
+    'img/cards/_card2017-39.jpg',
+    'img/cards/_card2017-40.jpg',
+    'img/cards/_card2017-41.jpg',
+    'img/cards/_card2017-50.jpg',
+    'img/cards/_card2017-42.jpg',
+    'img/cards/_card2017-43.jpg',
+    'img/cards/_card2017-44.jpg',
+    'img/cards/_card2017-45.jpg',
+    //'img/cards/_card2017-46.jpg',
+    //'img/cards/_card2017-48.jpg',
+    'img/cards/_card2017-49.jpg',
+    'img/cards/_card2017-47.jpg'
     ]
   var currentCard
   var player = {}
