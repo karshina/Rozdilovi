@@ -108,7 +108,7 @@ $(document).ready(function($) {
     'img/cards/_card2017-50.jpg',
     'img/cards/_card2017-42.jpg',
     'img/cards/_card2017-43.jpg',
-    'img/cards/_card2017-44.jpg',
+    //'img/cards/_card2017-44.jpg',
     'img/cards/_card2017-45.jpg',
     //'img/cards/_card2017-46.jpg',
     //'img/cards/_card2017-48.jpg',
