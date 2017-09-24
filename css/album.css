@@ -35,8 +35,6 @@ p.smallscript a {
     font-size: 18px;
 }
 
-
-
 .author-row {
     margin-top: 10px;
 }
@@ -65,8 +63,12 @@ p.smallscript a {
     vertical-align: top;
 }
 
-
-
+.verse {
+    width: 26em;
+    margin: 0 0 20px auto;
+    font-size: 16px;
+    font-style: italic;
+}
 
 @media only screen and (max-width: 667px) {
     .embed-soundcloud {

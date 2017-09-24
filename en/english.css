@@ -1,5 +1,5 @@
 html {
-  background: url(/img/background_en2.jpg) no-repeat center center fixed;
+  background: #626261 url('/img/background_ua.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -8,6 +8,7 @@ html {
 
 body {
 	background: none;
+    text-align: center;
 }
 
 .dim-screen {
@@ -23,20 +24,18 @@ body {
     background:rgba(0,0,0,0.6);
 }
 
-#logo {
-    position: absolute;
+.logo-light {
+    position: relative;
     background: url('/img/logo-light-en.png') 0 0 no-repeat;
     background-size: contain;
-    top: 5vh;
     width: 218px;
     height: 45px;
-    margin-left: -109px;
-    left: 50%;
-    z-index: 2;
+    margin: 5vh auto 0;
+    z-index: 3;
     opacity: 1;
 }
 
-#logo.hide {
+.logo-light.hide {
     -webkit-transition: opacity 2s ease-in-out;
     -moz-transition: opacity 2s ease-in-out;
     -ms-transition: opacity 2s ease-in-out;
@@ -44,61 +43,34 @@ body {
     opacity: 0;
 }
 
-#playcontainer {
-    position: absolute;
-  	margin: auto;
-  	top: 0;
-  	right: 0;
-  	bottom: 0;
-  	left: 0;
-    height: 35vh;
-}
-
-#playen {
-    position: relative;
-    margin: auto;
-    background: url('/img/playflat.png') 0 0 no-repeat;
-    background-size: contain;
-    width: 21vh;
-    height: 21vh;
-    max-height: 128px;
-    max-width: 128px;
-    cursor: pointer;
-}
-
-#playen:hover {
-  opacity: 0.9;
-}
-
-#note {
-    position: relative;
-    margin: auto;
-    color: #cccccc;
-    margin-top: 5vh;
-    width: 60vw;
-    max-width: 560px;
-    font-size: 18px;
-    text-align: center;
-    line-height: 1.5;
-}
-
-#about {
+.play-album {
     position: absolute;
     left: 50%;
-    width: 120px;
-    margin-left: -60px;
-    padding: 10px 0;
-    bottom: 15vh;
-    opacity: 0.5;
-    background: #000000;
-    color: #ffffff;
-    font-size: 22px;
-    text-align: center;
-    text-decoration: none;
+    margin-left: -214px;
 }
 
-#about:hover {
-  opacity: 0.45;
+.play-album .title {
+    max-width: 300px;
+}
+
+.frontpage-footer {
+    position: absolute;
+    left: 50%;
+    bottom: 4vh;
+    margin-left: -60px;
+    color: #e9e9e8;
+    text-align: left;
+    font-family: FranklinGothicBook;
+    line-height: 30px;
+    opacity: 0.8;
+}
+
+.frontpage-footer a {
+    color: #e9e9e8;
+}
+
+.frontpage-footer a:hover {
+    opacity: 0.9;
 }
 
 #closeVideo {
@@ -125,56 +97,56 @@ body {
     opacity: 1;
 }
 
+#fbsend {
+    right: 252px;
+}
+
+#fbsend.en:before {
+    background: url('/img/fbsend_en.png') 0 0 no-repeat;
+}
+
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 
     html {
-        background-image: url('/img/background_en2@2x.jpg');
+        background-image: url('/img/background_ua@2x.jpg');
     }
-    #logo {
+    .logo-light {
         background-image: url('/img/logo_lat@2x.png');
     }
-    #playen {
-        background-image: url('/img/playflat@2x.png');
+    #fbsend.en:before {
+        background-image: url('/img/fbsend_en@2x.png');
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .logo-light {
+        margin-top: 65px;
+    }
+
+    .frontpage-footer {
+        left: 30px;
+        margin: 20px auto;
+    }
+}
+
+@media only screen and (min-width: 376px) and (max-width: 667px) {
+    .logo-light {
+        margin-top: 60px;
+    }
+
+    .frontpage-footer {
+        position: static;
+        margin: 20px auto;
+        text-align: center;
     }
 }
 
 @media only screen and (max-width: 767px) {
 
-    #logo {
+    .logo-light {
         top: 6vh;
         width: 149px;
         margin-left: -75px;
     }
-
-    #playcontainer {
-        height: 35vh;
-    }
-
-    #playen {
-        width: 21vh;
-        height: 21vh;
-    }
-
-    #note {
-        margin-top: 5vh;
-        width: 60vw;
-        font-size: 16px;
-    }
-
-    #about {
-        width: 120px;
-        margin-left: -60px;
-        padding: 10px 0;
-        bottom: 15vh;
-        font-size: 22px;
-    }
 }
-
-@media only screen and (max-height: 580px) {
-    #about {
-        bottom: 10vh;
-        font-size: 20px;
-    }
-}
-
 
