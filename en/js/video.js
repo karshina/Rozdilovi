@@ -11,6 +11,7 @@ $(document).ready(function($) {
   var $cardImg = $('#card-img')
   var $playerContent = $('.player-content')
   var $closeVideo = $('#closeVideo')
+  var $lyrics = $('#lyric')
   var $share = $('#share')
   var $closeCard = $('#close-card')
   var $next = $('#next')
@@ -129,6 +130,7 @@ $(document).ready(function($) {
       // showCard()
       $content.removeClass('none')
       $closeVideo.addClass('none')
+      $lyrics.addClass('none')
       $share.addClass('none')
       $lang.addClass('none')
       $dimmer.removeClass('none')
@@ -164,6 +166,7 @@ $(document).ready(function($) {
     $content.removeClass('none')
     $closeVideo.addClass('none')
     $share.addClass('none')
+    $lyrics.addClass('none')
 
     ga('send', 'event', {
       'eventCategory': 'video',
@@ -177,6 +180,7 @@ $(document).ready(function($) {
     $content.addClass('none')
     $closeVideo.removeClass('none')
     $share.removeClass('none')
+    $lyrics.removeClass('none')
     // Reset share mode if any
     $container.removeClass('share-mode')
   }
@@ -211,6 +215,7 @@ $(document).ready(function($) {
             $logo.addClass('hide')
             $closeVideo.addClass('reveal')
             $share.addClass('reveal')
+            $lyrics.addClass('reveal')
             $container.removeClass('share-mode')
           }
           else if (videoState == YT.PlayerState.PAUSED) {
@@ -240,6 +245,10 @@ $(document).ready(function($) {
 
   $closeVideo.on('click', function () {
     closeIframe()
+  })
+
+  $lyrics.on('click', function () {
+      var lyricspage = window.open("/lyrics/the-simplest-words.html", "lyrics")
   })
 
   $share.on('click', function () {

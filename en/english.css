@@ -73,6 +73,18 @@ body {
     opacity: 0.9;
 }
 
+#lyric {
+  opacity: 0;
+}
+
+#lyric.reveal {
+    -webkit-transition: opacity 3s ease-in-out;
+    -moz-transition: opacity 3s ease-in-out;
+    -ms-transition: opacity 3s ease-in-out;
+    -o-transition: opacity 3s ease-in-out;
+    opacity: 1;
+}
+
 #closeVideo {
   opacity: 0;
 }
