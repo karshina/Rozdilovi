@@ -117,6 +117,10 @@ body {
     background: url('/img/fbsend_en.png') 0 0 no-repeat;
 }
 
+#play-shared.en:before {
+    background: url('/img/playvideo-en.png') 0 0 no-repeat;
+}
+
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 
     html {
@@ -126,7 +130,10 @@ body {
         background-image: url('/img/logo_lat@2x.png');
     }
     #fbsend.en:before {
-        background-image: url('/img/fbsend_en@2x.png');
+        background: url('/img/fbsend_en@2x.png') 0 0 no-repeat;
+    }
+    #play-shared.en:before {
+        background: url('/img/playvideo-en@2x.png') 0 0 no-repeat;
     }
 }
 
