@@ -176,11 +176,11 @@ body {
     vertical-align: top;
 }
 
-.author-row-text a {
+.author-row-text a, .small-author-right a, .small-author-left a {
     color: rgb(165, 72, 106);
 }
 
-.author-row-text a:hover {
+.author-row-text a:hover, .small-author-right a:hover, .small-author-left a:hover {
     text-decoration: none;
 }
 
