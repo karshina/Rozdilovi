@@ -90,7 +90,8 @@ body {
 }
 
 .bold {
-    font-family: 'HelveticaBold';
+    font-family: 'HelveticaBold', sans-serif;
+    font-weight: bold;
 }
 
 .about-container-tour-right {
@@ -169,7 +170,7 @@ body {
     display: inline-block;
     font-size: 18px;
     color: rgb(0, 0, 0);
-    font-weight: bold;
+    font-weight: normal;
     line-height: 1.667;
     text-align: left;
     width: 55%;
