@@ -64,7 +64,7 @@ $(document).ready(function($) {
     'img/cards/_card54.jpg',
     'img/cards/_card55.jpg',
     'img/cards/_card56.jpg' */
-    'img/cards/_card2017-1.jpg',
+    /*'img/cards/_card2017-1.jpg',
     'img/cards/_card2017-2.jpg',
     'img/cards/_card2017-3.jpg',
     'img/cards/_card2017-4.jpg',
@@ -113,7 +113,25 @@ $(document).ready(function($) {
     //'img/cards/_card2017-46.jpg',
     //'img/cards/_card2017-48.jpg',
     'img/cards/_card2017-49.jpg',
-    'img/cards/_card2017-47.jpg'
+    'img/cards/_card2017-47.jpg',*/
+    //'img/cards/_cardsnow17.jpg',
+    'img/cards/_cardsnow19.jpg',
+    'img/cards/_cardsnow18.jpg',
+    'img/cards/_cardsnow21.jpg',
+    'img/cards/_cardsnow1.jpg',
+    //'img/cards/_cardsnow2.jpg',
+    //'img/cards/_cardsnow4.jpg',
+    //'img/cards/_cardsnow5.jpg',
+    //'img/cards/_cardsnow7.jpg',
+    //'img/cards/_cardsnow8.jpg',
+    //'img/cards/_cardsnow9.jpg',
+    'img/cards/_cardsnow10.jpg',
+    'img/cards/_cardsnow11.jpg',
+    'img/cards/_cardsnow12.jpg',
+    'img/cards/_cardsnow6.jpg',
+    //'img/cards/_cardsnow13.jpg',
+    //'img/cards/_cardsnow14.jpg',
+    //'img/cards/_cardsnow15.jpg'
     ]
   var currentCard
   var player = {}
