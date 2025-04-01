@@ -4,7 +4,7 @@ The virtual version of the interdisciplinary art project “rozdiLOVi” by ArtP
 Text and voice: Serhiy Zhadan, idea and visualization: Olia Mykhailyuk, music: Aleksey Vorsoba and Vlad Kreymer.
 
 More info:
-* http://rozdilovi.org/about-ua.html (UA)
+* http://rozdilovi.org/ua/about (UA)
 * http://www.5books.club/rozdilovi/
 
 # Develop
